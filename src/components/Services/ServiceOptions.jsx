@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import Footer from "./Footer";
 
 const ServiceOptions = () => {
   const services = [
@@ -93,7 +92,6 @@ const ServiceOptions = () => {
         </div>
       </div>
 
-      {/* <Footer/> */}
     </>
   );
 };

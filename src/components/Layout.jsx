@@ -1,15 +1,23 @@
-import React from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import ChatSupport from './ChatSupport';
 
 const Layout = ({ children }) => {
+  const location = useLocation();
+
+  // List of pages where Footer should NOT appear
+  const hideFooterOnPaths = ['/book'];
+
   return (
     <div className="flex flex-col min-h-screen">
-      <Header/>
+      <Header />
       <main className="flex-grow bg-gray-900 pt-16">{children}</main>
-      <Footer/>
-      <ChatSupport/>
+
+      {/* Render footer only if not in hideFooterOnPaths */}
+      {!hideFooterOnPaths.includes(location.pathname) && <Footer />}
+
+      <ChatSupport />
     </div>
   );
 };

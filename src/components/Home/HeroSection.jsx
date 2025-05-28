@@ -1,59 +1,50 @@
-"use client"
-
-import { useState } from "react"
-import { FaMapMarkerAlt, FaSearch } from "react-icons/fa"
-import { useNavigate } from "react-router-dom"
-import { useAuth } from "../../contexts/AuthContext"
+import { useState } from "react";
+import { FaMapMarkerAlt, FaSearch } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
 
 const HeroSection = () => {
-  const [pickup, setPickup] = useState("")
-  const [dropoff, setDropoff] = useState("")
-  const navigate = useNavigate()
-  const { user } = useAuth()
+  const [pickup, setPickup] = useState("");
+  const [dropoff, setDropoff] = useState("");
+  const navigate = useNavigate();
+  const { user } = useAuth();
 
-  const isDisabled = !pickup.trim() || !dropoff.trim()
+  const isDisabled = !pickup.trim() || !dropoff.trim();
 
   const handleFindRides = () => {
-    // if (!user) {
-    //   alert("Please signup or login first to book a ride")
-    //   navigate("/signup")
-    //   return
-    // }
     if (!isDisabled) {
-      navigate(`/book?pickup=${encodeURIComponent(pickup)}&dropoff=${encodeURIComponent(dropoff)}`)
+      navigate(
+       `/book?pickup=${encodeURIComponent(pickup)}&dropoff=${encodeURIComponent(dropoff)}`
+      );
     }
-  }
+  };
 
   const handleBookNow = () => {
-    // if (!user) {
-    //   alert("Please signup or login first to book a ride")
-    //   navigate("/auth/signup")
-    //   return
-    // }
-    navigate("/book/premium")
-  }
+    navigate("/book/premium");
+  };
 
   return (
-    <section className="bg-[#166534] text-white overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-16 sm:py-20 md:py-28 lg:py-48">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-
+    <section className="bg-[#166534] text-white">
+      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-12 py-16 sm:py-24 lg:py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* LEFT SIDE */}
-          <div className="w-full lg:max-w-xl text-left">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-6">
+          <div className="space-y-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
               <span className="block text-white">The Future of</span>
               <span className="block text-green-300">Ride Sharing</span>
-              <span className="block text-white">is Green &</span>
-              <span className="block text-white">Sustainable</span>
+              <span className="block text-white">is Green & Sustainable</span>
             </h1>
-            <p className="text-sm sm:text-base md:text-lg mb-8">
-              Experience seamless, eco-friendly rides at your fingertips.<br />
+            <p className="text-base md:text-lg text-white/90 max-w-xl">
+              Experience seamless, eco-friendly rides at your fingertips.
               <span className="block mt-2">
-                Idhar-Udhar connects you with reliable drivers in over <strong>500+ cities</strong> nationwide.
+                Idhar-Udhar connects you with reliable drivers in over{" "}
+                <strong>500+ cities</strong> nationwide.
               </span>
             </p>
 
-            <div className="mt-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 sm:p-6 space-y-4 shadow-lg w-full max-w-lg">
+            {/* Form */}
+            <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-4 sm:p-6 shadow-lg space-y-4 max-w-lg w-full">
+              {/* Pickup */}
               <div className="flex items-center bg-white/10 rounded-md px-3 py-2">
                 <FaMapMarkerAlt className="text-green-300 mr-3" />
                 <input
@@ -64,6 +55,8 @@ const HeroSection = () => {
                   onChange={(e) => setPickup(e.target.value)}
                 />
               </div>
+
+              {/* Dropoff */}
               <div className="flex items-center bg-white/10 rounded-md px-3 py-2">
                 <FaMapMarkerAlt className="text-green-300 mr-3" />
                 <input
@@ -75,11 +68,16 @@ const HeroSection = () => {
                 />
               </div>
 
+              {/* Button */}
               <button
                 onClick={handleFindRides}
                 disabled={isDisabled}
-                className={`w-full py-2 rounded-md flex items-center justify-center gap-2 font-semibold
-                  ${isDisabled ? "bg-green-800 cursor-not-allowed opacity-50" : "bg-green-500 hover:bg-green-600 text-white"}`}
+                className={`w-full py-2 rounded-md flex items-center justify-center gap-2 font-semibold transition-colors
+                  ${
+                    isDisabled
+                      ? "bg-green-800 cursor-not-allowed opacity-50"
+                      : "bg-green-500 hover:bg-green-600 text-white"
+                  }`}
               >
                 <FaSearch />
                 Find Rides
@@ -88,33 +86,40 @@ const HeroSection = () => {
           </div>
 
           {/* RIGHT SIDE */}
-          <div className="relative w-full h-full hidden sm:block">
-            <div className="absolute bottom-[-30px] left-[-30px] w-[80px] h-[80px] bg-[#5BA79D] rounded-full opacity-50 z-0 animate-pulse-custom"></div>
-            <div className="absolute top-[-30px] right-[-30px] w-[80px] h-[80px] bg-[#5BA79D] rounded-full z-20 animate-pulse-custom" />
+          <div className="relative w-full h-full hidden lg:block">
+            {/* Decorative Pulsing Circles */}
+            <div className="absolute bottom-[-30px] left-[-30px] w-[100px] h-[100px] bg-[#5BA79D] rounded-full  animate-pulse z-0"></div>
+            <div className="absolute top-[-30px] right-[-30px] w-[100px] h-[100px] bg-[#5BA79D] rounded-full animate-pulse z-10"></div>
 
-            <div className="relative rounded-xl overflow-hidden shadow-lg z-10">
+            <div className="relative overflow-hidden rounded-xl shadow-xl z-20">
               <img
                 src="/images/home_page1.png"
                 alt="Luxury car"
-                className="object-cover w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[550px]"
+                className="w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] object-cover rounded-xl"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-green-800/40 to-transparent"></div>
-              <div className="absolute bottom-4 inset-x-4 p-4 text-white max-w-md mx-auto">
-                <div className="mb-3">
-                  <div className="flex items-center mb-1">
-                    <div className="bg-green-500 rounded-full w-9 h-9 flex items-center justify-center text-sm font-bold mr-4">
-                      G
-                    </div>
-                    <div>
-                      <h3 className="text-base font-semibold">IdharUdhar Premium</h3>
-                      <p className="text-xs text-green-300">Electric Luxury Experience</p>
-                    </div>
+              <div className="absolute inset-0 bg-gradient-to-r from-green-800/40 to-transparent rounded-xl"></div>
+
+              <div
+                className="absolute inset-x-0 bottom-0 top-70  p-3 text-white rounded-lg shadow-[0_8px_30px_rgba(0,0,0,0.35)]"
+                style={{
+                  boxShadow: "inset 0 -100px 120px -15px rgba(0, 0, 0, 0.89)",
+                }}
+              >
+                <div className="flex items-center space-x-3 mt-24">
+                  <div className="bg-green-500 rounded-full w-9 h-9 flex items-center justify-center text-sm font-bold">
+                    G
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-base">IdharUdhar Premium</h3>
+                    <p className="text-xs text-green-300">
+                      Electric Luxury Experience
+                    </p>
                   </div>
                 </div>
-                <div className="flex items-center justify-between">
+                <div className="flex justify-between items-center mt-3">
                   <div>
                     <p className="text-xs">Starting at</p>
-                    <p className="text-xl font-bold">₹199</p>
+                    <p className="text-lg font-bold">₹199</p>
                   </div>
                   <button
                     onClick={handleBookNow}
@@ -126,11 +131,10 @@ const HeroSection = () => {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default HeroSection;

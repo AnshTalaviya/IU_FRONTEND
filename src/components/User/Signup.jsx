@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext'; // ✅ ADD THIS
 
 function Signup() {
   const [form, setForm] = useState({
@@ -17,6 +18,7 @@ function Signup() {
   const [otpSent, setOtpSent] = useState(false);
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
+  const { login } = useAuth(); // ✅ USE CONTEXT LOGIN
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -29,7 +31,7 @@ function Signup() {
   const handleSendOtp = async () => {
     if (!form.agreed) return setMessage("Please accept terms and conditions.");
     try {
-      const res = await axios.post("https://final-iu-login-signup-backend.onrender.com/api/auth/send-otp", form);
+      const res = await axios.post("https://login-signup-iu.onrender.com/api/auth/send-otp", form);
       setOtpSent(true);
       setMessage(res.data.message);
     } catch (err) {
@@ -39,12 +41,19 @@ function Signup() {
 
   const handleVerifyOtp = async () => {
     try {
-      const res = await axios.post("https://final-iu-login-signup-backend.onrender.com/api/auth/verify-otp", {
+      const res = await axios.post("https://login-signup-iu.onrender.com/api/auth/verify-otp", {
         email: form.email,
         otp: form.otp,
       });
-      setMessage(res.data.message);
-      navigate('/'); // Redirect to home
+
+      if (res.data.token && res.data.user) {
+        login(res.data.token); // ✅ CONTEXT LOGIN
+        localStorage.setItem("user", JSON.stringify(res.data.user)); // optional
+        setMessage(res.data.message);
+        navigate('/');
+      } else {
+        setMessage("Invalid response from server.");
+      }
     } catch (err) {
       setMessage(err.response?.data?.message || "OTP verification failed");
     }

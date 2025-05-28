@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { auth, provider, signInWithPopup } from '../../firebase';
+import { useAuth } from '../../contexts/AuthContext'; // ✅ ADD THIS
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -8,10 +10,11 @@ function Login() {
   const [otp, setOtp] = useState('');
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
+  const { login } = useAuth(); // ✅ ADD THIS
 
   const handleSendOtp = async () => {
     try {
-      const res = await axios.post('https://final-iu-login-signup-backend.onrender.com/api/auth/login-otp', { email });
+      const res = await axios.post('https://login-signup-iu.onrender.com/api/auth/login-otp', { email });
       setStep(2);
       setMessage(res.data.message);
     } catch (err) {
@@ -21,18 +24,43 @@ function Login() {
 
   const handleVerifyOtp = async () => {
     try {
-      const res = await axios.post('https://final-iu-login-signup-backend.onrender.com/api/auth/verify-otp', { email, otp });
+      const res = await axios.post('https://login-signup-iu.onrender.com/api/auth/verify-otp', { email, otp });
+
+      login(res.data.token); // ✅ use context login
+      localStorage.setItem('user', JSON.stringify(res.data.user)); // user data optional
+
       setMessage(res.data.message);
-      navigate('/'); // Redirect to home
+      navigate('/');
     } catch (err) {
       setMessage(err.response?.data?.message || 'Invalid OTP');
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+
+      const token = await user.getIdToken(); // Firebase token
+
+      login(token); // ✅ use context login
+      localStorage.setItem('user', JSON.stringify({
+        name: user.displayName,
+        email: user.email,
+        photo: user.photoURL,
+      }));
+
+      navigate('/');
+    } catch (error) {
+      console.error(error);
+      setMessage('Google login failed');
     }
   };
 
   return (
     <div className="flex items-center justify-center bg-gray-900 text-white pb-20 pt-36 px-4">
       <div className="bg-[#161b22] p-8 rounded-2xl shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-2 text-center text-white">
+        <h2 className="text-2xl font-bold mb-4 text-center text-white">
           Sign in to <span className="text-green-400">GreenGlide</span>
         </h2>
 
@@ -47,8 +75,18 @@ function Login() {
               className="w-full p-2 mb-4 bg-[#0d1117] border border-gray-700 rounded text-white"
               placeholder="you@example.com"
             />
-            <button onClick={handleSendOtp} className="w-full bg-green-500 hover:bg-green-600 text-black font-semibold py-2 rounded-md">
+            <button
+              onClick={handleSendOtp}
+              className="w-full bg-green-500 hover:bg-green-600 text-black font-semibold py-2 rounded-md mb-3"
+            >
               Send OTP
+            </button>
+
+            <button
+              onClick={handleGoogleLogin}
+              className="w-full bg-white text-black font-semibold py-2 rounded-md"
+            >
+              Continue with Google
             </button>
           </>
         ) : (
@@ -61,7 +99,10 @@ function Login() {
               className="w-full p-2 mb-4 bg-[#0d1117] border border-gray-700 rounded text-white"
               placeholder="Enter OTP"
             />
-            <button onClick={handleVerifyOtp} className="w-full bg-green-500 hover:bg-green-600 text-black font-semibold py-2 rounded-md">
+            <button
+              onClick={handleVerifyOtp}
+              className="w-full bg-green-500 hover:bg-green-600 text-black font-semibold py-2 rounded-md"
+            >
               Verify OTP
             </button>
           </>

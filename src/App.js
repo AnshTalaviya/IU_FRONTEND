@@ -19,7 +19,6 @@ import Intercity from "./components/Services/Intercity";
 import Book_Ride from "./components/Services/Book_Ride";
 import SignUp from "./components/User/Signup";
 import Login from "./components/User/Login";
-import ProfileLayout from "./components/profile/ProfileLayout";
 import Aboutpage from "./components/Aboutpage/Aboutpage";
 import Allcities from "./components/Aboutpage/Allcities";
 import HeroSafety from "./components/Safety/HeroSafety";
@@ -55,6 +54,8 @@ import FoodXL from "./components/RidePages/FoodDelivery/FoodXL";
 import Grocery from "./components/RidePages/Grocery/Grocery";
 import GroceryProps from "./components/RidePages/Grocery/GroceryProps";
 import GroceryXL from "./components/RidePages/Grocery/GroceryXL";
+import UserProfile from "./components/profile/userProfile";
+import ViewAllRides from "./components/profile/viewAllRide";
 function App() {
   const navigate = useNavigate();
   const { user } = useAuth();
@@ -83,7 +84,13 @@ function App() {
           <Route path="/Safety" element={<HeroSafety />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<ProfileLayout />} />
+
+          {/* user profile */}
+          <Route path="/userProfile" element={<UserProfile />} />
+          <Route path="/ViewAllRides" element={<ViewAllRides />} />
+
+          {/* Ride Booking */}
+
 
           <Route path="/book" element={<RideBooking />} />
           <Route path="/book-ride" element={<ServiceOptions />} />

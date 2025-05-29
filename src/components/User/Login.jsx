@@ -14,7 +14,7 @@ function Login() {
 
   const handleSendOtp = async () => {
     try {
-      const res = await axios.post('https://login-signup-iu.onrender.com/api/auth/login-otp', { email });
+      const res = await axios.post('http://localhost:5000/api/auth/login-otp', { email });
       setStep(2);
       setMessage(res.data.message);
     } catch (err) {
@@ -24,7 +24,7 @@ function Login() {
 
   const handleVerifyOtp = async () => {
     try {
-      const res = await axios.post('https://login-signup-iu.onrender.com/api/auth/verify-otp', { email, otp });
+      const res = await axios.post('http://localhost:5000/api/auth/verify-otp', { email, otp });
 
       login(res.data.token); // ✅ use context login
       localStorage.setItem('user', JSON.stringify(res.data.user)); // user data optional

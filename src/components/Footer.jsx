@@ -3,6 +3,8 @@ import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail, ChevronRigh
 import Logo from './Logo';
 
 const Footer: React.FC = () => {
+  console.log('Footer rendered at:', window.location.pathname);
+
   return (
     <footer className="bg-gray-900 dark:bg-gray-900 text-gray-400 dark:text-gray-400">
       <div className="container mx-auto px-4">

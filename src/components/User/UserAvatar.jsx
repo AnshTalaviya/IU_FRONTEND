@@ -1,10 +1,7 @@
-
-"use client"
-
 import { useState, useRef, useEffect } from "react"
-import { useAuth } from "../../contexts/AuthContext"
 import { Link, useNavigate, useLocation } from "react-router-dom"
 import { FiUser, FiBell, FiSettings, FiLogOut } from "react-icons/fi"
+import { useAuth } from "../../contexts/AuthContext"
 
 const UserAvatar = ({ size = "md" }) => {
   const { user, logout } = useAuth()
@@ -31,7 +28,7 @@ const UserAvatar = ({ size = "md" }) => {
   if (!user) return null
 
   const firstName = user.name?.split(" ")[0] || user.fullName?.split(" ")[0] || ""
-  const firstLetter = (firstName.charAt(0) || user.email?.charAt(0) || "?").toUpperCase()
+  const firstLetter = (firstName[0] || user.email?.[0] || "?").toUpperCase()
 
   const sizeClasses = {
     sm: "w-8 h-8 text-sm",
@@ -39,38 +36,48 @@ const UserAvatar = ({ size = "md" }) => {
     lg: "w-12 h-12 text-lg",
   }
 
-  const handleLogout = () => {
-    logout()
+  const handleLogout = async () => {
+    await logout()
     navigate("/")
   }
 
   return (
     <div className="relative" ref={dropdownRef}>
-      <div
-        className={`${sizeClasses[size]} bg-green-600 text-white rounded-full flex items-center justify-center font-medium cursor-pointer hover:bg-green-700 transition-colors`}
+      <button
         onClick={() => setShowDropdown((prev) => !prev)}
+        className={`flex items-center justify-center rounded-full bg-green-600 text-white font-medium hover:bg-green-700 transition-colors ${sizeClasses[size]}`}
         title={user.name || user.fullName || user.email}
       >
-        {firstLetter}
-      </div>
+        {user.photoURL ? (
+          <img
+            src={user.photoURL}
+            alt="avatar"
+            className="w-full h-full rounded-full object-cover"
+          />
+        ) : (
+          firstLetter
+        )}
+      </button>
 
       {showDropdown && (
-        <div className="absolute right-0 mt-2 w-56 bg-white text-gray-900 dark:bg-gray-900 dark:text-white rounded-lg shadow-lg z-50 animate-fade-in">
-          <div className="px-4 py-2 text-sm font-semibold border-b border-gray-200 dark:border-gray-700 text-start">My Account</div>
+        <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-gray-900 text-gray-900 dark:text-white rounded-lg shadow-lg z-50">
+          <div className="px-4 py-2 text-sm font-semibold border-b border-gray-200 dark:border-gray-700">
+            Hello, {firstName || "User"}
+          </div>
 
           <Link
             to="/profile"
             className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-green-100 dark:hover:bg-green-700 rounded-md transition-colors"
           >
-            <FiUser size={16} /> Profile
+            <FiUser /> Profile
           </Link>
 
-          <div className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors cursor-pointer">
-            <FiBell size={16} /> Notifications
+          <div className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md cursor-pointer transition-colors">
+            <FiBell /> Notifications
           </div>
 
-          <div className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors cursor-pointer">
-            <FiSettings size={16} /> Settings
+          <div className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md cursor-pointer transition-colors">
+            <FiSettings /> Settings
           </div>
 
           <div className="border-t border-gray-200 dark:border-gray-700 my-1" />
@@ -79,7 +86,7 @@ const UserAvatar = ({ size = "md" }) => {
             onClick={handleLogout}
             className="flex items-center gap-2 px-4 py-2 text-sm text-red-600 dark:text-red-500 hover:bg-red-100 dark:hover:bg-red-800 hover:text-red-800 dark:hover:text-white rounded-md w-full transition-colors"
           >
-            <FiLogOut size={16} /> Logout
+            <FiLogOut /> Logout
           </button>
         </div>
       )}

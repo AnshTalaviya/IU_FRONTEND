@@ -56,6 +56,8 @@ import GroceryProps from "./components/RidePages/Grocery/GroceryProps";
 import GroceryXL from "./components/RidePages/Grocery/GroceryXL";
 import UserProfile from "./components/profile/userProfile";
 import ViewAllRides from "./components/profile/viewAllRide";
+import Notifications from "./components/profile/Notification";
+import SettingsPage from "./components/profile/Setting";
 function App() {
   const navigate = useNavigate();
   const { user } = useAuth();
@@ -88,6 +90,8 @@ function App() {
           {/* user profile */}
           <Route path="/userProfile" element={<UserProfile />} />
           <Route path="/ViewAllRides" element={<ViewAllRides />} />
+          <Route path="/notifications" element={<Notifications />} />
+          <Route path="/settings" element={<SettingsPage />} />
 
           {/* Ride Booking */}
 

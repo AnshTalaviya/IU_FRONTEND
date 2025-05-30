@@ -58,6 +58,8 @@ import ScrollTop from "./components/ScrollTop";
 import FoodDeliveryPage from "./components/Home/FoodDeliveryPage";
 import UserProfile from "./components/profile/userProfile";
 import ViewAllRides from "./components/profile/viewAllRide";
+import Faqs from "./components/User/Faqs";
+import Contactus from "./components/User/Contactus";
 import Notifications from "./components/profile/Notification";
 import SettingsPage from "./components/profile/Setting";
 function App() {
@@ -89,6 +91,9 @@ function App() {
           <Route path="/Safety" element={<HeroSafety />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/contact" element={<Contactus/>}/>
+          <Route path="/faqs" element={<Faqs />} />
+          {/* <Contactus /> */}
 
           {/* user profile */}
           <Route path="/userProfile" element={<UserProfile />} />

@@ -60,7 +60,7 @@ function Signup() {
   };
 
   return (
-    <div className='bg-gray-900 pb-4 md:pb-16 pt-8 md:pt-28 px-4'>
+    <div className='bg-white dark:bg-gray-900 pb-4 md:pb-16 pt-8 md:pt-28 px-4'>
       <div className="max-w-md mx-auto bg-[#0d1117] p-6 rounded-xl shadow-xl mt-10 text-white">
         <h2 className="text-2xl font-bold mb-4 text-center">GreenGlide Signup</h2>
 

@@ -58,7 +58,7 @@ function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center bg-gray-900 text-white pb-20 pt-36 px-4">
+    <div className="flex items-center justify-center bg-white dark:bg-gray-900 text-white pb-20 pt-36 px-4">
       <div className="bg-[#161b22] p-8 rounded-2xl shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-bold mb-4 text-center text-white">
           Sign in to <span className="text-green-400">GreenGlide</span>

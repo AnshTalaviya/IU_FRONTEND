@@ -55,6 +55,8 @@ import FoodXL from "./components/RidePages/FoodDelivery/FoodXL";
 import Grocery from "./components/RidePages/Grocery/Grocery";
 import GroceryProps from "./components/RidePages/Grocery/GroceryProps";
 import GroceryXL from "./components/RidePages/Grocery/GroceryXL";
+import ScrollTop from "./components/ScrollTop";
+import FoodDeliveryPage from "./components/Home/FoodDeliveryPage";
 function App() {
   const navigate = useNavigate();
   const { user } = useAuth();
@@ -69,6 +71,7 @@ function App() {
     <div className="App  w-full max-w-full overflow-x-hidden">
 
       <Layout>
+        <ScrollTop/>
         <Routes>
           {/* User Routes */}
           <Route path="/" element={<HomePage />} />
@@ -135,6 +138,7 @@ function App() {
           </Route>
         </Routes>
       </Layout>
+      <FoodDeliveryPage/>
     </div>
   );
 }

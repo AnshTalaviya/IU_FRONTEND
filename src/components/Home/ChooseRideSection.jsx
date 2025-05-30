@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';  // Import Link from react-router-dom
 import { Car, Bike, Truck, Clock, Package } from 'lucide-react';
 
 const ChooseRideSection = () => {
@@ -9,7 +10,8 @@ const ChooseRideSection = () => {
       price: "₹249",
       description: "Comfortable sedans for daily commute",
       image: "/images/Home_Page1.png",
-      buttonText: "Book GreenCars"
+      buttonText: "Book GreenCars",
+      route: "/book"  // add route
     },
     {
       title: "GreenBikes",
@@ -17,7 +19,8 @@ const ChooseRideSection = () => {
       price: "₹49",
       description: "Quick & affordable bike rides",
       image: "/images/Home-Page2.png",
-      buttonText: "Book GreenBikes"
+      buttonText: "Book GreenBikes",
+      route: "/book"  // add route
     },
     {
       title: "GreenXL",
@@ -25,7 +28,8 @@ const ChooseRideSection = () => {
       price: "₹249",
       description: "Spacious SUVs for group travel",
       image: "/images/Home-Page8.png",
-      buttonText: "Book GreenXL"
+      buttonText: "Book GreenXL",
+      route: "/book" // example route
     },
     {
       title: "GreenRentals",
@@ -33,7 +37,8 @@ const ChooseRideSection = () => {
       price: "₹999",
       description: "Hourly packages for multiple stops",
       image: "/images/Home-Page3.png",
-      buttonText: "Book GreenRentals"
+      buttonText: "Book GreenRentals",
+      route: "/book"
     },
     {
       title: "GreenDelivery",
@@ -41,7 +46,8 @@ const ChooseRideSection = () => {
       price: "₹129",
       description: "Fast & secure package delivery",
       image: "/images/Home-Page5.png",
-      buttonText: "Book GreenDelivery"
+      buttonText: "Book GreenDelivery",
+      route: "/book"
     }
   ];
 
@@ -57,13 +63,16 @@ const ChooseRideSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {rides.map((ride, index) => (
-            <div key={index} className="relative overflow-hidden rounded-lg group transition-transform duration-300 hover:scale-105">
+            <div
+              key={index}
+              className="relative overflow-hidden rounded-lg group cursor-pointer transition-transform duration-350 ease-in-out hover:scale-98 hover:shadow-lg hover:shadow-black/30"
+            >
               <img
                 src={ride.image}
                 alt={ride.title}
-                className="w-full h-[300px] object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-[300px] object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
               />
-              <div className="absolute inset-0 via-black/70 to-transparent flex flex-col justify-between p-6">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent flex flex-col justify-between p-6 opacity-90">
                 <div className="flex items-start mb-4">
                   <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white mr-4">
                     {ride.icon}
@@ -76,9 +85,9 @@ const ChooseRideSection = () => {
                 <div>
                   <p className="text-gray-300 mb-4 text-start">{ride.description}</p>
                   <div className="flex justify-start">
-                    <button className="bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-xl transition-colors">
+                    <Link to={ride.route} className="bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-xl transition-colors">
                       {ride.buttonText}
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>

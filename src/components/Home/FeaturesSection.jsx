@@ -3,7 +3,7 @@ import { Shield, Clock, MapPin, CreditCard, UserPlus, Headphones } from 'lucide-
 
 const FeatureCard = ({ icon, title, description }) => {
   return (
-    <div className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 transition-all duration-300 border dark:border-gray-700 hover:scale-105">
+    <div className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 transition-transform duration-300 border dark:border-gray-700 hover:scale-102">
       <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mb-4 text-green-500">
         {icon}
       </div>
@@ -54,7 +54,7 @@ const FeaturesSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-2">
             Why Choose <span className="text-green-500">Idhar-Udhar</span>
           </h2>
-          <p className="text-gray-400 text- max-w-2xl mx-auto">
+          <p className="text-gray-400 max-w-2xl mx-auto">
             We're committed to providing the safest, most reliable, and environmentally conscious ride-sharing experience.
           </p>
         </div>

@@ -4,10 +4,14 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
+
   theme: {
     extend: {
       screens: {
         'xs': '480px',
+      },
+      scale: {
+        '102': '1.02',  
       },
       keyframes: {
         glow: {

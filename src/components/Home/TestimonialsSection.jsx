@@ -3,8 +3,9 @@ import { Star, Quote } from 'lucide-react';
 
 const Testimonial = ({ image, name, role, rating, quote }) => {
   return (
-    <div className="relative bg-white dark:bg-[#1F2937] rounded-2xl p-6 transition-all duration-300 border dark:border-gray-700 shadow-lg transform hover:scale-105">
-      
+    <div className="relative bg-white dark:bg-[#1F2937] rounded-2xl p-6 transition-all duration-300 transform hover:scale-102 border dark:border-gray-700 shadow-lg">
+
+
       {/* Half Circle Decorative Element */}
       <div
         className="absolute top-0 right-0 w-20 h-20 bg-[#DCFCE7] dark:bg-[#10211F] rounded-bl-full"

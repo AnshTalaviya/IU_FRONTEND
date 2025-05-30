@@ -54,15 +54,12 @@ import FoodXL from "./components/RidePages/FoodDelivery/FoodXL";
 import Grocery from "./components/RidePages/Grocery/Grocery";
 import GroceryProps from "./components/RidePages/Grocery/GroceryProps";
 import GroceryXL from "./components/RidePages/Grocery/GroceryXL";
-<<<<<<< HEAD
 import ScrollTop from "./components/ScrollTop";
 import FoodDeliveryPage from "./components/Home/FoodDeliveryPage";
-=======
 import UserProfile from "./components/profile/userProfile";
 import ViewAllRides from "./components/profile/viewAllRide";
 import Notifications from "./components/profile/Notification";
 import SettingsPage from "./components/profile/Setting";
->>>>>>> 2ee3d736fa9cfce96ad6b869666a3442b647422d
 function App() {
   const navigate = useNavigate();
   const { user } = useAuth();

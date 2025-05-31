@@ -60,7 +60,7 @@ const RideBooking = () => {
 
     return (
         <>
-            <div className="min-h-[85vh] bg-[#0f172a] flex items-center justify-center px-4 py-10">
+            <div className="min-h-[85vh] bg-white dark:bg-[#1F2937] flex items-center justify-center px-4 py-10">
                 <div className="w-full max-w-3xl bg-[#1e293b] text-white rounded-2xl p-8 shadow-xl space-y-6">
                     <h2 className="text-2xl font-bold">Book Your Ride</h2>
 

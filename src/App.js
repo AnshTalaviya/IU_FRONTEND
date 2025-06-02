@@ -69,83 +69,81 @@ function App() {
   }, [user, navigate]);
 
   return (
-    <div className="App  w-full max-w-full overflow-x-hidden">
+    <div className="App w-full max-w-full overflow-x-hidden">
+      <Routes>
+        {/* Driver Panel - No Layout */}
+        <Route path="/driver" element={<DriverPannle />}>
+          <Route index element={<DriverDashboard />} />
+          <Route path="ridehistory" element={<RideHistory />} />
+          <Route path="earnings" element={<Earnings />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="support" element={<Support />} />
+          <Route path="settings" element={<Settings />} />
+        </Route>
 
-      <Layout>
-        <Routes>
-          {/* User Routes */}
-          <Route path="/" element={<HomePage />} />
-          <Route path="/Services/carrides" element={<CarRides />} />
-          <Route path="/Services/rentals" element={<Rentals />} />
-          <Route path="/Services/Auto_rides" element={<Auto_Rides />} />
-          <Route path="/Services/Bike_rides" element={<Bike_Rides />} />
-          <Route path="/Services/Intercity" element={<Intercity />} />
-          <Route path="/Book_ride" element={<Book_Ride />} />
-          <Route path="/about" element={<Aboutpage />} />
-          <Route path="/allcities" element={<Allcities />} />
-          <Route path="/Safety" element={<HeroSafety />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
+        {/* All other routes use Layout */}
+        <Route
+          path="*"
+          element={
+            <Layout>
+              <Routes>
+                {/* User Routes go here */}
+                <Route path="/" element={<HomePage />} />
+                <Route path="/Services/carrides" element={<CarRides />} />
+                <Route path="/Services/rentals" element={<Rentals />} />
+                <Route path="/Services/Auto_rides" element={<Auto_Rides />} />
+                <Route path="/Services/Bike_rides" element={<Bike_Rides />} />
+                <Route path="/Services/Intercity" element={<Intercity />} />
+                <Route path="/Book_ride" element={<Book_Ride />} />
+                <Route path="/about" element={<Aboutpage />} />
+                <Route path="/allcities" element={<Allcities />} />
+                <Route path="/Safety" element={<HeroSafety />} />
+                <Route path="/signup" element={<SignUp />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/userProfile" element={<UserProfile />} />
+                <Route path="/ViewAllRides" element={<ViewAllRides />} />
+                <Route path="/notifications" element={<Notifications />} />
+                <Route path="/settings" element={<SettingsPage />} />
 
-          {/* user profile */}
-          <Route path="/userProfile" element={<UserProfile />} />
-          <Route path="/ViewAllRides" element={<ViewAllRides />} />
-          <Route path="/notifications" element={<Notifications />} />
-          <Route path="/settings" element={<SettingsPage />} />
+                {/* Ride Booking */}
+                <Route path="/book" element={<RideBooking />} />
+                <Route path="/book-ride" element={<ServiceOptions />} />
+                <Route path="/bike-ride" element={<BikeRide />} />
+                <Route path="/confirm" element={<BikeProps />} />
+                <Route path="/ride-tracking" element={<RideTrackingPage />} />
+                <Route path="/rating" element={<RideCompleted />} />
+                <Route path="/confirm-ride" element={<ConfirmRide />} />
 
-          {/* Ride Booking */}
+                {/* CarRide */}
+                <Route path="/Car-ride" element={<CarRide />} />
+                <Route path="/features/air-conditioned" element={<CarProps />} />
+                <Route path="/features/premium-cars" element={<PremiumProps />} />
+                <Route path="/features/spacious" element={<GreenXL />} />
 
+                {/* AutoRide */}
+                <Route path="/auto-ride" element={<AutoRide />} />
+                <Route path="/economical" element={<AutoProps />} />
+                <Route path="/spacious" element={<GreenAuto />} />
 
-          <Route path="/book" element={<RideBooking />} />
-          <Route path="/book-ride" element={<ServiceOptions />} />
-          <Route path="/bike-ride" element={<BikeRide />} />
-          <Route path="/confirm" element={<BikeProps />} />
-          <Route path="/ride-tracking" element={<RideTrackingPage />} />
-          <Route path="/rating" element={<RideCompleted />} />
-          <Route path="/confirm-ride" element={<ConfirmRide />} />
+                {/* Courier */}
+                <Route path="/courier-ride" element={<CourierRide />} />
+                <Route path="/fast" element={<CourierProps />} />
+                <Route path="/luggage" element={<CourierXL />} />
 
+                {/* Food */}
+                <Route path="/food-delivery" element={<FoodRide />} />
+                <Route path="/food" element={<FoodProps />} />
+                <Route path="/foodxl" element={<FoodXL />} />
 
-          {/* CarRide */}
-          <Route path="/Car-ride" element={<CarRide />} />
-          <Route path="/features/air-conditioned" element={<CarProps />} />
-          <Route path="/features/premium-cars" element={<PremiumProps />} />
-          <Route path="/features/spacious" element={<GreenXL />} />
-
-          {/* AutoRide */}
-          <Route path="/auto-ride" element={<AutoRide />} />
-          <Route path="/economical" element={<AutoProps />} />
-          <Route path="/spacious" element={<GreenAuto />} />
-
-          {/* Courier Delivery */}
-          <Route path="/courier-ride" element={<CourierRide />} />
-          <Route path="/fast" element={<CourierProps />} />
-          <Route path="/luggage" element={<CourierXL />} />
-
-          {/* Food Delivery */}
-          <Route path="/food-delivery" element={<FoodRide />} />
-          <Route path="/food" element={<FoodProps />} />
-          <Route path="/foodxl" element={<FoodXL />} />
-
-          {/* Grocery Delivery */}
-          <Route path="/grocery-delivery" element={<Grocery />} />
-          <Route path="/grocery" element={<GroceryProps />} />
-          <Route path="/groceryxl" element={<GroceryXL />} />
-
-
-          {/* Driver side  */}
-          {/* Protected driver routes */}
-          <Route path='/driver' element={
-            <DriverPannle />
-          }>
-            <Route index element={<DriverDashboard />} />
-            <Route path='ridehistory' element={<RideHistory />} />
-            <Route path='earnings' element={<Earnings />} />
-            <Route path='profile' element={<Profile />} />
-            <Route path='support' element={<Support />} />
-            <Route path='settings' element={<Settings />} />
-          </Route>
-        </Routes>
-      </Layout>
+                {/* Grocery */}
+                <Route path="/grocery-delivery" element={<Grocery />} />
+                <Route path="/grocery" element={<GroceryProps />} />
+                <Route path="/groceryxl" element={<GroceryXL />} />
+              </Routes>
+            </Layout>
+          }
+        />
+      </Routes>
     </div>
   );
 }

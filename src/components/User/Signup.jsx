@@ -8,6 +8,7 @@ function Signup() {
     fullName: "",
     email: "",
     role: "User",
+    phone: 9316003516,
     vehicleType: "",
     vehicleNumber: "",
     licenseNumber: "",
@@ -31,7 +32,7 @@ function Signup() {
   const handleSendOtp = async () => {
     if (!form.agreed) return setMessage("Please accept terms and conditions.");
     try {
-      const res = await axios.post("https://login-signup-iu.onrender.com/api/auth/send-otp", form);
+      const res = await axios.post("http://localhost:5000/api/auth/send-otp", form);
       setOtpSent(true);
       setMessage(res.data.message);
     } catch (err) {
@@ -41,7 +42,7 @@ function Signup() {
 
   const handleVerifyOtp = async () => {
     try {
-      const res = await axios.post("https://login-signup-iu.onrender.com/api/auth/verify-otp", {
+      const res = await axios.post("http://localhost:5000/api/auth/verify-otp", {
         email: form.email,
         otp: form.otp,
       });

@@ -24,6 +24,8 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
+
 
   const location = useLocation();
 
@@ -107,9 +109,8 @@ const Header = () => {
 
         {/* Main Nav */}
         <div
-          className={`bg-white text-black dark:bg-gray-900 dark:text-white py-4 px-4 fixed top-9 left-0 w-full z-40 transition-shadow duration-300 ${
-            scrolled ? "shadow-lg" : ""
-          }`}
+          className={`bg-white text-black dark:bg-gray-900 dark:text-white py-4 px-4 fixed top-9 left-0 w-full z-40 transition-shadow duration-300 ${scrolled ? "shadow-lg" : ""
+            }`}
         >
           <div className="container mx-auto flex justify-between items-center">
             <div className="text-2xl font-bold">
@@ -126,18 +127,16 @@ const Header = () => {
                 >
                   Services
                   <ChevronDown
-                    className={`ml-1 transition-transform ${
-                      servicesOpen ? "rotate-180" : ""
-                    }`}
+                    className={`ml-1 transition-transform ${servicesOpen ? "rotate-180" : ""
+                      }`}
                     size={16}
                   />
                 </button>
                 <div
-                  className={`absolute top-full mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg transition-all ${
-                    servicesOpen
-                      ? "opacity-100 max-h-96"
-                      : "opacity-0 max-h-0 overflow-hidden"
-                  }`}
+                  className={`absolute top-full mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg transition-all ${servicesOpen
+                    ? "opacity-100 max-h-96"
+                    : "opacity-0 max-h-0 overflow-hidden"
+                    }`}
                 >
                   <Link to="/Services/carrides" className="block px-4 py-2 hover:bg-green-200 dark:hover:bg-green-700">Car Rides</Link>
                   <Link to="/Services/rentals" className="block px-4 py-2 hover:bg-green-200 dark:hover:bg-green-700">Rentals</Link>
@@ -157,18 +156,16 @@ const Header = () => {
                 >
                   Help
                   <ChevronDown
-                    className={`ml-1 transition-transform ${
-                      helpOpen ? "rotate-180" : ""
-                    }`}
+                    className={`ml-1 transition-transform ${helpOpen ? "rotate-180" : ""
+                      }`}
                     size={16}
                   />
                 </button>
                 <div
-                  className={`absolute top-full mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg transition-all ${
-                    helpOpen
-                      ? "opacity-100 max-h-96"
-                      : "opacity-0 max-h-0 overflow-hidden"
-                  }`}
+                  className={`absolute top-full mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg transition-all ${helpOpen
+                    ? "opacity-100 max-h-96"
+                    : "opacity-0 max-h-0 overflow-hidden"
+                    }`}
                 >
                   <Link to="/faqs" className="block px-4 py-2 hover:bg-green-200 dark:hover:bg-green-700">FAQs</Link>
                   <Link to="/contact" className="block px-4 py-2 hover:bg-green-200 dark:hover:bg-green-700">Contact Us</Link>
@@ -187,17 +184,23 @@ const Header = () => {
               </button>
 
               {isAuthenticated ? (
-                <div className="relative group">
-                  <button className="w-10 h-10 rounded-full bg-green-700 text-white flex items-center justify-center font-semibold hover:bg-green-800 transition">
+                <div className="relative">
+                  <button
+                    onClick={() => setProfileOpen(!profileOpen)}
+                    className="w-10 h-10 rounded-full bg-green-700 text-white flex items-center justify-center font-semibold hover:bg-green-800 transition"
+                  >
                     {getInitials(user?.name)}
                   </button>
-                  <div className="absolute right-0 mt-2 w-56 bg-[#0F141B] text-white rounded-md shadow-lg p-2 hidden group-hover:block z-50">
-                    <div className="px-3 py-2 font-semibold border-b border-gray-700">My Account</div>
-                    <Link to="/userProfile" className="flex items-center gap-2 px-3 py-2 hover:bg-gray-800"><User size={16} /> Profile</Link>
-                    <Link to="/notifications" className="flex items-center gap-2 px-3 py-2 hover:bg-gray-800"><Bell size={16} /> Notifications</Link>
-                    <Link to="/settings" className="flex items-center gap-2 px-3 py-2 hover:bg-gray-800"><Settings size={16} /> Settings</Link>
-                    <button onClick={logout} className="w-full text-left text-red-500 flex items-center gap-2 px-3 py-2 hover:bg-gray-800"><LogOut size={16} /> Logout</button>
-                  </div>
+
+                  {profileOpen && (
+                    <div className="absolute right-0 mt-2 w-56 bg-[#0F141B] text-white rounded-md shadow-lg p-2 z-50">
+                      <div className="px-3 py-2 font-semibold border-b border-gray-700">My Account</div>
+                      <Link to="/userProfile" className="flex items-center gap-2 px-3 py-2 hover:bg-gray-800"><User size={16} /> Profile</Link>
+                      <Link to="/notifications" className="flex items-center gap-2 px-3 py-2 hover:bg-gray-800"><Bell size={16} /> Notifications</Link>
+                      <Link to="/settings" className="flex items-center gap-2 px-3 py-2 hover:bg-gray-800"><Settings size={16} /> Settings</Link>
+                      <button onClick={logout} className="w-full text-left text-red-500 flex items-center gap-2 px-3 py-2 hover:bg-gray-800"><LogOut size={16} /> Logout</button>
+                    </div>
+                  )}
                 </div>
               ) : (
                 <>
@@ -218,9 +221,8 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu */}
-        <div className={`fixed inset-0 bg-white dark:bg-gray-900 z-30 pt-28 px-4 transition-transform duration-300 ${
-          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        } md:hidden`}>
+        <div className={`fixed inset-0 bg-white dark:bg-gray-900 z-30 pt-28 px-4 transition-transform duration-300 ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          } md:hidden`}>
           {/* Add mobile nav here if needed */}
         </div>
       </header>

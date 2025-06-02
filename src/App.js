@@ -54,12 +54,8 @@ import FoodXL from "./components/RidePages/FoodDelivery/FoodXL";
 import Grocery from "./components/RidePages/Grocery/Grocery";
 import GroceryProps from "./components/RidePages/Grocery/GroceryProps";
 import GroceryXL from "./components/RidePages/Grocery/GroceryXL";
-import ScrollTop from "./components/ScrollTop";
-import FoodDeliveryPage from "./components/Home/FoodDeliveryPage";
 import UserProfile from "./components/profile/userProfile";
 import ViewAllRides from "./components/profile/viewAllRide";
-import Faqs from "./components/User/Faqs";
-import Contactus from "./components/User/Contactus";
 import Notifications from "./components/profile/Notification";
 import SettingsPage from "./components/profile/Setting";
 function App() {

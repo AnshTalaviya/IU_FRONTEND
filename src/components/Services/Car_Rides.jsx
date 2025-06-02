@@ -214,12 +214,12 @@ export default function CarRides() {
               Use code <strong>FIRSTRIDE</strong> for 50% off.
             </p>
            <div className="pt-4 text-start">
-    <a
-        href="/book"
+    <Link
+        to="/book"
         className="inline-flex items-center justify-center gap-2 text-sm font-medium h-11 px-8 rounded-md bg-white text-green-700 hover:bg-gray-100 transition"
     >
         Book Now
-    </a>
+    </Link>
 </div>
 
           </div>

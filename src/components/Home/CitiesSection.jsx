@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Search, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const CitiesSection: React.FC = () => {
+const CitiesSection = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const cities = [
@@ -55,9 +55,9 @@ const CitiesSection: React.FC = () => {
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4 text-center mb-8">
   {filteredCities.map((city, index) => (
-   <a
+   <Link
     key={index}
-    href="#"
+    to="#"
     className="relative dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors py-2 rounded-md group flex items-center justify-center min-w-[80px]"
    >
     <span>{city}</span>
@@ -65,7 +65,7 @@ const CitiesSection: React.FC = () => {
      <MapPin size={16} className="text-white" />
     </span>
     <div className="absolute inset-0 bg-transparent group-hover:bg-green-500/10 rounded-md"></div>
-   </a>
+   </Link>
   ))}
  </div>
 

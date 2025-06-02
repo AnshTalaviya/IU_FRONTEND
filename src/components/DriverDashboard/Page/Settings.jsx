@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { FaSun, FaMoon, FaCheck, FaTimes, FaSpinner, FaPlus, FaTrash, FaEdit } from 'react-icons/fa'
 import { useTheme } from '../../../contexts/ThemeContext'
+import { Link } from 'react-router-dom'
 
 
 const Settings = () => {
@@ -1135,9 +1136,9 @@ const showSaveStatus = (field, message, isError = false) => {
                   <div className="font-medium text-start">Terms of Service</div>
                   <div className="text-sm dark:text-gray-400 text-gray-600">Legal terms and conditions</div>
                 </div>
-                <a href="#" className="text-green-400 hover:text-green-300 font-medium flex items-center">
+                <Link to="#" className="text-green-400 hover:text-green-300 font-medium flex items-center">
                   View <i className="fas fa-external-link-alt ml-1 text-xs" />
-                </a>
+                </Link>
               </div>
               
               <div className="flex justify-between items-center py-3">
@@ -1145,9 +1146,9 @@ const showSaveStatus = (field, message, isError = false) => {
                   <div className="font-medium text-start">Privacy Policy</div>
                   <div className="text-sm dark:text-gray-400 text-gray-600">How we handle your data</div>
                 </div>
-                <a href="#" className="text-green-400 hover:text-green-300 font-medium flex items-center">
+                <Link to="#" className="text-green-400 hover:text-green-300 font-medium flex items-center">
                   View <i className="fas fa-external-link-alt ml-1 text-xs" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail, ChevronRight } from 'lucide-react';
 import Logo from './Logo';
+import { Link } from 'react-router-dom';
 
 const Footer  = () => {
   console.log('Footer rendered at:', window.location.pathname);
@@ -17,18 +18,18 @@ const Footer  = () => {
               Your premium eco-friendly ride-sharing service. Available 24/7 in over 500+ cities nationwide.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-green-500 transition-colors" aria-label="Facebook">
+              <Link to="#" className="hover:text-green-500 transition-colors" aria-label="Facebook">
                 <Facebook size={20} />
-              </a>
-              <a href="#" className="hover:text-green-500 transition-colors" aria-label="Twitter">
+              </Link>
+              <Link to="#" className="hover:text-green-500 transition-colors" aria-label="Twitter">
                 <Twitter size={20} />
-              </a>
-              <a href="#" className="hover:text-green-500 transition-colors" aria-label="Instagram">
+              </Link>
+              <Link to="#" className="hover:text-green-500 transition-colors" aria-label="Instagram">
                 <Instagram size={20} />
-              </a>
-              <a href="#" className="hover:text-green-500 transition-colors" aria-label="YouTube">
+              </Link>
+              <Link to="#" className="hover:text-green-500 transition-colors" aria-label="YouTube">
                 <Youtube size={20} />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -36,12 +37,12 @@ const Footer  = () => {
           <div className="text-left">
             <h3 className="text-green-500 text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-3">
-              <li><a href="/" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Home</a></li>
-              <li><a href="/about" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />About Us</a></li>
-              <li><a href="/Services/carrides" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Services</a></li>
-              <li><a href="/Safety" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Safety</a></li>
-              <li><a href="/signup" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Become a Driver</a></li>
-              <li><a href="/faqs" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />FAQs</a></li>
+              <li><Link to="/" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Home</Link></li>
+              <li><Link to="/about" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />About Us</Link></li>
+              <li><Link to="/Services/carrides" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Services</Link></li>
+              <li><Link to="/Safety" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Safety</Link></li>
+              <li><Link to="/signup" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Become a Driver</Link></li>
+              <li><Link to="/faqs" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />FAQs</Link></li>
             </ul>
           </div>
 
@@ -49,12 +50,12 @@ const Footer  = () => {
           <div className="text-left">
             <h3 className="text-green-500 text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-3">
-              <li><a href="/Services/Auto_rides" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Daily Rides</a></li>
-              <li><a href="/Services/rentals" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Rentals</a></li>
-              <li><a href="/Services/Intercity" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Intercity</a></li>
-              <li><a href="#" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Corporate</a></li>
-              <li><a href="#" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Delivery</a></li>
-              <li><a href="/allcities" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />View All Cities</a></li>
+              <li><Link to="/Services/Auto_rides" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Daily Rides</Link></li>
+              <li><Link to="/Services/rentals" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Rentals</Link></li>
+              <li><Link to="/Services/Intercity" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Intercity</Link></li>
+              <li><Link to="#" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Corporate</Link></li>
+              <li><Link to="#" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Delivery</Link></li>
+              <li><Link to="/allcities" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />View All Cities</Link></li>
             </ul>
           </div>
 
@@ -68,11 +69,11 @@ const Footer  = () => {
               </li>
               <li className="flex items-center">
                 <Phone className="mr-3 h-5 w-5 text-green-500" />
-                <a href="tel:+911800123456" className="hover:text-white transition-colors">+91 1800 123 4567</a>
+                <Link to="tel:+911800123456" className="hover:text-white transition-colors">+91 1800 123 4567</Link>
               </li>
               <li className="flex items-center">
                 <Mail className="mr-3 h-5 w-5 text-green-500" />
-                <a href="mailto:support@idharudhar.com" className="hover:text-white transition-colors">support@idharudhar.com</a>
+                <Link to="mailto:support@idharudhar.com" className="hover:text-white transition-colors">support@idharudhar.com</Link>
               </li>
             </ul>
           </div>
@@ -83,9 +84,9 @@ const Footer  = () => {
           <div className="flex flex-col md:flex-row justify-between items-center" style={{ alignItems: 'flex-start' }}>
             <p className="mb-2 md:mb-0">&copy; {new Date().getFullYear()} IdharUdhar. All rights reserved.</p>
             <div className="flex space-x-6">
-              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>
+              <Link to="#" className="hover:text-white transition-colors">Terms of Service</Link>
+              <Link to="#" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <Link to="#" className="hover:text-white transition-colors">Cookie Policy</Link>
             </div>
           </div>
         </div>

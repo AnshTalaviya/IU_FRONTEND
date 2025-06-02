@@ -200,7 +200,7 @@ import RecentRides from "./myride";
 const user = JSON.parse(localStorage.getItem("user"));
 const userId = user?.id;
 console.log(userId)
-const API_BASE = "http://localhost:5000";
+const API_BASE = "https://login-signup-iu.onrender.com";
 
 export default function UserProfile() {
     const [activeTab, setActiveTab] = useState("Saved Locations");

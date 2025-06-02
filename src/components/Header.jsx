@@ -307,25 +307,26 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full">
-      {/* Top Bar */}
-      <div className="bg-[#166534] text-white text-sm py-1 fixed top-0 left-0 w-full z-50">
-        <div className="max-w-[90%] mx-auto flex justify-between items-center flex-wrap">
-          <div className="flex gap-6 items-center text-xs sm:text-sm">
-            <a href="mailto:support@idharudhar.com" className="flex items-center gap-1">
-              <Mail size={14} /> <span className="hidden sm:inline">support@idharudhar.com</span>
-            </a>
-            <a href="tel:+919999988888" className="flex items-center gap-1">
-              <Phone size={14} /> <span className="hidden sm:inline">+91 99999 88888</span>
-            </a>
-          </div>
-          <div className="flex gap-4 text-xl">
-            <a href="#" aria-label="Instagram"><i className="fab fa-instagram" /></a>
-            <a href="#" aria-label="Facebook"><i className="fab fa-facebook" /></a>
-            <a href="#" aria-label="LinkedIn"><i className="fab fa-linkedin" /></a>
+    <>
+      <header className="w-full">
+        {/* Top Bar */}
+        <div className="bg-[#166534] text-white text-sm py-1 fixed top-0 left-0 w-full z-50">
+          <div className="max-w-[90%] mx-auto flex justify-between items-center flex-wrap">
+            <div className="flex gap-6 items-center text-xs sm:text-sm">
+              <a href="mailto:support@idharudhar.com" className="flex items-center gap-1">
+                <Mail size={14} /> <span className="hidden sm:inline">support@idharudhar.com</span>
+              </a>
+              <a href="tel:+919999988888" className="flex items-center gap-1">
+                <Phone size={14} /> <span className="hidden sm:inline">+91 99999 88888</span>
+              </a>
+            </div>
+            <div className="flex gap-4 text-xl">
+              <a href="#" aria-label="Instagram"><i className="fab fa-instagram" /></a>
+              <a href="#" aria-label="Facebook"><i className="fab fa-facebook" /></a>
+              <a href="#" aria-label="LinkedIn"><i className="fab fa-linkedin" /></a>
+            </div>
           </div>
         </div>
-      </div>
 
         {/* Main Nav */}
         <div
@@ -394,13 +395,13 @@ const Header = () => {
               </div>
             </nav>
 
-          <div className="hidden md:flex items-center space-x-4">
-            <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-green-200 dark:hover:bg-gray-700">
-              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
-            <button className="p-2 rounded-full hover:bg-green-200 dark:hover:bg-gray-700">
-              <Globe size={20} />
-            </button>
+            <div className="hidden md:flex items-center space-x-4">
+              <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-green-200 dark:hover:bg-gray-700">
+                {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+              </button>
+              <button className="p-2 rounded-full hover:bg-green-200 dark:hover:bg-gray-700">
+                <Globe size={20} />
+              </button>
 
               {isAuthenticated ? (
                 <div className="relative">
@@ -429,12 +430,12 @@ const Header = () => {
               )}
             </div>
 
-          {/* Mobile menu toggle */}
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            {/* Mobile menu toggle */}
+            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
-      </div>
 
         {/* Mobile Menu */}
         <div className={`fixed inset-0 bg-white dark:bg-gray-900 z-30 pt-28 px-4 transition-transform duration-300 ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"

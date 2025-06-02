@@ -30,7 +30,12 @@ function Login() {
       localStorage.setItem('user', JSON.stringify(res.data.user)); // user data optional
 
       setMessage(res.data.message);
-      navigate('/');
+      const role = res.data.user.role;
+      if (role === 'Driver') {
+        navigate('/driver');
+      } else {
+        navigate('/userProfile');
+      }
     } catch (err) {
       setMessage(err.response?.data?.message || 'Invalid OTP');
     }

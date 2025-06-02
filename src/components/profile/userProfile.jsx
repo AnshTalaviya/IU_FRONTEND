@@ -197,7 +197,9 @@ import axios from "axios";
 import PaymentPage from "./payment";
 import RecentRides from "./myride";
 
-const userId = "683707c01b7fbb7f175fd159";
+const user = JSON.parse(localStorage.getItem("user"));
+const userId = user?.id;
+console.log(userId)
 const API_BASE = "http://localhost:5000";
 
 export default function UserProfile() {
@@ -415,8 +417,8 @@ export default function UserProfile() {
                                             key={tab}
                                             onClick={() => setActiveTab(tab)}
                                             className={`px-4 py-2 rounded-t-md text-sm font-medium ${activeTab === tab
-                                                    ? "bg-gray-200 dark:bg-gray-700"
-                                                    : "bg-transparent"
+                                                ? "bg-gray-200 dark:bg-gray-700"
+                                                : "bg-transparent"
                                                 } hover:bg-gray-200 dark:hover:bg-gray-700`}
                                         >
                                             {tab}

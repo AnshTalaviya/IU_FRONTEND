@@ -8,7 +8,7 @@ function Signup() {
     fullName: "",
     email: "",
     role: "User",
-    phone: 9316003516,
+    phone: 1591591591,
     vehicleType: "",
     vehicleNumber: "",
     licenseNumber: "",
@@ -51,7 +51,12 @@ function Signup() {
         login(res.data.token); // ✅ CONTEXT LOGIN
         localStorage.setItem("user", JSON.stringify(res.data.user)); // optional
         setMessage(res.data.message);
-        navigate('/');
+        const role = res.data.user.role;
+        if (role === 'Driver') {
+          navigate('/driver');
+        } else {
+          navigate('/userProfile');
+        }
       } else {
         setMessage("Invalid response from server.");
       }

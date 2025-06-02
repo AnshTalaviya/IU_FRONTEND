@@ -31,7 +31,6 @@ const Profile = () => {
 
   const [personalInfo, setPersonalInfo] = useState([
     { label: 'Full Name', value: 'John Alexander Doe', icon: 'user', key: 'fullName', type: 'text', required: true, pattern: /^[a-zA-Z ]+$/ },
-    { label: 'Date of Birth', value: 'June 15, 1985', icon: 'calendar', key: 'dob', type: 'date', required: true },
     { label: 'Email', value: 'john.doe@example.com', icon: 'envelope', key: 'email', type: 'email', required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ },
     { label: 'Phone', value: '+1 (555) 123-4567', icon: 'phone', key: 'phone', type: 'tel', required: true, pattern: /^\+?[\d\s-]+$/ },
     { label: 'Address', value: '789 Pine Street, Anytown, ST 12345', icon: 'map-marker-alt', key: 'address', type: 'text', required: true },
@@ -40,7 +39,6 @@ const Profile = () => {
 
   const [vehicleInfo, setVehicleInfo] = useState([
     { label: 'Make & Model', value: 'Toyota Camry XLE', icon: 'car', key: 'makeModel', type: 'text', required: true },
-    { label: 'Year', value: '2020', icon: 'calendar', key: 'year', type: 'number', required: true, min: 1990, max: new Date().getFullYear() + 1 },
     { label: 'Color', value: 'Silver Metallic', icon: 'palette', key: 'color', type: 'text', required: true },
     { label: 'License Plate', value: 'ABC-1234', icon: 'tag', key: 'plate', type: 'text', required: true },
     { label: 'Registration', value: 'Valid until June 2026', icon: 'file-alt', key: 'registration', type: 'text', required: true },
@@ -212,8 +210,6 @@ const Profile = () => {
     };
 
     switch (field.type) {
-      case 'date':
-        return <input type="date" {...commonProps} />;
       case 'number':
         return <input type="number" {...commonProps} min={field.min} max={field.max} />;
       case 'email':

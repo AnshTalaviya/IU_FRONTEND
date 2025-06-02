@@ -23,7 +23,7 @@ const ConfirmRide = ({
 
   return (
     <>
-      <div className="min-h-screen bg-[#0E121C] flex items-center justify-center px-4 py-10 text-white">
+      <div className="min-h-screen bg-white dark:bg-[#1F2937] flex items-center justify-center px-4 py-10 text-white">
         <div className="bg-[#1C2431] w-full max-w-2xl rounded-xl p-8 shadow-2xl">
           <h2 className="text-2xl font-semibold mb-1">Book Your Ride</h2>
           <p className="text-sm text-gray-400 mb-4">

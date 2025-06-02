@@ -2,7 +2,7 @@ import React from 'react';
 import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail, ChevronRight } from 'lucide-react';
 import Logo from './Logo';
 
-const Footer: React.FC = () => {
+const Footer  = () => {
   console.log('Footer rendered at:', window.location.pathname);
 
   return (

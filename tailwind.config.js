@@ -4,11 +4,14 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
-  
+
   theme: {
     extend: {
       screens: {
         'xs': '480px',
+      },
+      scale: {
+        '102': '1.02',  
       },
       keyframes: {
         glow: {
@@ -19,10 +22,15 @@ module.exports = {
           '0%, 100%': { transform: 'scale(1)', opacity: '0.6' },
           '50%': { transform: 'scale(1.15)', opacity: '0.3' },
         },
+        slideup: {
+          '0%': { transform: 'translateY(20px)', opacity: 0 },
+          '100%': { transform: 'translateY(0)', opacity: 1 },
+        },
       },
       animation: {
         'glow-pulse': 'glow 2s infinite ease-in-out',
         'pulse-custom': 'pulseCustom 3s ease-in-out infinite',
+        'slide-up': 'slideup 0.4s ease-out',
       },
     }
   },

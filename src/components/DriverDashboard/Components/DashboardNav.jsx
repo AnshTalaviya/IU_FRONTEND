@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useGlobalContext } from '../../../contexts/GlobalContext';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 export default function DashboardNav() {
   const { Isonline, ToggleOnline, ToggleSidebar} = useGlobalContext();

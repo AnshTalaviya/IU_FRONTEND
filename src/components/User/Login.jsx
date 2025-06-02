@@ -14,7 +14,7 @@ function Login() {
 
   const handleSendOtp = async () => {
     try {
-      const res = await axios.post('https://login-signup-iu.onrender.com/api/auth/login-otp', { email });
+      const res = await axios.post('http://localhost:5000/api/auth/login-otp', { email });
       setStep(2);
       setMessage(res.data.message);
     } catch (err) {
@@ -24,7 +24,7 @@ function Login() {
 
   const handleVerifyOtp = async () => {
     try {
-      const res = await axios.post('https://login-signup-iu.onrender.com/api/auth/verify-otp', { email, otp });
+      const res = await axios.post('http://localhost:5000/api/auth/verify-otp', { email, otp });
 
       login(res.data.token); // ✅ use context login
       localStorage.setItem('user', JSON.stringify(res.data.user)); // user data optional
@@ -58,7 +58,7 @@ function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center bg-gray-900 text-white pb-20 pt-36 px-4">
+    <div className="flex items-center justify-center bg-white dark:bg-gray-900 text-white pb-20 pt-36 px-4">
       <div className="bg-[#161b22] p-8 rounded-2xl shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-bold mb-4 text-center text-white">
           Sign in to <span className="text-green-400">GreenGlide</span>

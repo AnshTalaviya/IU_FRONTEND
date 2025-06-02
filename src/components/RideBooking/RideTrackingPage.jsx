@@ -52,7 +52,7 @@ const RideTrackingPage = () => {
   }, [navigate]);
 
   return (
-    <div className="min-h-screen bg-[#0f172a] text-white flex items-center justify-center p-6 relative">
+    <div className="min-h-screen bg-white dark:bg-[#1F2937] text-white flex items-center justify-center p-6 relative">
       <style>
         {`
           @keyframes slide-up {

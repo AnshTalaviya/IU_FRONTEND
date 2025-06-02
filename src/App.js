@@ -19,7 +19,6 @@ import Intercity from "./components/Services/Intercity";
 import Book_Ride from "./components/Services/Book_Ride";
 import SignUp from "./components/User/Signup";
 import Login from "./components/User/Login";
-import ProfileLayout from "./components/profile/ProfileLayout";
 import Aboutpage from "./components/Aboutpage/Aboutpage";
 import Allcities from "./components/Aboutpage/Allcities";
 import HeroSafety from "./components/Safety/HeroSafety";
@@ -55,6 +54,14 @@ import FoodXL from "./components/RidePages/FoodDelivery/FoodXL";
 import Grocery from "./components/RidePages/Grocery/Grocery";
 import GroceryProps from "./components/RidePages/Grocery/GroceryProps";
 import GroceryXL from "./components/RidePages/Grocery/GroceryXL";
+import ScrollTop from "./components/ScrollTop";
+import FoodDeliveryPage from "./components/Home/FoodDeliveryPage";
+import UserProfile from "./components/profile/userProfile";
+import ViewAllRides from "./components/profile/viewAllRide";
+import Faqs from "./components/User/Faqs";
+import Contactus from "./components/User/Contactus";
+import Notifications from "./components/profile/Notification";
+import SettingsPage from "./components/profile/Setting";
 function App() {
   const navigate = useNavigate();
   const { user } = useAuth();
@@ -69,6 +76,7 @@ function App() {
     <div className="App  w-full max-w-full overflow-x-hidden">
 
       <Layout>
+        <ScrollTop/>
         <Routes>
           {/* User Routes */}
           <Route path="/" element={<HomePage />} />
@@ -83,7 +91,18 @@ function App() {
           <Route path="/Safety" element={<HeroSafety />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<ProfileLayout />} />
+          <Route path="/contact" element={<Contactus/>}/>
+          <Route path="/faqs" element={<Faqs />} />
+          {/* <Contactus /> */}
+
+          {/* user profile */}
+          <Route path="/userProfile" element={<UserProfile />} />
+          <Route path="/ViewAllRides" element={<ViewAllRides />} />
+          <Route path="/notifications" element={<Notifications />} />
+          <Route path="/settings" element={<SettingsPage />} />
+
+          {/* Ride Booking */}
+
 
           <Route path="/book" element={<RideBooking />} />
           <Route path="/book-ride" element={<ServiceOptions />} />
@@ -135,6 +154,7 @@ function App() {
           </Route>
         </Routes>
       </Layout>
+      <FoodDeliveryPage/>
     </div>
   );
 }

@@ -37,7 +37,7 @@ export default function RideCompleted() {
     }, [rating, errorPopup]);
 
     return (
-        <div className="bg-gray-900 min-h-screen flex items-center justify-center px-4 relative">
+        <div className="bg-white dark:bg-[#1F2937] min-h-screen flex items-center justify-center px-4 relative">
             <div className="bg-gray-800 p-10 rounded-2xl shadow-2xl w-full max-w-2xl text-white text-center">
                 <div className="flex justify-center mb-6">
                     <CheckCircle className="w-20 h-20 text-green-500" />

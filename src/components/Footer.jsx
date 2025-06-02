@@ -2,9 +2,11 @@ import React from 'react';
 import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail, ChevronRight } from 'lucide-react';
 import Logo from './Logo';
 
-const Footer: React.FC = () => {
+const Footer  = () => {
+  console.log('Footer rendered at:', window.location.pathname);
+
   return (
-    <footer className="bg-gray-900 dark:bg-gray-900 text-gray-400 dark:text-gray-400">
+    <footer className="bg-white dark:bg-gray-900 text-gray-400 dark:text-gray-400">
       <div className="container mx-auto px-4">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 py-16">
@@ -32,20 +34,20 @@ const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div className="text-left">
-            <h3 className="text-white text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-green-500 text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-3">
               <li><a href="/" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Home</a></li>
               <li><a href="/about" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />About Us</a></li>
               <li><a href="/Services/carrides" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Services</a></li>
               <li><a href="/Safety" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Safety</a></li>
               <li><a href="/signup" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Become a Driver</a></li>
-              <li><a href="#" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Contact Us</a></li>
+              <li><a href="/faqs" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />FAQs</a></li>
             </ul>
           </div>
 
           {/* Services */}
           <div className="text-left">
-            <h3 className="text-white text-lg font-semibold mb-4">Services</h3>
+            <h3 className="text-green-500 text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-3">
               <li><a href="/Services/Auto_rides" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Daily Rides</a></li>
               <li><a href="/Services/rentals" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Rentals</a></li>
@@ -58,7 +60,7 @@ const Footer: React.FC = () => {
 
           {/* Contact Info */}
           <div className="text-left">
-            <h3 className="text-white text-lg font-semibold mb-4">Contact Us</h3>
+            <h3 className="text-green-500 text-lg font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-4">
               <li className="flex items-start">
                 <MapPin className="mr-3 h-5 w-5 text-green-500 shrink-0" />

@@ -78,7 +78,7 @@ export default function CarRide() {
   };
 
   return (
-    <div className="min-h-[85vh] bg-[#0f1624] text-white flex items-center justify-center px-4 py-10">
+    <div className="min-h-[85vh] bg-white dark:bg-[#1F2937] text-white flex items-center justify-center px-4 py-10">
       <div className="bg-[#1f2a3b] rounded-2xl w-full max-w-3xl p-6 sm:p-8 shadow-xl">
         <h1 className="text-2xl font-bold mb-4">Book Your Ride</h1>
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail, ChevronRight } from 'lucide-react';
 import Logo from './Logo';
 
-const Footer: React.FC = () => {
+const Footer  = () => {
   console.log('Footer rendered at:', window.location.pathname);
 
   return (
@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
               <li><a href="/Services/carrides" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Services</a></li>
               <li><a href="/Safety" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Safety</a></li>
               <li><a href="/signup" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Become a Driver</a></li>
-              <li><a href="#" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />Contact Us</a></li>
+              <li><a href="/faqs" className="hover:text-green-500 transition-colors flex items-center"><ChevronRight className="mr-2 h-4 w-4" />FAQs</a></li>
             </ul>
           </div>
 

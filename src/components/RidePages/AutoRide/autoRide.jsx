@@ -29,7 +29,7 @@ const AutoRide = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0e1420] flex items-center justify-center p-4">
+    <div className="min-h-screen bg-white dark:bg-[#1F2937] flex items-center justify-center p-4">
       <div className="bg-[#1e293b] w-full max-w-2xl rounded-xl p-6 space-y-6 text-white shadow-lg">
         <h2 className="text-2xl font-bold">Book Your Ride</h2>
 

@@ -49,7 +49,7 @@ const ServiceOptions = () => {
 
   return (
     <>
-    <div className="bg-[#101826] min-h-screen flex items-center justify-center px-4 py-10 text-white">
+    <div className="bg-white dark:bg-[#1F2937] min-h-screen flex items-center justify-center px-4 py-10 text-white">
       <div className="bg-[#1C2838] p-6 sm:p-8 rounded-2xl shadow-xl w-full max-w-2xl">
         <h2 className="text-3xl font-bold mb-1">Book Your Ride</h2>
         <p className="text-lg font-semibold">Select Service Type</p>

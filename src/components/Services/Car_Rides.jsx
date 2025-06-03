@@ -1,16 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function CarRides() {
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+
+export default function Car_Rides() {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1500,
+      once: true,
+    });
+  }, []);
+
   return (
     <>
+
       {/* Hero Section */}
-      <div className="bg-green-600 text-white px-6 py-12 md:py-24">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+      <div data-aos="fade-up" className="bg-[#166534] text-white px-4 sm:px-6 lg:px-8 py-12 md:py-24">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-12">
           {/* Left */}
-          <div className="md:w-1/2">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-start">GreenCar Rides</h1>
-            <p className="text-lg md:text-xl mb-8 text-start">
+          <div className="w-full md:w-1/2 md:pl-4">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">GreenCar Rides</h1>
+            <p className="text-lg md:text-xl mb-8">
               Comfortable, affordable, and eco-friendly car rides for your daily commute
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -24,25 +38,65 @@ export default function CarRides() {
           </div>
 
           {/* Right */}
-          <div className="md:w-1/2 relative">
+
+          <div className="w-full md:w-1/2 relative flex justify-center items-center ">
+            <img src="/images/cars.png"
+              alt="Car"
+              className="rounded-xl shadow-lg w-full h-[250px] sm:h-[350px] md:h-[400px] object-cover"
+            />
+
+            {/* City Coverage Card */}
+            <div className="absolute -bottom-10  bg-white text-gray-800 dark:bg-gray-800 dark:text-white shadow-xl rounded-lg p-4 flex items-center gap-4 w-[230px]">
+              <div className="h-12 w-12 rounded-full bg-green-100 flex items-center justify-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 text-green-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </div>
+             <div>
+                <p className="text-sm text-gray-500 dark:text-gray-300">Average Arrival Time</p>
+                <p className="font-semibold text-gray-900 dark:text-white">3 minutes</p>
+              </div>
+            </div>
+          </div>
+          {/* <div className="w-full md:w-1/2 relative flex justify-center items-center">
             <img
               src="/images/cars.png"
               alt="Car"
-              className="rounded-xl shadow-lg w-full h-auto"
+              className="rounded-xl shadow-lg w-full max-w-[1400px] h-[250px] sm:h-[350px] md:h-[450px] object-cover mt-6 md:mt-10"
             />
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-white text-gray-800 dark:bg-gray-800 dark:text-white shadow-xl rounded-lg p-4 flex items-center gap-4 w-[250px]">
+
+            <div className="  absolute top-1/2 left-1/2   transform -translate-x-1/2 -translate-y-1/2  translate-x-[-3rem] translate-y-[105px] 
+
+                 sm:translate-x-[-2rem] sm:translate-y-[70px]    md:translate-x-[-2.5rem] md:translate-y-[90px]   lg:translate-x-[-3rem] lg:translate-y-[105px]  
+
+               bg-white text-gray-800 dark:bg-gray-800 dark:text-white   shadow-xl rounded-lg p-3 flex items-center gap-4   w-[230px]">
               <div className="h-12 w-12 rounded-full bg-green-100 flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 text-green-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
                   <circle cx="12" cy="12" r="10" />
                   <polyline points="12 6 12 12 16 14" />
                 </svg>
               </div>
               <div>
                 <p className="text-sm text-gray-500 dark:text-gray-300">Average Arrival Time</p>
-                <p className="font-semibold text-gray-900 dark:text-white">4 minutes</p>
+                <p className="font-semibold text-gray-900 dark:text-white">3 minutes</p>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -104,7 +158,7 @@ export default function CarRides() {
 
       {/* Pricing Section */}
       <section className="bg-gray-100 dark:bg-gray-800 py-16 px-4 sm:px-8">
-        <div className="max-w-6xl mx-auto text-center">
+        <div data-aos="zoom-out" className="max-w-6xl mx-auto text-center">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">
             Simple & Transparent Pricing
           </h1>
@@ -204,36 +258,36 @@ export default function CarRides() {
 
       {/*  */}
       <div className="bg-white dark:bg-gray-900 py-12 px-2">
-      <section className="bg-green-600 rounded-2xl text-white py-12 px-4 md:px-8 max-w-7xl mx-3 my-12 ">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          {/* Text Section */}
-          <div className="space-y-4 m-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-start">Ready to Experience GreenCar?</h2>
-            <p className="text-lg opacity-90 text-start">
-              Download our app and get your first ride with a special discount.
-              Use code <strong>FIRSTRIDE</strong> for 50% off.
-            </p>
-           <div className="pt-4 text-start">
-    <a
-        href="/book"
-        className="inline-flex items-center justify-center gap-2 text-sm font-medium h-11 px-8 rounded-md bg-white text-green-700 hover:bg-gray-100 transition"
-    >
-        Book Now
-    </a>
-</div>
+        <section className="bg-[#166534] rounded-2xl text-white py-12 px-4 md:px-8 max-w-7xl mx-auto my-12 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            {/* Text Section */}
+            <div data-aos="zoom-in" className="space-y-4 m-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-start">Ready to Experience GreenCar?</h2>
+              <p className="text-lg opacity-90 text-start">
+                Download our app and get your first ride with a special discount.
+                Use code <strong>FIRSTRIDE</strong> for 50% off.
+              </p>
+              <div className="pt-4 text-start">
+                <a
+                  href="/book"
+                  className="inline-flex items-center justify-center gap-2 text-sm font-medium h-11 px-8 rounded-md bg-white text-green-700 hover:bg-gray-100 transition"
+                >
+                  Book Now
+                </a>
+              </div>
 
-          </div>
+            </div>
 
-          {/* Image Section */}
-          <div className="flex justify-center">
-            <img
-              src="/images/justice.png"
-              alt="GreenCar App"
-              className="max-h-80 rounded-lg shadow-lg"
-            />
+            {/* Image Section */}
+            <div className="flex justify-center">
+              <img
+                src="/images/Rentals2.png"
+                alt="GreenCar App"
+                className="max-h-80 rounded-lg shadow-lg"
+              />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
       </div>
 
     </>

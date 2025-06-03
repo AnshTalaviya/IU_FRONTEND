@@ -11,7 +11,8 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 
 // User Pages
 import HomePage from "./pages/HomePage";
-import CarRides from "./components/Services/Car_Rides";
+// import CarRides from "./components/Services/Car_Rides";
+import Car_Rides from "./components/Services/Car_Rides";
 import Rentals from "./components/Services/Rentals";
 import Auto_Rides from "./components/Services/Auto_Rides";
 import Bike_Rides from "./components/Services/Bike_Rides";
@@ -76,11 +77,12 @@ function App() {
     <div className="App  w-full max-w-full overflow-x-hidden">
 
       <Layout>
-        <ScrollTop/>
+        <ScrollTop />
+
         <Routes>
           {/* User Routes */}
           <Route path="/" element={<HomePage />} />
-          <Route path="/Services/carrides" element={<CarRides />} />
+          <Route path="/Services/carrides" element={<Car_Rides />} />
           <Route path="/Services/rentals" element={<Rentals />} />
           <Route path="/Services/Auto_rides" element={<Auto_Rides />} />
           <Route path="/Services/Bike_rides" element={<Bike_Rides />} />
@@ -91,7 +93,7 @@ function App() {
           <Route path="/Safety" element={<HeroSafety />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/contact" element={<Contactus/>}/>
+          <Route path="/contact" element={<Contactus />} />
           <Route path="/faqs" element={<Faqs />} />
           {/* <Contactus /> */}
 
@@ -154,7 +156,7 @@ function App() {
           </Route>
         </Routes>
       </Layout>
-      <FoodDeliveryPage/>
+      <FoodDeliveryPage />
     </div>
   );
 }

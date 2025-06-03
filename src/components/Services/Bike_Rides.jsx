@@ -1,18 +1,30 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 export default function Bike_Rides() {
+
+    useEffect(() => {
+        AOS.init({
+            duration: 1500,
+            once: true,
+        });
+    }, []);
+
     return (
         <div>
             <>
-                <div className="bg-green-600 text-white px-6 py-12 md:py-24">
-                    <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+                <div data-aos="fade-up" className="bg-[#166534] text-white px-4 sm:px-6 lg:px-8 py-12 md:py-24">
+                    <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-12">
 
                         {/* Left Content */}
-                        <div className="md:w-1/2">
-                            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-start">GreenBike Rides</h1>
-                            <p className="text-lg md:text-xl mb-8 text-start">
-                                Quick, affordable, and eco-friendly bike rides to beat the traffic
+                        <div className="w-full md:w-1/2 md:pl-4">
+                            <h1 className="text-4xl md:text-5xl font-bold mb-6">GreenAuto Rides</h1>
+                            <p className="text-lg md:text-xl mb-8">
+                                Convenient, affordable, and eco-friendly auto rickshaw rides for your daily commute
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <button className="bg-white text-green-600 font-semibold px-6 py-3 rounded-md hover:bg-gray-100 transition">
@@ -25,14 +37,14 @@ export default function Bike_Rides() {
                         </div>
 
                         {/* Right Image and Card */}
-                        <div className="md:w-1/2 relative">
-                            <img
-                                src="/images/Auto_rides.png"
+                        <div className="w-full md:w-1/2 relative flex justify-center items-center ">
+                            <img src="/images/Auto_rides.png"
                                 alt="Car"
-                                className="rounded-xl shadow-lg w-full h-auto"
+                                className="rounded-xl shadow-lg w-full h-[250px] sm:h-[350px] md:h-[400px] object-cover"
                             />
-                            {/* Arrival Time Card */}
-                            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-white text-gray-800 dark:bg-gray-800 dark:text-white shadow-xl rounded-lg p-4 flex items-center gap-4 w-[250px]">
+
+                            {/* City Coverage Card */}
+                            <div className="absolute -bottom-10  bg-white text-gray-800 dark:bg-gray-800 dark:text-white shadow-xl rounded-lg p-4 flex items-center gap-4 w-[230px]">
                                 <div className="h-12 w-12 rounded-full bg-green-100 flex items-center justify-center">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -48,10 +60,11 @@ export default function Bike_Rides() {
                                 </div>
                                 <div>
                                     <p className="text-sm text-gray-500 dark:text-gray-300">Average Arrival Time</p>
-                                    <p className="font-semibold text-gray-900 dark:text-white">2 minutes</p>
+                                    <p className="font-semibold text-gray-900 dark:text-white">3 minutes</p>
                                 </div>
                             </div>
                         </div>
+                        
 
                     </div>
                 </div>
@@ -118,7 +131,7 @@ export default function Bike_Rides() {
 
                 {/* 3d */}
                 <section className="bg-gray-100 dark:bg-gray-800 py-16 px-10 sm:px-24">
-                    <div className="max-w-6xl mx-auto text-center">
+                    <div data-aos="zoom-out" className="max-w-6xl mx-auto text-center">
                         <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">
                             Simple & Affordable Pricing
                         </h1>
@@ -179,28 +192,28 @@ export default function Bike_Rides() {
 
                 {/* 4th part */}
                 <div className="bg-white dark:bg-gray-900 py-12 px-2">
-                    <section className="bg-green-600 rounded-2xl text-white py-12 px-4 md:px-8 max-w-7xl mx-3 my-12 ">
+                    <section className="bg-[#166534] rounded-2xl text-white py-12 px-4 md:px-8 max-w-7xl mx-auto my-12 ">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                             {/* Text Section */}
-                            <div className="space-y-4 m-6">
+                            <div data-aos="zoom-in" className="space-y-4 m-6">
                                 <h2 className="text-3xl md:text-4xl font-bold text-start">Ready for a Quick Ride?</h2>
                                 <p className="text-lg opacity-90 text-start">
                                     Download our app and book your first bike ride with a special discount. Use code FIRSTBIKE for 30% off.
                                 </p>
-                                 <div className="pt-4 text-start">
-                <a
-                  href="/book"
-                  className="inline-flex items-center justify-center gap-2 text-sm font-medium h-11 px-8 rounded-md bg-white text-green-700 hover:bg-gray-100 transition"
-                >
-                  Rent Now
-                </a>
-              </div>
+                                <div className="pt-4 text-start">
+                                    <a
+                                        href="/book"
+                                        className="inline-flex items-center justify-center gap-2 text-sm font-medium h-11 px-8 rounded-md bg-white text-green-700 hover:bg-gray-100 transition"
+                                    >
+                                        Rent Now
+                                    </a>
+                                </div>
                             </div>
 
                             {/* Image Section */}
                             <div className="flex justify-center">
                                 <img
-                                    src="/images/Rentals23.png"
+                                    src="/images/Rentals2.png"
                                     alt="Bike rider"
                                     className="max-h-80 rounded-lg shadow-lg"
                                 />

@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';  // Import Link from react-router-dom
 import { Car, Bike, Truck, Clock, Package } from 'lucide-react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const ChooseRideSection = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
   const rides = [
     {
       title: "GreenCars",
@@ -65,6 +70,7 @@ const ChooseRideSection = () => {
           {rides.map((ride, index) => (
             <div
               key={index}
+              data-aos="zoom-in-up"
               className="relative overflow-hidden rounded-lg group cursor-pointer transition-transform duration-350 ease-in-out hover:scale-98 hover:shadow-lg hover:shadow-black/30"
             >
               <img

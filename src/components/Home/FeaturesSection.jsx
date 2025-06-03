@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Shield, Clock, MapPin, CreditCard, UserPlus, Headphones } from 'lucide-react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const FeatureCard = ({ icon, title, description }) => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
   return (
-    <div className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 transition-transform duration-300 border dark:border-gray-700 hover:scale-102">
-      <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mb-4 text-green-500">
-        {icon}
+    <div data-aos="fade-up">
+      <div className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 transition-transform duration-300 border dark:border-gray-700 hover:scale-102">
+        <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mb-4 text-green-500">
+          {icon}
+        </div>
+        <h3 className="text-xl font-bold text-black dark:text-white mb-3 text-start">{title}</h3>
+        <p className="text-gray-400 text-start">{description}</p>
       </div>
-      <h3 className="text-xl font-bold text-black dark:text-white mb-3 text-start">{title}</h3>
-      <p className="text-gray-400 text-start">{description}</p>
     </div>
   );
 };

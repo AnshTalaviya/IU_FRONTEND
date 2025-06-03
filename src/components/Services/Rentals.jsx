@@ -1,17 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 export default function Rentals() {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1500,
+      once: true,
+    });
+  }, []);
+
+
   return (
     <>
-      <div className="bg-green-600 text-white px-6 py-12 md:py-24">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+      <div
+        data-aos="fade-up"
+        className="bg-[#166534] text-white px-4 sm:px-6 lg:px-8 py-12 md:py-24">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-12">
           {/* Left Content */}
-          <div className="md:w-1/2">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-start">
+          <div className="w-full md:w-1/2 md:pl-4">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
               GreenGlide Rentals
             </h1>
-            <p className="text-lg md:text-xl mb-8 text-start">
+            <p className="text-lg md:text-xl mb-8">
               Flexible vehicle rentals by the hour, day, or week for all your
               travel needs
             </p>
@@ -26,25 +41,23 @@ export default function Rentals() {
           </div>
 
           {/* Right Image and Card */}
-          <div className="md:w-1/2 relative">
-            <img
-              src="/images/Rentals.png"
+          <div className="w-full md:w-1/2 relative flex justify-center items-center ">
+            <img src="/images/new1.jpeg"
               alt="Car"
-              className="rounded-xl shadow-lg w-full h-auto"
+              className="rounded-xl shadow-lg w-full h-[250px] sm:h-[350px] md:h-[400px] object-cover"
             />
-            {/* Arrival Time Card */}
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-white text-gray-800 dark:bg-gray-800 dark:text-white shadow-xl rounded-lg p-4 flex items-center gap-4 w-[250px]">
+
+            {/* City Coverage Card */}
+            <div className="absolute -bottom-10  bg-white text-gray-800 dark:bg-gray-800 dark:text-white shadow-xl rounded-lg p-4 flex items-center gap-4 w-[230px]">
               <div className="h-12 w-12 rounded-full bg-green-100 flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-green-600"
-                  fill="none"
+                  width="24"
+                  height="24"
+                  fill="green"
                   viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
                 >
-                  <circle cx="12" cy="12" r="10" />
-                  <polyline points="12 6 12 12 16 14" />
+                  <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z" />
                 </svg>
               </div>
               <div>
@@ -57,6 +70,8 @@ export default function Rentals() {
               </div>
             </div>
           </div>
+
+
         </div>
       </div>
       {/* Why Choose GreenCar */}
@@ -135,7 +150,7 @@ export default function Rentals() {
                   <path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-4z" />
                 </svg>
               </div>
-              <h2 className="text-xl font-semibold text-gray-900 mb-2 dark:text-white">
+              <h2 data-aos="zoom-out-up" className="text-xl font-semibold text-gray-900 mb-2 dark:text-white">
                 Fully Insured
               </h2>
               <p className="text-gray-600 dark:text-gray-300">
@@ -148,7 +163,7 @@ export default function Rentals() {
       </div>
 
       {/* 3d */}
-      <section className="bg-gray-100 dark:bg-gray-800 py-16 px-4 sm:px-8">
+      <section data-aos="zoom-out" className="bg-gray-100 dark:bg-gray-800 py-16 px-4 sm:px-8">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">
             Choose Your Rental Package
@@ -290,10 +305,10 @@ export default function Rentals() {
 
       {/* 4th part */}
       <div className="bg-white dark:bg-gray-900 py-12 px-2">
-        <section className="bg-green-600 rounded-2xl text-white py-12 px-4 md:px-8 max-w-7xl mx-3 my-12 ">
+        <section className="bg-[#166534] rounded-2xl text-white py-12 px-4 md:px-8 max-w-7xl mx-auto my-12 ">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             {/* Text Section */}
-            <div className="space-y-4 m-6">
+            <div data-aos="zoom-in" className="space-y-4 m-6">
               <h2 className="text-3xl md:text-4xl font-bold text-start">
                 Need a Vehicle for Longer?
               </h2>

@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Search, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const CitiesSection: React.FC = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
   const [searchTerm, setSearchTerm] = useState("");
 
   const cities = [
@@ -31,7 +36,9 @@ const CitiesSection: React.FC = () => {
   return (
     <section className="py-16 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-10">
+        <div
+          data-aos="zoom-in"
+          className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4">
             Available in 500+ Cities
           </h2>
@@ -54,20 +61,20 @@ const CitiesSection: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4 text-center mb-8">
-  {filteredCities.map((city, index) => (
-   <a
-    key={index}
-    href="#"
-    className="relative dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors py-2 rounded-md group flex items-center justify-center min-w-[80px]"
-   >
-    <span>{city}</span>
-    <span className="absolute right-2 top-[55%] -translate-y-[45%] w-6 h-6 rounded-2xl bg-green-500 flex items-center justify-center ml-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
-     <MapPin size={16} className="text-white" />
-    </span>
-    <div className="absolute inset-0 bg-transparent group-hover:bg-green-500/10 rounded-md"></div>
-   </a>
-  ))}
- </div>
+          {filteredCities.map((city, index) => (
+            <a
+              key={index}
+              href="#"
+              className="relative dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors py-2 rounded-md group flex items-center justify-center min-w-[80px]"
+            >
+              <span>{city}</span>
+              <span className="absolute right-2 top-[55%] -translate-y-[45%] w-6 h-6 rounded-2xl bg-green-500 flex items-center justify-center ml-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <MapPin size={16} className="text-white" />
+              </span>
+              <div className="absolute inset-0 bg-transparent group-hover:bg-green-500/10 rounded-md"></div>
+            </a>
+          ))}
+        </div>
 
         <div className="text-center">
           <Link

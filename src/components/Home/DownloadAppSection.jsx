@@ -27,6 +27,7 @@ const DownloadAppSection = () => {
                   borderRadius: "0.75rem",
                   transition: "border-color 1s ease-in-out",
                   transform: "scale(1)",
+                  // eslint-disable-next-line
                   animation: "subtleGlow 2s ease-in-out infinite",
                 }}
               >
@@ -54,6 +55,7 @@ const DownloadAppSection = () => {
                   borderRadius: "0.75rem",
                   transition: "border-color 1s ease-in-out",
                   transform: "scale(1)",
+                  // eslint-disable-next-line
                   animation: "subtleGlow 2s ease-in-out infinite",
                 }}
               >

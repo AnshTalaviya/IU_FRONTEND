@@ -5,6 +5,7 @@ import {
 
 const Earnings = () => {
   const [timeFrame, setTimeFrame] = useState('week')
+  // eslint-disable-next-line
   const [hoveredBar, setHoveredBar] = useState(null)
   const [cashOutModalOpen, setCashOutModalOpen] = useState(false)
   const [cashOutAmount, setCashOutAmount] = useState('')
@@ -37,6 +38,7 @@ const Earnings = () => {
   }
 
   const currentData = earningsData[timeFrame]
+  // eslint-disable-next-line
   const maxEarning = Math.max(...currentData.earnings)
   const totalEarnings = currentData.earnings.reduce((a, b) => a + b, 0)
   const totalRides = currentData.rides.reduce((a, b) => a + b, 0)

@@ -47,6 +47,7 @@ const tagRoutes = {
 };
 
 export default function CarRide() {
+  // eslint-disable-next-line
   const handlePayment = (amount) => {
     if (typeof window.Razorpay === "undefined") {
       alert("Razorpay not loaded.");

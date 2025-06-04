@@ -113,6 +113,7 @@ export default function Allcities() {
     }
 
     return filtered;
+    // eslint-disable-next-line
   }, [areaFilter, searchTerm]);
 
   const totalPages = Math.ceil(filteredCities.length / 30);

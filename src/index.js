@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ThemeProvider } from './contexts/ThemeContext';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import { GlobalContext } from './contexts/GlobalContext';
@@ -14,12 +13,9 @@ root.render(
   <BrowserRouter>
     <AuthProvider>
       <GlobalContext>
-        <ThemeProvider>
           <RideProvider>
-
             <App />
           </RideProvider>
-        </ThemeProvider>
       </GlobalContext>
     </AuthProvider>
   </BrowserRouter>

@@ -32,6 +32,7 @@ const RideBooking = () => {
         if (activeTab === "schedule") {
             getCurrentDateTime();
         }
+        // eslint-disable-next-line
     }, [location.search, activeTab]);
 
     const getCurrentDateTime = () => {

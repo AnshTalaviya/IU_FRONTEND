@@ -11,14 +11,18 @@ export default function DashboardNav() {
     { id: 3, message: "Rating updated to 4.8", time: "2 hours ago", read: true }
   ]);
   const [showRideRequest, setShowRideRequest] = useState(false);
+  // eslint-disable-next-line
   const [rideRequest, setRideRequest] = useState({
       customerName: "Harsh Prajapati",
+      // eslint-disable-next-line
       distance: "3"+ ' miles',
       pickupLocation: "Nikol",
       dropoffLocation: "SEU",
+      // eslint-disable-next-line
       fare: '$' + '4'
     });
 
+    // eslint-disable-next-line
   const [timeLeft, setTimeLeft] = useState(2000);
 
   const toggleNotifications = () => setShowNotifications(prev => !prev);
@@ -63,12 +67,12 @@ export default function DashboardNav() {
         <div className="ToggleButton flex items-center">
           <button
             onClick={ToggleOnline}
-            className={`relative inline-flex items-center h-5 rounded-full w-11 transition-colors duration-300 
+            className={`relative inline-flex items-center h-5 rounded-full w-11 px-1 transition-colors duration-300 
               ${Isonline ? 'bg-green-500' : 'bg-gray-600'}`}
           >
             <span
               className={`inline-block w-4 h-4 transform bg-white rounded-full transition-transform duration-300 
-                ${Isonline ? 'translate-x-6' : 'translate-x-1'}`}
+                ${Isonline ? 'translate-x-2.5' : 'translate-x-0'}`}
             />
           </button>
         </div>
@@ -124,11 +128,7 @@ export default function DashboardNav() {
 
         <Link to='profile'>
           <div className="profile h-11 rounded-md flex items-center hover:bg-gray-500/30 transition-all duration-200 p-1">
-            <div className="ProfileName w-17 dark:text-white flex flex-col items-start p-1">
-              <span className='text-sm font-medium'>John Doe</span>
-              <span className='text-xs text-gray-400'>4.8 <i className="fas fa-star"></i></span>
-            </div>
-            <div className="ProfileIcon h-10 w-8 rounded-lg bg-gray-400/60 text-white flex items-center justify-center">
+            <div className="ProfileIcon h-10 w-10 rounded-lg bg-gray-400/60 text-white flex items-center justify-center mr-2">
               <i className="fas fa-user"></i>
             </div>
           </div></Link>

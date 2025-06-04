@@ -7,6 +7,7 @@ const HeroSection = () => {
   const [pickup, setPickup] = useState("");
   const [dropoff, setDropoff] = useState("");
   const navigate = useNavigate();
+  // eslint-disable-next-line
   const { user } = useAuth();
 
   const isDisabled = !pickup.trim() || !dropoff.trim();

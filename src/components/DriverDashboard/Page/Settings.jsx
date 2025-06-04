@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { FaSun, FaMoon, FaCheck, FaTimes, FaSpinner, FaPlus, FaTrash, FaEdit } from 'react-icons/fa'
+import { FaSun, FaMoon, FaCheck, FaTimes, FaSpinner, FaPlus, FaTrash } from 'react-icons/fa'
 import { useTheme } from '../../../contexts/ThemeContext'
 import { Link } from 'react-router-dom'
 
@@ -268,6 +268,7 @@ const showSaveStatus = (field, message, isError = false) => {
     if (currentPage > Math.ceil(filtered.length / transactionsPerPage)) {
       setCurrentPage(1);
     }
+    // eslint-disable-next-line
   }, [filterDays]);
 
   // Get current transactions

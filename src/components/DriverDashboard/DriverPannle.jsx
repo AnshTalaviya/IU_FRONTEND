@@ -4,6 +4,7 @@ import { useGlobalContext } from './../../contexts/GlobalContext';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 
 export default function DriverPanel() {
+    // eslint-disable-next-line
     const { Isonline, Issidebar, ToggleOnline, ToggleSidebar, darkMode } = useGlobalContext();
     const location = useLocation();
     

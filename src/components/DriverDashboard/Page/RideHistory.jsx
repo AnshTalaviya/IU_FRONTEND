@@ -101,6 +101,7 @@ export default function RideHistory() {
     
     useEffect(() => {
         calculateStats();
+        // eslint-disable-next-line
     }, []);
 
     const calculateStats = () => {

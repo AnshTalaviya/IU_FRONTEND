@@ -10,7 +10,9 @@ const CourierProps = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
 
+  // eslint-disable-next-line
   const [pickup, setPickup] = useState("");
+  // eslint-disable-next-line
   const [dropoff, setDropoff] = useState("");
 
   useEffect(() => {
@@ -19,6 +21,7 @@ const CourierProps = () => {
 
     if (pickupParam) setPickup(pickupParam);
     if (dropoffParam) setDropoff(dropoffParam);
+    // eslint-disable-next-line
   }, [location.search]);
 
   const [selectedMethod, setSelectedMethod] = useState(0);

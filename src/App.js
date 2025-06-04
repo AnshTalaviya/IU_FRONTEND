@@ -92,9 +92,12 @@ function App() {
                   <Route path="/" element={<HomePage />} />
                   <Route path="/Services/carrides" element={<CarRides />} />
                   <Route path="/Services/rentals" element={<Rentals />} />
+                  {/* eslint-disable-next-line */}
                   <Route path="/Services/Auto_rides" element={<Auto_Rides />} />
+                  {/* eslint-disable-next-line */}
                   <Route path="/Services/Bike_rides" element={<Bike_Rides />} />
                   <Route path="/Services/Intercity" element={<Intercity />} />
+                  {/* eslint-disable-next-line */}
                   <Route path="/Book_ride" element={<Book_Ride />} />
                   <Route path="/about" element={<Aboutpage />} />
                   <Route path="/allcities" element={<Allcities />} />

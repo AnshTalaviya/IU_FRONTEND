@@ -21,6 +21,7 @@ import Book_Ride from "./components/Services/Book_Ride";
 import SignUp from "./components/User/Signup";
 import Login from "./components/User/Login";
 import Aboutpage from "./components/Aboutpage/Aboutpage";
+import Contactus from "./components/User/Contactus";
 import Allcities from "./components/Aboutpage/Allcities";
 import HeroSafety from "./components/Safety/HeroSafety";
 import CarRide from "./components/RidePages/CarRide/CarRide";
@@ -59,6 +60,8 @@ import UserProfile from "./components/profile/userProfile";
 import ViewAllRides from "./components/profile/viewAllRide";
 import Notifications from "./components/profile/Notification";
 import SettingsPage from "./components/profile/Setting";
+import Faqs from "./components/User/Faqs"
+
 function App() {
   const navigate = useNavigate();
   const { user } = useAuth();
@@ -71,6 +74,7 @@ function App() {
 
   return (
     <ThemeProvider>
+      {/* <Contactus/> */}
       <div className="App w-full max-w-full overflow-x-hidden">
         <Routes>
           {/* Driver Panel - No Layout */}
@@ -87,7 +91,9 @@ function App() {
           <Route
             path="*"
             element={
+
               <Layout>
+
                 <Routes>
                   {/* User Routes go here */}
                   <Route path="/" element={<HomePage />} />
@@ -101,6 +107,7 @@ function App() {
                   {/* eslint-disable-next-line */}
                   <Route path="/Book_ride" element={<Book_Ride />} />
                   <Route path="/about" element={<Aboutpage />} />
+                  <Route path="/contact" element={<Contactus />} />
                   <Route path="/allcities" element={<Allcities />} />
                   <Route path="/Safety" element={<HeroSafety />} />
                   <Route path="/signup" element={<SignUp />} />
@@ -109,6 +116,7 @@ function App() {
                   <Route path="/ViewAllRides" element={<ViewAllRides />} />
                   <Route path="/notifications" element={<Notifications />} />
                   <Route path="/settings" element={<SettingsPage />} />
+                  <Route path="/faqs" element={<Faqs/>}/>
 
                   {/* Ride Booking */}
                   <Route path="/book" element={<RideBooking />} />

@@ -68,8 +68,8 @@ export default function Intercity() {
     return (
 
         <>
-            <div data-aos="fade-up" className="bg-[#166534] text-white px-4 sm:px-6 lg:px-8 py-12 md:py-24">
-                <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-12">
+            <div className="bg-[#166534] text-white px-4 sm:px-6 lg:px-8 py-12 md:py-24">
+                <div data-aos="fade-up" className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-12">
 
                     {/* Left Content */}
                     <div className="w-full md:w-1/2 md:pl-4">
@@ -277,10 +277,10 @@ export default function Intercity() {
 
             {/* 5th */}
             <div className="bg-white dark:bg-gray-900 py-12 px-2">
-                <section className="bg-green-600 rounded-2xl text-white py-12 px-4 md:px-8 max-w-7xl mx-3 my-12 ">
+                <section className="bg-green-600 rounded-2xl text-white py-12 px-4 md:px-8 max-w-7xl mx-auto my-12 ">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                         {/* Text Section */}
-                        <div className="space-y-4 m-6">
+                        <div  data-aos="zoom-in" className="space-y-4 m-6">
                             <h2 className="text-3xl md:text-4xl font-bold text-start">Planning a Group Trip?</h2>
                             <p className="text-lg opacity-90 text-start">
                                 We offer special rates for group travel and corporate bookings. Contact our team for custom quotes.
@@ -294,15 +294,16 @@ export default function Intercity() {
                                 </Link>
                             </div>
                         </div>
-                    </div>
 
-                    {/* Image Section */}
-                    <div className="flex justify-center">
-                        <img
-                            src="/images/Group_travel.png"
-                            alt="Group travel"
-                            className="max-h-80 rounded-lg shadow-lg"
-                        />
+
+                        {/* Image Section */}
+                        <div className="flex justify-center">
+                            <img
+                                src="/images/Group_travel.png"
+                                alt="Group travel"
+                                className="max-h-80 rounded-lg shadow-lg"
+                            />
+                        </div>
                     </div>
                 </section >
             </div >

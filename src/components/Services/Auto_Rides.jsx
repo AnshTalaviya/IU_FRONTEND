@@ -17,8 +17,8 @@ export default function Auto_Rides() {
     return (
         <div>
             <>
-                <div data-aos="fade-up" className="bg-[#166534] text-white px-4 sm:px-6 lg:px-8 py-12 md:py-24">
-                    <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-12">
+                <div  className="bg-[#166534] text-white px-4 sm:px-6 lg:px-8 py-12 md:py-24">
+                    <div data-aos="fade-up" className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-12">
 
                         {/* Left Content */}
                         <div className="w-full md:w-1/2 md:pl-4">

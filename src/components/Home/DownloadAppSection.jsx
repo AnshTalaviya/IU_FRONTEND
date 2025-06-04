@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Check, Smartphone } from "lucide-react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from "react-router-dom";
 
 const DownloadAppSection = () => {
     useEffect(() => {
@@ -106,20 +107,20 @@ const DownloadAppSection = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#" className="transition-transform hover:scale-105">
+              <Link to="#" className="transition-transform hover:scale-105">
                 <img
                   src="/images/Home-icon1.png"
                   alt="Get it on Google Play"
                   className="h-[60px] w-[20]"
                 />
-              </a>
-              <a href="#" className="transition-transform hover:scale-105">
+              </Link>
+              <Link to="#" className="transition-transform hover:scale-105">
                 <img
                   src="/images/Home-icon2.png"
                   alt="Download on the App Store"
                   className="h-[60px] w-[60] "
                 />
-              </a>
+              </Link>
             </div>
 
             <div className="mt-8 p-4 rounded-lg bg-green-500/10 border border-green-500/50">
@@ -130,12 +131,12 @@ const DownloadAppSection = () => {
                 Download the dedicated driver app to start earning with
                 GreenGlide today!
               </p>
-              <a
-                href="#"
+              <Link
+                to="#"
                 className="text-green-500 hover:text-green-400 transition-colors"
               >
                 Learn more about becoming a partner
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+
 const CitiesSection: React.FC = () => {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
@@ -61,20 +62,20 @@ const CitiesSection: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4 text-center mb-8">
-          {filteredCities.map((city, index) => (
-            <a
-              key={index}
-              href="#"
-              className="relative dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors py-2 rounded-md group flex items-center justify-center min-w-[80px]"
-            >
-              <span>{city}</span>
-              <span className="absolute right-2 top-[55%] -translate-y-[45%] w-6 h-6 rounded-2xl bg-green-500 flex items-center justify-center ml-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <MapPin size={16} className="text-white" />
-              </span>
-              <div className="absolute inset-0 bg-transparent group-hover:bg-green-500/10 rounded-md"></div>
-            </a>
-          ))}
-        </div>
+  {filteredCities.map((city, index) => (
+   <Link
+    key={index}
+    to="#"
+    className="relative dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors py-2 rounded-md group flex items-center justify-center min-w-[80px]"
+   >
+    <span>{city}</span>
+    <span className="absolute right-2 top-[55%] -translate-y-[45%] w-6 h-6 rounded-2xl bg-green-500 flex items-center justify-center ml-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
+     <MapPin size={16} className="text-white" />
+    </span>
+    <div className="absolute inset-0 bg-transparent group-hover:bg-green-500/10 rounded-md"></div>
+   </Link>
+  ))}
+ </div>
 
         <div className="text-center">
           <Link

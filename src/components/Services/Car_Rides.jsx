@@ -258,23 +258,24 @@ export default function Car_Rides() {
 
       {/*  */}
       <div className="bg-white dark:bg-gray-900 py-12 px-2">
-        <section className="bg-[#166534] rounded-2xl text-white py-12 px-4 md:px-8 max-w-7xl mx-auto my-12 ">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            {/* Text Section */}
-            <div data-aos="zoom-in" className="space-y-4 m-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-start">Ready to Experience GreenCar?</h2>
-              <p className="text-lg opacity-90 text-start">
-                Download our app and get your first ride with a special discount.
-                Use code <strong>FIRSTRIDE</strong> for 50% off.
-              </p>
-              <div className="pt-4 text-start">
-                <a
-                  href="/book"
-                  className="inline-flex items-center justify-center gap-2 text-sm font-medium h-11 px-8 rounded-md bg-white text-green-700 hover:bg-gray-100 transition"
-                >
-                  Book Now
-                </a>
-              </div>
+
+      <section className="bg-green-600 rounded-2xl text-white py-12 px-4 md:px-8 max-w-7xl mx-3 my-12 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          {/* Text Section */}
+          <div className="space-y-4 m-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-start">Ready to Experience GreenCar?</h2>
+            <p className="text-lg opacity-90 text-start">
+              Download our app and get your first ride with a special discount.
+              Use code <strong>FIRSTRIDE</strong> for 50% off.
+            </p>
+           <div className="pt-4 text-start">
+    <Link
+        to="/book"
+        className="inline-flex items-center justify-center gap-2 text-sm font-medium h-11 px-8 rounded-md bg-white text-green-700 hover:bg-gray-100 transition"
+    >
+        Book Now
+    </Link>
+</div>
 
             </div>
 

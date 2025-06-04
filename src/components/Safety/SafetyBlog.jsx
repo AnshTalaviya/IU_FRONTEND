@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const blogs = [
   {
@@ -47,15 +48,15 @@ const SafetyBlog = () => {
               <div className="p-5">
     <h3 className="font-semibold text-lg mb-2 text-start">{blog.title}</h3>
     <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 text-start">{blog.desc}</p>
-    <a
-        href="#"
+    <Link
+        to="#"
         onClick={(e) => {
             e.preventDefault();
         }}
         className="text-green-500 font-medium hover:underline text-start block" // Added "text-center" and "block"
     >
         Read More
-    </a>
+    </Link>
 </div>
 
             </div>

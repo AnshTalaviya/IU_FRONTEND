@@ -104,6 +104,7 @@ import {
   Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail, ChevronRight,
 } from 'lucide-react';
 import Logo from './Logo';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   console.log('Footer rendered at:', window.location.pathname);
@@ -120,10 +121,11 @@ const Footer = () => {
               Your premium eco-friendly ride-sharing service. Available 24/7 in over 500+ cities nationwide.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="hover:text-green-500 transition-colors" aria-label="Facebook"><Facebook size={20} /></a>
-              <a href="#" className="hover:text-green-500 transition-colors" aria-label="Twitter"><Twitter size={20} /></a>
-              <a href="#" className="hover:text-green-500 transition-colors" aria-label="Instagram"><Instagram size={20} /></a>
-              <a href="#" className="hover:text-green-500 transition-colors" aria-label="YouTube"><Youtube size={22} /></a>
+              <a href="" className="hover:text-green-500 transition-colors" aria-label="Facebook"><Facebook size={20} /></a>
+              <a href="" className="hover:text-green-500 transition-colors" aria-label="Twitter"><Twitter size={20} /></a>
+              <a href="" className="hover:text-green-500 transition-colors" aria-label="Instagram"><Instagram size={20} /></a>
+              <a href="" className="hover:text-green-500 transition-colors" aria-label="YouTube"><Youtube size={22} /></a>
+
             </div>
           </div>
 
@@ -183,11 +185,11 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <Phone className="mr-3 h-5 w-5 text-green-500" />
-                <a href="tel:+911800123456" className="hover:text-white transition-colors">+91 1800 123 4567</a>
+                <Link to="tel:+911800123456" className="hover:text-white transition-colors">+91 1800 123 4567</Link>
               </li>
               <li className="flex items-center">
                 <Mail className="mr-3 h-5 w-5 text-green-500" />
-                <a href="mailto:support@idharudhar.com" className="hover:text-white transition-colors">support@idharudhar.com</a>
+                <Link to="mailto:support@idharudhar.com" className="hover:text-white transition-colors">support@idharudhar.com</Link>
               </li>
             </ul>
           </div>

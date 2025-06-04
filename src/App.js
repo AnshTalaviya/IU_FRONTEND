@@ -55,12 +55,8 @@ import FoodXL from "./components/RidePages/FoodDelivery/FoodXL";
 import Grocery from "./components/RidePages/Grocery/Grocery";
 import GroceryProps from "./components/RidePages/Grocery/GroceryProps";
 import GroceryXL from "./components/RidePages/Grocery/GroceryXL";
-import ScrollTop from "./components/ScrollTop";
-import FoodDeliveryPage from "./components/Home/FoodDeliveryPage";
 import UserProfile from "./components/profile/userProfile";
 import ViewAllRides from "./components/profile/viewAllRide";
-import Faqs from "./components/User/Faqs";
-import Contactus from "./components/User/Contactus";
 import Notifications from "./components/profile/Notification";
 import SettingsPage from "./components/profile/Setting";
 function App() {
@@ -74,90 +70,84 @@ function App() {
   }, [user, navigate]);
 
   return (
-    <div className="App  w-full max-w-full overflow-x-hidden">
-
-      <Layout>
-        <ScrollTop />
-
+    <ThemeProvider>
+      <div className="App w-full max-w-full overflow-x-hidden">
         <Routes>
-          {/* User Routes */}
-          <Route path="/" element={<HomePage />} />
-          <Route path="/Services/carrides" element={<Car_Rides />} />
-          <Route path="/Services/rentals" element={<Rentals />} />
-          <Route path="/Services/Auto_rides" element={<Auto_Rides />} />
-          <Route path="/Services/Bike_rides" element={<Bike_Rides />} />
-          <Route path="/Services/Intercity" element={<Intercity />} />
-          <Route path="/Book_ride" element={<Book_Ride />} />
-          <Route path="/about" element={<Aboutpage />} />
-          <Route path="/allcities" element={<Allcities />} />
-          <Route path="/Safety" element={<HeroSafety />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/contact" element={<Contactus />} />
-          <Route path="/faqs" element={<Faqs />} />
-          {/* <Contactus /> */}
-
-          {/* user profile */}
-          <Route path="/userProfile" element={<UserProfile />} />
-          <Route path="/ViewAllRides" element={<ViewAllRides />} />
-          <Route path="/notifications" element={<Notifications />} />
-          <Route path="/settings" element={<SettingsPage />} />
-
-          {/* Ride Booking */}
-
-
-          <Route path="/book" element={<RideBooking />} />
-          <Route path="/book-ride" element={<ServiceOptions />} />
-          <Route path="/bike-ride" element={<BikeRide />} />
-          <Route path="/confirm" element={<BikeProps />} />
-          <Route path="/ride-tracking" element={<RideTrackingPage />} />
-          <Route path="/rating" element={<RideCompleted />} />
-          <Route path="/confirm-ride" element={<ConfirmRide />} />
-
-
-          {/* CarRide */}
-          <Route path="/Car-ride" element={<CarRide />} />
-          <Route path="/features/air-conditioned" element={<CarProps />} />
-          <Route path="/features/premium-cars" element={<PremiumProps />} />
-          <Route path="/features/spacious" element={<GreenXL />} />
-
-          {/* AutoRide */}
-          <Route path="/auto-ride" element={<AutoRide />} />
-          <Route path="/economical" element={<AutoProps />} />
-          <Route path="/spacious" element={<GreenAuto />} />
-
-          {/* Courier Delivery */}
-          <Route path="/courier-ride" element={<CourierRide />} />
-          <Route path="/fast" element={<CourierProps />} />
-          <Route path="/luggage" element={<CourierXL />} />
-
-          {/* Food Delivery */}
-          <Route path="/food-delivery" element={<FoodRide />} />
-          <Route path="/food" element={<FoodProps />} />
-          <Route path="/foodxl" element={<FoodXL />} />
-
-          {/* Grocery Delivery */}
-          <Route path="/grocery-delivery" element={<Grocery />} />
-          <Route path="/grocery" element={<GroceryProps />} />
-          <Route path="/groceryxl" element={<GroceryXL />} />
-
-
-          {/* Driver side  */}
-          {/* Protected driver routes */}
-          <Route path='/driver' element={
-            <DriverPannle />
-          }>
+          {/* Driver Panel - No Layout */}
+          <Route path="/driver" element={<DriverPannle />}>
             <Route index element={<DriverDashboard />} />
-            <Route path='ridehistory' element={<RideHistory />} />
-            <Route path='earnings' element={<Earnings />} />
-            <Route path='profile' element={<Profile />} />
-            <Route path='support' element={<Support />} />
-            <Route path='settings' element={<Settings />} />
+            <Route path="ridehistory" element={<RideHistory />} />
+            <Route path="earnings" element={<Earnings />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="support" element={<Support />} />
+            <Route path="settings" element={<Settings />} />
           </Route>
+
+          {/* All other routes use Layout */}
+          <Route
+            path="*"
+            element={
+              <Layout>
+                <Routes>
+                  {/* User Routes go here */}
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/Services/carrides" element={<CarRides />} />
+                  <Route path="/Services/rentals" element={<Rentals />} />
+                  <Route path="/Services/Auto_rides" element={<Auto_Rides />} />
+                  <Route path="/Services/Bike_rides" element={<Bike_Rides />} />
+                  <Route path="/Services/Intercity" element={<Intercity />} />
+                  <Route path="/Book_ride" element={<Book_Ride />} />
+                  <Route path="/about" element={<Aboutpage />} />
+                  <Route path="/allcities" element={<Allcities />} />
+                  <Route path="/Safety" element={<HeroSafety />} />
+                  <Route path="/signup" element={<SignUp />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/userProfile" element={<UserProfile />} />
+                  <Route path="/ViewAllRides" element={<ViewAllRides />} />
+                  <Route path="/notifications" element={<Notifications />} />
+                  <Route path="/settings" element={<SettingsPage />} />
+
+                  {/* Ride Booking */}
+                  <Route path="/book" element={<RideBooking />} />
+                  <Route path="/book-ride" element={<ServiceOptions />} />
+                  <Route path="/bike-ride" element={<BikeRide />} />
+                  <Route path="/confirm" element={<BikeProps />} />
+                  <Route path="/ride-tracking" element={<RideTrackingPage />} />
+                  <Route path="/rating" element={<RideCompleted />} />
+                  <Route path="/confirm-ride" element={<ConfirmRide />} />
+
+                  {/* CarRide */}
+                  <Route path="/Car-ride" element={<CarRide />} />
+                  <Route path="/features/air-conditioned" element={<CarProps />} />
+                  <Route path="/features/premium-cars" element={<PremiumProps />} />
+                  <Route path="/features/spacious" element={<GreenXL />} />
+
+                  {/* AutoRide */}
+                  <Route path="/auto-ride" element={<AutoRide />} />
+                  <Route path="/economical" element={<AutoProps />} />
+                  <Route path="/spacious" element={<GreenAuto />} />
+
+                  {/* Courier */}
+                  <Route path="/courier-ride" element={<CourierRide />} />
+                  <Route path="/fast" element={<CourierProps />} />
+                  <Route path="/luggage" element={<CourierXL />} />
+
+                  {/* Food */}
+                  <Route path="/food-delivery" element={<FoodRide />} />
+                  <Route path="/food" element={<FoodProps />} />
+                  <Route path="/foodxl" element={<FoodXL />} />
+
+                  {/* Grocery */}
+                  <Route path="/grocery-delivery" element={<Grocery />} />
+                  <Route path="/grocery" element={<GroceryProps />} />
+                  <Route path="/groceryxl" element={<GroceryXL />} />
+                </Routes>
+              </Layout>
+            }
+          />
         </Routes>
-      </Layout>
-      <FoodDeliveryPage />
-    </div>
+      </div>
+    </ThemeProvider>
   );
 }
 

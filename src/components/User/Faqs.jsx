@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { IndianRupee, Headphones, Calendar } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const defaultFaqs = [
     {
@@ -282,12 +283,12 @@ const Faqs = () => {
                         Download the IdharUdhar Taxi App and ride smarter, safer, and faster.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-                        <a href="#" className="bg-black text-white px-5 py-3 rounded-md hover:bg-gray-800 transition text-sm">
+                        <Link to="#" className="bg-black text-white px-5 py-3 rounded-md hover:bg-gray-800 transition text-sm">
                             Download on App Store
-                        </a>
-                        <a href="#" className="bg-black text-white px-5 py-3 rounded-md hover:bg-gray-800 transition text-sm">
+                        </Link>
+                        <Link to="#" className="bg-black text-white px-5 py-3 rounded-md hover:bg-gray-800 transition text-sm">
                             Get it on Google Play
-                        </a>
+                        </Link>
                     </div>
                 </section>
             </div>

@@ -21,6 +21,7 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -52,6 +53,7 @@ const Header = () => {
 
   return (
     <>
+
       {/* Top Bar */}
       <div className="bg-[#166534] text-white text-sm py-1 w-full fixed top-0 left-0 z-50">
         <div className="max-w-[90%] mx-auto flex flex-wrap justify-between items-center gap-y-2">
@@ -84,7 +86,6 @@ const Header = () => {
             </a>
           </div>
         </div>
-      </div>
 
       {/* Main Navigation */}
       <header className="w-full">

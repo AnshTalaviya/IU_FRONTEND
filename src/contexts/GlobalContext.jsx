@@ -32,11 +32,6 @@ export const GlobalContext = ({children}) => {
         }));
     }
 
-    const UpdateUser = (newuserdata)=>{
-       setuser(newuserdata)
-       localStorage.setItem('idharUdharUser', JSON.stringify(user));
-    }
-
     return (
         <GlobalContextt.Provider value={{...globalstate, ToggleOnline, ToggleSidebar,user}}>
             {children}

@@ -15,19 +15,19 @@ const Profile = () => {
     phone: '+1 (555) 123-4567',
   });
   const getLevelColor = (level) => {
-  switch(level) {
-    case 'Gold':
-      return 'amber-400';
-    case 'Silver':
-      return 'gray-500';
-    case 'Bronze':
-      return 'red-600';
-    case 'Platinum':
-      return 'blue-400';
-    default:
-      return 'gray-500';
-  }
-};
+    switch (level) {
+      case 'Gold':
+        return 'amber-400';
+      case 'Silver':
+        return 'gray-500';
+      case 'Bronze':
+        return 'red-600';
+      case 'Platinum':
+        return 'blue-400';
+      default:
+        return 'gray-500';
+    }
+  };
 
   const [personalInfo, setPersonalInfo] = useState([
     { label: 'Full Name', value: 'John Alexander Doe', icon: 'user', key: 'fullName', type: 'text', required: true, pattern: /^[a-zA-Z ]+$/ },
@@ -35,9 +35,6 @@ const Profile = () => {
     { label: 'Phone', value: '+1 (555) 123-4567', icon: 'phone', key: 'phone', type: 'tel', required: true, pattern: /^\+?[\d\s-]+$/ },
     { label: 'Address', value: '789 Pine Street, Anytown, ST 12345', icon: 'map-marker-alt', key: 'address', type: 'text', required: true },
     { label: 'Driver License', value: 'DL-5678901234 (Expires: 2027-08-15)', icon: 'id-card', key: 'license', type: 'text', required: true },
-  ]);
-
-  const [vehicleInfo, setVehicleInfo] = useState([
     { label: 'Make & Model', value: 'Toyota Camry XLE', icon: 'car', key: 'makeModel', type: 'text', required: true },
     { label: 'Color', value: 'Silver Metallic', icon: 'palette', key: 'color', type: 'text', required: true },
     { label: 'License Plate', value: 'ABC-1234', icon: 'tag', key: 'plate', type: 'text', required: true },
@@ -82,15 +79,15 @@ const Profile = () => {
   // Open modal with the appropriate data
   const openEditModal = (section, data) => {
     setEditingSection(section);
-    
+
     const initialFormData = {};
     const initialErrors = {};
-    
+
     data.forEach(item => {
       initialFormData[item.key] = item.value;
       initialErrors[item.key] = '';
     });
-    
+
     setFormData(initialFormData);
     setFormErrors(initialErrors);
     setIsModalOpen(true);
@@ -150,12 +147,12 @@ const Profile = () => {
   // Submit form
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    const currentFields = editingSection === 'personal' ? personalInfo : vehicleInfo;
+
+    const currentFields = personalInfo;
     if (!validateForm(currentFields)) return;
 
     setIsSubmitting(true);
-    
+
     setTimeout(() => {
       if (editingSection === 'personal') {
         // Update personal info
@@ -168,7 +165,7 @@ const Profile = () => {
         // Update common fields in profile data
         const commonFields = ['fullName', 'email', 'phone'];
         const updatedProfile = { ...profileData };
-        
+
         commonFields.forEach(field => {
           if (formData[field]) {
             updatedProfile[field] = formData[field];
@@ -178,16 +175,10 @@ const Profile = () => {
             }
           }
         });
-        
+
         setProfileData(updatedProfile);
-      } else if (editingSection === 'vehicle') {
-        const updatedVehicleInfo = vehicleInfo.map(item => ({
-          ...item,
-          value: formData[item.key] || item.value
-        }));
-        setVehicleInfo(updatedVehicleInfo);
       }
-      
+
       setIsSubmitting(false);
       setIsModalOpen(false);
     }, 1000);
@@ -195,7 +186,7 @@ const Profile = () => {
 
   // current fields based on section
   const getCurrentFields = () => {
-    return editingSection === 'personal' ? personalInfo : vehicleInfo;
+    return personalInfo;
   };
 
   // Render appropriate input field based on type
@@ -226,7 +217,7 @@ const Profile = () => {
       {/* Edit Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4 transition-opacity duration-300">
-          <div 
+          <div
             className="dark:bg-gray-900 bg-white rounded-xl max-w-md w-full p-6 border dark:border-gray-700 border-gray-300 transform transition-all duration-300 scale-95 opacity-0 animate-[modalEnter_0.3s_ease-out_forwards]"
             onClick={(e) => e.stopPropagation()}
           >
@@ -234,7 +225,7 @@ const Profile = () => {
               <h3 className="text-xl font-semibold dark:text-gray-200 text-gray-800">
                 Edit {editingSection === 'personal' ? 'Personal' : 'Vehicle'} Information
               </h3>
-              <button 
+              <button
                 onClick={() => setIsModalOpen(false)}
                 className="dark:text-gray-400 text-gray-600 hover:dark:text-white hover:text-gray-800 transition-colors"
                 disabled={isSubmitting}
@@ -242,7 +233,7 @@ const Profile = () => {
                 <i className="fas fa-times text-xl"></i>
               </button>
             </div>
-            
+
             <form onSubmit={handleSubmit}>
               <div className="space-y-4 max-h-[60vh] overflow-y-auto pr-2">
                 {getCurrentFields().map((field) => (
@@ -258,7 +249,7 @@ const Profile = () => {
                   </div>
                 ))}
               </div>
-              
+
               <div className="mt-6 flex justify-end space-x-3">
                 <button
                   type="button"
@@ -313,9 +304,8 @@ const Profile = () => {
                 {Array.from({ length: 5 }).map((_, i) => (
                   <i
                     key={i}
-                    className={`fas fa-star text-lg mr-1 ${
-                      i < profileData.rating ? 'text-amber-400' : 'dark:text-gray-600 text-gray-300'
-                    }`}
+                    className={`fas fa-star text-lg mr-1 ${i < profileData.rating ? 'text-amber-400' : 'dark:text-gray-600 text-gray-300'
+                      }`}
                   ></i>
                 ))}
                 <span className="ml-2 font-medium dark:text-gray-300 text-gray-700">
@@ -323,7 +313,7 @@ const Profile = () => {
                 </span>
               </div>
 
-              <button 
+              <button
                 className="bg-green-600 text-white px-6 py-3 rounded-lg w-full hover:opacity-90 transition-opacity shadow-sm font-medium"
                 onClick={() => openEditModal('personal', personalInfo)}
               >
@@ -369,19 +359,13 @@ const Profile = () => {
         {/* Right Column */}
         <div className="md:col-span-2 space-y-6 md:space-y-8">
           {/* Personal Info */}
-          <InfoSection 
-            title="Personal Information" 
-            data={personalInfo} 
+          <InfoSection
+            title="Driver Information"
+            data={personalInfo}
             onEdit={() => openEditModal('personal', personalInfo)}
           />
 
           {/* Vehicle Info */}
-          <InfoSection 
-            title="Vehicle Information" 
-            data={vehicleInfo} 
-            icon="car"
-            onEdit={() => openEditModal('vehicle', vehicleInfo)}
-          />
 
           {/* Performance */}
           <div className="dark:bg-gray-200/10 bg-white rounded-xl p-6 shadow-sm dark:border-gray-700 border-gray-200 hover:shadow-lg transition-all hover:scale-[1.01]">
@@ -446,7 +430,7 @@ const InfoSection = ({ title, data, icon, onEdit }) => (
         {icon && <i className={`fas fa-${icon} text-green-400 mr-3 text-lg`}></i>}
         {title}
       </h3>
-      <button 
+      <button
         onClick={onEdit}
         className="text-green-400 hover:text-green-300 text-sm font-medium flex items-center"
       >

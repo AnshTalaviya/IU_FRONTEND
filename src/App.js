@@ -91,7 +91,7 @@ function App() {
                 <Routes>
                   {/* User Routes go here */}
                   <Route path="/" element={<HomePage />} />
-                  <Route path="/Services/carrides" element={<CarRides />} />
+                  <Route path="/Services/carrides" element={<Car_Rides />} />
                   <Route path="/Services/rentals" element={<Rentals />} />
                   {/* eslint-disable-next-line */}
                   <Route path="/Services/Auto_rides" element={<Auto_Rides />} />

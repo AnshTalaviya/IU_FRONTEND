@@ -1,10 +1,8 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { IndianRupee, Headphones, Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-
-const faqData = [
+const defaultFaqs = [
     {
         question: 'What Makes A Good Taxi Service?',
         answer: 'A good taxi service is reliable, safe, clean, and provides good customer support.',
@@ -25,27 +23,168 @@ const faqData = [
         question: 'How Many Cars Does IdharUdhar Taxi Service Have?',
         answer: 'The fleet size depends on the city. You can check the app for real-time availability.',
     },
+    {
+        question: 'Are the drivers background checked?',
+        answer: 'Yes, all drivers go through a thorough background verification process.',
+    },
+    {
+        question: 'Can I pay by cash or card?',
+        answer: 'You can pay both by cash or online payment methods through the app.',
+    },
+    {
+        question: 'What is the cancellation policy?',
+        answer: 'You can cancel a ride within 5 minutes without any charge.',
+    },
+    {
+        question: 'Is there a loyalty or rewards program?',
+        answer: 'Yes, frequent riders get reward points redeemable for discounts.',
+    },
+    {
+        question: 'How do I contact customer support?',
+        answer: 'You can contact support via the app or the 24/7 helpline number.',
+    },
 ];
 
-const Faqs = () => {
-    console.log('Faqs rendered at:', window.location.pathname);
+const allFaqs = {
+    bike: [
+        {
+            question: 'What safety measures are in place for bike rides?',
+            answer: 'All riders must wear helmets and follow traffic rules strictly.',
+        },
+        {
+            question: 'Can I choose the type of bike?',
+            answer: 'Currently, the app assigns the nearest available bike automatically.',
+        },
+        {
+            question: 'Are helmets provided with bike rides?',
+            answer: 'Yes, helmets are provided and must be worn for your safety.',
+        },
+        {
+            question: 'Can I carry luggage on the bike ride?',
+            answer: 'Limited small luggage can be carried; large bags are not recommended.',
+        },
+        {
+            question: 'Are bike rides available 24/7?',
+            answer: 'Availability may vary by location, but we aim to provide 24/7 service.',
+        },
+        {
+            question: 'Is there a minimum fare for bike rides?',
+            answer: 'Yes, minimum fare applies based on the city and distance.',
+        },
+    ],
+    car: [
+        {
+            question: 'Are IdharUdhar cars air-conditioned?',
+            answer: 'Yes, all our cars are equipped with AC for your comfort.',
+        },
+        {
+            question: 'Can I schedule a car ride in advance?',
+            answer: 'Yes, you can schedule a ride up to 7 days in advance through the app.',
+        },
+        {
+            question: 'What types of cars are available?',
+            answer: 'We offer sedans, SUVs, and premium cars based on your preference.',
+        },
+        {
+            question: 'Is there an option for a female driver?',
+            answer: 'Yes, you can request a female driver for your ride through the app.',
+        },
+        {
+            question: 'Can I pay tolls or parking through the app?',
+            answer: 'Yes, toll and parking fees are included in your final bill.',
+        },
+        {
+            question: 'Are child seats available?',
+            answer: 'Child seats can be requested in advance for an additional charge.',
+        },
+        {
+            question: 'What happens if my ride is late?',
+            answer: 'You can track your driver in real-time and contact support for delays.',
+        },
+    ],
+    auto: [
+        {
+            question: 'Is meter fare applicable for auto rides?',
+            answer: 'We provide pre-estimated fares, so no meter charges apply.',
+        },
+        {
+            question: 'Can I share an auto ride with others?',
+            answer: 'Yes, shared ride options are available in select cities.',
+        },
+        {
+            question: 'Are autos sanitized regularly?',
+            answer: 'Yes, drivers sanitize autos daily to ensure passenger safety.',
+        },
+        {
+            question: 'How do I request an auto ride?',
+            answer: 'Select the auto ride option in the app and book instantly.',
+        },
+        {
+            question: 'Are auto rides available during peak hours?',
+            answer: 'Autos are available but fares may surge during peak times.',
+        },
+        {
+            question: 'Can I pay via digital wallets for auto rides?',
+            answer: 'Yes, digital wallet payments are accepted through the app.',
+        },
+    ],
+    courier: [
+        {
+            question: 'What items can I send via courier delivery?',
+            answer: 'You can send documents, parcels, and small items under 10kg.',
+        },
+        {
+            question: 'Is real-time tracking available for delivery?',
+            answer: 'Yes, you can track your courier in real time within the app.',
+        },
+        {
+            question: 'What is the delivery time estimate?',
+            answer: 'Delivery time depends on distance but usually within 24-48 hours.',
+        },
+        {
+            question: 'Are fragile items accepted?',
+            answer: 'Fragile items are accepted but should be properly packed by the sender.',
+        },
+        {
+            question: 'Can I schedule a courier pickup?',
+            answer: 'Yes, schedule pickups via the app for your convenience.',
+        },
+        {
+            question: 'What is the compensation for lost items?',
+            answer: 'We provide compensation as per our terms if an item is lost or damaged.',
+        },
+        {
+            question: 'Are courier charges calculated upfront?',
+            answer: 'Yes, charges are calculated based on weight and distance before booking.',
+        },
+    ]
+};
 
+const Faqs = () => {
     const [openIndex, setOpenIndex] = useState(null);
+    const [selectedRide, setSelectedRide] = useState(null);
 
     const toggle = (index) => {
         setOpenIndex(openIndex === index ? null : index);
     };
 
+    const faqList = selectedRide ? allFaqs[selectedRide] : defaultFaqs;
+
+    const rideTypes = [
+        { key: 'bike', label: 'Bike Ride' },
+        { key: 'car', label: 'Car Ride' },
+        { key: 'auto', label: 'Auto Ride' },
+        { key: 'courier', label: 'Courier Delivery' },
+    ];
+
     return (
-        < div className="bg-white dark:bg-gray-900 py-10 ">
-            <div  >
+        <div className="bg-white dark:bg-gray-900 py-10">
+            <div>
                 {/* Hero Section */}
                 <section className="relative bg-[#166534] text-white min-h-[300px]">
                     <div
                         className="absolute inset-0 bg-center bg-cover opacity-20"
-                        style={{
-                            backgroundImage: "url('https://www.shreecabs.com/img2/cabs2.jpg')",
-                        }}
+                        style={{ backgroundImage: "url('https://www.shreecabs.com/img2/cabs2.jpg')" }}
                     />
                     <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-20 flex flex-col items-start justify-center gap-4">
                         <h1 className="text-2xl sm:text-4xl font-bold leading-tight">
@@ -53,14 +192,33 @@ const Faqs = () => {
                         </h1>
                         <p className="text-sm sm:text-lg text-gray-200">
                             Everything your taxi business needs is already here!
-                        </p>
+                        </p> 
                     </div>
                 </section>
 
+                {/* Ride Type Buttons */}
+                <div className="max-w-4xl mx-auto px-4 py-6 flex flex-wrap justify-center gap-4">
+                    {rideTypes.map(({ key, label }) => (
+                        <button
+                            key={key}
+                            onClick={() => {
+                                setSelectedRide(key);
+                                setOpenIndex(null); // Reset open FAQ on switch
+                            }}
+                            className={`px-4 py-2 rounded-md border ${selectedRide === key
+                                    ? 'bg-[#166534] text-white border-[#166534]'
+                                    : 'bg-white text-[#166534] border-[#166534]'
+                                } hover:bg-[#166534] hover:text-white transition`}
+                        >
+                            {label}
+                        </button>
+                    ))}
+                </div>
+
                 {/* FAQ Section */}
-                <section className="min-h-[60vh] flex flex-col items-center justify-start px-4 py-10">
+                <section className="min-h-[60vh] flex flex-col items-center justify-start px-4 py-6">
                     <div className="w-full max-w-4xl space-y-4">
-                        {faqData.map((item, index) => (
+                        {faqList.map((item, index) => (
                             <div
                                 key={index}
                                 className="bg-white dark:bg-gray-900 border border-gray-200 rounded-xl shadow-md transition hover:shadow-lg"
@@ -70,7 +228,7 @@ const Faqs = () => {
                                     className="w-full px-4 py-4 flex justify-between items-center text-base font-semibold text-gray-400"
                                     aria-expanded={openIndex === index}
                                 >
-                                    <span className="text-left ">{item.question}</span>
+                                    <span className="text-left">{item.question}</span>
                                     <span className="text-2xl text-[#166534]">
                                         {openIndex === index ? '−' : '+'}
                                     </span>
@@ -118,7 +276,7 @@ const Faqs = () => {
                     </div>
                 </section>
 
-                {/* Call To Action Section */}
+                {/* Call To Action */}
                 <section className="text-[#166534] py-10 text-center px-4">
                     <h2 className="text-2xl sm:text-3xl font-bold mb-4">Ready to book your next ride?</h2>
                     <p className="text-base sm:text-lg mb-6">
@@ -139,6 +297,3 @@ const Faqs = () => {
 };
 
 export default Faqs;
-
-
-// 24D103   

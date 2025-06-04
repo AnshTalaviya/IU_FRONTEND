@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Search, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
-const CitiesSection = () => {
+
+const CitiesSection: React.FC = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
   const [searchTerm, setSearchTerm] = useState("");
 
   const cities = [
@@ -31,7 +37,9 @@ const CitiesSection = () => {
   return (
     <section className="py-16 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-10">
+        <div
+          data-aos="zoom-in"
+          className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4">
             Available in 500+ Cities
           </h2>

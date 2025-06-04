@@ -1,12 +1,23 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   Bike, Car, Truck, Package, UtensilsCrossed, ShoppingBag
 } from 'lucide-react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const ServiceCard = ({ icon, title, description, image, onClick }) => {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
   return (
-    <div
+    <Link
+      data-aos="zoom-in"
       onClick={onClick}
       className="group relative w-full max-w-[280px] h-[180px] rounded-xl overflow-hidden shadow-md mx-auto cursor-pointer"
     >
@@ -23,7 +34,7 @@ const ServiceCard = ({ icon, title, description, image, onClick }) => {
         <h3 className="text-lg font-semibold text-white text-start">{title}</h3>
         <p className="text-sm text-gray-300 text-start">{description}</p>
       </div>
-    </div>
+    </Link>
   );
 };
 

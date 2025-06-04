@@ -11,7 +11,8 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 
 // User Pages
 import HomePage from "./pages/HomePage";
-import CarRides from "./components/Services/Car_Rides";
+// import CarRides from "./components/Services/Car_Rides";
+import Car_Rides from "./components/Services/Car_Rides";
 import Rentals from "./components/Services/Rentals";
 import Auto_Rides from "./components/Services/Auto_Rides";
 import Bike_Rides from "./components/Services/Bike_Rides";

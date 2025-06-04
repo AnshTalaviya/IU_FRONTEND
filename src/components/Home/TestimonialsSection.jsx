@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Star, Quote } from 'lucide-react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Testimonial = ({ image, name, role, rating, quote }) => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
   return (
-    <div className="relative bg-white dark:bg-[#1F2937] rounded-2xl p-6 transition-all duration-300 transform hover:scale-102 border dark:border-gray-700 shadow-lg">
+    <div
+      data-aos="zoom-in" className="relative bg-white dark:bg-[#1F2937] rounded-2xl p-6 transition-all duration-300 transform hover:scale-102 border dark:border-gray-700 shadow-lg">
 
 
       {/* Half Circle Decorative Element */}

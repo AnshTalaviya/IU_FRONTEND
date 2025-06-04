@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Check, Smartphone } from "lucide-react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { Link } from "react-router-dom";
 
 const DownloadAppSection = () => {
+    useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   const features = [
     "Book rides in just a few taps",
     "Track your driver in real-time",
@@ -16,7 +22,8 @@ const DownloadAppSection = () => {
     <section className="py-16 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-12">
-          <div className="lg:w-1/2 relative">
+          <div
+          data-aos="zoom-in" className="lg:w-1/2 relative">
             <div className="bg-green-500/10 absolute -inset-4 rounded-lg blur-xl"></div>
             <div className="relative">
               <div

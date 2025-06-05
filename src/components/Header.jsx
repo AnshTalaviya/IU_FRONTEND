@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import {
   Menu,
@@ -24,6 +24,17 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
+
+  const navigate = useNavigate();
+
+  const [redirectAfterLogout, setRedirectAfterLogout] = useState(false);
+
+  useEffect(() => {
+    if (redirectAfterLogout) {
+      navigate("/");
+    }
+  }, [redirectAfterLogout, navigate]);
+
 
   const location = useLocation();
 
@@ -208,7 +219,10 @@ const Header = () => {
                       <Settings size={16} /> Settings
                     </Link>
                     <button
-                      onClick={logout}
+                      onClick={() => {
+                        logout(); // Perform logout
+                        setRedirectAfterLogout(true); // Trigger redirect
+                      }}
                       className="w-full text-left text-red-500 flex items-center gap-2 px-3 py-2 hover:bg-gray-800"
                     >
                       <LogOut size={16} /> Logout
@@ -278,7 +292,7 @@ const Header = () => {
                 <button
                   className="w-10 h-10 rounded-full bg-green-700 text-white flex items-center justify-center font-semibold hover:bg-green-800 transition focus:outline-none"
                 >
-                  {getInitials(user?.name)|| "JD"}
+                  {getInitials(user?.name) || "JD"}
                 </button>
                 <div
                   className="absolute right-0 mt-2 w-56 bg-[#0F141B] text-white rounded-md shadow-lg p-2 hidden group-focus-within:block"

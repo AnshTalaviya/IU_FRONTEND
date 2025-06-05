@@ -8,7 +8,7 @@ function Signup() {
     fullName: "",
     email: "",
     role: "User",
-    phone: 1591591591,
+    phone: null,
     vehicleType: "",
     vehicleNumber: "",
     licenseNumber: "",
@@ -55,7 +55,7 @@ function Signup() {
         if (role === 'Driver') {
           navigate('/driver');
         } else {
-          navigate('/userProfile');
+          navigate('/');
         }
       } else {
         setMessage("Invalid response from server.");
@@ -90,6 +90,17 @@ function Signup() {
             value={form.email}
             onChange={handleChange}
             placeholder="email@example.com"
+            className="w-full bg-[#0d1117] border border-gray-700 rounded-md px-3 py-2"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-semibold text-left mb-1">Phone</label>
+          <input
+            name="phone"
+            type="phone"
+            value={form.phone}
+            onChange={handleChange}
+            placeholder="1234567890"
             className="w-full bg-[#0d1117] border border-gray-700 rounded-md px-3 py-2"
           />
         </div>

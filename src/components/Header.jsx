@@ -80,7 +80,7 @@ const Header = () => {
     <>
       <header className="w-full">
         {/* Top Bar */}
-        <div className="bg-[#166534] text-white py-2 px-4 fixed top-0 left-0 w-full z-50 flex justify-between items-center">
+        <div className=" bg-[#166534] text-white py-2 px-4 fixed top-0 left-0 w-full z-50 flex justify-between items-center">
           <div className="flex items-center space-x-6">
             <a
               href="mailto:support@idharudhar.com"
@@ -98,18 +98,23 @@ const Header = () => {
               <span>+91 99999 88888</span>
             </a>
           </div>
-          <div className="flex items-center space-x-4">
-            <a href="#" className="hover:text-green-200">{/* Instagram */}</a>
-            <a href="#" className="hover:text-green-200">{/* Facebook */}</a>
-            <a href="#" className="hover:text-green-200">{/* LinkedIn */}</a>
+          <div className=" max-w-[90%] flex items-center space-x-4">
+            <a href="#" aria-label="Instagram" className="hover:text-gray-300">
+              <i className="fab fa-instagram" />
+            </a>
+            <a href="#" aria-label="Facebook" className="hover:text-gray-300">
+              <i className="fab fa-facebook" />
+            </a>
+            <a href="#" aria-label="LinkedIn" className="hover:text-gray-300">
+              <i className="fab fa-linkedin" />
+            </a>
           </div>
         </div>
 
         {/* Main Nav */}
         <div
-          className={`bg-white text-black dark:bg-gray-900 dark:text-white py-4 px-4 fixed top-9 left-0 w-full z-40 transition-shadow duration-300 ${
-            scrolled ? "shadow-lg" : ""
-          }`}
+          className={`bg-white text-black dark:bg-gray-900 dark:text-white py-4 px-4 fixed top-9 left-0 w-full z-40 transition-shadow duration-300 ${scrolled ? "shadow-lg" : ""
+            }`}
         >
           <div className="container mx-auto flex justify-between items-center">
             <div className="text-2xl font-bold">
@@ -126,18 +131,16 @@ const Header = () => {
                 >
                   Services
                   <ChevronDown
-                    className={`ml-1 transition-transform ${
-                      servicesOpen ? "rotate-180" : ""
-                    }`}
+                    className={`ml-1 transition-transform ${servicesOpen ? "rotate-180" : ""
+                      }`}
                     size={16}
                   />
                 </button>
                 <div
-                  className={`absolute top-full mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg transition-all ${
-                    servicesOpen
-                      ? "opacity-100 max-h-96"
-                      : "opacity-0 max-h-0 overflow-hidden"
-                  }`}
+                  className={`absolute top-full mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg transition-all ${servicesOpen
+                    ? "opacity-100 max-h-96"
+                    : "opacity-0 max-h-0 overflow-hidden"
+                    }`}
                 >
                   <Link to="/Services/carrides" className="block px-4 py-2 hover:bg-green-200 dark:hover:bg-green-700">Car Rides</Link>
                   <Link to="/Services/rentals" className="block px-4 py-2 hover:bg-green-200 dark:hover:bg-green-700">Rentals</Link>
@@ -149,32 +152,30 @@ const Header = () => {
 
               <Link to="/safety" className="hover:text-green-400">Safety</Link>
               <Link to="/about" className="hover:text-green-400">About</Link>
+              <Link to="/contact" className="hover:text-green-400">Contact Us</Link>
 
-              <div className="relative">
+              {/* <div className="relative">
                 <button
                   onClick={() => setHelpOpen(!helpOpen)}
                   className="flex items-center hover:text-green-400"
                 >
                   Help
                   <ChevronDown
-                    className={`ml-1 transition-transform ${
-                      helpOpen ? "rotate-180" : ""
-                    }`}
+                    className={`ml-1 transition-transform ${helpOpen ? "rotate-180" : ""
+                      }`}
                     size={16}
                   />
                 </button>
                 <div
-                  className={`absolute top-full mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg transition-all ${
-                    helpOpen
-                      ? "opacity-100 max-h-96"
-                      : "opacity-0 max-h-0 overflow-hidden"
-                  }`}
+                  className={`absolute top-full mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg transition-all ${helpOpen
+                    ? "opacity-100 max-h-96"
+                    : "opacity-0 max-h-0 overflow-hidden"
+                    }`}
                 >
                   <Link to="/faqs" className="block px-4 py-2 hover:bg-green-200 dark:hover:bg-green-700">FAQs</Link>
-                  <Link to="/contact" className="block px-4 py-2 hover:bg-green-200 dark:hover:bg-green-700">Contact Us</Link>
                   <Link to="/support" className="block px-4 py-2 hover:bg-green-200 dark:hover:bg-green-700">Support</Link>
                 </div>
-              </div>
+              </div> */}
             </nav>
 
             {/* Right Side */}
@@ -218,9 +219,8 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu */}
-        <div className={`fixed inset-0 bg-white dark:bg-gray-900 z-30 pt-28 px-4 transition-transform duration-300 ${
-          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        } md:hidden`}>
+        <div className={`fixed inset-0 bg-white dark:bg-gray-900 z-30 pt-28 px-4 transition-transform duration-300 ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          } md:hidden`}>
           {/* Add mobile nav here if needed */}
         </div>
       </header>

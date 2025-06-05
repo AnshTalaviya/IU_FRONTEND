@@ -19,8 +19,8 @@ export default function Car_Rides() {
     <>
 
       {/* Hero Section */}
-      <div data-aos="fade-up" className="bg-[#166534] text-white px-4 sm:px-6 lg:px-8 py-12 md:py-24">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-12">
+      <div className="bg-[#166534] text-white px-4 sm:px-6 lg:px-8 py-12 md:py-24">
+        <div data-aos="fade-up" className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-12">
           {/* Left */}
           <div className="w-full md:w-1/2 md:pl-4">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">GreenCar Rides</h1>
@@ -60,7 +60,7 @@ export default function Car_Rides() {
                   <polyline points="12 6 12 12 16 14" />
                 </svg>
               </div>
-             <div>
+              <div>
                 <p className="text-sm text-gray-500 dark:text-gray-300">Average Arrival Time</p>
                 <p className="font-semibold text-gray-900 dark:text-white">3 minutes</p>
               </div>
@@ -259,23 +259,23 @@ export default function Car_Rides() {
       {/*  */}
       <div className="bg-white dark:bg-gray-900 py-12 px-2">
 
-      <section className="bg-green-600 rounded-2xl text-white py-12 px-4 md:px-8 max-w-7xl mx-3 my-12 ">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          {/* Text Section */}
-          <div className="space-y-4 m-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-start">Ready to Experience GreenCar?</h2>
-            <p className="text-lg opacity-90 text-start">
-              Download our app and get your first ride with a special discount.
-              Use code <strong>FIRSTRIDE</strong> for 50% off.
-            </p>
-           <div className="pt-4 text-start">
-    <Link
-        to="/book"
-        className="inline-flex items-center justify-center gap-2 text-sm font-medium h-11 px-8 rounded-md bg-white text-green-700 hover:bg-gray-100 transition"
-    >
-        Book Now
-    </Link>
-</div>
+        <section className="bg-green-600 rounded-2xl text-white py-12 px-4 md:px-8 max-w-7xl mx-auto my-12 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            {/* Text Section */}
+            <div data-aos="zoom-in" className="space-y-4 m-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-start">Ready to Experience GreenCar?</h2>
+              <p className="text-lg opacity-90 text-start">
+                Download our app and get your first ride with a special discount.
+                Use code <strong>FIRSTRIDE</strong> for 50% off.
+              </p>
+              <div className="pt-4 text-start">
+                <Link
+                  to="/book"
+                  className="inline-flex items-center justify-center gap-2 text-sm font-medium h-11 px-8 rounded-md bg-white text-green-700 hover:bg-gray-100 transition"
+                >
+                  Book Now
+                </Link>
+              </div>
 
             </div>
 

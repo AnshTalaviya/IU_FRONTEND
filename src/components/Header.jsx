@@ -109,14 +109,14 @@ const Header = () => {
               <span>+91 99999 88888</span>
             </a>
           </div>
-          <div className=" max-w-[90%] flex items-center space-x-4">
-            <a href="#" aria-label="Instagram" className="hover:text-gray-300">
+          <div className=" max-w-[90%] flex items-center">
+            <a href="#" aria-label="Instagram" className="hover:text-gray-300 mx-2">
               <i className="fab fa-instagram" />
             </a>
-            <a href="#" aria-label="Facebook" className="hover:text-gray-300">
+            <a href="#" aria-label="Facebook" className="hover:text-gray-300 mx-2">
               <i className="fab fa-facebook" />
             </a>
-            <a href="#" aria-label="LinkedIn" className="hover:text-gray-300">
+            <a href="#" aria-label="LinkedIn" className="hover:text-gray-300 mx-2">
               <i className="fab fa-linkedin" />
             </a>
           </div>

@@ -61,6 +61,11 @@ import ViewAllRides from "./components/profile/viewAllRide";
 import Notifications from "./components/profile/Notification";
 import SettingsPage from "./components/profile/Setting";
 import Faqs from "./components/User/Faqs"
+import CourierDelivery from "./pages/CourierDelivery";
+import BikeDelivery from "./pages/BikeDelivery";
+import MiniTruckDelivery from "./pages/MiniTruckDelivery";
+import MovingService from "./pages/MovingService";
+
 
 function App() {
   const navigate = useNavigate();
@@ -116,7 +121,7 @@ function App() {
                   <Route path="/ViewAllRides" element={<ViewAllRides />} />
                   <Route path="/notifications" element={<Notifications />} />
                   <Route path="/settings" element={<SettingsPage />} />
-                  <Route path="/faqs" element={<Faqs/>}/>
+                  <Route path="/faqs" element={<Faqs />} />
 
                   {/* Ride Booking */}
                   <Route path="/book" element={<RideBooking />} />
@@ -139,9 +144,14 @@ function App() {
                   <Route path="/spacious" element={<GreenAuto />} />
 
                   {/* Courier */}
-                  <Route path="/courier-ride" element={<CourierRide />} />
+                  <Route path="/courier-ride" element={<CourierDelivery />} />
+                  <Route path="/services/bike-delivery" element={<BikeDelivery />} />
+                  <Route path="/services/mini-trucks" element={<MiniTruckDelivery />} />
+                  <Route path="/services/move-service" element={<MovingService />} />
+
+                  {/* <Route path="/courier-ride" element={<CourierRide />} />
                   <Route path="/fast" element={<CourierProps />} />
-                  <Route path="/luggage" element={<CourierXL />} />
+                  <Route path="/luggage" element={<CourierXL />} /> */}
 
                   {/* Food */}
                   <Route path="/food-delivery" element={<FoodRide />} />

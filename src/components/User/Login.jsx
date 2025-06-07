@@ -34,7 +34,7 @@ function Login() {
       if (role === 'Driver') {
         navigate('/driver');
       } else {
-        navigate('/userProfile');
+        navigate('/');
       }
     } catch (err) {
       setMessage(err.response?.data?.message || 'Invalid OTP');

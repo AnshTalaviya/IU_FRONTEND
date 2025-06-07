@@ -18,7 +18,7 @@ export default function SettingsPage() {
     };
 
     return (
-        <div className="min-h-screen bg-[#0f172a] text-white p-8">
+        <div className="min-h-screen bg-[#0f172a] text-white p-8 mt-6">
             <h1 className="text-3xl font-bold mb-6">Settings</h1>
 
             <div className="flex gap-4 bg-[#1e293b] rounded-lg p-1 mb-6 w-full">

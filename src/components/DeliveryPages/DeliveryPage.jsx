@@ -41,7 +41,7 @@ export default function DeliveryPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100 scroll-smooth relative">
+    <div className="min-h-screen bg-white dark:bg-gray-900 dark:text-gray-300 text-gray-800 scroll-smooth relative">
       {/* Hero Section */}
       <motion.section
         initial={{ opacity: 0, y: -40 }}
@@ -69,13 +69,13 @@ export default function DeliveryPage() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.2 }}
-        className="bg-gray-800 p-6 sm:p-10 rounded-xl shadow-xl max-w-6xl mx-auto -mt-16 relative z-20"
+        className="bg-white dark:bg-gray-800 dark:text-gray-300 text-gray-800 p-6 sm:p-10 rounded-xl shadow-xl max-w-6xl mx-auto -mt-16 relative z-20"
       >
-        <div className="flex flex-wrap items-center mb-6 text-gray-300 gap-2">
-          <IoLocationSharp className="text-xl text-green-400" />
+        <div className="flex flex-wrap items-center mb-6   gap-2">
+          <IoLocationSharp className="text-xl text-green-500" />
           <span>City:</span>
           <span
-            className="font-semibold text-white underline cursor-pointer hover:text-green-300"
+            className="text-green-500 font-semibold  underline cursor-pointer hover:text-green-400"
             onClick={() => setIsCityModalOpen(true)}
           >
             {selectedCity}
@@ -89,7 +89,7 @@ export default function DeliveryPage() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.1 * idx, duration: 0.4 }}
-              className="flex flex-col items-center justify-center text-center gap-2 p-4 rounded-xl border border-gray-700 bg-gray-900 hover:bg-gray-800 transition-all cursor-pointer"
+              className="flex flex-col items-center justify-center text-center gap-2 p-4 rounded-xl bg-gray-900/5 dark:bg-gray-700 dark:text-gray-300 text-gray-800 dark:hover:bg-green-900/30 hover:bg-green-300/30 transition-all cursor-pointer"
               onClick={() => {
                 // if (service.name === "Bike Delivery") {
                 //   navigate(`/services/bike-delivery?city=${selectedCity}`);
@@ -102,13 +102,15 @@ export default function DeliveryPage() {
                   navigate(`/services/mini-trucks?city=${selectedCity}`);
                 } else if (service.name === "Moving Services") {
                   navigate(`/services/move-service?city=${selectedCity}`);
+                } else if (service.name === "City to City") {
+                  navigate(`/services/city-to-city?city=${selectedCity}`);
                 } else {
                   alert("This service is not yet linked.");
                 }
               }}
             >
               {service.icon}
-              <p className="text-sm font-medium text-white">{service.name}</p>
+              <p className="text-sm font-medium">{service.name}</p>
               {service.description && (
                 <p className="text-xs text-gray-400 leading-snug max-w-[140px]">
                   {service.description}
@@ -141,7 +143,7 @@ export default function DeliveryPage() {
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="bg-white p-6 rounded-lg w-[90%] max-w-3xl max-h-[90vh] overflow-y-auto relative shadow-xl"
+              className="bg-white dark:bg-gray-900 dark:text-gray-300 text-gray-800 p-6 rounded-lg w-[90%] max-w-3xl max-h-[90vh] overflow-y-auto relative shadow-xl"
               initial={{ y: "-30%", opacity: 0 }}
               animate={{ y: "0", opacity: 1 }}
               exit={{ y: "-30%", opacity: 0 }}
@@ -155,7 +157,7 @@ export default function DeliveryPage() {
                 &times;
               </button>
 
-              <h2 className="text-xl font-bold text-center mb-4 text-gray-800">
+              <h2 className="text-xl font-bold text-center mb-4">
                 Choose your city
               </h2>
 
@@ -167,7 +169,7 @@ export default function DeliveryPage() {
                       setSelectedCity(city);
                       setIsCityModalOpen(false);
                     }}
-                    className="cursor-pointer border border-gray-300 rounded-md p-3 text-center text-sm font-medium text-gray-800 hover:bg-green-100 transition"
+                    className="cursor-pointer border border-gray-300 rounded-md p-3 text-center text-sm font-medium hover:bg-green-600 transition"
                   >
                     {city}
                   </div>

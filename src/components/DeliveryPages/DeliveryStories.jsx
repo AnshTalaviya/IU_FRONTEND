@@ -24,37 +24,40 @@ const stories = [
 
 export default function DeliveryStories() {
   return (
-    <section className="bg-gray-900 text-white py-16 px-6 max-w-6xl mx-auto rounded-xl shadow-2xl ">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-green-400">
-        Real Deliveries. Real Stories.
-      </h2>
+    <div className="bg-white dark:bg-gray-900 dark:text-gray-300  text-gray-800 pb-10 pt-2">
 
-      <div className="grid md:grid-cols-3 gap-8">
-        {stories.map((story, index) => (
-          <motion.div
-            key={index}
-            className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
-          >
-            <img
-              src={story.img}
-              alt={story.title}
-              className="h-48 w-full object-cover"
-            />
-            <div className="p-6">
-              <h3 className="text-xl font-semibold mb-2 text-green-300">
-                {story.title}
-              </h3>
-              <p className="text-gray-300 text-sm leading-relaxed">
-                {story.description}
-              </p>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </section>
+      <section className=" py-16 px-6 max-w-6xl mx-auto rounded-xl shadow-2xl ">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-green-400">
+          Real Deliveries. Real Stories.
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {stories.map((story, index) => (
+            <motion.div
+              key={index}
+              className="bg-gray-900/10 dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+            >
+              <img
+                src={story.img}
+                alt={story.title}
+                className="h-48 w-full object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2 text-green-500">
+                  {story.title}
+                </h3>
+                <p className="  text-sm leading-relaxed">
+                  {story.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+    </div>
   );
 }

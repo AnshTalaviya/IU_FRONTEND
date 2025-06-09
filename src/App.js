@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./App.css";
 import { Routes, Route, useNavigate } from "react-router-dom";
 
+
 // Contexts
 import { useAuth } from "./contexts/AuthContext";
 
@@ -11,7 +12,6 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 
 // User Pages
 import HomePage from "./pages/HomePage";
-// import CarRides from "./components/Services/Car_Rides";
 import Car_Rides from "./components/Services/Car_Rides";
 import Rentals from "./components/Services/Rentals";
 import Auto_Rides from "./components/Services/Auto_Rides";
@@ -60,11 +60,14 @@ import UserProfile from "./components/profile/userProfile";
 import ViewAllRides from "./components/profile/viewAllRide";
 import Notifications from "./components/profile/Notification";
 import SettingsPage from "./components/profile/Setting";
-import Faqs from "./components/User/Faqs"
+// import Faqs from "./components/User/Faqs"
 import CourierDelivery from "./pages/CourierDelivery";
 import BikeDelivery from "./pages/BikeDelivery";
 import MiniTruckDelivery from "./pages/MiniTruckDelivery";
 import MovingService from "./pages/MovingService";
+import ScrollTop from "./components/ScrollTop";
+import CityDelivery from "./pages/CityDelivery";
+import Faqs from "./components/Faqs";
 
 
 function App() {
@@ -80,6 +83,7 @@ function App() {
   return (
     <ThemeProvider>
       {/* <Contactus/> */}
+      <ScrollTop />
       <div className="App w-full max-w-full overflow-x-hidden">
         <Routes>
           {/* Driver Panel - No Layout */}
@@ -148,6 +152,7 @@ function App() {
                   <Route path="/services/bike-delivery" element={<BikeDelivery />} />
                   <Route path="/services/mini-trucks" element={<MiniTruckDelivery />} />
                   <Route path="/services/move-service" element={<MovingService />} />
+                  <Route path="/services/city-to-city" element={<CityDelivery />} />
 
                   {/* <Route path="/courier-ride" element={<CourierRide />} />
                   <Route path="/fast" element={<CourierProps />} />

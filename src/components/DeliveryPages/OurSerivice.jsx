@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+
+
 const services = [
   {
     tag: "IU Enterprise",
@@ -35,8 +37,10 @@ const services = [
 export default function OurService() {
   const settings = {
     dots: true,
-    infinite: false,
-    speed: 500,
+    arrows: false,
+    infinite: true, autoplay: true,
+    autoplaySpeed: 3000,
+    // speed: 1000,
     slidesToShow: 4,
     slidesToScroll: 2,
     responsive: [
@@ -58,34 +62,37 @@ export default function OurService() {
   };
 
   return (
-    <section className="bg-gray-900 text-gray-100 py-10 px-6 max-w-6xl mx-auto rounded-xl shadow-xl">
-      <h2 className="text-center text-green-400 font-bold text-3xl mb-10">
-        OUR SERVICES
-      </h2>
+    <div className="bg-white dark:bg-gray-900 dark:text-gray-300 text-gray-800 pb-20 ">
 
-      <Slider {...settings}>
-        {services.map((service, index) => (
-          <div key={index} className="px-3">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="flex flex-col justify-between p-6 h-[280px] rounded-xl border border-gray-700 bg-gray-800 hover:bg-gray-700 transition-transform duration-300 shadow-sm hover:shadow-green-500/50 hover:scale-[1.02]"
-            >
-              <span className="inline-block bg-green-500 bg-opacity-30 text-green-300 px-3 py-1 rounded-full text-xs font-semibold mb-4 w-max">
-                {service.tag}
-              </span>
-              <h3 className="text-white font-semibold text-lg mb-6 leading-snug">
-                {service.title}
-              </h3>
-              <button className="self-start bg-green-400 hover:bg-green-500 transition text-white p-2 rounded-full">
-                <FaArrowRight />
-              </button>
-            </motion.div>
-          </div>
-        ))}
-      </Slider>
-    </section>
+      <section className="  py-10 px-6 max-w-6xl mx-auto ">
+        <h2 className="text-center text-green-500 font-bold text-3xl mb-10">
+          OUR SERVICES
+        </h2>
+
+        <Slider {...settings}>
+          {services.map((service, index) => (
+            <div key={index} className="px-3">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="flex flex-col justify-between p-6 h-[280px] rounded-xl border border-gray-700 bg-white dark:bg-gray-900 dark:text-gray-300 text-gray-800 dark:hover:bg-gray-800 transition-transform duration-300 "
+              >
+                <span className="inline-block bg-green-500 bg-opacity-50 dark:text-green-400 text-green-700 px-3 py-1 rounded-full text-xs font-semibold mb-4 w-max">
+                  {service.tag}
+                </span>
+                <h3 className="font-semibold text-lg mb-6 leading-snug">
+                  {service.title}
+                </h3>
+                <button className="self-start bg-green-500  transition text-white p-2 rounded-full">
+                  <FaArrowRight />
+                </button>
+              </motion.div>
+            </div>
+          ))}
+        </Slider>
+      </section>
+    </div>
   );
 }

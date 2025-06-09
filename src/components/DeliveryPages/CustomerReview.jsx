@@ -38,54 +38,57 @@ const testimonials = [
 
 export default function CustomerReview() {
   return (
-    <motion.section
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white py-14 px-6 mt-10 max-w-6xl mx-auto rounded-xl shadow-xl"
-    >
-      <h2 className="text-center text-2xl sm:text-3xl font-bold text-green-300 mb-12 tracking-wide">
-        <span className="inline-block ">What Our Customers Say</span>
-      </h2>
+    <div className="bg-white dark:bg-gray-900 dark:text-gray-300  text-gray-800  pb-30">
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {testimonials.map((testimonial, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.5,
-              delay: index * 0.2,
-              ease: "easeOut",
-            }}
-            whileHover={{
-              scale: 1.02,
-              // rotateZ: 1,
-              boxShadow: "0 10px 20px rgba(99, 241, 158, 0.5)", // green-500 shadow
-              transition: { duration: 0.3 },
-            }}
-            className="relative group bg-gray-900 border-l-4 border-green-500 p-6 rounded-lg shadow-md "
-          >
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-12 h-12 bg-green-600 text-white flex items-center justify-center rounded-full text-lg font-bold">
-                {testimonial.name[0]}
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="bg-gradient-to-r from-gray-900 via-gray-300 to-gray-900 text-white py-14 px-6 max-w-6xl mx-auto  "
+      >
+        <h2 className="text-center text-3xl md:text-4xl font-bold dark:text-green-500 text-black mb-12 tracking-wide">
+          <span className="inline-block ">What Our Customers Say</span>
+        </h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.2,
+                ease: "easeOut",
+              }}
+              whileHover={{
+                scale: 1.02,
+                // rotateZ: 1,
+                boxShadow: "0 10px 20px rgba(99, 241, 158, 0.5)", // green-500 shadow
+                transition: { duration: 0.3 },
+              }}
+              className="relative group dark:bg-gray-900 bg-white  dark:text-gray-300  text-gray-800  border-l-4 border-green-500 p-6 rounded-lg shadow-md "
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-green-600   flex items-center justify-center rounded-full text-lg font-bold">
+                  {testimonial.name[0]}
+                </div>
+                <div>
+                  <h4 className="font-semibold ">{testimonial.name}</h4>
+                  <p className="text-sm ">
+                    {testimonial.service}, {testimonial.rating} ⭐
+                    <br />
+                    {testimonial.location}
+                  </p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-semibold text-white">{testimonial.name}</h4>
-                <p className="text-sm text-gray-400">
-                  {testimonial.service}, {testimonial.rating} ⭐
-                  <br />
-                  {testimonial.location}
-                </p>
-              </div>
-            </div>
-            <p className="text-gray-300 text-sm leading-relaxed">
-              “{testimonial.review}”
-            </p>
-          </motion.div>
-        ))}
-      </div>
-    </motion.section>
+              <p className=" text-sm leading-relaxed">
+                “{testimonial.review}”
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
+    </div>
   );
 }

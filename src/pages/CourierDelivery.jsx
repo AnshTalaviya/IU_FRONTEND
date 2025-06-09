@@ -10,15 +10,15 @@ import CityServiceMap from '../components/DeliveryPages/CityServiceMap'
 const CourierDelivery = () => {
   return (
     <div>
-      <DeliveryPage/>
-      <OurService/>
-      <CustomerReview/>
-      <HomeSections/>
+      <DeliveryPage />
+      <OurService />
+      <CustomerReview />
+      <HomeSections />
       {/* <FAQSection/> */}
-      <CityServiceMap/>
-      <DeliveryStories/>
+      <CityServiceMap />
+      <DeliveryStories />
     </div>
   )
 }
 
-export default CourierDelivery
+export default CourierDelivery  

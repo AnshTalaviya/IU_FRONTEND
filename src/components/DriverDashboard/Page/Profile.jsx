@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Profile = () => {
   // Main profile data with common fields
   const [profileData, setProfileData] = useState({
-    name: 'John Doe',
-    fullName: 'John Alexander Doe',
-    driverId: '89723415',
-    rating: 4.8,
-    rides: 845,
-    level: 'Bronze',
-    levelNumber: 3,
-    progressToNextLevel: 65,
-    email: 'john.doe@example.com',
-    phone: '+1 (555) 123-4567',
+    name: '',
+    fullName: '',
+    driverId: '',
+    rating: 0,
+    rides: 0,
+    level: '',
+    levelNumber: 0,
+    progressToNextLevel: 0,
+    email: '',
+    phone: '',
   });
+
   const getLevelColor = (level) => {
     switch (level) {
       case 'Gold':
@@ -29,17 +31,18 @@ const Profile = () => {
     }
   };
 
+  // Personal (and vehicle) info fields
   const [personalInfo, setPersonalInfo] = useState([
-    { label: 'Full Name', value: 'John Alexander Doe', icon: 'user', key: 'fullName', type: 'text', required: true, pattern: /^[a-zA-Z ]+$/ },
-    { label: 'Email', value: 'john.doe@example.com', icon: 'envelope', key: 'email', type: 'email', required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ },
-    { label: 'Phone', value: '+1 (555) 123-4567', icon: 'phone', key: 'phone', type: 'tel', required: true, pattern: /^\+?[\d\s-]+$/ },
-    { label: 'Address', value: '789 Pine Street, Anytown, ST 12345', icon: 'map-marker-alt', key: 'address', type: 'text', required: true },
-    { label: 'Driver License', value: 'DL-5678901234 (Expires: 2027-08-15)', icon: 'id-card', key: 'license', type: 'text', required: true },
-    { label: 'Make & Model', value: 'Toyota Camry XLE', icon: 'car', key: 'makeModel', type: 'text', required: true },
-    { label: 'Color', value: 'Silver Metallic', icon: 'palette', key: 'color', type: 'text', required: true },
-    { label: 'License Plate', value: 'ABC-1234', icon: 'tag', key: 'plate', type: 'text', required: true },
-    { label: 'Registration', value: 'Valid until June 2026', icon: 'file-alt', key: 'registration', type: 'text', required: true },
-    { label: 'Insurance', value: 'Comprehensive (Policy #INS-87654321)', icon: 'shield-alt', key: 'insurance', type: 'text', required: true },
+    { label: 'Full Name', value: '', icon: 'user', key: 'fullName', type: 'text', required: true, pattern: /^[a-zA-Z ]+$/ },
+    { label: 'Email', value: '', icon: 'envelope', key: 'email', type: 'email', required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ },
+    { label: 'Phone', value: '', icon: 'phone', key: 'phone', type: 'tel', required: true, pattern: /^\+?[\d\s-]+$/ },
+    { label: 'Address', value: '', icon: 'map-marker-alt', key: 'address', type: 'text', required: true },
+    { label: 'Driver License', value: '', icon: 'id-card', key: 'license', type: 'text', required: true },
+    { label: 'Make & Model', value: '', icon: 'car', key: 'makeModel', type: 'text', required: true },
+    { label: 'Color', value: '', icon: 'palette', key: 'color', type: 'text', required: true },
+    { label: 'License Plate', value: '', icon: 'tag', key: 'plate', type: 'text', required: true },
+    { label: 'Registration', value: '', icon: 'file-alt', key: 'registration', type: 'text', required: true },
+    { label: 'Insurance', value: '', icon: 'shield-alt', key: 'insurance', type: 'text', required: true },
   ]);
 
   const [ratingsBreakdown] = useState([
@@ -61,30 +64,72 @@ const Profile = () => {
 
   // Modal state
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [editingSection, setEditingSection] = useState(null);
+  const [editingSection, setEditingSection] = useState(null); // 'personal' or 'vehicle' (if needed)
   const [formData, setFormData] = useState({});
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Sync common fields between profile and personal info
+  // Fetch driver details from API on mount (GET /api/user/profile)
   useEffect(() => {
-    setPersonalInfo(prev => prev.map(item => {
-      if (profileData[item.key] && item.value !== profileData[item.key]) {
-        return { ...item, value: profileData[item.key] };
+    const fetchDriverDetails = async () => {
+      const user = JSON.parse(localStorage.getItem("user"));
+      const userId = user?.id;
+      if (!userId) return;
+
+      try {
+        const response = await axios.get(`https://login-signup-iu.onrender.com/api/user/profile?userId=${userId}`);
+        const data = response.data;
+
+        setProfileData({
+          name: data.fullName
+            ? data.fullName.split(' ')[0] + ' ' + data.fullName.split(' ').slice(-1)[0]
+            : '',
+          fullName: data.fullName || '',
+          driverId: data.driverId || '',
+          rating: data.rating || 0,
+          rides: data.rides || 0,
+          level: data.level || '',
+          levelNumber: data.levelNumber || 0,
+          progressToNextLevel: data.progressToNextLevel || 0,
+          email: data.email || '',
+          phone: data.phone || '',
+        });
+
+        // Populate personalInfo fields based on API response (if fields exist)
+        setPersonalInfo((prev) =>
+          prev.map((item) => ({
+            ...item,
+            value: data[item.key] || item.value,
+          }))
+        );
+      } catch (error) {
+        console.error('Error fetching driver details:', error);
       }
-      return item;
-    }));
+    };
+
+    fetchDriverDetails();
+  }, []);
+
+  // Sync certain profileData fields (fullName, email, phone) into personalInfo
+  useEffect(() => {
+    setPersonalInfo((prev) =>
+      prev.map((item) => {
+        if (profileData[item.key] && item.value !== profileData[item.key]) {
+          return { ...item, value: profileData[item.key] };
+        }
+        return item;
+      })
+    );
   }, [profileData]);
 
-  // Open modal with the appropriate data
-  const openEditModal = (section, data) => {
+  // Open modal for editing; 'section' indicates which part (e.g., 'personal')
+  const openEditModal = (section, dataArray) => {
     setEditingSection(section);
-
     const initialFormData = {};
     const initialErrors = {};
 
-    data.forEach(item => {
-      initialFormData[item.key] = item.value;
+    dataArray.forEach((item) => {
+      initialFormData[item.key] = item.value || '';
       initialErrors[item.key] = '';
     });
 
@@ -93,49 +138,54 @@ const Profile = () => {
     setIsModalOpen(true);
   };
 
-  // Handle form input changes with validation
+  // Handle form input changes and clear errors if any
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
 
-    // for clear error
     if (formErrors[name]) {
-      setFormErrors(prev => ({
+      setFormErrors((prev) => ({
         ...prev,
-        [name]: ''
+        [name]: '',
       }));
     }
   };
 
-  // Validate form fields
+  // Validate form fields before submission
   const validateForm = (fields) => {
     const errors = {};
     let isValid = true;
 
-    fields.forEach(field => {
-      if (field.required && !formData[field.key]?.trim()) {
+    fields.forEach((field) => {
+      const rawValue = formData[field.key];
+      const value = rawValue != null ? String(rawValue).trim() : '';
+
+      if (field.required && !value) {
         errors[field.key] = `${field.label} is required`;
         isValid = false;
-      } else if (field.pattern && !field.pattern.test(formData[field.key])) {
+      } else if (field.pattern && value && !field.pattern.test(value)) {
         errors[field.key] = `Invalid ${field.label.toLowerCase()} format`;
         isValid = false;
-      } else if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData[field.key])) {
+      } else if (field.type === 'email' && value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
         errors[field.key] = 'Please enter a valid email';
         isValid = false;
-      } else if (field.type === 'number') {
-        const numValue = Number(formData[field.key]);
+      } else if (field.type === 'number' && value) {
+        const numValue = Number(value);
         if (isNaN(numValue)) {
           errors[field.key] = 'Please enter a valid number';
           isValid = false;
-        } else if (field.min !== undefined && numValue < field.min) {
-          errors[field.key] = `Minimum value is ${field.min}`;
-          isValid = false;
-        } else if (field.max !== undefined && numValue > field.max) {
-          errors[field.key] = `Maximum value is ${field.max}`;
-          isValid = false;
+        } else {
+          if (field.min !== undefined && numValue < field.min) {
+            errors[field.key] = `Minimum value is ${field.min}`;
+            isValid = false;
+          }
+          if (field.max !== undefined && numValue > field.max) {
+            errors[field.key] = `Maximum value is ${field.max}`;
+            isValid = false;
+          }
         }
       }
     });
@@ -144,60 +194,79 @@ const Profile = () => {
     return isValid;
   };
 
-  // Submit form
-  const handleSubmit = (e) => {
+  // Handle form submission: PUT to /api/user/profile
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
     const currentFields = personalInfo;
     if (!validateForm(currentFields)) return;
 
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      if (editingSection === 'personal') {
-        // Update personal info
-        const updatedPersonalInfo = personalInfo.map(item => ({
+    // Build request body: include userId + all formData fields
+    const user = JSON.parse(localStorage.getItem("user"));
+    const userId = user?.id;
+    const payload = { userId, ...formData };
+
+    try {
+      const response = await axios.put(
+        'https://login-signup-iu.onrender.com/api/user/profile',
+        payload
+      );
+
+      // Assuming API वापस वही ऑब्जेक्ट लौटाता है जो अपडेट हुआ
+      const updatedData = response.data;
+
+      // Update local profileData with नया रिस्पॉन्स
+      setProfileData({
+        name: updatedData.fullName
+          ? updatedData.fullName.split(' ')[0] + ' ' + updatedData.fullName.split(' ').slice(-1)[0]
+          : '',
+        fullName: updatedData.fullName || '',
+        driverId: updatedData.driverId || '',
+        rating: updatedData.rating || 0,
+        rides: updatedData.rides || 0,
+        level: updatedData.level || '',
+        levelNumber: updatedData.levelNumber || 0,
+        progressToNextLevel: updatedData.progressToNextLevel || 0,
+        email: updatedData.email || '',
+        phone: updatedData.phone || '',
+      });
+
+      // Update personalInfo array भी वापस नए डेटा से मैप करें
+      setPersonalInfo((prev) =>
+        prev.map((item) => ({
           ...item,
-          value: formData[item.key] || item.value
-        }));
-        setPersonalInfo(updatedPersonalInfo);
-
-        // Update common fields in profile data
-        const commonFields = ['fullName', 'email', 'phone'];
-        const updatedProfile = { ...profileData };
-
-        commonFields.forEach(field => {
-          if (formData[field]) {
-            updatedProfile[field] = formData[field];
-            // Update name
-            if (field === 'fullName') {
-              updatedProfile.name = formData[field].split(' ')[0] + ' ' + formData[field].split(' ').slice(-1)[0];
-            }
-          }
-        });
-
-        setProfileData(updatedProfile);
-      }
+          value: updatedData[item.key] || '',
+        }))
+      );
 
       setIsSubmitting(false);
       setIsModalOpen(false);
-    }, 1000);
+    } catch (err) {
+      console.error('Error updating profile:', err);
+      setIsSubmitting(false);
+    }
   };
 
-  // current fields based on section
+  // Determine which fields to render in modal based on editingSection
   const getCurrentFields = () => {
+    // Filtration logic अगर आगे vehicle सेक्शन चाहें तो लगा सकते हैं
     return personalInfo;
   };
 
-  // Render appropriate input field based on type
+  // Render an input based on field type and props
   const renderInputField = (field) => {
     const commonProps = {
       name: field.key,
       value: formData[field.key] || '',
       onChange: handleInputChange,
-      className: `w-full dark:bg-gray-800 bg-white border ${formErrors[field.key] ? 'border-red-500' : 'dark:border-gray-700 border-gray-300'} rounded-lg px-4 py-2 dark:text-white text-gray-800 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all`,
+      className: `w-full dark:bg-gray-800 bg-white border ${
+        formErrors[field.key]
+          ? 'border-red-500'
+          : 'dark:border-gray-700 border-gray-300'
+      } rounded-lg px-4 py-2 dark:text-white text-gray-800 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all`,
       placeholder: `Enter ${field.label.toLowerCase()}`,
-      required: field.required
+      required: field.required,
     };
 
     switch (field.type) {
@@ -216,7 +285,12 @@ const Profile = () => {
     <div className="max-w-6xl mx-auto p-4 dark:bg-gray-950 bg-gray-50 min-h-screen">
       {/* Edit Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4 transition-opacity duration-300">
+        <div
+          className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4 transition-opacity duration-300"
+          onClick={() => {
+            if (!isSubmitting) setIsModalOpen(false);
+          }}
+        >
           <div
             className="dark:bg-gray-900 bg-white rounded-xl max-w-md w-full p-6 border dark:border-gray-700 border-gray-300 transform transition-all duration-300 scale-95 opacity-0 animate-[modalEnter_0.3s_ease-out_forwards]"
             onClick={(e) => e.stopPropagation()}
@@ -226,7 +300,9 @@ const Profile = () => {
                 Edit {editingSection === 'personal' ? 'Personal' : 'Vehicle'} Information
               </h3>
               <button
-                onClick={() => setIsModalOpen(false)}
+                onClick={() => {
+                  if (!isSubmitting) setIsModalOpen(false);
+                }}
                 className="dark:text-gray-400 text-gray-600 hover:dark:text-white hover:text-gray-800 transition-colors"
                 disabled={isSubmitting}
               >
@@ -261,7 +337,9 @@ const Profile = () => {
                 </button>
                 <button
                   type="submit"
-                  className={`px-4 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700 transition-colors flex items-center ${isSubmitting ? 'opacity-70' : ''}`}
+                  className={`px-4 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700 transition-colors flex items-center ${
+                    isSubmitting ? 'opacity-70' : ''
+                  }`}
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
@@ -283,8 +361,12 @@ const Profile = () => {
       )}
 
       <div className="mb-8">
-        <h1 className="text-3xl md:text-4xl font-bold mb-2 dark:text-gray-200 text-gray-800">Driver Profile</h1>
-        <p className="dark:text-gray-400 text-gray-600">Manage your information and track performance</p>
+        <h1 className="text-3xl md:text-4xl font-bold mb-2 dark:text-gray-200 text-gray-800">
+          Driver Profile
+        </h1>
+        <p className="dark:text-gray-400 text-gray-600">
+          Manage your information and track performance
+        </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
@@ -297,15 +379,22 @@ const Profile = () => {
                 <i className="fas fa-user text-white text-4xl md:text-5xl"></i>
               </div>
 
-              <h2 className="text-xl font-bold mb-1 dark:text-gray-200 text-gray-800">{profileData.name}</h2>
-              <p className="dark:text-gray-400 text-gray-600 mb-4 text-sm">Driver ID: {profileData.driverId}</p>
+              <h2 className="text-xl font-bold mb-1 dark:text-gray-200 text-gray-800">
+                {profileData.name}
+              </h2>
+              <p className="dark:text-gray-400 text-gray-600 mb-4 text-sm">
+                Driver ID: {profileData.driverId}
+              </p>
 
               <div className="flex items-center mb-6">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <i
                     key={i}
-                    className={`fas fa-star text-lg mr-1 ${i < profileData.rating ? 'text-amber-400' : 'dark:text-gray-600 text-gray-300'
-                      }`}
+                    className={`fas fa-star text-lg mr-1 ${
+                      i < Math.round(profileData.rating)
+                        ? 'text-amber-400'
+                        : 'dark:text-gray-600 text-gray-300'
+                    }`}
                   ></i>
                 ))}
                 <span className="ml-2 font-medium dark:text-gray-300 text-gray-700">
@@ -325,19 +414,31 @@ const Profile = () => {
           {/* Driver Level */}
           <div className="dark:bg-gray-200/10 bg-white rounded-xl p-6 shadow-sm dark:border-gray-700 border-gray-200 hover:shadow-lg transition-all">
             <h3 className="text-lg font-semibold mb-4 flex items-center dark:text-gray-200 text-gray-800">
-              <i className={`fas fa-medal text-${getLevelColor(profileData.level)} mr-3 text-xl`}></i> Driver Level
+              <i className={`fas fa-medal text-${getLevelColor(profileData.level)} mr-3 text-xl`}></i>{' '}
+              Driver Level
             </h3>
 
             <div className="flex flex-col items-center text-center">
-              <div className={`relative w-20 h-20 md:w-24 md:h-24 dark:bg-amber-100/10 bg-amber-50 rounded-full flex items-center justify-center mb-4 border-4 border-${getLevelColor(profileData.level)} shadow-sm`}>
-                <div className={`text-${getLevelColor(profileData.level)} font-bold text-lg md:text-xl`}>{profileData.level}</div>
-                <div className={`absolute -bottom-2 bg-${getLevelColor(profileData.level)} text-white text-xs px-2 py-1 rounded-full`}>
+              <div
+                className={`relative w-20 h-20 md:w-24 md:h-24 dark:bg-amber-100/10 bg-amber-50 rounded-full flex items-center justify-center mb-4 border-4 border-${getLevelColor(
+                  profileData.level
+                )} shadow-sm`}
+              >
+                <div className={`text-${getLevelColor(profileData.level)} font-bold text-lg md:text-xl`}>
+                  {profileData.level}
+                </div>
+                <div
+                  className={`absolute -bottom-2 bg-${getLevelColor(
+                    profileData.level
+                  )} text-white text-xs px-2 py-1 rounded-full`}
+                >
                   Level {profileData.levelNumber}
                 </div>
               </div>
 
               <p className="text-sm dark:text-gray-400 text-gray-600 mb-5 text-center">
-                You're a {profileData.level} level driver! Complete 20 more rides this month to reach Platinum.
+                You&#39;re a {profileData.level} level driver! Complete 20 more rides this month to reach
+                Platinum.
               </p>
 
               <div className="w-full">
@@ -362,14 +463,15 @@ const Profile = () => {
           <InfoSection
             title="Driver Information"
             data={personalInfo}
+            icon="info-circle"
             onEdit={() => openEditModal('personal', personalInfo)}
           />
 
-          {/* Vehicle Info */}
-
           {/* Performance */}
           <div className="dark:bg-gray-200/10 bg-white rounded-xl p-6 shadow-sm dark:border-gray-700 border-gray-200 hover:shadow-lg transition-all hover:scale-[1.01]">
-            <h3 className="text-xl font-semibold mb-6 dark:text-gray-200 text-gray-800">Performance Statistics</h3>
+            <h3 className="text-xl font-semibold mb-6 dark:text-gray-200 text-gray-800">
+              Performance Statistics
+            </h3>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
               {/* Ratings */}
               <div>
@@ -385,7 +487,7 @@ const Profile = () => {
                       <span className="font-medium dark:text-white text-gray-800">{percent}%</span>
                     </div>
                     <div className="w-full dark:bg-gray-700 bg-gray-200 rounded-full h-2">
-                      <div className={`h-2 rounded-full ${color} shadow-sm`} style={{ width: `${percent}%` }}></div>
+                      <div className={`${color} h-2 rounded-full shadow-sm`} style={{ width: `${percent}%` }}></div>
                     </div>
                   </div>
                 ))}
@@ -405,7 +507,7 @@ const Profile = () => {
         </div>
       </div>
 
-      {/*animation */}
+      {/* Modal enter animation */}
       <style jsx>{`
         @keyframes modalEnter {
           from {
@@ -438,8 +540,8 @@ const InfoSection = ({ title, data, icon, onEdit }) => (
       </button>
     </div>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 text-sm">
-      {data.map((item, index) => (
-        <Info key={index} {...item} />
+      {data.map((item) => (
+        <Info key={item.key} {...item} />
       ))}
     </div>
   </div>
@@ -452,7 +554,9 @@ const Info = ({ label, value, icon }) => (
       <i className={`fas fa-${icon} text-sm`}></i>
     </div>
     <div className="flex flex-col">
-      <span className="text-xs uppercase tracking-wide dark:text-gray-400 text-gray-600 text-start">{label}</span>
+      <span className="text-xs uppercase tracking-wide dark:text-gray-400 text-gray-600 text-start">
+        {label}
+      </span>
       <span className="mt-0.5 text-sm font-medium dark:text-white text-gray-800">{value}</span>
     </div>
   </div>

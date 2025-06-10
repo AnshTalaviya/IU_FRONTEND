@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import {
   Menu,
@@ -24,6 +24,17 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
+
+  const navigate = useNavigate();
+
+  const [redirectAfterLogout, setRedirectAfterLogout] = useState(false);
+
+  useEffect(() => {
+    if (redirectAfterLogout) {
+      navigate("/");
+    }
+  }, [redirectAfterLogout, navigate]);
+
 
   const location = useLocation();
 
@@ -98,14 +109,14 @@ const Header = () => {
               <span>+91 99999 88888</span>
             </a>
           </div>
-          <div className=" max-w-[90%] flex items-center space-x-4">
-            <a href="#" aria-label="Instagram" className="hover:text-gray-300">
+          <div className=" max-w-[90%] flex items-center">
+            <a href="#" aria-label="Instagram" className="hover:text-gray-300 mx-2">
               <i className="fab fa-instagram" />
             </a>
-            <a href="#" aria-label="Facebook" className="hover:text-gray-300">
+            <a href="#" aria-label="Facebook" className="hover:text-gray-300 mx-2">
               <i className="fab fa-facebook" />
             </a>
-            <a href="#" aria-label="LinkedIn" className="hover:text-gray-300">
+            <a href="#" aria-label="LinkedIn" className="hover:text-gray-300 mx-2">
               <i className="fab fa-linkedin" />
             </a>
           </div>
@@ -188,18 +199,37 @@ const Header = () => {
               </button>
 
               {isAuthenticated ? (
-                <div className="relative group">
-                  <button className="w-10 h-10 rounded-full bg-green-700 text-white flex items-center justify-center font-semibold hover:bg-green-800 transition">
+                <div className="relative group focus-within:z-50">
+                  <button
+                    className="w-10 h-10 rounded-full bg-green-700 text-white flex items-center justify-center font-semibold hover:bg-green-800 transition focus:outline-none"
+                  >
                     {getInitials(user?.name)}
                   </button>
-                  <div className="absolute right-0 mt-2 w-56 bg-[#0F141B] text-white rounded-md shadow-lg p-2 hidden group-hover:block z-50">
+                  <div
+                    className="absolute right-0 mt-2 w-56 bg-[#0F141B] text-white rounded-md shadow-lg p-2 hidden group-focus-within:block"
+                  >
                     <div className="px-3 py-2 font-semibold border-b border-gray-700">My Account</div>
-                    <Link to="/profile" className="flex items-center gap-2 px-3 py-2 hover:bg-gray-800"><User size={16} /> Profile</Link>
-                    <Link to="/notifications" className="flex items-center gap-2 px-3 py-2 hover:bg-gray-800"><Bell size={16} /> Notifications</Link>
-                    <Link to="/settings" className="flex items-center gap-2 px-3 py-2 hover:bg-gray-800"><Settings size={16} /> Settings</Link>
-                    <button onClick={logout} className="w-full text-left text-red-500 flex items-center gap-2 px-3 py-2 hover:bg-gray-800"><LogOut size={16} /> Logout</button>
+                    <Link to="/userProfile" className="flex items-center gap-2 px-3 py-2 hover:bg-gray-800">
+                      <User size={16} /> Profile
+                    </Link>
+                    <Link to="/notifications" className="flex items-center gap-2 px-3 py-2 hover:bg-gray-800">
+                      <Bell size={16} /> Notifications
+                    </Link>
+                    <Link to="/settings" className="flex items-center gap-2 px-3 py-2 hover:bg-gray-800">
+                      <Settings size={16} /> Settings
+                    </Link>
+                    <button
+                      onClick={() => {
+                        logout(); // Perform logout
+                        setRedirectAfterLogout(true); // Trigger redirect
+                      }}
+                      className="w-full text-left text-red-500 flex items-center gap-2 px-3 py-2 hover:bg-gray-800"
+                    >
+                      <LogOut size={16} /> Logout
+                    </button>
                   </div>
                 </div>
+
               ) : (
                 <>
                   <Link to="/login" className="bg-white dark:bg-[#0F141B] px-4 py-2 rounded-md border hover:bg-[#0F5729] hover:text-white dark:text-white">Login</Link>
@@ -219,9 +249,80 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu */}
-        <div className={`fixed inset-0 bg-white dark:bg-gray-900 z-30 pt-28 px-4 transition-transform duration-300 ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-          } md:hidden`}>
-          {/* Add mobile nav here if needed */}
+        <div className={`fixed inset-0 z-30 pt-28 px-4 transition-transform duration-300 md:hidden ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          } bg-white text-black dark:bg-gray-900 dark:text-white`}>
+          <Link to="/" className="block py-2 border-b hover:text-green-500">Home</Link>
+
+          {/* Mobile Services Dropdown */}
+          <div>
+            <button
+              onClick={() => setServicesOpen(!servicesOpen)}
+              className="w-full text-left py-2 flex justify-between items-center border-b"
+            >
+              <span>Services</span>
+              <ChevronDown
+                className={`transition-transform ${servicesOpen ? "rotate-180" : ""}`}
+                size={16}
+              />
+            </button>
+            {servicesOpen && (
+              <div className="pl-4 space-y-1 flex flex-col">
+                <Link to="/Services/carrides">Car Rides</Link>
+                <Link to="/Services/rentals">Rentals</Link>
+                <Link to="/Services/Auto_rides">Auto Rides</Link>
+                <Link to="/Services/Bike_rides">Bike Rides</Link>
+                <Link to="/Services/Intercity">Intercity</Link>
+              </div>
+            )}
+          </div>
+
+          <Link to="/safety" className="block py-2 border-b hover:text-green-500" >Safety</Link>
+          <Link to="/about" className="block py-2 border-b hover:text-green-500" >About</Link>
+          <Link to="/contact" className="block py-2 hover:text-green-500" >Contact Us</Link>
+          <div className="items-center justify-around flex mt-3 flex-wrap">
+            <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-green-200 dark:hover:bg-gray-700">
+              {isDarkMode ? <Sun size={30} /> : <Moon size={30} />}
+            </button>
+            <button className="p-2 rounded-full hover:bg-green-200 dark:hover:bg-gray-700">
+              <Globe size={30} />
+            </button>
+
+            {isAuthenticated ? (
+              <div className="relative group focus-within:z-50">
+                <button
+                  className="w-10 h-10 rounded-full bg-green-700 text-white flex items-center justify-center font-semibold hover:bg-green-800 transition focus:outline-none"
+                >
+                  {getInitials(user?.name) || "JD"}
+                </button>
+                <div
+                  className="absolute right-0 mt-2 w-56 bg-[#0F141B] text-white rounded-md shadow-lg p-2 hidden group-focus-within:block"
+                >
+                  <div className="px-3 py-2 font-semibold border-b border-gray-700">My Account</div>
+                  <Link to="/userProfile" className="flex items-center gap-2 px-3 py-2 hover:bg-gray-800">
+                    <User size={16} /> Profile
+                  </Link>
+                  <Link to="/notifications" className="flex items-center gap-2 px-3 py-2 hover:bg-gray-800">
+                    <Bell size={16} /> Notifications
+                  </Link>
+                  <Link to="/settings" className="flex items-center gap-2 px-3 py-2 hover:bg-gray-800">
+                    <Settings size={16} /> Settings
+                  </Link>
+                  <button
+                    onClick={logout}
+                    className="w-full text-left text-red-500 flex items-center gap-2 px-3 py-2 hover:bg-gray-800"
+                  >
+                    <LogOut size={16} /> Logout
+                  </button>
+                </div>
+              </div>
+
+            ) : (
+              <>
+                <Link to="/login" className="bg-white dark:bg-[#0F141B] px-4 py-2 rounded-md border hover:bg-[#0F5729] hover:text-white dark:text-white">Login</Link>
+                <Link to="/signup" className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">Sign Up</Link>
+              </>
+            )}
+          </div>
         </div>
       </header>
     </>

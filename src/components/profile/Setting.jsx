@@ -15,7 +15,7 @@ export default function SettingsPage() {
 
     const toggleNotification = (key) => {
         setNotifications({ ...notifications, [key]: !notifications[key] });
-    };
+    };                                                              
 
     return (
         <div className="min-h-screen bg-[#0f172a] text-white p-8 mt-6">

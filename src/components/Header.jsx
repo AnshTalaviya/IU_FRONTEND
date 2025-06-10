@@ -23,6 +23,7 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  // eslint-disable-next-line
   const [helpOpen, setHelpOpen] = useState(false);
 
   const navigate = useNavigate();
@@ -110,13 +111,13 @@ const Header = () => {
             </a>
           </div>
           <div className=" max-w-[90%] flex items-center">
-            <a href="#" aria-label="Instagram" className="hover:text-gray-300 mx-2">
+            <a href="https://www.instagram.com/" aria-label="Instagram" className="hover:text-gray-300 mx-2">
               <i className="fab fa-instagram" />
             </a>
-            <a href="#" aria-label="Facebook" className="hover:text-gray-300 mx-2">
+            <a href="https://www.facebook.com/" aria-label="Facebook" className="hover:text-gray-300 mx-2">
               <i className="fab fa-facebook" />
             </a>
-            <a href="#" aria-label="LinkedIn" className="hover:text-gray-300 mx-2">
+            <a href="https://www.linkdiny.com/" aria-label="LinkedIn" className="hover:text-gray-300 mx-2">
               <i className="fab fa-linkedin" />
             </a>
           </div>

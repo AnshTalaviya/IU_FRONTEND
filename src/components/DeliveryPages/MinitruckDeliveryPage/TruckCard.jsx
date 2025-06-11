@@ -137,46 +137,46 @@ const TruckCard = () => {
             </div>
 
             {showModal && selectedTruck && (
-                <div className="fixed inset-0 z-50 bg-black bg-opacity-40 dark:bg-gray-900 dark:bg-opacity-40 flex justify-center items-center px-4 pt-10">
-                    <div className="w-full max-w-2xl h-[85vh] bg-white flex flex-col md:flex-row rounded-md overflow-hidden shadow-xl">
-                        <div className=" bg-[#f2f6ff] dark:bg-gray-800 text-gray-800 dark:text-gray-300 w-full md:w-1/2 p-6 text-center px-10 py-20">
-                            <img src={selectedTruck.image} alt={selectedTruck.title} className="mx-auto w-44 h-32 object-contain" />
-                            <div className="text-sm text-gray-800 dark:text-gray-400  mt-2">{selectedTruck.dimension}</div>
-                            <div className="inline-flex items-center gap-1 px-3 py-1 bg-green-100 dark:bg-green-700 text-green-800 dark:text-green-300  rounded-full text-sm font-medium mt-3">
-                                <FaWeightHanging /> {selectedTruck.size}
+                <div className="fixed inset-0 z-50 bg-black bg-opacity-40 dark:bg-gray-900 dark:bg-opacity-40 flex justify-center items-start sm:items-center px-2 sm:px-4 pt-4 sm:pt-10 overflow-y-auto">
+                    <div className="w-full max-w-2xl min-h-[85vh] bg-white dark:bg-gray-800 flex flex-col md:flex-row rounded-md overflow-hidden shadow-xl my-2 sm:my-4">
+                        <div className="bg-[#f2f6ff] dark:bg-gray-800 text-gray-800 dark:text-gray-300 w-full md:w-1/2 p-3 sm:p-4 md:p-6 text-center px-4 sm:px-6 md:px-10 py-8 sm:py-10 md:py-20">
+                            <img src={selectedTruck.image} alt={selectedTruck.title} className="mx-auto w-28 sm:w-32 md:w-44 h-20 sm:h-24 md:h-32 object-contain" />
+                            <div className="text-xs sm:text-sm text-gray-800 dark:text-gray-400 mt-2">{selectedTruck.dimension}</div>
+                            <div className="inline-flex items-center gap-1 px-2 sm:px-3 py-1 bg-green-100 dark:bg-green-700 text-green-800 dark:text-green-300 rounded-full text-xs sm:text-sm font-medium mt-2 sm:mt-3">
+                                <FaWeightHanging className="text-xs sm:text-sm" /> {selectedTruck.size}
                             </div>
-                            <h2 className="text-xl font-semibold mt-4">{selectedTruck.title}</h2>
-                            <p className="text-sm text-gray-800 dark:text-gray-400 mt-1">
+                            <h2 className="text-base sm:text-lg md:text-xl font-semibold mt-3 sm:mt-4">{selectedTruck.title}</h2>
+                            <p className="text-xs sm:text-sm text-gray-800 dark:text-gray-400 mt-1">
                                 Starting from <strong>{selectedTruck.price}</strong>
                             </p>
-                            <hr className="my-6" />
+                            <hr className="my-3 sm:my-4 md:my-6" />
                             <div className="text-left">
-                                <h3 className="font-semibold text-sm mb-2">Best for sending:</h3>
-                                <ul className="space-y-2 text-xs text-gray-800 dark:text-gray-400">
-                                    <li className="flex items-center gap-2"><FaBox /> FMCG Food Products</li>
-                                    <li className="flex items-center gap-2"><FaFlask /> Chemicals</li>
-                                    <li className="flex items-center gap-2"><FaAppleAlt /> Fruits & Vegetables</li>
+                                <h3 className="font-semibold text-xs sm:text-sm mb-1 sm:mb-2">Best for sending:</h3>
+                                <ul className="space-y-1 sm:space-y-2 text-xs text-gray-800 dark:text-gray-400">
+                                    <li className="flex items-center gap-1 sm:gap-2"><FaBox className="text-xs sm:text-sm" /> FMCG Food Products</li>
+                                    <li className="flex items-center gap-1 sm:gap-2"><FaFlask className="text-xs sm:text-sm" /> Chemicals</li>
+                                    <li className="flex items-center gap-1 sm:gap-2"><FaAppleAlt className="text-xs sm:text-sm" /> Fruits & Vegetables</li>
                                 </ul>
                             </div>
                         </div>
 
                         {/* Right Side: Form */}
-                        <div className="relative bg-white dark:bg-black text-gray-800 dark:text-gray-300 w-full md:w-1/2 p-6 py-10 overflow-y-auto">
+                        <div className="relative bg-white dark:bg-black text-gray-800 dark:text-gray-300 w-full md:w-1/2 p-3 sm:p-4 md:p-6 py-6 sm:py-8 md:py-10 overflow-y-auto">
                             <button
                                 onClick={() => setShowModal(false)}
-                                className="absolute top-4 right-4 text-gray-600 dark:text-gray-300 dark:hover:text-red-600 hover:text-red-500 text-2xl"
+                                className="absolute top-2 sm:top-3 md:top-4 right-2 sm:right-3 md:right-4 text-gray-600 dark:text-gray-300 dark:hover:text-red-600 hover:text-red-500 text-lg sm:text-xl md:text-2xl"
                             >
                                 <FaTimes />
                             </button>
 
-                            <h2 className="text-xl font-bold text-gray-800 dark:text-gray-300 mb-6">Get an estimate</h2>
+                            <h2 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 dark:text-gray-300 mb-3 sm:mb-4 md:mb-6">Get an estimate</h2>
 
-                            <div className="space-y-4">
+                            <div className="space-y-2 sm:space-y-3 md:space-y-4">
                                 {/* Floating Input for Pickup Address */}
                                 <div className="relative w-full">
                                     <label htmlFor="pickup"
                                         className={`absolute left-3 transition-all duration-200 ease-in-out bg-white dark:bg-black px-1 ${isPickupFocused || pickup
-                                            ? '-top-2 text-sm text-gray-400 dark:text-gray-300 border-black' : 'top-4 text-base text-gray-400 dark:text-gray-300'}`} >
+                                            ? '-top-2 text-xs sm:text-sm text-gray-400 dark:text-gray-300 border-black' : 'top-3 sm:top-4 text-sm sm:text-base text-gray-400 dark:text-gray-300'}`} >
                                         Pickup Address *
                                     </label>
                                     <input id="pickup" type="text" value={pickup}
@@ -184,7 +184,7 @@ const TruckCard = () => {
                                         onFocus={() => setIsPickupFocused(true)}
                                         onBlur={() => setIsPickupFocused(false)}
                                         placeholder=" "
-                                        className="w-full h-14 px-3 pt-6 pb-2 text-base bg-white dark:bg-black text-gray-900 dark:text-gray-300 border border-gray-300 rounded-md focus:outline-none"
+                                        className="w-full h-10 sm:h-12 md:h-14 px-3 pt-5 sm:pt-6 pb-2 text-sm sm:text-base bg-white dark:bg-black text-gray-900 dark:text-gray-300 border border-gray-300 rounded-md focus:outline-none"
                                     />
                                 </div>
 
@@ -192,7 +192,7 @@ const TruckCard = () => {
                                 <div className="relative w-full">
                                     <label htmlFor="drop"
                                         className={`absolute left-3 transition-all duration-200 ease-in-out bg-white dark:bg-black px-1 ${isDropFocused || drop
-                                            ? '-top-2 text-sm text-gray-400 dark:text-gray-300 border-black' : 'top-4 text-base text-gray-400 dark:text-gray-300'}`} >
+                                            ? '-top-2 text-xs sm:text-sm text-gray-400 dark:text-gray-300 border-black' : 'top-3 sm:top-4 text-sm sm:text-base text-gray-400 dark:text-gray-300'}`} >
                                         Drop Address *
                                     </label>
                                     <input id="drop" type="text" value={drop}
@@ -200,7 +200,7 @@ const TruckCard = () => {
                                         onFocus={() => setIsDropFocused(true)}
                                         onBlur={() => setIsDropFocused(false)}
                                         placeholder=" "
-                                        className="w-full h-14 px-3 pt-6 pb-2 text-base bg-white dark:bg-black text-gray-900 dark:text-gray-300 border border-gray-300 rounded-md focus:outline-none"
+                                        className="w-full h-10 sm:h-12 md:h-14 px-3 pt-5 sm:pt-6 pb-2 text-sm sm:text-base bg-white dark:bg-black text-gray-900 dark:text-gray-300 border border-gray-300 rounded-md focus:outline-none"
                                     />
                                 </div>
 
@@ -208,7 +208,7 @@ const TruckCard = () => {
                                 <div className="relative w-full">
                                     <label htmlFor="mobile"
                                         className={`absolute left-3 transition-all duration-200 ease-in-out bg-white dark:bg-black px-1 ${isMobileFocused || mobile
-                                            ? '-top-2 text-sm text-gray-400 dark:text-gray-300 border-black' : 'top-4 text-base text-gray-400 dark:text-gray-300'}`} >
+                                            ? '-top-2 text-xs sm:text-sm text-gray-400 dark:text-gray-300 border-black' : 'top-3 sm:top-4 text-sm sm:text-base text-gray-400 dark:text-gray-300'}`} >
                                         Phone Number *
                                     </label>
                                     <input id="mobile" type="text" value={mobile}
@@ -217,7 +217,7 @@ const TruckCard = () => {
                                         onBlur={() => setIsMobileFocused(false)}
                                         maxLength="10"
                                         placeholder=" "
-                                        className="w-full h-14 px-3 pt-6 pb-2 text-base bg-white dark:bg-black text-gray-900 dark:text-gray-300 border border-gray-300 rounded-md focus:outline-none"
+                                        className="w-full h-10 sm:h-12 md:h-14 px-3 pt-5 sm:pt-6 pb-2 text-sm sm:text-base bg-white dark:bg-black text-gray-900 dark:text-gray-300 border border-gray-300 rounded-md focus:outline-none"
                                     />
                                     {mobile && !isMobileValid && (
                                         <p className="text-red-500 text-xs mt-1">Please enter a valid 10-digit number.</p>
@@ -228,7 +228,7 @@ const TruckCard = () => {
                                 <div className="relative w-full">
                                     <label htmlFor="name"
                                         className={`absolute left-3 transition-all duration-200 ease-in-out bg-white dark:bg-black px-1 ${isNameFocused || name
-                                            ? '-top-2 text-sm text-gray-400 dark:text-gray-300 border-black' : 'top-4 text-base text-gray-400 dark:text-gray-300'}`} >
+                                            ? '-top-2 text-xs sm:text-sm text-gray-400 dark:text-gray-300 border-black' : 'top-3 sm:top-4 text-sm sm:text-base text-gray-400 dark:text-gray-300'}`} >
                                         Name *
                                     </label>
                                     <input id="name" type="text" value={name}
@@ -236,16 +236,16 @@ const TruckCard = () => {
                                         onFocus={() => setIsNameFocused(true)}
                                         onBlur={() => setIsNameFocused(false)}
                                         placeholder=" "
-                                        className="w-full h-14 px-3 pt-6 pb-2 text-base bg-white dark:bg-black text-gray-900 dark:text-gray-300 border border-gray-300 rounded-md focus:outline-none"
+                                        className="w-full h-10 sm:h-12 md:h-14 px-3 pt-5 sm:pt-6 pb-2 text-sm sm:text-base bg-white dark:bg-black text-gray-900 dark:text-gray-300 border border-gray-300 rounded-md focus:outline-none"
                                     />
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium mb-2">What describes you best? *</label>
-                                    <div className="flex gap-3">
+                                    <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2">What describes you best? *</label>
+                                    <div className="flex gap-2 sm:gap-3">
                                         <button
                                             onClick={() => setSelectedType('personal')}
-                                            className={`flex-1 h-12 rounded border text-sm font-medium ${selectedType === 'personal'
+                                            className={`flex-1 h-9 sm:h-10 md:h-12 rounded border text-xs sm:text-sm font-medium ${selectedType === 'personal'
                                                 ? 'bg-green-600 text-white'
                                                 : 'bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 border-gray-300'
                                                 }`}
@@ -254,7 +254,7 @@ const TruckCard = () => {
                                         </button>
                                         <button
                                             onClick={() => setSelectedType('business')}
-                                            className={`flex-1 h-12 rounded border text-sm font-medium ${selectedType === 'business'
+                                            className={`flex-1 h-9 sm:h-10 md:h-12 rounded border text-xs sm:text-sm font-medium ${selectedType === 'business'
                                                 ? 'bg-green-600 text-white'
                                                 : 'bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 border-gray-300'
                                                 }`}
@@ -266,12 +266,12 @@ const TruckCard = () => {
 
                                 <button
                                     disabled={!isFormComplete}
-                                    className={`w-full flex justify-center items-center gap-2 h-14 rounded-md text-white text-sm font-semibold ${isFormComplete
+                                    className={`w-full flex justify-center items-center gap-2 h-10 sm:h-12 md:h-14 rounded-md text-white text-xs sm:text-sm font-semibold ${isFormComplete
                                         ? 'bg-green-600 hover:bg-green-700'
                                         : 'bg-gray-300 dark:bg-gray-800 cursor-not-allowed'
                                         }`}
                                 >
-                                    Get an estimate <span className="text-xl">→</span>
+                                    Get an estimate <span className="text-lg sm:text-xl">→</span>
                                 </button>
                             </div>
                         </div>

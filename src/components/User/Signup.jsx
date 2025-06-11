@@ -1,14 +1,14 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../contexts/AuthContext'; // ✅ ADD THIS
+import { useAuth } from '../../contexts/AuthContext';
 
 function Signup() {
   const [form, setForm] = useState({
     fullName: "",
     email: "",
     role: "User",
-    phone: null,
+    phone: "",
     vehicleType: "",
     vehicleNumber: "",
     licenseNumber: "",
@@ -18,8 +18,9 @@ function Signup() {
 
   const [otpSent, setOtpSent] = useState(false);
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false); // ✅ Loading state
   const navigate = useNavigate();
-  const { login } = useAuth(); // ✅ USE CONTEXT LOGIN
+  const { login } = useAuth();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -31,12 +32,15 @@ function Signup() {
 
   const handleSendOtp = async () => {
     if (!form.agreed) return setMessage("Please accept terms and conditions.");
+    setLoading(true); // ✅ Start loading
     try {
       const res = await axios.post("https://login-signup-iu.onrender.com/api/auth/send-otp", form);
       setOtpSent(true);
       setMessage(res.data.message);
     } catch (err) {
       setMessage(err.response?.data?.message || "Error sending OTP");
+    } finally {
+      setLoading(false); // ✅ Stop loading
     }
   };
 
@@ -48,15 +52,11 @@ function Signup() {
       });
 
       if (res.data.token && res.data.user) {
-        login(res.data.token); // ✅ CONTEXT LOGIN
-        localStorage.setItem("user", JSON.stringify(res.data.user)); // optional
+        login(res.data.token);
+        localStorage.setItem("user", JSON.stringify(res.data.user));
         setMessage(res.data.message);
         const role = res.data.user.role;
-        if (role === 'Driver') {
-          navigate('/driver');
-        } else {
-          navigate('/');
-        }
+        navigate(role === 'Driver' ? '/driver' : '/');
       } else {
         setMessage("Invalid response from server.");
       }
@@ -93,11 +93,12 @@ function Signup() {
             className="w-full bg-[#0d1117] border border-gray-700 rounded-md px-3 py-2"
           />
         </div>
+
         <div className="mb-4">
           <label className="block text-sm font-semibold text-left mb-1">Phone</label>
           <input
             name="phone"
-            type="phone"
+            type="tel"
             value={form.phone}
             onChange={handleChange}
             placeholder="1234567890"
@@ -169,9 +170,12 @@ function Signup() {
         {!otpSent ? (
           <button
             onClick={handleSendOtp}
-            className="w-full bg-green-600 hover:bg-green-700 rounded-md px-4 py-2 font-semibold"
+            disabled={loading}
+            className={`w-full rounded-md px-4 py-2 font-semibold ${
+              loading ? 'bg-gray-600 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700'
+            }`}
           >
-            Send OTP
+            {loading ? 'Sending OTP...' : 'Send OTP'}
           </button>
         ) : (
           <>

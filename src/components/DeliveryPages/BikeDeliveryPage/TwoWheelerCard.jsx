@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaWeightHanging, FaTimes, FaMapMarkerAlt, FaPhoneAlt, FaUser } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
@@ -8,22 +8,34 @@ const TwoWheelerCard = () => {
     const [drop, setDrop] = useState('');
     const [mobile, setMobile] = useState('');
     const [name, setName] = useState('');
-    const [selectedType, setSelectedType] = useState(''); // personal or business
+    const [selectedType, setSelectedType] = useState('');
 
-    // ✅ Mobile valid only if 10 digits
     const isMobileValid = /^\d{10}$/.test(mobile);
-
-    // ✅ Enable button if all fields filled & mobile is valid
     const isFormComplete = pickup && drop && isMobileValid && name && selectedType;
 
-    // 🧠 Prevent non-numeric input
     const handleMobileChange = (e) => {
-        const value = e.target.value.replace(/\D/g, ''); // remove non-digits
+        const value = e.target.value.replace(/\D/g, '');
         setMobile(value);
     };
 
+    // 🔒 Prevent scroll when modal is open
+    useEffect(() => {
+        if (showModal) {
+            document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+        }
+
+        return () => {
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+        };
+    }, [showModal]);
+
     return (
-        <div className=" bg-white dark:bg-gray-900 dark:text-gray-300 text-gray-800 flex flex-col items-center py-12 px-4">
+        <div className="bg-white dark:bg-gray-900 dark:text-gray-300 text-gray-800 flex flex-col items-center py-12 px-4">
             <motion.h2
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -39,7 +51,6 @@ const TwoWheelerCard = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 text-gray-800 rounded-xl shadow-lg p-6 w-full max-w-4xl flex flex-col sm:flex-row items-center gap-6 sm:gap-8 border border-gray-700"
             >
-                {/* Bike Image */}
                 <motion.div
                     initial={{ x: -30, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
@@ -53,21 +64,20 @@ const TwoWheelerCard = () => {
                     />
                 </motion.div>
 
-                {/* Content */}
                 <motion.div
                     initial={{ x: 30, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                     className="w-full sm:w-2/3 dark:text-gray-300 text-gray-800"
                 >
-                    <h3 className="text-lg font-semibold  dark:text-gray-300  text-gray-800">2 Wheeler</h3>
+                    <h3 className="text-lg font-semibold">2 Wheeler</h3>
                     <div className="flex items-center gap-2 my-2 text-gray-300">
                         <FaWeightHanging className="text-green-400" />
-                        <span className="text-sm dark:text-gray-300 text-gray-800 font-medium">20 kg</span>
+                        <span className="text-sm font-medium">20 kg</span>
                     </div>
 
                     <p className="text-sm mb-2">
-                        Starting From <span className="font-semibold ">₹48</span>
+                        Starting From <span className="font-semibold">₹48</span>
                     </p>
 
                     <p className="text-sm text-gray-400 mb-4 leading-relaxed">
@@ -85,12 +95,11 @@ const TwoWheelerCard = () => {
                 </motion.div>
             </motion.div>
 
-            {/* Modal */}
             {showModal && (
-                <div className="fixed inset-0 bg-white dark:bg-gray-900 dark:text-gray-300  text-gray-800  flex justify-center items-center z-50">
+                <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm dark:bg-opacity-70 flex justify-center items-center z-50">
                     <div className="bg-white w-full max-w-3xl rounded-lg shadow-lg flex flex-col md:flex-row">
                         {/* Left Section */}
-                        <div className="bg-gray-100 dark:bg-gray-800 dark:text-gray-200  text-gray-800  w-full md:w-1/2 p-6 flex flex-col items-center text-center">
+                        <div className="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 w-full md:w-1/2 p-6 flex flex-col items-center text-center">
                             <img
                                 src="https://www.financialexpress.com/wp-content/uploads/2023/01/porter-two-wheeler-services.jpg"
                                 alt="Bike"
@@ -103,7 +112,7 @@ const TwoWheelerCard = () => {
                         </div>
 
                         {/* Right Section */}
-                        <div className="w-full md:w-1/2 bg-gray-100 dark:bg-gray-800 dark:text-gray-200  text-gray-800  border-l border-gray-300 dark:border-gray-600  p-6 relative">
+                        <div className="w-full md:w-1/2 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 border-l border-gray-300 dark:border-gray-600 p-6 relative">
                             <button
                                 onClick={() => setShowModal(false)}
                                 className="absolute top-2 right-2 text-gray-600 text-xl hover:text-red-500"
@@ -112,30 +121,31 @@ const TwoWheelerCard = () => {
                                 <FaTimes />
                             </button>
 
-                            <div className="space-y-3 mt-6 dark:text-gray-200  text-gray-800">
-                                <div className="flex items-center gap-2  border rounded p-2">
+                            <div className="space-y-3 mt-6">
+                                <div className="flex items-center gap-2 border rounded p-2">
                                     <FaMapMarkerAlt className="text-green-500" />
                                     <input
                                         type="text"
                                         placeholder="Enter Pickup Location"
                                         value={pickup}
                                         onChange={(e) => setPickup(e.target.value)}
-                                        className="w-full outline-none"
+                                        className="w-full outline-none bg-transparent"
                                     />
                                 </div>
 
-                                <div className="flex items-center gap-2  dark:text-gray-200  text-gray-800 border rounded p-2">
+                                <div className="flex items-center gap-2 border rounded p-2">
                                     <FaMapMarkerAlt className="text-red-500" />
                                     <input
                                         type="text"
                                         placeholder="Enter Drop Location"
                                         value={drop}
                                         onChange={(e) => setDrop(e.target.value)}
-                                        className="w-full outline-none"
+                                        className="w-full outline-none bg-transparent"
                                     />
                                 </div>
+
                                 <div className="flex flex-col gap-1">
-                                    <div className="flex items-center gap-2 dark:text-gray-200  text-gray-800 border rounded p-2">
+                                    <div className="flex items-center gap-2 border rounded p-2">
                                         <FaPhoneAlt className="text-gray-500" />
                                         <input
                                             type="text"
@@ -143,27 +153,26 @@ const TwoWheelerCard = () => {
                                             value={mobile}
                                             onChange={handleMobileChange}
                                             maxLength="10"
-                                            className="w-full outline-none"
+                                            className="w-full outline-none bg-transparent"
                                         />
                                     </div>
-                                    {/* 🔴 Validation Message */}
                                     {mobile && !isMobileValid && (
                                         <p className="text-red-500 text-xs ml-1">Please enter a valid 10-digit mobile number.</p>
                                     )}
                                 </div>
 
-                                <div className="flex items-center gap-2  dark:text-gray-200  text-gray-800 border rounded p-2">
+                                <div className="flex items-center gap-2 border rounded p-2">
                                     <FaUser className="text-gray-500" />
                                     <input
                                         type="text"
                                         placeholder="Enter Name"
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
-                                        className="w-full outline-none"
+                                        className="w-full outline-none bg-transparent"
                                     />
                                 </div>
 
-                                {/* Personal / Business */}
+                                {/* Type selection */}
                                 <div className="flex gap-4">
                                     <button
                                         className={`w-1/2 border py-2 rounded ${selectedType === 'personal'

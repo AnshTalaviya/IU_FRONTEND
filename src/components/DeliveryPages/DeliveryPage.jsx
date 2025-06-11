@@ -104,8 +104,6 @@ export default function DeliveryPage() {
                   navigate(`/services/move-service?city=${selectedCity}`);
                 } else if (service.name === "City to City") {
                   navigate(`/services/city-to-city?city=${selectedCity}`);
-                } else {
-                  alert("This service is not yet linked.");
                 }
               }}
             >

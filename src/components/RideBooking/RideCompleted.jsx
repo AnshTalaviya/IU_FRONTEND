@@ -45,7 +45,7 @@ export default function RideCompleted() {
                 <h2 className="text-3xl font-bold mb-2">Ride Completed</h2>
                 <p className="text-gray-400 mb-8 text-lg">
                     Thank you for riding with{" "}
-                    <span className="text-green-400 font-semibold">GreenGlide</span>
+                    <span className="text-green-400 font-semibold">Idhar Udhar</span>
                 </p>
 
                 <div className="text-left mb-6">

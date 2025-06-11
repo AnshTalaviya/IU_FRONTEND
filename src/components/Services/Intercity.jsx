@@ -73,7 +73,7 @@ export default function Intercity() {
 
                     {/* Left Content */}
                     <div className="w-full md:w-1/2 md:pl-4">
-                        <h1 className="text-4xl md:text-5xl font-bold mb-6">GreenGlide Intercity</h1>
+                        <h1 className="text-4xl md:text-5xl font-bold mb-6">Idhar Udhar Intercity</h1>
                         <p className="text-lg md:text-xl mb-8">
                             Safe, comfortable, and reliable intercity travel with fixed pricing
                         </p>

@@ -195,7 +195,7 @@ export default function SettingsPage() {
             {tab === "Preferences" && (
                 <div className="bg-[#0f172a] p-6 rounded-lg shadow-lg">
                     <h2 className="text-2xl font-semibold text-white mb-2">App Preferences</h2>
-                    <p className="text-gray-400 mb-6">Customize your GreenGlide experience</p>
+                    <p className="text-gray-400 mb-6">Customize your Idhar Udhar experience</p>
 
                     {/* App Theme */}
                     <div className="flex justify-between items-center mb-6">

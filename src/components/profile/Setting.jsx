@@ -210,11 +210,11 @@ export default function SettingsPage() {
                         </div>
                         <div
                             className={`relative inline-flex items-center h-5 rounded-full w-11 px-1 transition-colors duration-300 
-              ${enabled ? 'bg-green-500' : 'bg-gray-600'}`}
+              ${true ? 'bg-green-500' : 'bg-gray-600'}`}
                         >
                             <span
                                 className={`inline-block w-4 h-4 transform bg-white rounded-full transition-transform duration-300 
-                ${enabled ? 'translate-x-2.5' : 'translate-x-0'}`}
+                ${true ? 'translate-x-2.5' : 'translate-x-0'}`}
                             />
                         </div>
                     </div>

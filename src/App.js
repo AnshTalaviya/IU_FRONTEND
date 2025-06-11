@@ -69,7 +69,6 @@ import ScrollTop from "./components/ScrollTop";
 import CityDelivery from "./pages/CityDelivery";
 import Faqs from "./components/Faqs";
 
-
 function App() {
   const navigate = useNavigate();
   const { user } = useAuth();

@@ -1,6 +1,49 @@
 import React, { useState } from 'react';
-import { FaWeightHanging, FaTimes, FaMapMarkerAlt, FaPhoneAlt, FaUser } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { FaBox, FaFlask, FaAppleAlt, FaWeightHanging, FaTimes } from "react-icons/fa";
+
+const trucks = [
+    {
+        title: '3 Wheeler',
+        image: 'https://t4.ftcdn.net/jpg/01/30/64/81/360_F_130648163_zLEs0gxg4j7tGDV8PQqxzjeJmiIF4tFu.jpg',
+        size: '350 kg',
+        weight: 350,
+        price: '₹150',
+        dimension: '40cm x 40cm',
+    },
+    {
+        title: 'Pickup 8ft',
+        image: 'https://t4.ftcdn.net/jpg/01/30/64/81/360_F_130648163_zLEs0gxg4j7tGDV8PQqxzjeJmiIF4tFu.jpg',
+        size: '700 kg',
+        weight: 700,
+        price: '₹205',
+        dimension: '6ft x 7ft',
+    },
+    {
+        title: 'Tata Ace',
+        image: 'https://t4.ftcdn.net/jpg/01/30/64/81/360_F_130648163_zLEs0gxg4j7tGDV8PQqxzjeJmiIF4tFu.jpg',
+        size: '1250 kg',
+        weight: 1250,
+        price: '₹300',
+        dimension: '5.5ft x 8ft',
+    },
+    {
+        title: 'Canter 14ft',
+        image: 'https://t4.ftcdn.net/jpg/01/30/64/81/360_F_130648163_zLEs0gxg4j7tGDV8PQqxzjeJmiIF4tFu.jpg',
+        size: '1500 kg',
+        weight: 1500,
+        price: '₹350',
+        dimension: '14ft x 6ft',
+    },
+    {
+        title: '1.7 ton',
+        image: 'https://t4.ftcdn.net/jpg/01/30/64/81/360_F_130648163_zLEs0gxg4j7tGDV8PQqxzjeJmiIF4tFu.jpg',
+        size: '1700 kg',
+        weight: 1700,
+        price: '₹400',
+        dimension: '16ft x 7ft',
+    }
+];
 
 const TruckCard = () => {
     const [showModal, setShowModal] = useState(false);
@@ -8,190 +51,227 @@ const TruckCard = () => {
     const [drop, setDrop] = useState('');
     const [mobile, setMobile] = useState('');
     const [name, setName] = useState('');
-    const [selectedType, setSelectedType] = useState(''); // personal or business
+    const [selectedType, setSelectedType] = useState('');
+    const [selectedTruck, setSelectedTruck] = useState(null);
+    const [weightFilter, setWeightFilter] = useState('light');
+    const [isPickupFocused, setIsPickupFocused] = useState(false);
+    const [isDropFocused, setIsDropFocused] = useState(false);
+    const [isMobileFocused, setIsMobileFocused] = useState(false);
+    const [isNameFocused, setIsNameFocused] = useState(false);
 
-    // ✅ Mobile valid only if 10 digits
     const isMobileValid = /^\d{10}$/.test(mobile);
-
-    // ✅ Enable button if all fields filled & mobile is valid
     const isFormComplete = pickup && drop && isMobileValid && name && selectedType;
 
-    // 🧠 Prevent non-numeric input
     const handleMobileChange = (e) => {
-        const value = e.target.value.replace(/\D/g, ''); // remove non-digits
+        const value = e.target.value.replace(/\D/g, '');
         setMobile(value);
     };
 
+    const filteredTrucks = trucks.filter(truck => {
+        if (weightFilter === 'light') return truck.weight < 750;
+        if (weightFilter === 'heavy') return truck.weight >= 750;
+        return true;
+    });
+
     return (
-        <div className="bg-white dark:bg-gray-900 dark:text-gray-300  text-gray-800  flex flex-col items-center py-12 px-4">
+        <div className="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-300 pt-20 pb-20">
             <motion.h2
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="text-3xl font-bold text-green-500 text-center mb-10"
+                transition={{ duration: 0 }}
+                className="text-3xl font-bold text-green-500 text-center mb-4"
             >
-                Mini Trucks from Porter
+                Mini Trucks from IdharUdhar
             </motion.h2>
 
-            <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 text-gray-800 rounded-xl shadow-lg p-6 w-full max-w-4xl flex flex-col sm:flex-row items-center gap-6 sm:gap-8 border border-gray-700"
-            >
-                {/* Bike Image */}
-                <motion.div
-                    initial={{ x: -30, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                    className="w-full sm:w-1/3 flex justify-center items-center"
+            <div className="flex justify-center gap-0 mb-8">
+                <button
+                    onClick={() => setWeightFilter('light')}
+                    className={`px-6 py-2 font-medium border-b-2 ${weightFilter === 'light'
+                        ? 'border-gray-700 dark:text-gray-200 dark:border-gray-200'
+                        : 'border-gray-200 text-black dark:text-white dark:border-gray-700'
+                        }`}
                 >
-                    <img
-                        src="https://t4.ftcdn.net/jpg/01/30/64/81/360_F_130648163_zLEs0gxg4j7tGDV8PQqxzjeJmiIF4tFu.jpg"
-                        alt="Bike"
-                        className="w-60 h-44 object-contain"
-                    />
-                </motion.div>
-
-                {/* Content */}
-                <motion.div
-                    initial={{ x: 30, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.5 }}
-                    className="w-full sm:w-2/3 dark:text-gray-300 text-gray-800"
+                    Light (below 750kg)
+                </button>
+                <button
+                    onClick={() => setWeightFilter('heavy')}
+                    className={`px-6 py-2 font-medium border-b-2 ${weightFilter === 'heavy'
+                        ? 'border-gray-700 dark:text-gray-200 dark:border-gray-200'
+                        : 'border-gray-200 text-black dark:text-white dark:border-gray-700'
+                        }`}
                 >
-                    <h3 className="text-lg font-semibold  dark:text-gray-300  text-gray-800">Mini Truck</h3>
-                    <div className="flex items-center gap-2 my-2 text-gray-300">
-                        <FaWeightHanging className="text-green-400" />
-                        <span className="text-sm dark:text-gray-300 text-gray-800 font-medium">350 kg</span>
-                    </div>
+                    Heavy (above 750kg)
+                </button>
+            </div>
 
-                    <p className="text-sm mb-2">
-                        Starting From <span className="font-semibold">₹150</span>
-                    </p>
-
-                    <p className="text-sm text-gray-400 mb-4 leading-relaxed">
-                        Base fare is inclusive of 1.0 km distance & 25 minutes of order time.
-                        Pricing may vary basis locality. Please note, road tax, parking fee, etc,
-                        will be applicable over and above ride fare.
-                    </p>
-
-                    <button
-                        onClick={() => setShowModal(true)}
-                        className="text-green-400 text-sm font-medium underline hover:text-green-300"
+            <div className={`grid gap-4 justify-items-center mx-auto ${weightFilter === 'light'
+                ? 'grid-cols-2 max-w-2xl'
+                : 'grid-cols-3 max-w-4xl'
+                }`}>
+                {filteredTrucks.map((truck, i) => (
+                    <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="bg-gray-100 dark:bg-gray-800 rounded-sm shadow-lg p-4 flex flex-col items-center w-full max-w-[300px]"
                     >
-                        Know More
-                    </button>
-                </motion.div>
-            </motion.div>
+                        <img src={truck.image} alt={truck.title} className="w-60 h-44 object-contain mb-4" />
+                        <h3 className="text-lg font-semibold">{truck.title}</h3>
+                        <div className="flex items-center gap-2 text-sm mb-2">
+                            <FaWeightHanging className="text-green-400" />
+                            <span className="font-medium">{truck.size}</span>
+                        </div>
+                        <p className="text-sm mb-4">Starting From <span className="font-semibold">{truck.price}</span></p>
+                        <button
+                            onClick={() => {
+                                setSelectedTruck(truck);
+                                setShowModal(true);
+                            }}
+                            className="text-green-400 text-sm font-medium underline hover:text-green-300"
+                        >
+                            Know More
+                        </button>
+                    </motion.div>
+                ))}
+            </div>
 
-            {/* Modal */}
-            {showModal && (
-                <div className="fixed inset-0 bg-white dark:bg-gray-900 dark:text-gray-300  text-gray-800  flex justify-center items-center z-50">
-                    <div className="  w-full max-w-3xl rounded-lg shadow-lg flex flex-col md:flex-row">
-                        {/* Left Section */}
-                        <div className="bg-gray-100 dark:bg-gray-800 dark:text-gray-200  text-gray-800  w-full md:w-1/2 p-6 flex flex-col items-center text-center">
-                            <img
-                                src="https://t4.ftcdn.net/jpg/01/30/64/81/360_F_130648163_zLEs0gxg4j7tGDV8PQqxzjeJmiIF4tFu.jpg"
-                                alt="Bike"
-                                className="w-32 h-32 object-contain"
-                            />
-                            <span className="text-sm mt-2">40cm x 40cm</span>
-                            <span className="bg-green-200 text-green-800 px-2 py-1 text-xs mt-2 rounded">🔒 350 kg</span>
-                            <h2 className="text-xl font-semibold mt-4">Mini Truck</h2>
-                            <p >Starting From ₹150</p>
+            {showModal && selectedTruck && (
+                <div className="fixed inset-0 z-50 bg-black bg-opacity-40 dark:bg-gray-900 dark:bg-opacity-40 flex justify-center items-center px-4 pt-10">
+                    <div className="w-full max-w-2xl h-[85vh] bg-white flex flex-col md:flex-row rounded-md overflow-hidden shadow-xl">
+                        <div className=" bg-[#f2f6ff] dark:bg-gray-800 text-gray-800 dark:text-gray-300 w-full md:w-1/2 p-6 text-center px-10 py-20">
+                            <img src={selectedTruck.image} alt={selectedTruck.title} className="mx-auto w-44 h-32 object-contain" />
+                            <div className="text-sm text-gray-800 dark:text-gray-400  mt-2">{selectedTruck.dimension}</div>
+                            <div className="inline-flex items-center gap-1 px-3 py-1 bg-green-100 dark:bg-green-700 text-green-800 dark:text-green-300  rounded-full text-sm font-medium mt-3">
+                                <FaWeightHanging /> {selectedTruck.size}
+                            </div>
+                            <h2 className="text-xl font-semibold mt-4">{selectedTruck.title}</h2>
+                            <p className="text-sm text-gray-800 dark:text-gray-400 mt-1">
+                                Starting from <strong>{selectedTruck.price}</strong>
+                            </p>
+                            <hr className="my-6" />
+                            <div className="text-left">
+                                <h3 className="font-semibold text-sm mb-2">Best for sending:</h3>
+                                <ul className="space-y-2 text-xs text-gray-800 dark:text-gray-400">
+                                    <li className="flex items-center gap-2"><FaBox /> FMCG Food Products</li>
+                                    <li className="flex items-center gap-2"><FaFlask /> Chemicals</li>
+                                    <li className="flex items-center gap-2"><FaAppleAlt /> Fruits & Vegetables</li>
+                                </ul>
+                            </div>
                         </div>
 
-                        {/* Right Section */}
-                        <div className="w-full md:w-1/2 bg-gray-100 dark:bg-gray-800 dark:text-gray-200  text-gray-800  border-l border-gray-300 dark:border-gray-600 p-6 relative">
+                        {/* Right Side: Form */}
+                        <div className="relative bg-white dark:bg-black text-gray-800 dark:text-gray-300 w-full md:w-1/2 p-6 py-10 overflow-y-auto">
                             <button
                                 onClick={() => setShowModal(false)}
-                                className="absolute top-2 right-2 text-gray-600 text-xl hover:text-red-500"
-                                aria-label="Close Modal"
+                                className="absolute top-4 right-4 text-gray-600 dark:text-gray-300 dark:hover:text-red-600 hover:text-red-500 text-2xl"
                             >
                                 <FaTimes />
                             </button>
 
-                            <div className="space-y-3 mt-6 dark:text-gray-200  text-gray-800">
-                                <div className="flex items-center gap-2 dark:text-gray-200  text-gray-800 border rounded p-2">
-                                    <FaMapMarkerAlt className="text-green-500" />
-                                    <input
-                                        type="text"
-                                        placeholder="Enter Pickup Location"
-                                        value={pickup}
+                            <h2 className="text-xl font-bold text-gray-800 dark:text-gray-300 mb-6">Get an estimate</h2>
+
+                            <div className="space-y-4">
+                                {/* Floating Input for Pickup Address */}
+                                <div className="relative w-full">
+                                    <label htmlFor="pickup"
+                                        className={`absolute left-3 transition-all duration-200 ease-in-out bg-white dark:bg-black px-1 ${isPickupFocused || pickup
+                                            ? '-top-2 text-sm text-gray-400 dark:text-gray-300 border-black' : 'top-4 text-base text-gray-400 dark:text-gray-300'}`} >
+                                        Pickup Address *
+                                    </label>
+                                    <input id="pickup" type="text" value={pickup}
                                         onChange={(e) => setPickup(e.target.value)}
-                                        className="w-full outline-none"
+                                        onFocus={() => setIsPickupFocused(true)}
+                                        onBlur={() => setIsPickupFocused(false)}
+                                        placeholder=" "
+                                        className="w-full h-14 px-3 pt-6 pb-2 text-base bg-white dark:bg-black text-gray-900 dark:text-gray-300 border border-gray-300 rounded-md focus:outline-none"
                                     />
                                 </div>
 
-                                <div className="flex items-center gap-2 dark:text-gray-200  text-gray-800 border rounded p-2">
-                                    <FaMapMarkerAlt className="text-red-500" />
-                                    <input
-                                        type="text"
-                                        placeholder="Enter Drop Location"
-                                        value={drop}
+                                {/* Floating Input for Drop Address */}
+                                <div className="relative w-full">
+                                    <label htmlFor="drop"
+                                        className={`absolute left-3 transition-all duration-200 ease-in-out bg-white dark:bg-black px-1 ${isDropFocused || drop
+                                            ? '-top-2 text-sm text-gray-400 dark:text-gray-300 border-black' : 'top-4 text-base text-gray-400 dark:text-gray-300'}`} >
+                                        Drop Address *
+                                    </label>
+                                    <input id="drop" type="text" value={drop}
                                         onChange={(e) => setDrop(e.target.value)}
-                                        className="w-full outline-none"
+                                        onFocus={() => setIsDropFocused(true)}
+                                        onBlur={() => setIsDropFocused(false)}
+                                        placeholder=" "
+                                        className="w-full h-14 px-3 pt-6 pb-2 text-base bg-white dark:bg-black text-gray-900 dark:text-gray-300 border border-gray-300 rounded-md focus:outline-none"
                                     />
                                 </div>
-                                <div className="flex flex-col gap-1">
-                                    <div className="flex items-center gap-2 dark:text-gray-200 text-gray-800 border rounded p-2">
-                                        <FaPhoneAlt className="text-gray-500" />
-                                        <input
-                                            type="text"
-                                            placeholder="Enter Mobile"
-                                            value={mobile}
-                                            onChange={handleMobileChange}
-                                            maxLength="10"
-                                            className="w-full outline-none"
-                                        />
-                                    </div>
-                                    {/* 🔴 Validation Message */}
+
+                                {/* Floating Input for Phone Number */}
+                                <div className="relative w-full">
+                                    <label htmlFor="mobile"
+                                        className={`absolute left-3 transition-all duration-200 ease-in-out bg-white dark:bg-black px-1 ${isMobileFocused || mobile
+                                            ? '-top-2 text-sm text-gray-400 dark:text-gray-300 border-black' : 'top-4 text-base text-gray-400 dark:text-gray-300'}`} >
+                                        Phone Number *
+                                    </label>
+                                    <input id="mobile" type="text" value={mobile}
+                                        onChange={handleMobileChange}
+                                        onFocus={() => setIsMobileFocused(true)}
+                                        onBlur={() => setIsMobileFocused(false)}
+                                        maxLength="10"
+                                        placeholder=" "
+                                        className="w-full h-14 px-3 pt-6 pb-2 text-base bg-white dark:bg-black text-gray-900 dark:text-gray-300 border border-gray-300 rounded-md focus:outline-none"
+                                    />
                                     {mobile && !isMobileValid && (
-                                        <p className="text-red-500 text-xs ml-1">Please enter a valid 10-digit mobile number.</p>
+                                        <p className="text-red-500 text-xs mt-1">Please enter a valid 10-digit number.</p>
                                     )}
                                 </div>
 
-                                <div className="flex items-center gap-2 dark:text-gray-200  text-gray-800 border rounded p-2">
-                                    <FaUser className="text-gray-500" />
-                                    <input
-                                        type="text"
-                                        placeholder="Enter Name"
-                                        value={name}
+                                {/* Floating Input for Name */}
+                                <div className="relative w-full">
+                                    <label htmlFor="name"
+                                        className={`absolute left-3 transition-all duration-200 ease-in-out bg-white dark:bg-black px-1 ${isNameFocused || name
+                                            ? '-top-2 text-sm text-gray-400 dark:text-gray-300 border-black' : 'top-4 text-base text-gray-400 dark:text-gray-300'}`} >
+                                        Name *
+                                    </label>
+                                    <input id="name" type="text" value={name}
                                         onChange={(e) => setName(e.target.value)}
-                                        className="w-full outline-none"
+                                        onFocus={() => setIsNameFocused(true)}
+                                        onBlur={() => setIsNameFocused(false)}
+                                        placeholder=" "
+                                        className="w-full h-14 px-3 pt-6 pb-2 text-base bg-white dark:bg-black text-gray-900 dark:text-gray-300 border border-gray-300 rounded-md focus:outline-none"
                                     />
                                 </div>
 
-                                {/* Personal / Business */}
-                                <div className="flex gap-4">
-                                    <button
-                                        className={`w-1/2 border py-2 rounded ${selectedType === 'personal'
-                                            ? 'bg-green-600 text-white'
-                                            : 'bg-white border-gray-400 text-gray-700'
-                                            }`}
-                                        onClick={() => setSelectedType('personal')}
-                                    >
-                                        PERSONAL
-                                    </button>
-                                    <button
-                                        className={`w-1/2 border py-2 rounded ${selectedType === 'business'
-                                            ? 'bg-green-600 text-white'
-                                            : 'bg-white border-gray-400 text-gray-700'
-                                            }`}
-                                        onClick={() => setSelectedType('business')}
-                                    >
-                                        BUSINESS
-                                    </button>
+                                <div>
+                                    <label className="block text-sm font-medium mb-2">What describes you best? *</label>
+                                    <div className="flex gap-3">
+                                        <button
+                                            onClick={() => setSelectedType('personal')}
+                                            className={`flex-1 h-12 rounded border text-sm font-medium ${selectedType === 'personal'
+                                                ? 'bg-green-600 text-white'
+                                                : 'bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 border-gray-300'
+                                                }`}
+                                        >
+                                            Personal User
+                                        </button>
+                                        <button
+                                            onClick={() => setSelectedType('business')}
+                                            className={`flex-1 h-12 rounded border text-sm font-medium ${selectedType === 'business'
+                                                ? 'bg-green-600 text-white'
+                                                : 'bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 border-gray-300'
+                                                }`}
+                                        >
+                                            Business User
+                                        </button>
+                                    </div>
                                 </div>
 
-                                {/* Submit Button */}
                                 <button
                                     disabled={!isFormComplete}
-                                    className={`w-full py-2 rounded   text-black ${isFormComplete ? 'bg-green-600 hover:bg-green-700' : 'bg-gray-300 cursor-not-allowed'
+                                    className={`w-full flex justify-center items-center gap-2 h-14 rounded-md text-white text-sm font-semibold ${isFormComplete
+                                        ? 'bg-green-600 hover:bg-green-700'
+                                        : 'bg-gray-300 dark:bg-gray-800 cursor-not-allowed'
                                         }`}
                                 >
-                                    Get Fare Estimate
+                                    Get an estimate <span className="text-xl">→</span>
                                 </button>
                             </div>
                         </div>

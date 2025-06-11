@@ -15,7 +15,7 @@ export default function SettingsPage() {
 
     const toggleNotification = (key) => {
         setNotifications({ ...notifications, [key]: !notifications[key] });
-    };                                                              
+    };
 
     return (
         <div className="min-h-screen bg-[#0f172a] text-white p-8 mt-6">
@@ -119,10 +119,10 @@ export default function SettingsPage() {
                                     className={`w-12 h-6 flex items-center rounded-full p-1 duration-300 ease-in-out ${notifications[key] ? "bg-green-500" : "bg-gray-600"
                                         }`}
                                 >
-                                    <div
-                                        className={`bg-white w-4 h-4 rounded-full shadow-md transform duration-300 ease-in-out ${notifications[key] ? "translate-x-6" : "translate-x-0"
-                                            }`}
-                                    ></div>
+                                    <span
+                                        className={`inline-block w-4 h-4 pr-1 transform bg-white rounded-full transition-transform duration-300 ${notifications[key] ? 'translate-x-2.5' : 'translate-x-0'}`}
+                                    />
+
                                 </button>
                             </div>
                         ))}
@@ -174,10 +174,10 @@ export default function SettingsPage() {
                                 className={`w-12 h-6 flex items-center rounded-full p-1 transition-colors duration-300 ${enabled ? "bg-green-500" : "bg-gray-700"
                                     }`}
                             >
-                                <div
-                                    className={`bg-white w-4 h-4 rounded-full shadow-md transform transition-transform duration-300 ${enabled ? "translate-x-6" : "translate-x-0"
-                                        }`}
-                                ></div>
+                                <span
+                                    className={`inline-block w-4 h-4 transform bg-white rounded-full transition-transform duration-300 ${enabled ? 'translate-x-2.5' : 'translate-x-0'}`}
+                                />
+
                             </div>
                         </div>
                     ))}
@@ -208,8 +208,14 @@ export default function SettingsPage() {
                                 <div className="text-gray-400 text-sm">Dark mode is currently active</div>
                             </div>
                         </div>
-                        <div className="w-12 h-6 flex items-center rounded-full p-1 bg-green-500">
-                            <div className="bg-white w-4 h-4 rounded-full shadow-md transform translate-x-6 transition-transform duration-300"></div>
+                        <div
+                            className={`relative inline-flex items-center h-5 rounded-full w-11 px-1 transition-colors duration-300 
+              ${enabled ? 'bg-green-500' : 'bg-gray-600'}`}
+                        >
+                            <span
+                                className={`inline-block w-4 h-4 transform bg-white rounded-full transition-transform duration-300 
+                ${enabled ? 'translate-x-2.5' : 'translate-x-0'}`}
+                            />
                         </div>
                     </div>
 
@@ -236,8 +242,8 @@ export default function SettingsPage() {
                                 <div
                                     key={code}
                                     className={`flex items-center justify-center px-4 py-2 rounded-md font-medium text-sm ${active
-                                            ? "bg-green-500 text-black"
-                                            : "border border-gray-700 text-white hover:bg-gray-800"
+                                        ? "bg-green-500 text-black"
+                                        : "border border-gray-700 text-white hover:bg-gray-800"
                                         }`}
                                 >
                                     <span className="mr-2 text-xs font-bold">{code}</span>

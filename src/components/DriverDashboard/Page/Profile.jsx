@@ -260,11 +260,10 @@ const Profile = () => {
       name: field.key,
       value: formData[field.key] || '',
       onChange: handleInputChange,
-      className: `w-full dark:bg-gray-800 bg-white border ${
-        formErrors[field.key]
+      className: `w-full dark:bg-gray-800 bg-white border ${formErrors[field.key]
           ? 'border-red-500'
           : 'dark:border-gray-700 border-gray-300'
-      } rounded-lg px-4 py-2 dark:text-white text-gray-800 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all`,
+        } rounded-lg px-4 py-2 dark:text-white text-gray-800 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all`,
       placeholder: `Enter ${field.label.toLowerCase()}`,
       required: field.required,
     };
@@ -337,9 +336,8 @@ const Profile = () => {
                 </button>
                 <button
                   type="submit"
-                  className={`px-4 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700 transition-colors flex items-center ${
-                    isSubmitting ? 'opacity-70' : ''
-                  }`}
+                  className={`px-4 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700 transition-colors flex items-center ${isSubmitting ? 'opacity-70' : ''
+                    }`}
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
@@ -390,11 +388,10 @@ const Profile = () => {
                 {Array.from({ length: 5 }).map((_, i) => (
                   <i
                     key={i}
-                    className={`fas fa-star text-lg mr-1 ${
-                      i < Math.round(profileData.rating)
+                    className={`fas fa-star text-lg mr-1 ${i < Math.round(profileData.rating)
                         ? 'text-amber-400'
                         : 'dark:text-gray-600 text-gray-300'
-                    }`}
+                      }`}
                   ></i>
                 ))}
                 <span className="ml-2 font-medium dark:text-gray-300 text-gray-700">

@@ -225,8 +225,7 @@ export default function UserProfile() {
                                     {[
                                         "Saved Locations",
                                         "Payment Methods",
-                                        "My Rides",
-                                        "Account Settings",
+                                        "My Rides"
                                     ].map((tab) => (
                                         <button
                                             key={tab}

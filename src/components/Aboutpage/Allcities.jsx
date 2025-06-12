@@ -133,8 +133,8 @@ export default function Allcities() {
   return (
     <section className='w-full'>
       <div className="Allcities_header text-center w-full bg-[#16A34A] pt-25 pb-10">
-        <h3 className='text-3xl md:text-4xl font-bold text-gray-900 dark:text-white'>GreenGlide Cities</h3>
-        <p className='text-white mt-4 text-lg mx-auto'>Discover all the cities where GreenGlide operates. Book a ride anywhere, anytime.</p>
+        <h3 className='text-3xl md:text-4xl font-bold text-gray-900 dark:text-white'>Idhar Udhar Cities</h3>
+        <p className='text-white mt-4 text-lg mx-auto'>Discover all the cities where Idhar Udhar operates. Book a ride anywhere, anytime.</p>
         <div className="h-12 sm:w-140 size-[80%] border bg-white dark:bg-black text-gray-800 dark:text-gray-400 rounded-xl relative mx-auto mt-7">
           <i className="fas fa-search absolute text-md text-gray-500 dark:text-gray-400 top-[35%] left-3"></i>
         <input
@@ -222,10 +222,10 @@ export default function Allcities() {
         )}
       </div>
 
-<div className="Expansion-plans w-full  bg-gray-100 dark:bg-gray-800/95 pt-10 pb-2">
+<div className="Expansion-plans w-full text-center bg-gray-100 dark:bg-gray-800/95 pt-10 pb-2">
   <h3 className='text-3xl md:text-4xl font-bold dark:text-white text-gray-900'>Our Expansion Plans</h3>
   <p className='mt-5 w-[90%] md:w-[50%] text-lg dark:text-gray-400 text-gray-700 mx-auto'>
-    GreenGlide is rapidly expanding to new cities across India. We're committed to bringing our eco-friendly, reliable transportation solutions to every corner of the country.
+    Idhar Udhar is rapidly expanding to new cities across India. We're committed to bringing our eco-friendly, reliable transportation solutions to every corner of the country.
   </p>
 
   <div className="planDetails w-full md:px-0 px-3 md:flex justify-center mt-9">

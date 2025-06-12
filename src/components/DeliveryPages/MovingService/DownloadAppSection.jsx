@@ -2,9 +2,9 @@ import React from 'react';
 
 const DownloadAppSection = () => {
     return (
-        <section className="bg-white dark:bg-gray-900 dark:text-gray-300 text-gray-800 flex justify-center items-center py-12 px-4">
-            <div className="bg-gradient-to-r from-blue-100 via-gray-400 to-rose-100 rounded-xl shadow-md text-center px-6 py-10 max-w-3xl w-full">
-                <h2 className="dark:text-white text-black text-2xl md:text-3xl font-semibold mb-2">
+        <section className="bg-white dark:bg-gray-900 dark:text-gray-300 text-gray-800 flex justify-center items-center px-4">
+            <div className="bg-gradient-to-r from-blue-100 to-rose-100 text-center px-6 py-10 max-w-3xl w-full">
+                <h2 className="text-3xl font-bold text-green-400 mb-2">
                     Think Logistics, Think IdharUdhar!
                 </h2>
                 <p className="dark:text-gray-100 text-gray-700 mb-6">

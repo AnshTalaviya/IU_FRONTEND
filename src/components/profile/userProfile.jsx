@@ -12,12 +12,10 @@ import axios from "axios";
 import PaymentPage from "./payment";
 import RecentRides from "./myride";
 
-const user = JSON.parse(localStorage.getItem("user"));
-const userId = user?.id;
-console.log(userId)
 const API_BASE = "https://login-signup-iu.onrender.com";
 
 export default function UserProfile() {
+    const [userId, setUserId] = useState(null);
     const [activeTab, setActiveTab] = useState("Saved Locations");
     const [editMode, setEditMode] = useState(false);
     const [profile, setProfile] = useState({});
@@ -25,27 +23,45 @@ export default function UserProfile() {
     const [savedLocations, setSavedLocations] = useState([]);
     const [newLocation, setNewLocation] = useState({ name: "", address: "" });
 
-    // Fetch profile and locations on load
+    // Fetch userId from localStorage on mount
     useEffect(() => {
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (user?.id) {
+            setUserId(user.id);
+        }
+    }, []);
+
+    // Fetch profile and locations when userId is available
+    useEffect(() => {
+        if (!userId) return;
+
         const fetchProfile = async () => {
-            const res = await axios.get(`${API_BASE}/api/user/profile?userId=${userId}`);
-            setProfile(res.data);
-            setFormData({
-                name: res.data.fullName,
-                email: res.data.email,
-                phone: res.data.phone,
-                address: res.data.address,
-            });
+            try {
+                const res = await axios.get(`${API_BASE}/api/user/profile?userId=${userId}`);
+                setProfile(res.data);
+                setFormData({
+                    name: res.data.fullName,
+                    email: res.data.email,
+                    phone: res.data.phone,
+                    address: res.data.address,
+                });
+            } catch (err) {
+                console.error("Error fetching profile:", err);
+            }
         };
 
         const fetchLocations = async () => {
-            const res = await axios.get(`${API_BASE}/api/user/locations?userId=${userId}`);
-            setSavedLocations(res.data);
+            try {
+                const res = await axios.get(`${API_BASE}/api/user/locations?userId=${userId}`);
+                setSavedLocations(res.data);
+            } catch (err) {
+                console.error("Error fetching locations:", err);
+            }
         };
 
         fetchProfile();
         fetchLocations();
-    }, []);
+    }, [userId]);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -88,7 +104,7 @@ export default function UserProfile() {
     };
 
     const handleDeleteLocation = async (name) => {
-        await axios.delete("/api/user/locations", {
+        await axios.delete(`${API_BASE}/api/user/locations`, {
             data: { userId, name },
         });
 
@@ -104,7 +120,7 @@ export default function UserProfile() {
                     <div className="bg-gray-100 dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
                         <div className="flex flex-col items-center">
                             <div className="relative w-24 h-24 rounded-full bg-green-500 flex items-center justify-center text-3xl font-bold text-white mb-4">
-                                {profile.fullName?.[0] || "U"}
+                                {(profile.fullName?.[0] || "").toUpperCase()}
                                 {editMode && (
                                     <Pencil className="absolute bottom-0 right-0 w-5 h-5 bg-white text-green-600 rounded-full p-1" />
                                 )}
@@ -222,19 +238,21 @@ export default function UserProfile() {
                         ) : (
                             <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-2xl space-y-6">
                                 <div className="flex gap-4 border-b border-gray-300 dark:border-gray-600 pb-2">
+
                                     {[
                                         "Saved Locations",
                                         "Payment Methods",
-                                        "My Rides",
-                                        "Account Settings",
+                                        "My Rides"
                                     ].map((tab) => (
+
                                         <button
                                             key={tab}
                                             onClick={() => setActiveTab(tab)}
-                                            className={`px-4 py-2 rounded-t-md text-sm font-medium ${activeTab === tab
-                                                ? "bg-gray-200 dark:bg-gray-700"
-                                                : "bg-transparent"
-                                                } hover:bg-gray-200 dark:hover:bg-gray-700`}
+                                            className={`px-4 py-2 rounded-t-md text-sm font-medium ${
+                                                activeTab === tab
+                                                    ? "bg-gray-200 dark:bg-gray-700"
+                                                    : "bg-transparent"
+                                            } hover:bg-gray-200 dark:hover:bg-gray-700`}
                                         >
                                             {tab}
                                         </button>
@@ -305,12 +323,8 @@ export default function UserProfile() {
                                         ))}
                                     </div>
                                 )}
-                                {activeTab === "Payment Methods" && (
-                                    <PaymentPage />
-                                )}
-                                {activeTab === "My Rides" && (
-                                    <RecentRides />
-                                )}
+                                {activeTab === "Payment Methods" && <PaymentPage />}
+                                {activeTab === "My Rides" && <RecentRides />}
                             </div>
                         )}
                     </div>

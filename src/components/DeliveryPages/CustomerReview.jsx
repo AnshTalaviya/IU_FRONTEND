@@ -44,7 +44,7 @@ export default function CustomerReview() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="bg-gradient-to-r from-gray-900 via-gray-300 to-gray-900 text-white py-14 px-6 max-w-6xl mx-auto  "
+        className="bg-gradient-to-r from-gray-900 to-gray-900 text-white py-14 px-6 max-w-6xl mx-auto  "
       >
         <h2 className="text-center text-3xl md:text-4xl font-bold dark:text-green-500 text-black mb-12 tracking-wide">
           <span className="inline-block ">What Our Customers Say</span>
@@ -67,7 +67,7 @@ export default function CustomerReview() {
                 boxShadow: "0 10px 20px rgba(99, 241, 158, 0.5)", // green-500 shadow
                 transition: { duration: 0.3 },
               }}
-              className="relative group dark:bg-gray-900 bg-white  dark:text-gray-300  text-gray-800  border-l-4 border-green-500 p-6 rounded-lg shadow-md "
+              className="relative group dark:bg-gray-800 bg-white  dark:text-gray-300  text-gray-800  border-l-4 border-green-500 p-6 rounded-lg shadow-md "
             >
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-green-600   flex items-center justify-center rounded-full text-lg font-bold">

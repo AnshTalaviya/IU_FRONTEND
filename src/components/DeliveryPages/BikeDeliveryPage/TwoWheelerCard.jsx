@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { FaBox, FaFlask, FaAppleAlt, FaWeightHanging, FaTimes } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import { FaWeightHanging, FaTimes, FaMapMarkerAlt, FaPhoneAlt, FaUser } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 // import { FaBox, FaFlask, FaAppleAlt, FaWeightHanging, FaTimes } from "react-icons/fa";
 
@@ -16,20 +16,33 @@ const TwoWheelerCard = () => {
     const [isMobileFocused, setIsMobileFocused] = useState(false);
     const [isNameFocused, setIsNameFocused] = useState(false);
 
-    // ✅ Mobile valid only if 10 digits
-    const isMobileValid = /^\d{10}$/.test(mobile);
 
-    // ✅ Enable button if all fields filled & mobile is valid
+    const isMobileValid = /^\d{10}$/.test(mobile);
     const isFormComplete = pickup && drop && isMobileValid && name && selectedType;
 
-    // 🧠 Prevent non-numeric input
     const handleMobileChange = (e) => {
-        const value = e.target.value.replace(/\D/g, ''); // remove non-digits
+        const value = e.target.value.replace(/\D/g, '');
         setMobile(value);
     };
 
+    // 🔒 Prevent scroll when modal is open
+    useEffect(() => {
+        if (showModal) {
+            document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+        }
+
+        return () => {
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+        };
+    }, [showModal]);
+
     return (
-        <div className=" bg-white dark:bg-gray-900 dark:text-gray-300 text-gray-800 flex flex-col items-center py-12 px-4">
+        <div className="bg-white dark:bg-gray-900 dark:text-gray-300 text-gray-800 flex flex-col items-center py-12 px-4">
             <motion.h2
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -45,7 +58,6 @@ const TwoWheelerCard = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 text-gray-800 rounded-xl shadow-lg p-6 w-full max-w-4xl flex flex-col sm:flex-row items-center gap-6 sm:gap-8 border border-gray-700"
             >
-                {/* Bike Image */}
                 <motion.div
                     initial={{ x: -30, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
@@ -59,21 +71,20 @@ const TwoWheelerCard = () => {
                     />
                 </motion.div>
 
-                {/* Content */}
                 <motion.div
                     initial={{ x: 30, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                     className="w-full sm:w-2/3 dark:text-gray-300 text-gray-800"
                 >
-                    <h3 className="text-lg font-semibold  dark:text-gray-300  text-gray-800">2 Wheeler</h3>
+                    <h3 className="text-lg font-semibold">2 Wheeler</h3>
                     <div className="flex items-center gap-2 my-2 text-gray-300">
                         <FaWeightHanging className="text-green-400" />
-                        <span className="text-sm dark:text-gray-300 text-gray-800 font-medium">20 kg</span>
+                        <span className="text-sm font-medium">20 kg</span>
                     </div>
 
                     <p className="text-sm mb-2">
-                        Starting From <span className="font-semibold ">₹48</span>
+                        Starting From <span className="font-semibold">₹48</span>
                     </p>
 
                     <p className="text-sm text-gray-400 mb-4 leading-relaxed">
@@ -91,8 +102,8 @@ const TwoWheelerCard = () => {
                 </motion.div>
             </motion.div>
 
-            {/* Modal */}
             {showModal && (
+
                 <div className="fixed inset-0 z-50 bg-black bg-opacity-40 dark:bg-gray-900 dark:bg-opacity-40 flex justify-center items-start sm:items-center px-2 sm:px-4 pt-4 sm:pt-10 overflow-y-auto">
                     <div className="w-full max-w-2xl min-h-[85vh] bg-white dark:bg-gray-800 flex flex-col md:flex-row rounded-md overflow-hidden shadow-xl my-2 sm:my-4">
                         {/* Left Section */}
@@ -133,7 +144,9 @@ const TwoWheelerCard = () => {
                         </div> */}
 
                         {/* Right Section */}
+
                         <div className="relative bg-white dark:bg-black text-gray-800 dark:text-gray-300 w-full md:w-1/2 p-3 sm:p-4 md:p-6 py-6 sm:py-8 md:py-10 overflow-y-auto">
+
                             <button
                                 onClick={() => setShowModal(false)}
                                 className="absolute top-2 sm:top-3 md:top-4 right-2 sm:right-3 md:right-4 text-gray-600 dark:text-gray-300 dark:hover:text-red-600 hover:text-red-500 text-lg sm:text-xl md:text-2xl"
@@ -191,6 +204,7 @@ const TwoWheelerCard = () => {
                                         placeholder=" "
                                         className="w-full h-10 sm:h-12 md:h-14 px-3 pt-5 sm:pt-6 pb-2 text-sm sm:text-base bg-white dark:bg-black text-gray-900 dark:text-gray-300 border border-gray-300 rounded-md focus:outline-none"
                                     />
+
                                     {mobile && !isMobileValid && (
                                         <p className="text-red-500 text-xs mt-1">Please enter a valid 10-digit number.</p>
                                     )}

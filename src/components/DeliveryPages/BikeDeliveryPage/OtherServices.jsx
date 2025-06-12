@@ -1,26 +1,31 @@
 import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const services = [
   {
     title: "All India Parcel",
     image:
       "https://www.shutterstock.com/image-photo/indian-woman-receiving-box-courier-260nw-2248444875.jpg",
+    route: "/services/city-to-city", // Added route property
   },
   {
     title: "Packers & Movers",
     image:
       "https://t3.ftcdn.net/jpg/05/41/66/78/360_F_541667819_2n6o4de3aB4PB9VqkPkNP1BGszqT2V7B.jpg",
+    route: "/services/move-service", // Added route property
   },
   {
     title: "Trucks",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS99twewQBJn5xX8LwTOr7xBs0WdRzFFeukpw&s",
+    route: "/services/mini-trucks", // Added route property
   },
 ];
 
 export default function OtherServices() {
-const [visibleCards, setVisibleCards] = useState([]);
+  const [visibleCards, setVisibleCards] = useState([]);
+  const navigate = useNavigate(); // Initialize useNavigate hook
 
   useEffect(() => {
     services.forEach((_, index) => {
@@ -46,6 +51,7 @@ const [visibleCards, setVisibleCards] = useState([]);
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-5"
               }`}
+              onClick={() => navigate(service.route)} // Navigate to the specific service route
             >
               <img
                 src={service.image}

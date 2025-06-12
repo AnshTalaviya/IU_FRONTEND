@@ -31,7 +31,6 @@ import GreenXL from "./components/RidePages/CarRide/GreenXL";
 import AutoRide from "./components/RidePages/AutoRide/autoRide";
 import AutoProps from "./components/RidePages/AutoRide/AutoProps";
 import GreenAuto from "./components/RidePages/AutoRide/GreenAuto";
-import CourierXL from "./components/RidePages/CourierRide/CourierXL";
 
 // Driver Pages
 import DriverDashboard from './components/DriverDashboard/Page/DriverDashboard';
@@ -48,8 +47,6 @@ import BikeProps from "./components/RideBooking/BikeProps";
 import RideTrackingPage from "./components/RideBooking/RideTrackingPage";
 import RideCompleted from "./components/RideBooking/RideCompleted";
 import ConfirmRide from "./components/RideBooking/ConfirmRide";
-import CourierRide from "./components/RidePages/CourierRide/CourierRide";
-import CourierProps from "./components/RidePages/CourierRide/CourierProps";
 import FoodRide from "./components/RidePages/FoodDelivery/FoodRide";
 import FoodProps from "./components/RidePages/FoodDelivery/FoodProps";
 import FoodXL from "./components/RidePages/FoodDelivery/FoodXL";
@@ -105,6 +102,7 @@ function App() {
                 <Routes>
                   {/* User Routes go here */}
                   <Route path="/" element={<HomePage />} />
+                   {/* eslint-disable-next-line */}
                   <Route path="/Services/carrides" element={<Car_Rides />} />
                   <Route path="/Services/rentals" element={<Rentals />} />
                   {/* eslint-disable-next-line */}
@@ -152,10 +150,6 @@ function App() {
                   <Route path="/services/mini-trucks" element={<MiniTruckDelivery />} />
                   <Route path="/services/move-service" element={<MovingService />} />
                   <Route path="/services/city-to-city" element={<CityDelivery />} />
-
-                  {/* <Route path="/courier-ride" element={<CourierRide />} />
-                  <Route path="/fast" element={<CourierProps />} />
-                  <Route path="/luggage" element={<CourierXL />} /> */}
 
                   {/* Food */}
                   <Route path="/food-delivery" element={<FoodRide />} />

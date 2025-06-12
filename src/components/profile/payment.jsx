@@ -1,39 +1,16 @@
 import React, { useState } from "react";
-// import { button } from "@/components/ui/button";
 import { Trash2, PlusCircle } from "lucide-react";
 
 export default function PaymentPage() {
-  const [paymentMethods, setPaymentMethods] = useState([
-    {
-      id: 1,
-      type: "Credit Card",
-      name: "HDFC Credit Card",
-      last4: "4242",
-      expiry: "12/26",
-      isDefault: true,
-    },
-    {
-      id: 2,
-      type: "Debit Card",
-      name: "ICICI Debit Card",
-      last4: "5678",
-      expiry: "09/25",
-      isDefault: false,
-    },
-    {
-      id: 3,
-      type: "UPI",
-      name: "user@upi",
-      isDefault: false,
-    },
-  ]);
-
+  const [paymentMethods, setPaymentMethods] = useState([]);
   const [showForm, setShowForm] = useState(false);
+
   const [newMethod, setNewMethod] = useState({
     type: "Credit Card",
     cardNumber: "",
     cardHolder: "",
-    expiry: "",
+    expiryMonth: "",
+    expiryYear: "",
     cvv: "",
   });
 
@@ -41,7 +18,26 @@ export default function PaymentPage() {
     setNewMethod({ ...newMethod, [e.target.name]: e.target.value });
   };
 
+  const isValidDetails = () => {
+    if (newMethod.type === "UPI") {
+      return newMethod.cardHolder.trim().length > 0 && newMethod.cardHolder.includes("@");
+    } else {
+      return (
+        newMethod.cardNumber.length >= 12 &&
+        newMethod.cardHolder.trim().length > 0 &&
+        newMethod.expiryMonth &&
+        newMethod.expiryYear &&
+        /^\d{3,4}$/.test(newMethod.cvv)
+      );
+    }
+  };
+
   const handleAddPaymentMethod = () => {
+    if (!isValidDetails()) {
+      alert("Please enter valid payment details.");
+      return;
+    }
+
     const newEntry = {
       id: Date.now(),
       type: newMethod.type,
@@ -50,24 +46,44 @@ export default function PaymentPage() {
           ? newMethod.cardHolder
           : `${newMethod.cardHolder.split(" ")[0]} ${newMethod.type}`,
       last4: newMethod.cardNumber?.slice(-4),
-      expiry: newMethod.expiry,
-      isDefault: false,
+      expiry: `${newMethod.expiryMonth}/${newMethod.expiryYear}`,
+      isDefault: paymentMethods.length === 0,
     };
+
     setPaymentMethods([...paymentMethods, newEntry]);
     setShowForm(false);
-    setNewMethod({ type: "Credit Card", cardNumber: "", cardHolder: "", expiry: "", cvv: "" });
+    setNewMethod({
+      type: "Credit Card",
+      cardNumber: "",
+      cardHolder: "",
+      expiryMonth: "",
+      expiryYear: "",
+      cvv: "",
+    });
   };
 
+  const handleDelete = (id) => {
+    setPaymentMethods((prev) => prev.filter((m) => m.id !== id));
+  };
+
+  const handleSetDefault = (id) => {
+    setPaymentMethods((prev) =>
+      prev.map((m) => ({ ...m, isDefault: m.id === id }))
+    );
+  };
+
+  const currentYear = new Date().getFullYear();
+  const currentMonth = new Date().getMonth() + 1;
+
   return (
-    <div className="p-6 min-h-screen bg-gray-900 text-white">
-      <div className="bg-gray-800 p-6 rounded-lg">
-        <div className="flex justify-between items-center mb-4">
-          <h3 className="text-lg font-semibold">Payment Methods</h3>
+    <div className="p-6 min-h-screen bg-gray-900 text-white flex flex-col items-center">
+      <div className="bg-gray-800 p-6 rounded-lg w-full max-w-2xl">
+        <div className="flex justify-center mb-4">
           <button
-            className="bg-green-600 flex items-center gap-2"
+            className="bg-green-600 px-4 py-2 rounded-lg flex items-center gap-2"
             onClick={() => setShowForm(true)}
           >
-            <PlusCircle className="w-4 h-4" /> Add New
+            <PlusCircle className="w-4 h-4" /> Choose Your Payment Method
           </button>
         </div>
 
@@ -76,14 +92,14 @@ export default function PaymentPage() {
             <h4 className="text-white font-semibold mb-4">Add Payment Method</h4>
             <div className="space-y-4">
               <div className="flex gap-2">
-                {['Credit Card', 'Debit Card', 'UPI'].map((option) => (
+                {["Credit Card", "Debit Card", "UPI"].map((option) => (
                   <button
                     key={option}
                     onClick={() => setNewMethod({ ...newMethod, type: option })}
                     className={`px-4 py-2 rounded-full border text-sm ${
                       newMethod.type === option
-                        ? 'bg-green-600 border-green-600'
-                        : 'bg-gray-700 border-gray-600'
+                        ? "bg-green-600 border-green-600"
+                        : "bg-gray-700 border-gray-600"
                     }`}
                   >
                     {option}
@@ -91,7 +107,7 @@ export default function PaymentPage() {
                 ))}
               </div>
 
-              {newMethod.type !== 'UPI' && (
+              {newMethod.type !== "UPI" && (
                 <>
                   <div>
                     <label className="block mb-1">Card Number</label>
@@ -100,6 +116,7 @@ export default function PaymentPage() {
                       name="cardNumber"
                       className="w-full px-4 py-2 rounded bg-gray-800 text-white border border-gray-600"
                       placeholder="1234 5678 9012 3456"
+                      value={newMethod.cardNumber}
                       onChange={handleInputChange}
                     />
                   </div>
@@ -111,28 +128,59 @@ export default function PaymentPage() {
                       name="cardHolder"
                       className="w-full px-4 py-2 rounded bg-gray-800 text-white border border-gray-600"
                       placeholder="John Doe"
+                      value={newMethod.cardHolder}
                       onChange={handleInputChange}
                     />
                   </div>
 
                   <div className="flex gap-4">
-                    <div className="w-1/2">
-                      <label className="block mb-1">Expiry Date</label>
-                      <input
-                        type="text"
-                        name="expiry"
-                        className="w-full px-4 py-2 rounded bg-gray-800 text-white border border-gray-600"
-                        placeholder="MM/YY"
+                    <div className="w-1/3">
+                      <label className="block mb-1">Expiry Month</label>
+                      <select
+                        name="expiryMonth"
+                        value={newMethod.expiryMonth}
                         onChange={handleInputChange}
-                      />
+                        className="w-full px-3 py-2 rounded bg-gray-800 text-white border border-gray-600"
+                      >
+                        <option value="">Month</option>
+                        {Array.from({ length: 12 }, (_, i) => i + 1).map((m) => {
+                          const padded = m.toString().padStart(2, "0");
+                          return (
+                            <option
+                              key={padded}
+                              value={padded}
+                              disabled={
+                                parseInt(newMethod.expiryYear) === currentYear && m < currentMonth
+                              }
+                            >
+                              {padded}
+                            </option>
+                          );
+                        })}
+                      </select>
                     </div>
-                    <div className="w-1/2">
+                    <div className="w-1/3">
+                      <label className="block mb-1">Expiry Year</label>
+                      <select
+                        name="expiryYear"
+                        value={newMethod.expiryYear}
+                        onChange={handleInputChange}
+                        className="w-full px-3 py-2 rounded bg-gray-800 text-white border border-gray-600"
+                      >
+                        <option value="">Year</option>
+                        {Array.from({ length: 16 }, (_, i) => currentYear + i).map((y) => (
+                          <option key={y} value={y}>{y}</option>
+                        ))}
+                      </select>
+                    </div>
+                    <div className="w-1/3">
                       <label className="block mb-1">CVV</label>
                       <input
                         type="text"
                         name="cvv"
                         className="w-full px-4 py-2 rounded bg-gray-800 text-white border border-gray-600"
                         placeholder="123"
+                        value={newMethod.cvv}
                         onChange={handleInputChange}
                       />
                     </div>
@@ -140,7 +188,7 @@ export default function PaymentPage() {
                 </>
               )}
 
-              {newMethod.type === 'UPI' && (
+              {newMethod.type === "UPI" && (
                 <div>
                   <label className="block mb-1">UPI ID</label>
                   <input
@@ -148,6 +196,7 @@ export default function PaymentPage() {
                     name="cardHolder"
                     className="w-full px-4 py-2 rounded bg-gray-800 text-white border border-gray-600"
                     placeholder="yourname@upi"
+                    value={newMethod.cardHolder}
                     onChange={handleInputChange}
                   />
                 </div>
@@ -155,14 +204,13 @@ export default function PaymentPage() {
 
               <div className="flex justify-end gap-2">
                 <button
-                  variant="ghost"
-                  className="text-white border border-gray-600"
+                  className="text-white border border-gray-600 px-4 py-2 rounded"
                   onClick={() => setShowForm(false)}
                 >
                   Cancel
                 </button>
-                <button className="bg-green-600" onClick={handleAddPaymentMethod}>
-                  Add Payment Method
+                <button className="bg-green-600 px-4 py-2 rounded" onClick={handleAddPaymentMethod}>
+                  Add
                 </button>
               </div>
             </div>
@@ -197,18 +245,26 @@ export default function PaymentPage() {
                 <div>
                   <p className="font-semibold text-white">{method.name}</p>
                   {method.last4 && <p className="text-sm text-gray-400">•••• {method.last4}</p>}
-                  {method.expiry && <p className="text-sm text-gray-400">Expires: {method.expiry}</p>}
+                  {method.expiry && (
+                    <p className="text-sm text-gray-400">Expires: {method.expiry}</p>
+                  )}
                   {method.isDefault && <p className="text-green-500 text-sm">Default</p>}
                 </div>
               </div>
               <div className="flex gap-2 items-center">
                 {!method.isDefault && (
-                  <button variant="secondary" className="text-white bg-gray-700 hover:bg-gray-600">
+                  <button
+                    className="text-white bg-gray-700 hover:bg-gray-600 px-2 py-1 rounded text-sm"
+                    onClick={() => handleSetDefault(method.id)}
+                  >
                     Set Default
                   </button>
                 )}
                 {!method.isDefault && (
-                  <button variant="ghost" size="icon" className="text-red-500 hover:text-red-600">
+                  <button
+                    className="text-red-500 hover:text-red-600"
+                    onClick={() => handleDelete(method.id)}
+                  >
                     <Trash2 className="w-5 h-5" />
                   </button>
                 )}

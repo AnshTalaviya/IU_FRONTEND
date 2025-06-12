@@ -131,7 +131,7 @@ const DownloadAppSection = () => {
                   Driver Partner?
                 </span>{" "}
                 Download the dedicated driver app to start earning with
-                GreenGlide today!
+                Idhar Udhar today!
               </p>
               <Link
                 to="#"

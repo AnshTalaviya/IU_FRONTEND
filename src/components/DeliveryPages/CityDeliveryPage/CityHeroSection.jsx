@@ -75,7 +75,7 @@ const CityHeroSection = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2, duration: 0.6 }}
                     >
-                        Reliable Goods Transportation Services in{" "}
+                        Reliable City To City Goods Transportation Services in{" "}
                         <span className="text-green-400 underline cursor-pointer">
                             {selectedCity}
                         </span>

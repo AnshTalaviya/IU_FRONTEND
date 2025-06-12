@@ -21,7 +21,7 @@ export default function Rentals() {
           {/* Left Content */}
           <div className="w-full md:w-1/2 md:pl-4">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              GreenGlide Rentals
+              Idhar Udhar Rentals
             </h1>
             <p className="text-lg md:text-xl mb-8">
               Flexible vehicle rentals by the hour, day, or week for all your
@@ -75,7 +75,7 @@ export default function Rentals() {
       <div className="bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
-            Why Choose GreenGlide Rentals?
+            Why Choose Idhar Udhar Rentals?
           </h1>
           <p className="text-gray-600 dark:text-gray-300 max-w-xl mx-auto mb-10">
             The most convenient and flexible way to rent vehicles for any

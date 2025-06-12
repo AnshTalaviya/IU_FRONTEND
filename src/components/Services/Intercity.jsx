@@ -12,7 +12,7 @@ export default function Intercity() {
             to: 'Pune',
             distance: '150 km',
             time: '3 hours',
-            price: '\u20B91,999',
+            // price: '\u20B91,999',
             image: '/images/Mumbai.png',
         },
         {
@@ -20,7 +20,7 @@ export default function Intercity() {
             to: 'Agra',
             distance: '233 km',
             time: '3.5 hours',
-            price: '\u20B92,499',
+            // price: '\u20B92,499',
             image: '/images/Delhi.png',
         },
         {
@@ -28,7 +28,7 @@ export default function Intercity() {
             to: 'Mysore',
             distance: '150 km',
             time: '3.5 hours',
-            price: '\u20B91,899',
+            // price: '\u20B91,899',
             image: '/images/Bangalore.png',
         },
         {
@@ -36,12 +36,12 @@ export default function Intercity() {
             to: 'Pondicherry',
             distance: '170 km',
             time: '3 hours',
-            price: '\u20B91,799',
+            // price: '\u20B91,799',
             image: '/images/Chennai.png',
         },
     ];
     const steps = [
-        {
+        {   
             number: "1",
             title: "Select Cities",
             description: "Choose your pickup and drop-off cities, along with your travel date and time"
@@ -226,7 +226,7 @@ export default function Intercity() {
                                 <div className="flex justify-between items-center">
                                     <span className="text-green-600 font-semibold text-lg">{route.price}</span>
 
-                                    <Link to='/Book_ride'><button className="px-4 py-1 bg-gray-100 dark:bg-black dark:text-white dark:border-gray-800 border rounded hover:bg-gray-200">Book</button></Link>
+                                    {/* <Link to='/Book_ride'><button className="px-4 py-1 bg-gray-100 dark:bg-black dark:text-white dark:border-gray-800 border rounded hover:bg-gray-200">Book</button></Link> */}
                                 </div>
 
                             </div>
@@ -234,11 +234,11 @@ export default function Intercity() {
                     ))}
                 </div>
 
-                <div className="mt-10 text-center">
+                {/* <div className="mt-10 text-center">
                     <button className="px-6 py-2 bg-white dark:bg-black dark:text-white dark:border-gray-800 dark:hover:bg-green-900 border border-gray-300 rounded-md hover:bg-green-200">
                         View All Routes
                     </button>
-                </div>
+                </div> */}
             </section>
 
             {/* 4th */}

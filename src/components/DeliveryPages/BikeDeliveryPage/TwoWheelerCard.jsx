@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { FaWeightHanging, FaTimes, FaMapMarkerAlt, FaPhoneAlt, FaUser } from 'react-icons/fa';
+import { FaWeightHanging, FaTimes, FaMapMarkerAlt, FaPhoneAlt, FaUser ,FaBox,FaFlask,FaAppleAlt} from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import { FaBox, FaFlask, FaAppleAlt, FaWeightHanging, FaTimes } from "react-icons/fa";
-
 
 const TwoWheelerCard = () => {
     const [showModal, setShowModal] = useState(false);

@@ -80,7 +80,7 @@ const Profile = () => {
       }
 
       try {
-        const response = await axios.get(`https://login-signup-iu.onrender.com/api/user/profile?userId=${userId}`);
+        const response = await axios.get(`http://localhost:5000/api/user/profile?userId=${userId}`);
         const data = response.data;
 
         // Update profileData state
@@ -279,6 +279,7 @@ const Profile = () => {
         return <input type="text" {...commonProps} />;
     }
   };
+  
 
   return (
     <div className="max-w-6xl mx-auto p-4 dark:bg-gray-950 bg-gray-50 min-h-screen">

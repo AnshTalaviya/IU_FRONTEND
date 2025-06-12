@@ -65,6 +65,7 @@ import MovingService from "./pages/MovingService";
 import ScrollTop from "./components/ScrollTop";
 import CityDelivery from "./pages/CityDelivery";
 import Faqs from "./components/Faqs";
+import Games from "./components/DriverDashboard/Page/Games";
 
 function App() {
   const navigate = useNavigate();
@@ -84,10 +85,11 @@ function App() {
         <Routes>
           {/* Driver Panel - No Layout */}
           <Route path="/driver" element={<DriverPannle />}>
-            <Route index element={<DriverDashboard />} />
-            <Route path="ridehistory" element={<RideHistory />} />
-            <Route path="earnings" element={<Earnings />} />
             <Route path="profile" element={<Profile />} />
+            <Route index element={<DriverDashboard />} />
+            <Route path="earnings" element={<Earnings />} />
+            <Route path="ridehistory" element={<RideHistory />} />
+            <Route path="games" element={<Games />} />
             <Route path="support" element={<Support />} />
             <Route path="settings" element={<Settings />} />
           </Route>
@@ -102,7 +104,7 @@ function App() {
                 <Routes>
                   {/* User Routes go here */}
                   <Route path="/" element={<HomePage />} />
-                   {/* eslint-disable-next-line */}
+                  {/* eslint-disable-next-line */}
                   <Route path="/Services/carrides" element={<Car_Rides />} />
                   <Route path="/Services/rentals" element={<Rentals />} />
                   {/* eslint-disable-next-line */}

@@ -55,20 +55,20 @@ const RideTrackingPage = () => {
     <div className="min-h-screen bg-white dark:bg-[#1F2937] text-white flex items-center justify-center p-6 relative">
       <style>
         {`
-          @keyframes slide-up {
-            from {
-              transform: translateY(20px);
-              opacity: 0;
+            @keyframes slide-up {
+              from {
+                transform: translateY(20px);
+                opacity: 0;
+              }
+              to {
+                transform: translateY(0);
+                opacity: 1;
+              }
             }
-            to {
-              transform: translateY(0);
-              opacity: 1;
+            .animate-slide-up {
+              animation: slide-up 0.4s ease-out;
             }
-          }
-          .animate-slide-up {
-            animation: slide-up 0.4s ease-out;
-          }
-        `}
+          `}
       </style>
 
       <div className="bg-[#1e293b] w-full max-w-3xl rounded-xl shadow-2xl overflow-hidden">
@@ -169,10 +169,10 @@ const RideTrackingPage = () => {
       </div>
 
       {showPopup && (
-        <div className="fixed bottom-6 right-6 z-50">
-          <div className="bg-gray-950 text-white px-6 py-5 rounded-xl shadow-xl flex items-start gap-4 w-96 animate-slide-up relative">
+        <div className="fixed bottom-4 left-4 right-4 md:bottom-6 md:right-6 md:left-auto z-50">
+          <div className="bg-gray-950 text-white px-4 py-4 md:px-6 md:py-5 rounded-xl shadow-xl flex items-start gap-4 w-full max-w-sm md:max-w-md animate-slide-up relative mx-auto md:mx-0">
             <div className="flex-1">
-              <p className="font-semibold text-lg">Ride Confirmed</p>
+              <p className="font-semibold text-base md:text-lg">Ride Confirmed</p>
               <p className="text-sm text-white/90">Your ride has been booked successfully.</p>
             </div>
             <button
@@ -184,6 +184,7 @@ const RideTrackingPage = () => {
           </div>
         </div>
       )}
+
     </div>
   );
 };

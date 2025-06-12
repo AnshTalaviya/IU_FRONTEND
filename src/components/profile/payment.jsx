@@ -73,7 +73,6 @@ export default function PaymentPage() {
   };
 
   const currentYear = new Date().getFullYear();
-  const currentMonth = new Date().getMonth() + 1;
 
   return (
     <div className="p-6 min-h-screen bg-gray-900 text-white flex flex-col items-center">
@@ -88,10 +87,10 @@ export default function PaymentPage() {
         </div>
 
         {showForm && (
-          <div className="bg-gray-900 p-6 rounded-lg mb-6 border border-gray-700">
+          <div className="bg-gray-900 p-6 rounded-lg mb-6 border border-gray-700 w-full">
             <h4 className="text-white font-semibold mb-4">Add Payment Method</h4>
             <div className="space-y-4">
-              <div className="flex gap-2">
+              <div className="flex flex-wrap gap-2">
                 {["Credit Card", "Debit Card", "UPI"].map((option) => (
                   <button
                     key={option}
@@ -133,47 +132,49 @@ export default function PaymentPage() {
                     />
                   </div>
 
-                  <div className="flex gap-4">
-                    <div className="w-1/3">
+                  {/* Responsive Expiry and CVV */}
+                  <div className="flex flex-wrap gap-4">
+                    <div className="flex flex-col flex-1 min-w-[120px]">
                       <label className="block mb-1">Expiry Month</label>
                       <select
                         name="expiryMonth"
+                        className="w-full px-3 py-2 rounded bg-gray-800 text-white border border-gray-600"
                         value={newMethod.expiryMonth}
                         onChange={handleInputChange}
-                        className="w-full px-3 py-2 rounded bg-gray-800 text-white border border-gray-600"
                       >
                         <option value="">Month</option>
-                        {Array.from({ length: 12 }, (_, i) => i + 1).map((m) => {
-                          const padded = m.toString().padStart(2, "0");
+                        {Array.from({ length: 12 }, (_, i) => {
+                          const month = (i + 1).toString().padStart(2, "0");
                           return (
-                            <option
-                              key={padded}
-                              value={padded}
-                              disabled={
-                                parseInt(newMethod.expiryYear) === currentYear && m < currentMonth
-                              }
-                            >
-                              {padded}
+                            <option key={month} value={month}>
+                              {month}
                             </option>
                           );
                         })}
                       </select>
                     </div>
-                    <div className="w-1/3">
+
+                    <div className="flex flex-col flex-1 min-w-[120px]">
                       <label className="block mb-1">Expiry Year</label>
                       <select
                         name="expiryYear"
+                        className="w-full px-3 py-2 rounded bg-gray-800 text-white border border-gray-600"
                         value={newMethod.expiryYear}
                         onChange={handleInputChange}
-                        className="w-full px-3 py-2 rounded bg-gray-800 text-white border border-gray-600"
                       >
                         <option value="">Year</option>
-                        {Array.from({ length: 16 }, (_, i) => currentYear + i).map((y) => (
-                          <option key={y} value={y}>{y}</option>
-                        ))}
+                        {Array.from({ length: 10 }, (_, i) => {
+                          const year = currentYear + i;
+                          return (
+                            <option key={year} value={year}>
+                              {year}
+                            </option>
+                          );
+                        })}
                       </select>
                     </div>
-                    <div className="w-1/3">
+
+                    <div className="flex flex-col flex-1 min-w-[120px]">
                       <label className="block mb-1">CVV</label>
                       <input
                         type="text"
@@ -202,14 +203,17 @@ export default function PaymentPage() {
                 </div>
               )}
 
-              <div className="flex justify-end gap-2">
+              <div className="flex justify-end gap-2 flex-wrap">
                 <button
                   className="text-white border border-gray-600 px-4 py-2 rounded"
                   onClick={() => setShowForm(false)}
                 >
                   Cancel
                 </button>
-                <button className="bg-green-600 px-4 py-2 rounded" onClick={handleAddPaymentMethod}>
+                <button
+                  className="bg-green-600 px-4 py-2 rounded"
+                  onClick={handleAddPaymentMethod}
+                >
                   Add
                 </button>
               </div>
@@ -217,6 +221,7 @@ export default function PaymentPage() {
           </div>
         )}
 
+        {/* Render Payment Methods */}
         <div className="space-y-4">
           {paymentMethods.map((method) => (
             <div

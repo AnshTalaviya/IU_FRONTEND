@@ -1,7 +1,6 @@
 import React from "react";
-import {  Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import AddPaymentMethod from "./AddPaymentMethod";
-
 
 const ConfirmRide = ({
   pickupLocation,
@@ -10,17 +9,14 @@ const ConfirmRide = ({
   eta,
   fareDetails,
   totalFare,
-  paymentMethods,
   selectedMethod,
-  onSelectMethod,
   onShowAddPayment,
   onHideAddPayment,
   showAddPayment,
   onAddPayment,
   Route,
-  rideIcon
+  rideIcon,
 }) => {
-
   return (
     <>
       <div className="min-h-screen bg-white dark:bg-[#1F2937] flex items-center justify-center px-4 py-10 text-white">
@@ -33,15 +29,13 @@ const ConfirmRide = ({
                 Edit
               </span>
             </Link>
-
-
           </p>
+
           <div className="bg-[#111826] p-4 rounded-lg flex items-center justify-between mb-6">
             <div className="flex items-center gap-4">
               <div className="bg-gray-800 p-3 rounded-full">
                 <span className="text-[#0fa958] text-2xl">{rideIcon}</span>
               </div>
-
               <div>
                 <h3 className="font-semibold text-sm">{rideType}</h3>
                 <p className="text-xs text-gray-400">ETA: {eta}</p>
@@ -76,37 +70,19 @@ const ConfirmRide = ({
             <h4 className="text-sm font-medium mb-3 text-gray-300">
               Payment Method
             </h4>
-            <div className="space-y-3">
-              {paymentMethods.map((method, index) => (
-                <div
-                  key={index}
-                  className={`flex items-center justify-between p-4 rounded-lg cursor-pointer transition-all ${selectedMethod === index
-                    ? "border border-green-500 bg-[#111826]"
-                    : "border border-[#2E3748] bg-[#111826] hover:border-green-500"
-                    }`}
-                  onClick={() => onSelectMethod(index)}
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="text-xl">{method.icon}</div>
-                    <div>
-                      <p className="text-sm text-white">{method.title}</p>
-                      {method.detail && (
-                        <p className="text-xs text-gray-400">
-                          {method.detail}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                  {selectedMethod === index && (
-                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                  )}
+            <div className="space-y-2">
+              {selectedMethod ? (
+                <div className="p-4 rounded-lg bg-[#111826] border border-green-500">
+                  <p className="text-sm">{selectedMethod}</p>
                 </div>
-              ))}
+              ) : (
+                <p className="text-sm text-gray-500">No method selected</p>
+              )}
               <button
                 onClick={onShowAddPayment}
                 className="bg-gray-900 cursor-pointer text-white text-sm font-semibold py-3 px-4 rounded-lg hover:bg-green-900 transition-colors w-full text-center mt-1"
               >
-                ➕ Add New Payment Method
+                ➕ Choose Payment Method
               </button>
             </div>
           </div>
@@ -128,6 +104,5 @@ const ConfirmRide = ({
     </>
   );
 };
-
 
 export default ConfirmRide;

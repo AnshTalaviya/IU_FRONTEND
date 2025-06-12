@@ -37,10 +37,10 @@ const Profile = () => {
     { label: 'Email', value: '', icon: 'envelope', key: 'email', type: 'email', required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ },
     { label: 'Phone', value: '', icon: 'phone', key: 'phone', type: 'tel', required: true, pattern: /^\+?[\d\s-]+$/ },
     { label: 'Address', value: '', icon: 'map-marker-alt', key: 'address', type: 'text', required: true },
-    { label: 'Driver License', value: '', icon: 'id-card', key: 'license', type: 'text', required: true },
-    { label: 'Make & Model', value: '', icon: 'car', key: 'makeModel', type: 'text', required: true },
+    { label: 'Driver License', value: '', icon: 'id-card', key: 'licenseNumber', type: 'text', required: true },
+    { label: 'Make & Model', value: '', icon: 'car', key: 'makeAndModel', type: 'text', required: true },
     { label: 'Color', value: '', icon: 'palette', key: 'color', type: 'text', required: true },
-    { label: 'License Plate', value: '', icon: 'tag', key: 'plate', type: 'text', required: true },
+    { label: 'License Plate', value: '', icon: 'tag', key: 'vehicleNumber', type: 'text', required: true },
     { label: 'Registration', value: '', icon: 'file-alt', key: 'registration', type: 'text', required: true },
     { label: 'Insurance', value: '', icon: 'shield-alt', key: 'insurance', type: 'text', required: true },
   ]);
@@ -74,12 +74,16 @@ const Profile = () => {
     const fetchDriverDetails = async () => {
       const user = JSON.parse(localStorage.getItem("user"));
       const userId = user?.id;
-      if (!userId) return;
+      if (!userId) {
+        console.warn("User ID not found in localStorage. Cannot fetch profile.");
+        return;
+      }
 
       try {
         const response = await axios.get(`https://login-signup-iu.onrender.com/api/user/profile?userId=${userId}`);
         const data = response.data;
 
+        // Update profileData state
         setProfileData({
           name: data.fullName
             ? data.fullName.split(' ')[0] + ' ' + data.fullName.split(' ').slice(-1)[0]
@@ -95,32 +99,22 @@ const Profile = () => {
           phone: data.phone || '',
         });
 
-        // Populate personalInfo fields based on API response (if fields exist)
+        // Populate personalInfo fields based on API response
+        // IMPORTANT: Ensure personalInfo is updated correctly from the fetched data
         setPersonalInfo((prev) =>
           prev.map((item) => ({
             ...item,
-            value: data[item.key] || item.value,
+            value: data[item.key] || '', // Use data[item.key] to populate value
           }))
         );
+
       } catch (error) {
         console.error('Error fetching driver details:', error);
       }
     };
 
     fetchDriverDetails();
-  }, []);
-
-  // Sync certain profileData fields (fullName, email, phone) into personalInfo
-  useEffect(() => {
-    setPersonalInfo((prev) =>
-      prev.map((item) => {
-        if (profileData[item.key] && item.value !== profileData[item.key]) {
-          return { ...item, value: profileData[item.key] };
-        }
-        return item;
-      })
-    );
-  }, [profileData]);
+  }, []); // Empty dependency array means it runs once on mount
 
   // Open modal for editing; 'section' indicates which part (e.g., 'personal')
   const openEditModal = (section, dataArray) => {
@@ -197,26 +191,30 @@ const Profile = () => {
   // Handle form submission: PUT to /api/user/profile
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const currentFields = personalInfo;
+    const currentFields = personalInfo; // Use personalInfo to get validation rules
     if (!validateForm(currentFields)) return;
 
     setIsSubmitting(true);
 
-    // Build request body: include userId + all formData fields
     const user = JSON.parse(localStorage.getItem("user"));
     const userId = user?.id;
+    if (!userId) {
+      console.error("User ID not found. Cannot update profile.");
+      setIsSubmitting(false);
+      return;
+    }
+
     const payload = { userId, ...formData };
 
     try {
       const response = await axios.put(
-        'https://login-signup-iu.onrender.com/api/user/profile',
+        'http://localhost:5000/api/user/profile', // Use your actual backend URL
         payload
       );
 
-      // Assuming API वापस वही ऑब्जेक्ट लौटाता है जो अपडेट हुआ
-      const updatedData = response.data;
+      const updatedData = response.data; // This is the latest data from your backend
 
-      // Update local profileData with नया रिस्पॉन्स
+      // **CRITICAL FIX 1:** Update profileData with the new response
       setProfileData({
         name: updatedData.fullName
           ? updatedData.fullName.split(' ')[0] + ' ' + updatedData.fullName.split(' ').slice(-1)[0]
@@ -232,25 +230,27 @@ const Profile = () => {
         phone: updatedData.phone || '',
       });
 
-      // Update personalInfo array भी वापस नए डेटा से मैप करें
-      setPersonalInfo((prev) =>
-        prev.map((item) => ({
-          ...item,
-          value: updatedData[item.key] || '',
+      // **CRITICAL FIX 2:** Update personalInfo by creating new objects for each item
+      // This ensures React detects the change and re-renders the InfoSection
+      setPersonalInfo(
+        personalInfo.map((item) => ({
+          ...item, // Keep existing properties
+          value: updatedData[item.key] !== undefined ? updatedData[item.key] : '', // Update value from API response
         }))
       );
 
       setIsSubmitting(false);
-      setIsModalOpen(false);
+      setIsModalOpen(false); // Close modal on successful update
     } catch (err) {
       console.error('Error updating profile:', err);
+      // You might want to display a user-friendly error message here
       setIsSubmitting(false);
     }
   };
 
   // Determine which fields to render in modal based on editingSection
   const getCurrentFields = () => {
-    // Filtration logic अगर आगे vehicle सेक्शन चाहें तो लगा सकते हैं
+    // Filtration logic can be added here if you introduce a 'vehicle' section
     return personalInfo;
   };
 
@@ -459,7 +459,7 @@ const Profile = () => {
           {/* Personal Info */}
           <InfoSection
             title="Driver Information"
-            data={personalInfo}
+            data={personalInfo} // personalInfo is now directly updated
             icon="info-circle"
             onEdit={() => openEditModal('personal', personalInfo)}
           />
@@ -484,7 +484,7 @@ const Profile = () => {
                       <span className="font-medium dark:text-white text-gray-800">{percent}%</span>
                     </div>
                     <div className="w-full dark:bg-gray-700 bg-gray-200 rounded-full h-2">
-                      <div className={`${color} h-2 rounded-full shadow-sm`} style={{ width: `${percent}%` }}></div>
+                      <div className={`${color} h-2 rounded-full shadow-sm`} style={{ width: `${percent}%`}}></div>
                     </div>
                   </div>
                 ))}
@@ -521,7 +521,7 @@ const Profile = () => {
   );
 };
 
-// InfoSection component
+// InfoSection component (No changes needed here)
 const InfoSection = ({ title, data, icon, onEdit }) => (
   <div className="dark:bg-gray-200/10 bg-white rounded-xl p-6 shadow-sm dark:border-gray-700 border-gray-200 hover:shadow-lg transition-all hover:scale-[1.01]">
     <div className="flex justify-between items-center mb-6">
@@ -544,7 +544,7 @@ const InfoSection = ({ title, data, icon, onEdit }) => (
   </div>
 );
 
-// Info component
+// Info component (No changes needed here)
 const Info = ({ label, value, icon }) => (
   <div className="flex items-start gap-3 md:gap-4">
     <div className="p-2 rounded-lg dark:bg-gray-800 bg-gray-100 text-green-500">
@@ -559,7 +559,7 @@ const Info = ({ label, value, icon }) => (
   </div>
 );
 
-// Stat component
+// Stat component (No changes needed here)
 const Stat = ({ label, value, className = '', icon }) => (
   <div className="flex justify-between items-center mb-3 p-3 dark:bg-gray-800 bg-gray-100 rounded-lg hover:shadow transition">
     <div className="flex items-center">

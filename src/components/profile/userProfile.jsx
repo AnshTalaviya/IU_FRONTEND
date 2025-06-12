@@ -238,7 +238,13 @@ export default function UserProfile() {
                         ) : (
                             <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-2xl space-y-6">
                                 <div className="flex gap-4 border-b border-gray-300 dark:border-gray-600 pb-2">
-                                    {["Saved Locations", "Payment Methods", "My Rides"].map((tab) => (
+
+                                    {[
+                                        "Saved Locations",
+                                        "Payment Methods",
+                                        "My Rides"
+                                    ].map((tab) => (
+
                                         <button
                                             key={tab}
                                             onClick={() => setActiveTab(tab)}

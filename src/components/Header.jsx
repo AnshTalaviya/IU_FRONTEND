@@ -25,6 +25,8 @@ const Header = () => {
   const [servicesOpen, setServicesOpen] = useState(false);
   // eslint-disable-next-line
   const [helpOpen, setHelpOpen] = useState(false);
+  const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+
   const location = useLocation();
 
   useEffect(() => {
@@ -54,27 +56,27 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
- const getInitials = (fullName) => {
-  if (!fullName) {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      try {
-        const parsedUser = JSON.parse(storedUser);
-        fullName = parsedUser?.fullName;
-      } catch (err) {
-        console.error("Failed to parse user from localStorage:", err);
-        return "JD";
+  const getInitials = (fullName) => {
+    if (!fullName) {
+      const storedUser = localStorage.getItem("user");
+      if (storedUser) {
+        try {
+          const parsedUser = JSON.parse(storedUser);
+          fullName = parsedUser?.fullName;
+        } catch (err) {
+          console.error("Failed to parse user from localStorage:", err);
+          return "JD";
+        }
       }
     }
-  }
 
-  if (!fullName || typeof fullName !== "string") return "JD";
+    if (!fullName || typeof fullName !== "string") return "JD";
 
-  const parts = fullName.trim().split(" ");
-  return parts.length === 1
-    ? parts[0][0].toUpperCase()
-    : (parts[0][0] + parts[1][0]).toUpperCase();
-};
+    const parts = fullName.trim().split(" ");
+    return parts.length === 1
+      ? parts[0][0].toUpperCase()
+      : (parts[0][0] + parts[1][0]).toUpperCase();
+  };
 
 
   return (
@@ -213,20 +215,39 @@ const Header = () => {
               <Globe size={30} />
             </button>
             {isAuthenticated ? (
-              <>
-                <button className="w-10 h-10 rounded-full bg-green-700 text-white flex items-center justify-center font-semibold hover:bg-green-800 transition focus:outline-none">
+              <div className="relative">
+                <button
+                  onClick={() => setIsProfileDropdownOpen(!isProfileDropdownOpen)}
+                  className="w-10 h-10 rounded-full bg-green-700 text-white font-semibold hover:bg-green-800 transition focus:outline-none"
+                >
                   {getInitials(user?.name)}
                 </button>
-                <button
-                  onClick={() => {
-                    logout();
-                    window.location.href = "/";
-                  }}
-                  className="w-full text-left text-red-500 flex items-center gap-2 px-3 py-2 hover:bg-gray-800"
-                >
-                  <LogOut size={16} /> Logout
-                </button>
-              </>
+
+                {isProfileDropdownOpen && (
+                  <div className="mt-2 bg-[#0F141B] text-white rounded-md shadow-lg p-2 w-full">
+                    <div className="px-3 py-2 font-semibold border-b border-gray-700">My Account</div>
+                    <Link to="/userProfile" className="flex items-center gap-2 px-3 py-2 hover:bg-gray-800">
+                      <User size={16} /> Profile
+                    </Link>
+                    <Link to="/notifications" className="flex items-center gap-2 px-3 py-2 hover:bg-gray-800">
+                      <Bell size={16} /> Notifications
+                    </Link>
+                    <Link to="/settings" className="flex items-center gap-2 px-3 py-2 hover:bg-gray-800">
+                      <Settings size={16} /> Settings
+                    </Link>
+                    <button
+                      onClick={() => {
+                        logout();
+                        window.location.href = "/";
+                      }}
+                      className="w-full text-left text-red-500 flex items-center gap-2 px-3 py-2 hover:bg-gray-800"
+                    >
+                      <LogOut size={16} /> Logout
+                    </button>
+                  </div>
+                )}
+              </div>
+
             ) : (
               <>
                 <Link to="/login" className="bg-white dark:bg-[#0F141B] px-4 py-2 rounded-md border hover:bg-[#0F5729] hover:text-white dark:text-white">Login</Link>

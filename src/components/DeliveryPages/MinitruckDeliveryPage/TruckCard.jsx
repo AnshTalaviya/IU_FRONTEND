@@ -139,6 +139,7 @@ const TruckCard = () => {
             {showModal && selectedTruck && (
                 <div className="fixed inset-0 z-50 bg-black bg-opacity-40 dark:bg-gray-900 dark:bg-opacity-40 flex justify-center items-start sm:items-center px-2 sm:px-4 pt-4 sm:pt-10 overflow-y-auto">
                     <div className="w-full max-w-2xl min-h-[85vh] bg-white dark:bg-gray-800 flex flex-col md:flex-row rounded-md overflow-hidden shadow-xl my-2 sm:my-4">
+                        {/* Left Section */}
                         <div className="bg-[#f2f6ff] dark:bg-gray-800 text-gray-800 dark:text-gray-300 w-full md:w-1/2 p-3 sm:p-4 md:p-6 text-center px-4 sm:px-6 md:px-10 py-8 sm:py-10 md:py-20">
                             <img src={selectedTruck.image} alt={selectedTruck.title} className="mx-auto w-28 sm:w-32 md:w-44 h-20 sm:h-24 md:h-32 object-contain" />
                             <div className="text-xs sm:text-sm text-gray-800 dark:text-gray-400 mt-2">{selectedTruck.dimension}</div>
@@ -149,6 +150,7 @@ const TruckCard = () => {
                             <p className="text-xs sm:text-sm text-gray-800 dark:text-gray-400 mt-1">
                                 Starting from <strong>{selectedTruck.price}</strong>
                             </p>
+                            
                             <hr className="my-3 sm:my-4 md:my-6" />
                             <div className="text-left">
                                 <h3 className="font-semibold text-xs sm:text-sm mb-1 sm:mb-2">Best for sending:</h3>

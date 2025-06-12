@@ -80,7 +80,7 @@ const Profile = () => {
       }
 
       try {
-        const response = await axios.get(`http://localhost:5000/api/user/profile?userId=${userId}`);
+        const response = await axios.get(`https://login-signup-iu.onrender.com/api/user/profile?userId=${userId}`);
         const data = response.data;
 
         // Update profileData state
@@ -208,7 +208,7 @@ const Profile = () => {
 
     try {
       const response = await axios.put(
-        'http://localhost:5000/api/user/profile', // Use your actual backend URL
+        'https://login-signup-iu.onrender.com/api/user/profile', // Use your actual backend URL
         payload
       );
 

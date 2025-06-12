@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 const services = [
   {
     name: "Bike Delivery",
+    
     description: "Fast and flexible delivery within the city.",
     icon: <FaMotorcycle className="text-green-400 text-4xl mb-2" />,
   },

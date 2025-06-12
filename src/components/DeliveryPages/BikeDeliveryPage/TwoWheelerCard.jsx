@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaWeightHanging, FaTimes, FaMapMarkerAlt, FaPhoneAlt, FaUser ,FaBox,FaFlask,FaAppleAlt} from 'react-icons/fa';
+import { FaWeightHanging, FaTimes, FaBox, FaFlask, FaAppleAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const TwoWheelerCard = () => {

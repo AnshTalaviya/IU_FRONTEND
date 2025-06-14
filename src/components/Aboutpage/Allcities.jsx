@@ -222,7 +222,7 @@ export default function Allcities() {
         )}
       </div>
 
-<div className="Expansion-plans w-full  bg-gray-100 dark:bg-gray-800/95 pt-10 pb-2">
+<div className="Expansion-plans w-full text-center bg-gray-100 dark:bg-gray-800/95 pt-10 pb-2">
   <h3 className='text-3xl md:text-4xl font-bold dark:text-white text-gray-900'>Our Expansion Plans</h3>
   <p className='mt-5 w-[90%] md:w-[50%] text-lg dark:text-gray-400 text-gray-700 mx-auto'>
     Idhar Udhar is rapidly expanding to new cities across India. We're committed to bringing our eco-friendly, reliable transportation solutions to every corner of the country.

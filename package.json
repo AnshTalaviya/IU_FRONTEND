@@ -12,6 +12,7 @@
     "aos": "^2.3.4",
     "axios": "^1.9.0",
     "clsx": "^2.1.1",
+    "emailjs-com": "^3.2.0",
     "firebase": "^11.8.1",
     "framer-motion": "^12.16.0",
     "haversine-distance": "^1.2.3",

@@ -15,19 +15,24 @@ export default function DriverPanel() {
             icon: "fas fa-home"
         },
         {
-            name: "Ride History",
-            navigation: "ridehistory",
-            icon: "fas fa-history"
+            name: "Profile",
+            navigation: "profile",
+            icon: "fas fa-user"
         },
-        {
+                {
             name: "Earnings",
             navigation: "earnings",
             icon: "fas fa-money-bill-wave"
         },
         {
-            name: "Profile",
-            navigation: "profile",
-            icon: "fas fa-user"
+            name: "Ride History",
+            navigation: "ridehistory",
+            icon: "fas fa-history"
+        },
+        {
+            name: "Games",
+            navigation: "games",
+            icon: "fas fa-gamepad"
         },
         {
             name: "Settings",

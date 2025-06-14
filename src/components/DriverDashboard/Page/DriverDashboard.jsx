@@ -1,20 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useGlobalContext } from '../../../contexts/GlobalContext';
 
 export default function DriverDashboard() {
   const { Isonline, ToggleOnline } = useGlobalContext();
+  const [fullName, setFullName] = useState('');
 
   const recentRides = [
     { earning: 12.75, time: '13 mins ago', status: 'completed' },
     { time: '42 mins ago', status: 'cancelled' },
     { earning: 22.75, time: '1 hour ago', status: 'completed' },
   ];
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem('user'));
+
+    if (userData?.fullName) {
+      const capitalizedName = userData.fullName
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+
+      setFullName(capitalizedName);
+    }
+  }, []);
+
 
   return (
     <div className="bg-gray-100 dark:bg-gray-900 min-h-screen px-4 sm:px-6 py-6 space-y-6 transition-all">
       {/* Header */}
       <div className="text-left">
-        <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Welcome back, John Red 👋</h1>
+        <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Welcome back, {fullName} 👋</h1>
         <p className="text-gray-600 dark:text-gray-400 mt-1">
           {Isonline
             ? 'You are online and ready to receive ride requests.'
@@ -98,14 +112,12 @@ export default function DriverDashboard() {
               >
                 <div className="flex items-center space-x-3">
                   <div
-                    className={`h-10 w-10 rounded-full flex items-center justify-center ${
-                      ride.status === 'completed' ? 'bg-green-100 dark:bg-green-600/30' : 'bg-red-100 dark:bg-red-600/30'
-                    }`}
+                    className={`h-10 w-10 rounded-full flex items-center justify-center ${ride.status === 'completed' ? 'bg-green-100 dark:bg-green-600/30' : 'bg-red-100 dark:bg-red-600/30'
+                      }`}
                   >
                     <i
-                      className={`fas fa-${ride.status === 'completed' ? 'check' : 'times'} text-sm ${
-                        ride.status === 'completed' ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'
-                      }`}
+                      className={`fas fa-${ride.status === 'completed' ? 'check' : 'times'} text-sm ${ride.status === 'completed' ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'
+                        }`}
                     ></i>
                   </div>
                   <div>

@@ -1,11 +1,11 @@
-
 import React, { useState } from "react";
 
 export default function AddPaymentMethod({ onClose, onAdd }) {
   const [activeTab, setActiveTab] = useState("credit");
   const [cardNumber, setCardNumber] = useState("");
   const [cardHolder, setCardHolder] = useState("");
-  const [expiry, setExpiry] = useState("");
+  const [expiryMonth, setExpiryMonth] = useState("");
+  const [expiryYear, setExpiryYear] = useState("");
   const [cvv, setCvv] = useState("");
   const [upiId, setUpiId] = useState("");
 
@@ -20,8 +20,9 @@ export default function AddPaymentMethod({ onClose, onAdd }) {
         icon: "💳",
       };
     } else {
-      if (!cardNumber || !cardHolder || !expiry || !cvv)
+      if (!cardNumber || !cardHolder || !expiryMonth || !expiryYear || !cvv) {
         return alert("Please fill in all card details.");
+      }
       const cardType = activeTab === "credit" ? "Credit Card" : "Debit Card";
       const last4 = cardNumber.slice(-4);
       paymentMethod = {
@@ -34,11 +35,16 @@ export default function AddPaymentMethod({ onClose, onAdd }) {
     onAdd(paymentMethod);
     setCardNumber("");
     setCardHolder("");
-    setExpiry("");
+    setExpiryMonth("");
+    setExpiryYear("");
     setCvv("");
     setUpiId("");
     onClose();
   };
+
+  const currentYear = new Date().getFullYear();
+  const years = Array.from({ length: 11 }, (_, i) => currentYear + i);
+  const months = Array.from({ length: 12 }, (_, i) => (i + 1).toString().padStart(2, "0"));
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50">
@@ -59,17 +65,16 @@ export default function AddPaymentMethod({ onClose, onAdd }) {
             <button
               key={type}
               onClick={() => setActiveTab(type)}
-              className={`flex-1 py-2 rounded text-sm font-medium transition ${
-                activeTab === type
+              className={`flex-1 py-2 rounded text-sm font-medium transition ${activeTab === type
                   ? "bg-green-600 text-white"
                   : "bg-gray-800 text-gray-400 hover:bg-gray-700"
-              }`}
+                }`}
             >
               {type === "credit"
                 ? "Credit Card"
                 : type === "debit"
-                ? "Debit Card"
-                : "UPI"}
+                  ? "Debit Card"
+                  : "UPI"}
             </button>
           ))}
         </div>
@@ -97,14 +102,28 @@ export default function AddPaymentMethod({ onClose, onAdd }) {
                 onChange={(e) => setCardHolder(e.target.value)}
               />
               <div className="flex space-x-2">
+                <select
+                  className="w-1/3 p-2 rounded bg-gray-900 text-white border border-gray-700"
+                  value={expiryMonth}
+                  onChange={(e) => setExpiryMonth(e.target.value)}
+                >
+                  <option value="">MM</option>
+                  {months.map((month) => (
+                    <option key={month} value={month}>{month}</option>
+                  ))}
+                </select>
+                <select
+                  className="w-1/3 p-2 rounded bg-gray-900 text-white border border-gray-700"
+                  value={expiryYear}
+                  onChange={(e) => setExpiryYear(e.target.value)}
+                >
+                  <option value="">YYYY</option>
+                  {years.map((year) => (
+                    <option key={year} value={year}>{year}</option>
+                  ))}
+                </select>
                 <input
-                  className="w-1/2 p-2 rounded bg-gray-900 text-white border border-gray-700"
-                  placeholder="MM/YY"
-                  value={expiry}
-                  onChange={(e) => setExpiry(e.target.value)}
-                />
-                <input
-                  className="w-1/2 p-2 rounded bg-gray-900 text-white border border-gray-700"
+                  className="w-1/3 p-2 rounded bg-gray-900 text-white border border-gray-700"
                   placeholder="CVV"
                   value={cvv}
                   onChange={(e) => setCvv(e.target.value)}

@@ -1,24 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { IndianRupee, Headphones, Calendar } from 'lucide-react';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import emailjs from 'emailjs-com';
 
 const ContactPage = () => {
+  const formRef = useRef();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
     message: '',
-    captcha: '',
     terms: false,
   });
 
   const [errors, setErrors] = useState({});
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === 'checkbox' ? checked : value,
-    });
+    setFormData({ ...formData, [name]: type === 'checkbox' ? checked : value });
   };
 
   const validate = () => {
@@ -38,142 +38,139 @@ const ContactPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validate()) {
-      alert('Form submitted successfully!');
-      window.location.reload();
-    }
+    if (!validate()) return;
+
+    emailjs
+      .sendForm(
+        'service_qwwxk59',       // ✅ Replace this
+        'template_ndmj5wv',      // ✅ Replace this
+        formRef.current,
+        'q7h1BahWUznHytYWE'           // ✅ Replace this
+      )
+      .then(
+        (result) => {
+          setSuccessMessage('Form submitted successfully!');
+          setFormData({
+            name: '',
+            phone: '',
+            email: '',
+            message: '',
+            terms: false,
+          });
+        },
+        (error) => {
+          alert('Something went wrong, please try again later.');
+        }
+      );
   };
 
   return (
     <>
-      <section className="bg-white dark:bg-gray-900 py-10 pt-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto space-y-8">
-          <div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-green-500 mb-2">Contact Us</h2>
-            <h3 className="text-2xl sm:text-3xl font-semibold text-green-500">Information</h3>
-          </div>
+      <section className="bg-white dark:bg-gray-900 dark:text-gray-300 text-gray-800 sm:py-16 lg:py-10">
+        <div className="min-h-screen bg-green-800 bg-green-blur dark:text-gray-300 text-gray-800 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-14 pb-32 relative overflow-hidden">
+          <h2 className="text-[28px] sm:text-[32px] font-bold text-white mb-2 text-center">Get In Touch</h2>
+          <p className="text-gray-200 text-center max-w-2xl text-[14px] sm:text-[15px] mb-10 sm:mb-14 leading-relaxed px-4">
+            Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+          </p>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="bg-green-100 backdrop-blur-sm rounded-[20px] shadow-[0px_10px_30px_rgba(0,0,0,0.1)] flex flex-col lg:flex-row w-full max-w-[960px] overflow-hidden mx-4">
+            {/* Left Panel */}
+            <div className="bg-green-700 text-white p-6 sm:p-8 lg:w-[360px] flex flex-col justify-between relative">
+              <div className="px-2 sm:px-4 py-4 sm:py-6">
                 <div>
-                  <input
-                    name="name"
-                    type="text"
-                    placeholder="Enter Your Name*"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full border border-gray-300 p-3 rounded-md focus:outline-none"
-                    required
-                  />
-                  {errors.name && <p className="text-red-600 text-sm mt-1">{errors.name}</p>}
+                  <h2 className="text-xl sm:text-2xl font-bold mb-2">Contact Information</h2>
+                  <p className="text-sm mb-6 sm:mb-8 leading-relaxed text-gray-200">
+                    We're here to help and answer any questions you might have.
+                  </p>
                 </div>
-                <div>
-                  <input
-                    name="phone"
-                    type="tel"
-                    placeholder="Phone Number*"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full border border-gray-300 p-3 rounded-md focus:outline-none"
-                    required
-                  />
-                  {errors.phone && <p className="text-red-600 text-sm mt-1">{errors.phone}</p>}
+                <div className="space-y-4 sm:space-y-5 text-sm mx-2 sm:mx-6 py-2 sm:py-4">
+                  <div className="flex items-center gap-3">
+                    <div className="bg-white/20 p-2 rounded-full"><FaPhone className="w-4 h-4" /></div>
+                    <p>+91 99999 88888</p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="bg-white/20 p-2 rounded-full"><FaEnvelope className="w-4 h-4" /></div>
+                    <p>support@idharudhar.com</p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="bg-white/20 p-2 rounded-full"><FaMapMarkerAlt className="w-4 h-4" /></div>
+                    <p>Ahmedabad, Gujarat, India</p>
+                  </div>
                 </div>
-              </div>
-
-              <div>
-                <input
-                  name="email"
-                  type="email"
-                  placeholder="Enter your Email-Id*"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full border border-gray-300 p-3 rounded-md focus:outline-none"
-                  required
-                />
-                {errors.email && <p className="text-red-600 text-sm mt-1">{errors.email}</p>}
-              </div>
-
-              <div>
-                <textarea
-                  name="message"
-                  placeholder="Your Message*"
-                  rows={4}
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full border border-gray-300 p-3 rounded-md focus:outline-none"
-                  required
-                />
-                {errors.message && <p className="text-red-600 text-sm mt-1">{errors.message}</p>}
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-[#166534] text-white py-3 rounded-md text-lg font-semibold"
-              >
-                Send Message
-              </button>
-            </form>
-
-            <div className="space-y-8">
-              <div className="space-y-4 text-lg text-gray-800 dark:text-gray-300">
-                <div className="flex items-center gap-3">
-                  <svg className="w-6 h-6 text-[#166534]" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                  </svg>
-                  <span>support@idharudhar.com</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <svg className="w-6 h-6 text-[#166534]" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.95.684l1.27 3.81a1 1 0 01-.21 1.04l-2.12 2.12a16.001 16.001 0 006.59 6.59l2.12-2.12a1 1 0 011.04-.21l3.81 1.27A1 1 0 0121 18.72V22a2 2 0 01-2 2h-.18C10.4 23.4 0.6 13.6.02 3.18A2 2 0 012 1h3z" />
-                  </svg>
-                  <span>+91 99999 88888</span>
-                </div>
-              </div>
-
-              <div className="w-full h-64 sm:h-80 md:h-96">
-                <iframe
-                  title="Google Maps Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.7720720870757!2d72.52421197504878!3d23.032351779164598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e856f5fbe2e01%3A0x98e43e3e62ed273b!2sJivraj%20Park%20Sub%20Post%20Office!5e0!3m2!1sen!2sin!4v1686240166123!5m2!1sen!2sin"
-                  width="100%"
-                  height="100%"
-                  allowFullScreen=""
-                  loading="lazy"
-                  className="border rounded-md"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
               </div>
             </div>
-          </div>
 
-          <section className="relative bg-[#166534] text-white w-full mt-16">
-            <div className="absolute inset-0 bg-cover bg-center opacity-10"
-              style={{ backgroundImage: "url('https://www.shutterstock.com/image-vector/travel-tourism-concept-set-tourists-260nw-2294415843.jpg')" }}
-            />
-            <div className="relative z-10 max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
-              {[{
-                Icon: IndianRupee,
-                title: "Best Price Guaranteed",
-                desc: "Get the best rates for quality rides."
-              }, {
-                Icon: Headphones,
-                title: "24/7 Customer Care",
-                desc: "We’re always here to support you."
-              }, {
-                Icon: Calendar,
-                title: "Easy Bookings",
-                desc: "Plan your ride effortlessly."
-              }].map(({ Icon, title, desc }, i) => (
-                <div key={i} className="flex flex-col items-center space-y-3 hover:scale-105 transition-transform">
-                  <Icon className="w-12 h-12 border-2 rounded-full p-3 border-white" />
-                  <h3 className="text-lg font-semibold">{title}</h3>
-                  <p className="text-white/80 text-sm md:text-base">{desc}</p>
+            {/* Right Panel */}
+            <div className="p-6 sm:p-10 lg:w-[600px] bg-white dark:bg-gray-900 dark:text-gray-300 text-gray-800 relative">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+                <input type="hidden" name="to_name" value="GreenRide Support" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                  <div>
+                    <label className="block text-sm mb-1">Your Name</label>
+                    <input
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full border-b outline-none p-2 text-sm"
+                      placeholder="Enter your name"
+                    />
+                    {errors.name && <p className="text-red-600 text-sm">{errors.name}</p>}
+                  </div>
+                  <div>
+                    <label className="block text-sm mb-1">Phone Number</label>
+                    <input
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      maxLength="10"
+                      className="w-full border-b outline-none p-2 text-sm"
+                      placeholder="Enter your phone"
+                    />
+                    {errors.phone && <p className="text-red-600 text-sm">{errors.phone}</p>}
+                  </div>
                 </div>
-              ))}
+                <div>
+                  <label className="block text-sm mb-1">Your Email</label>
+                  <input
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full border-b outline-none p-2 text-sm"
+                    placeholder="Enter your email"
+                  />
+                  {errors.email && <p className="text-red-600 text-sm">{errors.email}</p>}
+                </div>
+                <div>
+                  <label className="block text-sm mb-1">Message</label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="w-full border-b outline-none p-2 text-sm h-24 resize-none"
+                    placeholder="Write your message"
+                  />
+                  {errors.message && <p className="text-red-600 text-sm">{errors.message}</p>}
+                </div>
+                <div className="flex items-center gap-2">
+                  <input
+                    type="checkbox"
+                    name="terms"
+                    checked={formData.terms}
+                    onChange={handleChange}
+                  />
+                  <label className="text-sm">I agree to the terms and conditions</label>
+                </div>
+                {errors.terms && <p className="text-red-600 text-sm">{errors.terms}</p>}
+                <button
+                  type="submit"
+                  className="bg-green-700 text-white px-6 py-2 rounded-md hover:bg-green-800 transition text-sm"
+                >
+                  Send Message
+                </button>
+                {successMessage && <p className="text-green-600 text-sm">{successMessage}</p>}
+              </form>
             </div>
-          </section>
+          </div>
         </div>
       </section>
     </>

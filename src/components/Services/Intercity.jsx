@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function Intercity() {
     const routes = [
@@ -39,9 +42,37 @@ export default function Intercity() {
             // price: '\u20B91,799',
             image: '/images/Chennai.png',
         },
+        {
+            from: 'Hyderabad',
+            to: 'Warangal',
+            distance: '140 km',
+            time: '2.5 hours',
+            image: '/images/Hyderabad.jpg',
+        },
+        {
+            from: 'Kolkata',
+            to: 'Digha',
+            distance: '180 km',
+            time: '4 hours',
+            image: '/images/kolkata.jpg',
+        },
+        {
+            from: 'Jaipur',
+            to: 'Ajmer',
+            distance: '135 km',
+            time: '2.5 hours',
+            image: '/images/jaipur.jpg',
+        },
+        {
+            from: 'Ahmedabad',
+            to: 'Gandhinagar',
+            distance: '30 km',
+            time: '1 hour',
+            image: '/images/adalaj.jpg',
+        },
     ];
     const steps = [
-        {   
+        {
             number: "1",
             title: "Select Cities",
             description: "Choose your pickup and drop-off cities, along with your travel date and time"
@@ -81,8 +112,8 @@ export default function Intercity() {
                             <button className="bg-white text-green-600 font-semibold px-6 py-3 rounded-md hover:bg-gray-100 transition">
                                 Book an Intercity Ride
                             </button>
-                            <button className="bg-green-800 text-white font-semibold px-6 py-3 rounded-md hover:bg-green-700 transition">
-                                Learn About Safety
+                            <button className="bg-green-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-green-700 transition">
+                                <Link to="/safety">Learn About Safety</Link>
                             </button>
                         </div>
                     </div>
@@ -193,52 +224,80 @@ export default function Intercity() {
             </div>
 
             {/* 3 */}
-            <section className="bg-gray-50 dark:bg-gray-800 py-10 px-4 md:px-10">
+            <section className="bg-gray-50 dark:bg-gray-800 py-10 px-0">
                 <div data-aos="zoom-in" className="text-center mb-10">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">Popular Intercity Routes</h2>
                     <p className="text-gray-600 mt-2 dark:text-gray-300">Most traveled routes with fixed fares and comfortable rides</p>
                 </div>
 
-                <div data-aos="fade-up" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div data-aos="fade-up" className="w-full">
+                    <Slider
+                        dots={true}
+                        infinite={true}
+                        speed={500}
+                        slidesToShow={4}
+                        slidesToScroll={1}
+                        autoplay={true}
+                        autoplaySpeed={2000}
+                        arrows={false}
+                        className="mx-0"
+                        responsive={[
+                            {
+                                breakpoint: 1024,
+                                settings: {
+                                    slidesToShow: 3,
+                                    slidesToScroll: 1,
+                                }
+                            },
+                            {
+                                breakpoint: 768,
+                                settings: {
+                                    slidesToShow: 2,
+                                    slidesToScroll: 1
+                                }
+                            },
+                            {
+                                breakpoint: 480,
+                                settings: {
+                                    slidesToShow: 1,
+                                    slidesToScroll: 1
+                                }
+                            }
+                        ]}
+                    >
+                        {routes.map((route, index) => (
+                            <div key={index} className="px-1">
+                                <div className="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden mx-1">
+                                    <img
+                                        src={route.image}
+                                        alt={`${route.from} to ${route.to}`}
+                                        className="w-full h-48 object-cover"
+                                    />
+                                    <div className="p-4 dark:bg-black">
+                                        <h3 className="text-lg font-semibold text-gray-800 dark:text-white flex justify-between items-center mb-2">
+                                            <span className="text-left flex-1">{route.from}</span>
+                                            <span className="text-green-500 text-center flex-1">→</span>
+                                            <span className="text-right flex-1">{route.to}</span>
+                                        </h3>
 
-                    {routes.map((route, index) => (
-                        <div
-                            key={index}
-                            className="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden"
-                        >
-                            <img
-                                src={route.image}
-                                alt={`${route.from} to ${route.to}`}
-                                className="w-full h-48 object-cover"
-                            />
-                            <div className="p-4 dark:bg-black">
-                                <h3 className="text-lg font-semibold text-gray-800 dark:text-white flex justify-between items-center mb-2">
-                                    <span className="text-left flex-1">{route.from}</span>
-                                    <span className="text-green-500 text-center flex-1">→</span>
-                                    <span className="text-right flex-1">{route.to}</span>
-                                </h3>
+                                        <p className="text-sm text-gray-600 dark:text-gray-400 flex justify-between mb-4">
+                                            <span>Distance: {route.distance}</span>
+                                            <span>Time: {route.time}</span>
+                                        </p>
 
-                                <p className="text-sm text-gray-600 dark:text-gray-400 flex justify-between mb-4">
-                                    <span>Distance: {route.distance}</span>
-                                    <span>Time: {route.time}</span>
-                                </p>
-
-                                <div className="flex justify-between items-center">
-                                    <span className="text-green-600 font-semibold text-lg">{route.price}</span>
-
-                                    {/* <Link to='/Book_ride'><button className="px-4 py-1 bg-gray-100 dark:bg-black dark:text-white dark:border-gray-800 border rounded hover:bg-gray-200">Book</button></Link> */}
+                                        <div className="flex justify-between items-center">
+                                            <Link to='/Book_ride'>
+                                                <button className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition">
+                                                    Book Now
+                                                </button>
+                                            </Link>
+                                        </div>
+                                    </div>
                                 </div>
-
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </Slider>
                 </div>
-
-                {/* <div className="mt-10 text-center">
-                    <button className="px-6 py-2 bg-white dark:bg-black dark:text-white dark:border-gray-800 dark:hover:bg-green-900 border border-gray-300 rounded-md hover:bg-green-200">
-                        View All Routes
-                    </button>
-                </div> */}
             </section>
 
             {/* 4th */}
@@ -280,7 +339,7 @@ export default function Intercity() {
                 <section className="bg-green-600 rounded-2xl text-white py-12 px-4 md:px-8 max-w-7xl mx-auto my-12 ">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                         {/* Text Section */}
-                        <div  data-aos="zoom-in" className="space-y-4 m-6">
+                        <div data-aos="zoom-in" className="space-y-4 m-6">
                             <h2 className="text-3xl md:text-4xl font-bold text-start">Planning a Group Trip?</h2>
                             <p className="text-lg opacity-90 text-start">
                                 We offer special rates for group travel and corporate bookings. Contact our team for custom quotes.

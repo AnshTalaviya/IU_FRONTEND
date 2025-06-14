@@ -1,285 +1,485 @@
-"use client"
+import React, { useEffect, useState } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { motion } from 'framer-motion';
 
-import { useState } from "react"
-import { Card, CardContent } from "../../ui/card"
-import { Button } from "../../ui/button"
-import { Badge } from "../../ui/badge"
-import { Play, Star, Download, Clock, Trophy, Brain, Zap } from "lucide-react"
-// import Image from "next/image"
+function Games() {
+  const [selectedGame, setSelectedGame] = useState(null);
+  const [hoveredGame, setHoveredGame] = useState(null);
 
-const games = [
-  {
-    id: "subway-surfers",
-    title: "Subway Surfers",
-    description: "Endless running adventure through subway tracks",
-    image: "https://images.hindustantimes.com/img/2022/09/09/1600x900/Subway_Surfers_1662720383211_1662720383417_1662720383417.png",
-    rating: 4.5,
-    downloads: "1B+",
-    category: "Action",
-    playTime: "Quick Sessions",
-    benefits: [
-      "Improves reaction time for better driving reflexes",
-      "Enhances hand-eye coordination",
-      "Reduces stress during break times",
-      "Sharpens focus and concentration",
-    ],
-    features: ["Endless Running", "Power-ups", "Character Collection", "Daily Challenges"],
-  },
-  {
-    id: "temple-run-2",
-    title: "Temple Run 2",
-    description: "Navigate perilous cliffs, zip lines, mines and forests",
-    image: "https://i.ytimg.com/vi/tRjQpbB_-FI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBhMjDmNpH7e1XPzsNG61WpMlDohA",
-    rating: 4.3,
-    downloads: "500M+",
-    category: "Adventure",
-    playTime: "Quick Sessions",
-    benefits: [
-      "Develops quick decision-making skills",
-      "Improves spatial awareness for navigation",
-      "Enhances multitasking abilities",
-      "Provides mental relaxation between rides",
-    ],
-    features: ["Stunning Graphics", "New Obstacles", "Power System", "Achievements"],
-  },
-]
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100,
+      easing: 'ease-in-out'
+    });
+  }, []);
 
-export default function GamesPage() {
-  const [selectedGame, setSelectedGame] = useState(null)
-
-  const handlePlayNow = (gameTitle) => {
-    const playStoreUrls = {
-      "Subway Surfers": "https://play.google.com/store/apps/details?id=com.kiloo.subwaysurf",
-      "Temple Run 2": "https://play.google.com/store/apps/details?id=com.imangi.templerun2",
+  const games = [
+    {
+      id: 1,
+      title: 'Memory Matrix',
+      description: 'Enhance your memory and concentration with this pattern-matching game',
+      icon: '🧠',
+      color: 'from-green-400 to-green-600',
+      features: [
+        'Improves Short-term Memory',
+        'Enhances Pattern Recognition',
+        'Boosts Concentration'
+      ],
+      difficulty: 'Medium',
+      progress: 75,
+      highScore: 1200,
+      benefits: [
+        'Strengthens neural connections',
+        'Improves focus and attention span',
+        'Helps in better information retention',
+        'Develops spatial awareness'
+      ],
+      ageGroup: 'All Ages'
+    },
+    {
+      id: 2,
+      title: 'Math Challenge',
+      description: 'Sharpen your mathematical skills with engaging problem-solving exercises',
+      icon: '🔢',
+      color: 'from-green-400 to-green-600',
+      features: [
+        'Mental Math Practice',
+        'Logical Reasoning',
+        'Quick Calculations'
+      ],
+      difficulty: 'Medium',
+      progress: 60,
+      highScore: 950,
+      benefits: [
+        'Enhances numerical reasoning',
+        'Improves problem-solving abilities',
+        'Develops analytical thinking',
+        'Boosts mental calculation speed'
+      ],
+      ageGroup: 'All Ages'
     }
+  ];
 
-    const url = playStoreUrls[gameTitle]
-    if (url) {
-      window.open(url, "_blank")
+  const renderGameContent = () => {
+    switch (selectedGame) {
+      case 1:
+        return <MemoryMatrix gameData={games[0]} />;
+      case 2:
+        return <MathChallenge gameData={games[1]} />;
+      default:
+        return null;
     }
-  }
+  };
 
-  const handleGameClick = (gameId) => {
-    setSelectedGame(gameId)
-  }
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-2 h-2 bg-white rounded-full"
+            initial={{
+              x: Math.random() * window.innerWidth,
+              y: Math.random() * window.innerHeight,
+              opacity: 0.3
+            }}
+            animate={{
+              y: [null, Math.random() * window.innerHeight],
+              opacity: [0.3, 0.6, 0.3]
+            }}
+            transition={{
+              duration: Math.random() * 5 + 5,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+          />
+        ))}
+      </div>
 
-  const handleBackToGames = () => {
-    setSelectedGame(null)
-  }
-
-  if (selectedGame) {
-    const game = games.find((g) => g.id === selectedGame)
-    if (!game) return null
-
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
-        <div className="container mx-auto px-4 py-8">
-          <Button
-            onClick={handleBackToGames}
-            variant="outline"
-            className="mb-6 bg-green-600/20 border-green-500/30 text-green-400 hover:bg-green-600/30"
+      {/* Content */}
+      <div className="relative z-10">
+        <div className="max-w-7xl mx-auto p-8">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            ← Back to Games
-          </Button>
+            <h1 className="text-8xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-green-500 to-green-400">
+              Game Zone
+            </h1>
+            <p className="text-white/80 text-xl max-w-2xl mx-auto leading-relaxed">
+              Challenge your mind and enhance your cognitive abilities with our engaging brain training games!
+            </p>
+          </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-8 items-start">
-            <div className="space-y-6">
-              <div className="relative overflow-hidden rounded-2xl">
-                <img
-                  src={game.image || "/placeholder.svg"}
-                  alt={game.title}
-                  width={500}
-                  height={300}
-                  className="w-full h-80 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4">
-                  <h1 className="text-3xl font-bold text-white mb-2">{game.title}</h1>
-                  <p className="text-white/80">{game.description}</p>
-                </div>
-              </div>
+          {!selectedGame ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto px-4">
+              {games.map((game, index) => (
+                <motion.div
+                  key={game.id}
+                  className="group relative rounded-3xl p-8 bg-gray-800/50 backdrop-blur-lg cursor-pointer"
+                  onClick={() => setSelectedGame(game.id)}
+                  onMouseEnter={() => setHoveredGame(game.id)}
+                  onMouseLeave={() => setHoveredGame(null)}
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.2 }}
+                  whileHover={{ scale: 1.02, y: -10 }}
+                >
+                  {/* Animated border gradient */}
+                  <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${game.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}></div>
 
-              <div className="flex items-center gap-4 text-white">
-                <div className="flex items-center gap-1">
-                  <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                  <span className="font-semibold">{game.rating}</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <Download className="w-5 h-5" />
-                  <span>{game.downloads}</span>
-                </div>
-                <Badge variant="secondary" className="bg-green-600 text-black font-semibold">
-                  {game.category}
-                </Badge>
-              </div>
+                  {/* Glowing effect */}
+                  <div className={`absolute -inset-0.5 bg-gradient-to-r ${game.color} rounded-3xl blur opacity-0 group-hover:opacity-30 transition duration-500`}></div>
 
-              <Button
-                onClick={() => handlePlayNow(game.title)}
-                size="lg"
-                className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-black font-semibold py-4 text-lg"
+                  <div className="relative z-10">
+                    <motion.div
+                      className="flex items-start space-x-6 mb-8"
+                      animate={hoveredGame === game.id ? { x: 10 } : { x: 0 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      <div className={`w-24 h-24 bg-gray-900/50 rounded-2xl flex items-center justify-center border border-${game.color.split('-')[1]}/30 group-hover:border-${game.color.split('-')[1]}/50 transition-all duration-500`}>
+                        <motion.span
+                          className="text-5xl"
+                          animate={hoveredGame === game.id ? { scale: 1.2, rotate: 5 } : { scale: 1, rotate: 0 }}
+                          transition={{ type: "spring", stiffness: 300 }}
+                        >
+                          {game.icon}
+                        </motion.span>
+                      </div>
+                      <div className="flex-1">
+                        <h2 className={`text-3xl font-bold mb-3 bg-gradient-to-r ${game.color} bg-clip-text text-transparent`}>
+                          {game.title}
+                        </h2>
+                        <div className="flex flex-wrap gap-2">
+                          <span className="px-4 py-1.5 bg-gray-900/50 rounded-full text-sm text-green-500 border border-green-500/20">
+                            {game.difficulty}
+                          </span>
+                          <span className="px-4 py-1.5 bg-gray-900/50 rounded-full text-sm text-green-500 border border-green-500/20">
+                            {game.ageGroup}
+                          </span>
+                        </div>
+                      </div>
+                    </motion.div>
+
+                    <p className="text-white/80 text-lg mb-8 leading-relaxed group-hover:text-white transition-colors duration-300">
+                      {game.description}
+                    </p>
+
+                    {/* Game Stats */}
+                    <div className="grid grid-cols-2 gap-6 mb-8">
+                      <motion.div
+                        className="bg-gray-900/50 rounded-2xl p-5 border border-2 border-green-500 group-hover:border-green-500 transition-all duration-500"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <div className="text-center">
+                          <div className="text-sm text-green-500 mb-1">High Score</div>
+                          <div className="text-3xl font-bold text-white group-hover:text-green-500 transition-colors duration-300">
+                            {game.highScore}
+                          </div>
+                        </div>
+                      </motion.div>
+                      <motion.div
+                        className="bg-gray-900/50 rounded-2xl p-5 border border-2 border-green-500 group-hover:border-green-500 transition-all duration-500"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <div className="text-center">
+                          <div className="text-sm text-green-500 mb-1">Progress</div>
+                          <div className="text-3xl font-bold text-white group-hover:text-green-500 transition-colors duration-300">
+                            {game.progress}%
+                          </div>
+                        </div>
+                      </motion.div>
+                    </div>
+
+                    {/* Quick Features */}
+                    <div className="space-y-3 mb-8">
+                      {game.features.slice(0, 2).map((feature, index) => (
+                        <motion.div
+                          key={index}
+                          className="flex items-center space-x-3"
+                          whileHover={{ x: 10 }}
+                          transition={{ type: "spring", stiffness: 300 }}
+                        >
+                          <div className="w-8 h-8 bg-gray-900/50 rounded-full flex items-center justify-center border border-green-500/30 group-hover:border-green-500/50">
+                            <span className="text-green-500">✓</span>
+                          </div>
+                          <span className="text-white/80 group-hover:text-white transition-colors duration-300">{feature}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+
+                    {/* Click to Play Hint */}
+                    <motion.div
+                      className="text-center"
+                      animate={hoveredGame === game.id ? { y: 5 } : { y: 0 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      <p className="text-green-500/70 text-sm font-medium group-hover:text-green-400 transition-colors duration-300">
+                        Click to play and see more details
+                      </p>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          ) : (
+            <motion.div
+              className="max-w-4xl mx-auto"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <motion.button
+                onClick={() => setSelectedGame(null)}
+                className="mb-8 px-6 py-3 bg-gray-800/50 text-white rounded-xl hover:bg-gray-700/50 transition-all duration-300 flex items-center space-x-3 border border-green-500 hover:border-green-500/50"
+                whileHover={{ scale: 1.05, x: -5 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <Play className="w-6 h-6 mr-2" />
-                Play Now on Google Play
-              </Button>
+                <i className="fas fa-arrow-left"></i>
+                <span>Back to Games</span>
+              </motion.button>
+              {renderGameContent()}
+            </motion.div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Memory Matrix Game Component
+function MemoryMatrix({ gameData }) {
+  const [score, setScore] = useState(0);
+  const [level, setLevel] = useState(1);
+
+  return (
+    <div className="bg-green-900/30 from-green-500/30 to-green-700/30 rounded-2xl p-8 shadow-2xl border-2 border-green-400 border-opacity-30 h-[80vh]">
+      <div className="flex h-full gap-8">
+        {/* Left Side - Fixed Image */}
+        <div className="w-1/3 flex-shrink-0">
+          <div className="h-full bg-gray-800/50 rounded-xl p-6 flex flex-col items-center justify-center border-2 border-green-400/30 overflow-hidden">
+            <div className="relative w-full h-[60%] mb-6 rounded-xl overflow-hidden">
+              <img
+                src="https://img.gamemonetize.com/3u86sd48o7wxn5ws7hf4gjfxhot064wj/512x384.jpg"
+                alt="Memory Matrix Game"
+                className="w-full h-full object-cover rounded-xl transform hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            </div>
+            <h2 className="text-3xl font-bold text-white text-center mb-4">{gameData.title}</h2>
+            <motion.button
+              className="bg-green-600 hover:bg-green-700 border-2 border-green-400/30 rounded-lg transition-all px-6 py-4 w-full text-white font-bold text-lg text-center mt-4"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Start New Game
+            </motion.button>
+
+          </div>
+        </div>
+
+        {/* Right Side - Scrollable Content */}
+        <div className="w-2/3 overflow-y-auto pr-4 custom-scrollbar">
+          <div className="space-y-8">
+            {/* Key Features Section */}
+            <div className="bg-green-500/10 rounded-xl p-6 backdrop-blur-sm border-2 border-green-400/30">
+              <h3 className="text-white text-xl font-semibold mb-4">Key Features</h3>
+              <div className="space-y-3">
+                {gameData.features.map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex items-center space-x-2"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <div className="w-6 h-6 bg-green-700/20 rounded-full flex items-center justify-center border border-green-700/30">
+                      <span className="text-white text-sm">{index + 1}</span>
+                    </div>
+                    <span className="text-white opacity-90">{feature}</span>
+                  </motion.div>
+                ))}
+              </div>
             </div>
 
-            <div className="space-y-6">
-              <Card className="bg-black/60 border-green-500/30 backdrop-blur-sm">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                    <Brain className="w-6 h-6 text-green-400" />
-                    Driver Benefits
-                  </h3>
-                  <ul className="space-y-3">
-                    {game.benefits.map((benefit, index) => (
-                      <li key={index} className="flex items-start gap-3 text-white/90">
-                        <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0" />
-                        <span>{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+            {/* Benefits Section */}
+            <div className="bg-green-500/10 rounded-xl p-6 backdrop-blur-sm border-2 border-green-400/30">
+              <h3 className="text-white text-xl font-semibold mb-4">Benefits</h3>
+              <div className="space-y-3">
+                {gameData.benefits.map((benefit, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex items-center space-x-2"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <div className="w-6 h-6 bg-green-700/20 rounded-full flex items-center justify-center border border-green-700/30">
+                      <span className="text-white text-sm">✓</span>
+                    </div>
+                    <span className="text-white opacity-90">{benefit}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
 
-              <Card className="bg-black/60 border-green-500/30 backdrop-blur-sm">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                    <Zap className="w-6 h-6 text-green-400" />
-                    Game Features
-                  </h3>
-                  <div className="grid grid-cols-2 gap-3">
-                    {game.features.map((feature, index) => (
-                      <Badge
-                        key={index}
-                        variant="outline"
-                        className="border-green-500/50 text-green-400 justify-center py-2"
-                      >
-                        {feature}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+            {/* Game Section */}
+            <div className="bg-green-500/10 rounded-xl p-6 backdrop-blur-sm border-2 border-green-400/30 text-center w-full max-w-md mx-auto">
+              <div className="text-center">
 
-              <Card className="bg-black/60 border-green-500/30 backdrop-blur-sm">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                    <Clock className="w-6 h-6 text-green-400" />
-                    Perfect for Drivers
-                  </h3>
-                  <p className="text-white/90 leading-relaxed">
-                    This game is designed for quick gaming sessions, perfect for drivers during break times. Play for
-                    5-10 minutes between rides to refresh your mind and improve your reflexes, making you a better and
-                    more alert driver.
-                  </p>
-                </CardContent>
-              </Card>
+                <p className="text-white text-lg mb-6">
+                  Coming soon: Challenge your mathematical abilities with engaging problems!
+                </p>
+                <div className="flex justify-center">
+                  <motion.button
+                    type="button"
+                    className="bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition-all border-2 border-green-400/30 font-semibold"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    View Tutorial
+                  </motion.button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    )
-  }
+    </div>
+  );
+}
+
+// Math Challenge Game Component
+function MathChallenge({ gameData }) {
+  const [level, setLevel] = useState(1);
+  const [score, setScore] = useState(0);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
-      <div className="container mx-auto px-4 py-8">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Driver Games Zone</h1>
-          <p className="text-xl text-white/80 max-w-2xl mx-auto">
-            Enhance your driving skills while having fun! Play these games during breaks to improve reflexes and stay
-            sharp.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {games.map((game) => (
-            <Card
-              key={game.id}
-              className="group cursor-pointer bg-black/60 border-green-500/30 backdrop-blur-sm hover:bg-green-900/30 transition-all duration-300 hover:scale-102 hover:shadow-2xl hover:shadow-green-500/20"
-              onClick={() => handleGameClick(game.id)}
+    <div className="bg-green-900/30 from-green-500/30 to-green-700/30 rounded-2xl p-8 shadow-2xl border-2 border-green-400 border-opacity-30 h-[80vh]">
+      <div className="flex h-full gap-8">
+        {/* Left Side - Fixed Image */}
+        <div className="w-1/3 flex-shrink-0">
+          <div className="h-full bg-gray-800/50 rounded-xl p-6 flex flex-col items-center justify-center border-2 border-green-400/30 overflow-hidden">
+            <div className="relative w-full h-[60%] mb-6 rounded-xl overflow-hidden">
+              <img
+                src="https://poisonwebgames.com/wp-content/uploads/thumbs/gamedistribution/M/math-games-for-adults.jpeg"
+                alt="Math Challenge Game"
+                className="w-full h-full object-cover rounded-xl transform hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            </div>
+            <h2 className="text-3xl font-bold text-white text-center mb-4">{gameData.title}</h2>
+            <motion.button
+              className="bg-green-600 hover:bg-green-700 border-2 border-green-400/30 rounded-lg transition-all px-6 py-4 w-full text-white font-bold text-lg text-center mt-4"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <CardContent className="p-0">
-                <div className="relative overflow-hidden rounded-t-lg">
-                  <img
-                    src={game.image || "/placeholder.svg"}
-                    alt={game.title}
-                    width={400}
-                    height={250}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <Badge className="absolute top-4 right-4 bg-green-600 text-black font-semibold">
-                    {game.category}
-                  </Badge>
-                </div>
-
-                <div className="p-6 space-y-4">
-                  <div>
-                    <h3 className="text-2xl font-bold text-white mb-2">{game.title}</h3>
-                    <p className="text-white/70">{game.description}</p>
-                  </div>
-
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-4 text-sm text-white/80">
-                      <div className="flex items-center gap-1">
-                        <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                        <span>{game.rating}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Download className="w-4 h-4" />
-                        <span>{game.downloads}</span>
-                      </div>
-                    </div>
-                    <Badge variant="outline" className="border-green-400 text-green-400">
-                      <Clock className="w-3 h-3 mr-1" />
-                      {game.playTime}
-                    </Badge>
-                  </div>
-
-                  <div className="pt-2">
-                    <Button
-                      className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-black font-semibold"
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        handleGameClick(game.id)
-                      }}
-                    >
-                      <Trophy className="w-4 h-4 mr-2" />
-                      View Details & Play
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+              Start New Game
+            </motion.button>
+          </div>
         </div>
 
-        <div className="mt-16 text-center">
-          <Card className="bg-black/60 border-green-500/30 backdrop-blur-sm max-w-4xl mx-auto">
-            <CardContent className="p-8">
-              <h2 className="text-2xl font-bold text-white mb-4">Why Gaming Benefits Drivers?</h2>
-              <div className="grid md:grid-cols-3 gap-6 text-white/90">
-                <div className="text-center">
-                  <Brain className="w-12 h-12 text-green-400 mx-auto mb-3" />
-                  <h3 className="font-semibold mb-2">Mental Agility</h3>
-                  <p className="text-sm">Improves quick thinking and decision-making skills</p>
-                </div>
-                <div className="text-center">
-                  <Zap className="w-12 h-12 text-green-400 mx-auto mb-3" />
-                  <h3 className="font-semibold mb-2">Faster Reflexes</h3>
-                  <p className="text-sm">Enhances reaction time for safer driving</p>
-                </div>
-                <div className="text-center">
-                  <Clock className="w-12 h-12 text-green-400 mx-auto mb-3" />
-                  <h3 className="font-semibold mb-2">Stress Relief</h3>
-                  <p className="text-sm">Provides relaxation during break times</p>
+        {/* Right Side - Scrollable Content */}
+        <div className="w-2/3 overflow-y-auto pr-4 custom-scrollbar">
+          <div className="space-y-8">
+            {/* Key Features Section */}
+            <div className="bg-green-500/10 rounded-xl p-6 backdrop-blur-sm border-2 border-green-400/30">
+              <h3 className="text-white text-xl font-semibold mb-4">Key Features</h3>
+              <div className="space-y-3">
+                {gameData.features.map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex items-center space-x-2"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <div className="w-6 h-6 bg-green-700/20 rounded-full flex items-center justify-center border border-green-700/30">
+                      <span className="text-white text-sm">{index + 1}</span>
+                    </div>
+                    <span className="text-white opacity-90">{feature}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Benefits Section */}
+            <div className="bg-green-500/10 rounded-xl p-6 backdrop-blur-sm border-2 border-green-400/30">
+              <h3 className="text-white text-xl font-semibold mb-4">Benefits</h3>
+              <div className="space-y-3">
+                {gameData.benefits.map((benefit, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex items-center space-x-2"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <div className="w-6 h-6 bg-green-700/20 rounded-full flex items-center justify-center border border-green-700/30">
+                      <span className="text-white text-sm">✓</span>
+                    </div>
+                    <span className="text-white opacity-90">{benefit}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Game Section */}
+            <div className="bg-green-500/10 rounded-xl p-6 backdrop-blur-sm border-2 border-green-400/30 text-center w-full max-w-md mx-auto">
+              <div className="text-center">
+
+                <p className="text-white text-lg mb-6">
+                  Coming soon: Challenge your mathematical abilities with engaging problems!
+                </p>
+                <div className="flex justify-center">
+                  <motion.button
+                    type="button"
+                    className="bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition-all border-2 border-green-400/30 font-semibold"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    View Tutorial
+                  </motion.button>
                 </div>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
+
+// Add this CSS at the top of your file or in your global CSS
+const styles = `
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(34, 197, 94, 0.3);
+    border-radius: 3px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(34, 197, 94, 0.5);
+  }
+`;
+
+// Add the styles to the document
+const styleSheet = document.createElement("style");
+styleSheet.innerText = styles;
+document.head.appendChild(styleSheet);
+
+export default Games;

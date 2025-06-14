@@ -17,7 +17,7 @@ export default function Auto_Rides() {
     return (
         <div>
             <>
-                <div  className="bg-[#166534] text-white px-4 sm:px-6 lg:px-8 py-12 md:py-24">
+                <div className="bg-[#166534] text-white px-4 sm:px-6 lg:px-8 py-12 md:py-24">
                     <div data-aos="fade-up" className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-12">
 
                         {/* Left Content */}
@@ -30,8 +30,9 @@ export default function Auto_Rides() {
                                 <button className="bg-white text-green-600 font-semibold px-6 py-3 rounded-md hover:bg-gray-100 transition">
                                     Book a Ride
                                 </button>
-                                <button className="bg-green-800 text-white font-semibold px-6 py-3 rounded-md hover:bg-green-700 transition">
-                                    Learn About Safety
+                                <button className="bg-green-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-green-700 transition">
+                                    <Link to="/safety">    Learn About Safety</Link>
+
                                 </button>
                             </div>
                         </div>
@@ -201,13 +202,13 @@ export default function Auto_Rides() {
                                 </p>
                                 <div className="pt-4 text-start">
 
-                <Link
-                  to="/book"
-                  className="inline-flex items-center justify-center gap-2 text-sm font-medium h-11 px-8 rounded-md bg-white text-green-700 hover:bg-gray-100 transition"
-                >
-                  Rent Now
-                </Link>
-              </div>
+                                    <Link
+                                        to="/book"
+                                        className="inline-flex items-center justify-center gap-2 text-sm font-medium h-11 px-8 rounded-md bg-white text-green-700 hover:bg-gray-100 transition"
+                                    >
+                                        Rent Now
+                                    </Link>
+                                </div>
 
                             </div>
 

@@ -100,6 +100,9 @@ const TwoWheelerCard = () => {
                 </motion.div>
             </motion.div>
 
+
+
+
             {showModal && (
 
                 <div className="fixed inset-0 z-50 bg-black bg-opacity-40 dark:bg-gray-900 dark:bg-opacity-40 flex justify-center items-start sm:items-center px-2 sm:px-4 pt-4 sm:pt-10 overflow-y-auto">

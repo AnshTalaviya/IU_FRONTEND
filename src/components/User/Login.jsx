@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { auth, provider, signInWithPopup } from '../../firebase';
 import { useAuth } from '../../contexts/AuthContext';
+import { auth, provider } from '../../firebase'; // ⬅️ import Firebase
+import { signInWithPopup } from 'firebase/auth';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [step, setStep] = useState(1);
   const [otp, setOtp] = useState('');
   const [message, setMessage] = useState('');
-  const [loading, setLoading] = useState(false); // ✅ NEW
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { login } = useAuth();
 
   const handleSendOtp = async () => {
-    setLoading(true); // ✅ Start loading
+    setLoading(true);
     try {
       const res = await axios.post('https://login-signup-iu.onrender.com/api/auth/login-otp', { email });
       setStep(2);
@@ -22,7 +23,7 @@ function Login() {
     } catch (err) {
       setMessage(err.response?.data?.message || 'Error sending OTP');
     } finally {
-      setLoading(false); // ✅ Stop loading
+      setLoading(false);
     }
   };
 
@@ -33,7 +34,6 @@ function Login() {
       login(res.data.token);
       localStorage.setItem('user', JSON.stringify(res.data.user));
 
-      setMessage(res.data.message);
       const role = res.data.user.role;
       if (role === 'Driver') {
         navigate('/driver');
@@ -50,19 +50,23 @@ function Login() {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
 
-      const token = await user.getIdToken();
-
-      login(token);
-      localStorage.setItem('user', JSON.stringify({
-        name: user.displayName,
+      // Send email to backend to login or register user
+      const res = await axios.post('http://localhost:5000/api/auth/google-login', {
         email: user.email,
-        photo: user.photoURL,
-      }));
+        name: user.displayName,
+      });
 
-      navigate('/');
-    } catch (error) {
-      console.error(error);
-      setMessage('Google login failed');
+      login(res.data.token);
+      localStorage.setItem('user', JSON.stringify(res.data.user));
+
+      const role = res.data.user.role;
+      if (role === 'Driver') {
+        navigate('/driver');
+      } else {
+        navigate('/');
+      }
+    } catch (err) {
+      setMessage(err.response?.data?.message || 'Google Login failed');
     }
   };
 
@@ -93,13 +97,6 @@ function Login() {
             >
               {loading ? 'Sending OTP...' : 'Send OTP'}
             </button>
-
-            <button
-              onClick={handleGoogleLogin}
-              className="w-full bg-white text-black font-semibold py-2 rounded-md"
-            >
-              Continue with Google
-            </button>
           </>
         ) : (
           <>
@@ -119,6 +116,17 @@ function Login() {
             </button>
           </>
         )}
+
+        {/* Google Login Button */}
+        <div className="mt-6 text-center">
+          <p className="text-sm text-gray-400 mb-2">or</p>
+          <button
+            onClick={handleGoogleLogin}
+            className="w-full bg-white text-black font-semibold py-2 rounded-md border border-gray-300 hover:bg-gray-100"
+          >
+            Continue with Google
+          </button>
+        </div>
 
         {message && <p className="text-center mt-4 text-sm text-red-400">{message}</p>}
       </div>

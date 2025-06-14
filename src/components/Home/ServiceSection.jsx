@@ -6,33 +6,41 @@ import {
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const ServiceCard = ({ icon, title, description, image, onClick, comingSoon }) => {
+const ServiceCard = ({ icon, title, description, image, onClick, comingSoon, aos }) => {
   useEffect(() => {
     AOS.init({
       duration: 1000,
-      once: true,
+      once: false,   // animation har baar chale
+      mirror: true,  // scroll up pe bhi chale
     });
   }, []);
 
   return (
     <div
-      data-aos="zoom-in"
+      data-aos={aos}
       onClick={!comingSoon ? onClick : null}
-      className={`group relative w-full max-w-[280px] h-[180px] rounded-xl overflow-hidden shadow-lg mx-auto cursor-pointer transition-transform hover:scale-105 ${comingSoon ? 'opacity-70 pointer-events-none' : ''}`}
+      className={`group relative w-full max-w-[280px] h-[180px] rounded-xl overflow-hidden 
+        shadow-lg mx-auto cursor-pointer transition-all duration-700 ease-in-out 
+        hover:scale-[1.03] hover:shadow-2xl hover:ring-2 hover:ring-green-500/50
+        ${comingSoon ? 'opacity-70 pointer-events-none' : ''}`}
     >
       <img
         src={image}
         alt={title}
-        className="w-full h-[180px] object-cover"
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
       <div className="absolute inset-0 flex flex-col justify-start p-4">
-        <div className="w-14 h-14 bg-black/70 rounded-full flex items-center justify-center mb-3 mt-0 text-green-500">
-          {icon}
+        <div className="relative w-14 h-14 mb-3 mt-0">
+          <div className="relative z-10 w-14 h-14 bg-black/70 rounded-full flex items-center justify-center text-green-500 animate-icon-bounce">
+            {icon}
+          </div>
         </div>
+
         <h3 className="text-lg font-semibold text-white text-start">{title}</h3>
         <p className="text-sm text-gray-300 text-start">{description}</p>
       </div>
+
       {comingSoon && (
         <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
           <div className="bg-green-700 text-black px-4 py-2 rounded-full font-bold text-sm shadow-lg animate-pulse">
@@ -53,28 +61,32 @@ const ServiceSection = () => {
       title: "Bike Ride",
       description: "Quick & affordable bike rides",
       image: "/images/Home-Page2.png",
-      path: "/book"
+      path: "/book",
+      aos: "fade-up"
     },
     {
       icon: <Car size={32} />,
       title: "Car Ride",
       description: "Comfortable sedans for daily commute",
       image: "/images/Home-Page3.png",
-      path: "/book"
+      path: "/book",
+      aos: "fade-down"
     },
     {
       icon: <Truck size={32} />,
       title: "Auto Ride",
       description: "Convenient three-wheeler auto rides",
       image: "/images/Home-Page4.png",
-      path: "/book"
+      path: "/book",
+      aos: "zoom-in"
     },
     {
       icon: <Package size={32} />,
       title: "Courier Delivery",
       description: "Fast & secure package delivery",
       image: "/images/Home-Page5.png",
-      path: "/courier-ride"
+      path: "/courier-ride",
+      aos: "flip-left"
     },
     {
       icon: <UtensilsCrossed size={32} />,
@@ -82,7 +94,8 @@ const ServiceSection = () => {
       description: "Deliver food from restaurants to doorstep",
       image: "/images/Home-Page6.png",
       path: "/book",
-      comingSoon: true
+      comingSoon: true,
+      aos: "zoom-in-up"
     },
     {
       icon: <ShoppingBag size={32} />,
@@ -90,7 +103,8 @@ const ServiceSection = () => {
       description: "Convenient grocery delivery to your home",
       image: "/images/Home-Page7.png",
       path: "/book",
-      comingSoon: true
+      comingSoon: true,
+      aos: "zoom-in-down"
     }
   ];
 
@@ -122,6 +136,7 @@ const ServiceSection = () => {
               image={service.image}
               onClick={() => handleServiceClick(service.path)}
               comingSoon={service.comingSoon}
+              aos={service.aos}
             />
           ))}
         </div>

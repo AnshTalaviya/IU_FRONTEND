@@ -29,26 +29,25 @@ const ServiceOptions = () => {
       desc: "Fast & secure package delivery",
       icon: "/icons/box.png",
       img: "https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&w=800&q=80",
-       route: "/courier-ride"
+      route: "/courier-ride",
     },
     {
       title: "Food Delivery",
       desc: "Deliver food from restaurants to doorstep",
       icon: "/icons/cutlery.png",
       img: "https://images.unsplash.com/photo-1513639776629-7b61b0ac49cb?auto=format&fit=crop&w=800&q=80",
-      route: "/food-delivery",
+      comingSoon: true,
     },
     {
       title: "Grocery Delivery",
       desc: "Convenient grocery delivery to your home",
       icon: "/icons/food-pack.png",
       img: "https://images.unsplash.com/photo-1543168256-418811576931?auto=format&fit=crop&w=800&q=80",
-      route: "/grocery-delivery",
+      comingSoon: true,
     },
   ];
 
   return (
-    <>
     <div className="bg-white dark:bg-[#1F2937] min-h-screen flex items-center justify-center px-4 py-10 text-white">
       <div className="bg-[#1C2838] p-6 sm:p-8 rounded-2xl shadow-xl w-full max-w-2xl">
         <h2 className="text-3xl font-bold mb-1">Book Your Ride</h2>
@@ -61,7 +60,9 @@ const ServiceOptions = () => {
           {services.map((s, i) => {
             const Card = (
               <div
-                className="relative rounded-xl overflow-hidden group cursor-pointer hover:scale-[1.02] transition duration-300 ease-in-out hover:shadow-lg"
+                className={`relative rounded-xl overflow-hidden group cursor-pointer hover:scale-[1.02] transition duration-300 ease-in-out hover:shadow-lg ${
+                  s.comingSoon ? "opacity-70 pointer-events-none" : ""
+                }`}
                 style={{ height: "160px" }}
               >
                 <img
@@ -82,10 +83,17 @@ const ServiceOptions = () => {
                   <div className="text-lg font-semibold text-white">{s.title}</div>
                   <div className="text-sm text-gray-300">{s.desc}</div>
                 </div>
+                {s.comingSoon && (
+                  <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
+                    <div className="bg-green-700 text-white px-4 py-1 rounded-full font-semibold text-sm shadow-md animate-pulse">
+                      🚧 Coming Soon
+                    </div>
+                  </div>
+                )}
               </div>
             );
 
-            return s.route ? (
+            return s.route && !s.comingSoon ? (
               <Link to={s.route} key={i}>
                 {Card}
               </Link>
@@ -96,9 +104,6 @@ const ServiceOptions = () => {
         </div>
       </div>
     </div>
-
-    
-    </>
   );
 };
 

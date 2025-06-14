@@ -90,10 +90,10 @@ export default function RideCompleted() {
 
             {/* ✅ Success Toast Popup */}
             {showPopup && (
-                <div className="fixed bottom-6 right-6 z-50">
-                    <div className="bg-gray-950 text-white px-6 py-5 rounded-xl shadow-xl flex items-start gap-4 w-96 animate-slide-up relative">
+                <div className="fixed bottom-4 left-4 right-4 md:bottom-6 md:right-6 md:left-auto z-50">
+                    <div className="bg-gray-950 text-white px-4 py-4 md:px-6 md:py-5 rounded-xl shadow-xl flex items-start gap-4 w-full max-w-sm md:max-w-md animate-slide-up relative mx-auto md:mx-0">
                         <div className="flex-1">
-                            <p className="font-semibold text-lg">Thank you for your feedback!</p>
+                            <p className="font-semibold text-base md:text-lg">Thank you for your feedback!</p>
                             <p className="text-sm text-white/90">Your Rating has been submitted.</p>
                         </div>
                         <button
@@ -108,10 +108,10 @@ export default function RideCompleted() {
 
             {/* ❌ Error Toast Popup */}
             {errorPopup && (
-                <div className="fixed bottom-6 right-6 z-50">
-                    <div className="bg-red-800 text-white px-6 py-5 rounded-xl shadow-xl flex items-start gap-4 w-96 animate-slide-up relative">
+                <div className="fixed bottom-4 left-4 right-4 md:bottom-6 md:right-6 md:left-auto z-50">
+                    <div className="bg-red-800 text-white px-4 py-4 md:px-6 md:py-5 rounded-xl shadow-xl flex items-start gap-4 w-full max-w-sm md:max-w-md animate-slide-up relative mx-auto md:mx-0">
                         <div className="flex-1">
-                            <p className="font-semibold text-lg">Please select a rating.</p>
+                            <p className="font-semibold text-base md:text-lg">Please select a rating.</p>
                         </div>
                         <button
                             onClick={() => setErrorPopup(false)}

@@ -1,16 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import { Routes, Route, useNavigate } from "react-router-dom";
 
-
 // Contexts
 import { useAuth } from "./contexts/AuthContext";
+import { ThemeProvider } from "./contexts/ThemeContext";
 
 // Common
 import Layout from "./components/Layout";
-import { ThemeProvider } from "./contexts/ThemeContext";
+import ScrollTop from "./components/ScrollTop";
+import Preloader from "./components/PreLoader";
 
-// User Pages
+// Pages
 import HomePage from "./pages/HomePage";
 import Car_Rides from "./components/Services/Car_Rides";
 import Rentals from "./components/Services/Rentals";
@@ -40,6 +41,8 @@ import Earnings from './components/DriverDashboard/Page/Earnings';
 import Profile from './components/DriverDashboard/Page/Profile';
 import Support from './components/DriverDashboard/Page/Support';
 import Settings from './components/DriverDashboard/Page/Settings';
+
+// Ride Booking
 import RideBooking from "./components/RideBooking/RideBooking";
 import ServiceOptions from "./components/RideBooking/ServiceOptions";
 import BikeRide from "./components/RideBooking/BikeRide";
@@ -47,43 +50,53 @@ import BikeProps from "./components/RideBooking/BikeProps";
 import RideTrackingPage from "./components/RideBooking/RideTrackingPage";
 import RideCompleted from "./components/RideBooking/RideCompleted";
 import ConfirmRide from "./components/RideBooking/ConfirmRide";
+
+// Deliveries
 import FoodRide from "./components/RidePages/FoodDelivery/FoodRide";
 import FoodProps from "./components/RidePages/FoodDelivery/FoodProps";
 import FoodXL from "./components/RidePages/FoodDelivery/FoodXL";
 import Grocery from "./components/RidePages/Grocery/Grocery";
 import GroceryProps from "./components/RidePages/Grocery/GroceryProps";
 import GroceryXL from "./components/RidePages/Grocery/GroceryXL";
-import UserProfile from "./components/profile/userProfile";
-import ViewAllRides from "./components/profile/viewAllRide";
-import Notifications from "./components/profile/Notification";
-import SettingsPage from "./components/profile/Setting";
-// import Faqs from "./components/User/Faqs"
 import CourierDelivery from "./pages/CourierDelivery";
 import BikeDelivery from "./pages/BikeDelivery";
 import MiniTruckDelivery from "./pages/MiniTruckDelivery";
 import MovingService from "./pages/MovingService";
-import ScrollTop from "./components/ScrollTop";
 import CityDelivery from "./pages/CityDelivery";
+
+// Profile
+import UserProfile from "./components/profile/userProfile";
+import ViewAllRides from "./components/profile/viewAllRide";
+import Notifications from "./components/profile/Notification";
+import SettingsPage from "./components/profile/Setting";
+
+// Misc
 import Faqs from "./components/Faqs";
 import Games from "./components/DriverDashboard/Page/Games";
 
 function App() {
   const navigate = useNavigate();
   const { user } = useAuth();
+  const [loading, setLoading] = useState(true);
 
+  // Redirect from profile if not logged in
   useEffect(() => {
     if (!user && window.location.pathname === "/profile") {
       navigate("/");
     }
   }, [user, navigate]);
 
+  // Show Preloader
+  // if (loading) {
+  //   return <Preloader onComplete={() => setLoading(false)} />;
+  // }
+
   return (
     <ThemeProvider>
-      {/* <Contactus/> */}
       <ScrollTop />
       <div className="App w-full max-w-full overflow-x-hidden">
         <Routes>
-          {/* Driver Panel - No Layout */}
+          {/* Driver Dashboard - No Layout */}
           <Route path="/driver" element={<DriverPannle />}>
             <Route path="profile" element={<Profile />} />
             <Route index element={<DriverDashboard />} />
@@ -94,25 +107,18 @@ function App() {
             <Route path="settings" element={<Settings />} />
           </Route>
 
-          {/* All other routes use Layout */}
+          {/* All other pages inside Layout */}
           <Route
             path="*"
             element={
-
               <Layout>
-
                 <Routes>
-                  {/* User Routes go here */}
                   <Route path="/" element={<HomePage />} />
-                  {/* eslint-disable-next-line */}
                   <Route path="/Services/carrides" element={<Car_Rides />} />
                   <Route path="/Services/rentals" element={<Rentals />} />
-                  {/* eslint-disable-next-line */}
                   <Route path="/Services/Auto_rides" element={<Auto_Rides />} />
-                  {/* eslint-disable-next-line */}
                   <Route path="/Services/Bike_rides" element={<Bike_Rides />} />
                   <Route path="/Services/Intercity" element={<Intercity />} />
-                  {/* eslint-disable-next-line */}
                   <Route path="/Book_ride" element={<Book_Ride />} />
                   <Route path="/about" element={<Aboutpage />} />
                   <Route path="/contact" element={<Contactus />} />
@@ -135,18 +141,18 @@ function App() {
                   <Route path="/rating" element={<RideCompleted />} />
                   <Route path="/confirm-ride" element={<ConfirmRide />} />
 
-                  {/* CarRide */}
+                  {/* Car Rides */}
                   <Route path="/Car-ride" element={<CarRide />} />
                   <Route path="/features/air-conditioned" element={<CarProps />} />
                   <Route path="/features/premium-cars" element={<PremiumProps />} />
                   <Route path="/features/spacious" element={<GreenXL />} />
 
-                  {/* AutoRide */}
+                  {/* Auto Rides */}
                   <Route path="/auto-ride" element={<AutoRide />} />
                   <Route path="/economical" element={<AutoProps />} />
                   <Route path="/spacious" element={<GreenAuto />} />
 
-                  {/* Courier */}
+                  {/* Courier & Delivery */}
                   <Route path="/courier-ride" element={<CourierDelivery />} />
                   <Route path="/services/bike-delivery" element={<BikeDelivery />} />
                   <Route path="/services/mini-trucks" element={<MiniTruckDelivery />} />
@@ -173,4 +179,3 @@ function App() {
 }
 
 export default App;
-

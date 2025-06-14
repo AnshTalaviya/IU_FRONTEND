@@ -163,13 +163,30 @@ const RideBooking = () => {
                     </p>
 
                     {/* Redirect to Ride Results */}
-                    <Link
+                    {pickup && dropoff ? (
+                        <Link
+                            to="/Book-ride"
+                            state={{ pickupLocation: pickup, dropLocation: dropoff }}
+                            className="block w-full text-center bg-green-600 hover:bg-green-700 transition duration-200 text-white font-semibold py-3 rounded-md"
+                        >
+                            Find Rides
+                        </Link>
+                    ) : (
+                        <button
+                            disabled
+                            className="block w-full text-center bg-green-500 hover:bg-green-600 cursor-not-allowed text-white font-semibold py-3 rounded-md"
+                        >
+                            Find Rides
+                        </button>
+                    )}
+
+                    {/* <Link
                         to="/Book-ride"
                         state={{ pickupLocation: pickup, dropLocation: dropoff }}
                         className="block w-full text-center bg-green-500 hover:bg-green-600 transition duration-200 text-white font-semibold py-3 rounded-md"
                     >
                         Find Rides
-                    </Link>
+                    </Link> */}
                 </div>
             </div>
             <Footer />

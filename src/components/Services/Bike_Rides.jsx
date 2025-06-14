@@ -30,8 +30,8 @@ export default function Bike_Rides() {
                                 <button className="bg-white text-green-600 font-semibold px-6 py-3 rounded-md hover:bg-gray-100 transition">
                                     Book a Ride
                                 </button>
-                                <button className="bg-green-800 text-white font-semibold px-6 py-3 rounded-md hover:bg-green-700 transition">
-                                    Learn About Safety
+                                <button className="bg-green-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-green-700 transition">
+                                    <Link to="/safety">    Learn About Safety</Link>
                                 </button>
                             </div>
                         </div>
@@ -64,7 +64,7 @@ export default function Bike_Rides() {
                                 </div>
                             </div>
                         </div>
-                        
+
 
                     </div>
                 </div>
@@ -200,14 +200,14 @@ export default function Bike_Rides() {
                                 <p className="text-lg opacity-90 text-start">
                                     Download our app and book your first bike ride with a special discount. Use code FIRSTBIKE for 30% off.
                                 </p>
-                                 <div className="pt-4 text-start">
-                <Link
-                  to="/book"
-                  className="inline-flex items-center justify-center gap-2 text-sm font-medium h-11 px-8 rounded-md bg-white text-green-700 hover:bg-gray-100 transition"
-                >
-                  Rent Now
-                </Link>
-              </div>
+                                <div className="pt-4 text-start">
+                                    <Link
+                                        to="/book"
+                                        className="inline-flex items-center justify-center gap-2 text-sm font-medium h-11 px-8 rounded-md bg-white text-green-700 hover:bg-gray-100 transition"
+                                    >
+                                        Rent Now
+                                    </Link>
+                                </div>
                             </div>
 
                             {/* Image Section */}

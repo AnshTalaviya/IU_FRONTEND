@@ -31,8 +31,8 @@ export default function Rentals() {
               <button className="bg-white text-green-600 font-semibold px-6 py-3 rounded-md hover:bg-gray-100 transition">
                 Rent a Vehicle
               </button>
-              <button className="bg-green-800 text-white font-semibold px-6 py-3 rounded-md hover:bg-green-700 transition">
-                Learn About Safety
+              <button className="bg-green-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-green-700 transition">
+                <Link to="/safety">    Learn About Safety</Link>
               </button>
             </div>
           </div>
@@ -147,7 +147,7 @@ export default function Rentals() {
                   <path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-4z" />
                 </svg>
               </div>
-              <h2  className="text-xl font-semibold text-gray-900 mb-2 dark:text-white">
+              <h2 className="text-xl font-semibold text-gray-900 mb-2 dark:text-white">
                 Fully Insured
               </h2>
               <p className="text-gray-600 dark:text-gray-300">
@@ -304,7 +304,7 @@ export default function Rentals() {
       <div className="bg-white dark:bg-gray-900 py-12 px-2">
         <section className="bg-green-600  rounded-2xl text-white py-12 px-4 md:px-8 max-w-7xl mx-auto my-12 ">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            {/* Text Section */} 
+            {/* Text Section */}
             <div data-aos="zoom-in" className="space-y-4 m-6">
               <h2 className="text-3xl md:text-4xl font-bold text-start">
                 Need a Vehicle for Longer?

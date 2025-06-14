@@ -51,7 +51,7 @@ function Login() {
       const user = result.user;
 
       // Send email to backend to login or register user
-      const res = await axios.post('http://localhost:5000/api/auth/google-login', {
+      const res = await axios.post('https://login-signup-iu.onrender.com/api/auth/google-login', {
         email: user.email,
         name: user.displayName,
       });

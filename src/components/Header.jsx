@@ -23,9 +23,9 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  // eslint-disable-next-line
   const [helpOpen, setHelpOpen] = useState(false);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   const location = useLocation();
 
@@ -34,6 +34,12 @@ const Header = () => {
     setHelpOpen(false);
     setMobileMenuOpen(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const toggleTheme = () => {
     const newMode = !isDarkMode;
@@ -78,12 +84,11 @@ const Header = () => {
       : (parts[0][0] + parts[1][0]).toUpperCase();
   };
 
-
   return (
     <>
       <header className="w-full">
-        {/* Top Bar */}
-        <div className=" bg-[#166534] text-white py-2 px-4 fixed top-0 left-0 w-full z-50 flex justify-between items-center">
+        {/* Top Bar (Hidden on md and below) */}
+        <div className="hidden md:flex bg-[#166534] text-white py-2 px-4 fixed top-0 left-0 w-full z-50 justify-between items-center">
           <div className="flex items-center space-x-6">
             <a href="mailto:support@idharudhar.com" className="text-sm flex items-center hover:text-green-200">
               <Mail className="mr-2" size={16} />
@@ -109,7 +114,7 @@ const Header = () => {
         </div>
 
         {/* Main Nav */}
-        <div className={`bg-white text-black dark:bg-gray-900 dark:text-white py-4 px-4 fixed top-9 left-0 w-full z-40 transition-shadow duration-300 ${scrolled ? "shadow-lg" : ""}`}>
+        <div className={`bg-white text-black dark:bg-gray-900 dark:text-white py-4 px-4 fixed ${isMobile ? "top-0" : "top-9"} left-0 w-full z-40 transition-shadow duration-300 ${scrolled ? "shadow-lg" : ""}`}>
           <div className="container mx-auto flex justify-between items-center">
             <div className="text-2xl font-bold">
               <Logo />
@@ -247,7 +252,6 @@ const Header = () => {
                   </div>
                 )}
               </div>
-
             ) : (
               <>
                 <Link to="/login" className="bg-white dark:bg-[#0F141B] px-4 py-2 rounded-md border hover:bg-[#0F5729] hover:text-white dark:text-white">Login</Link>

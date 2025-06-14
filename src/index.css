@@ -1,6 +1,7 @@
 /* @import "tailwindcss"; */
 @tailwind base;
 @tailwind components;
+@import "aos/dist/aos.css";
 @tailwind utilities;
 @keyframes subtleGlow {
     0%, 100% {

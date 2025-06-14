@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaBox, FaFlask, FaAppleAlt, FaWeightHanging, FaTimes } from "react-icons/fa";
 
@@ -58,6 +58,22 @@ const TruckCard = () => {
     const [isDropFocused, setIsDropFocused] = useState(false);
     const [isMobileFocused, setIsMobileFocused] = useState(false);
     const [isNameFocused, setIsNameFocused] = useState(false);
+
+    // Prevent background scrolling when modal is open
+    useEffect(() => {
+        if (showModal) {
+            document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+        }
+
+        return () => {
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+        };
+    }, [showModal]);
 
     const isMobileValid = /^\d{10}$/.test(mobile);
     const isFormComplete = pickup && drop && isMobileValid && name && selectedType;

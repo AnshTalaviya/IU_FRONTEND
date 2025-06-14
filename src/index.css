@@ -68,3 +68,11 @@ code {
 html, body {
   overflow-x: hidden;
 }
+
+.stroke-linecap-round {
+  stroke-linecap: round;
+}
+.stroke-linejoin-round {
+  stroke-linejoin: round;
+}
+

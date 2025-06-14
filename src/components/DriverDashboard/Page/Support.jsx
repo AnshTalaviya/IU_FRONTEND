@@ -44,7 +44,7 @@ const Support = () => {
         "Can you provide more details about your issue?"
       ]
       const randomResponse = responses[Math.floor(Math.random() * responses.length)]
-      
+
       setChatMessages(prev => [
         ...prev,
         {
@@ -95,7 +95,7 @@ const Support = () => {
             <li>What are the vehicle requirements?</li>
             <li>How do I change my availability schedule?</li>
           </ul>
-          <button 
+          <button
             className="mt-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"
             onClick={() => setActiveTab('chat')}
           >
@@ -190,14 +190,13 @@ const Support = () => {
         <h1 className="text-3xl md:text-4xl font-bold mb-2">Support Center</h1>
         <p className="dark:text-gray-400 text-gray-600">Get help with your account, rides, and payments</p>
       </div>
-      
+
       <div className="flex border-b dark:border-gray-800 border-gray-300 mb-8 overflow-x-auto">
-        <button 
-          className={`pb-4 px-6 font-medium transition-colors whitespace-nowrap ${
-            activeTab === 'help' 
-              ? 'text-green-400 border-b-2 border-green-400' 
+        <button
+          className={`pb-4 px-6 font-medium transition-colors whitespace-nowrap ${activeTab === 'help'
+              ? 'text-green-400 border-b-2 border-green-400'
               : 'dark:text-gray-400 text-gray-600 hover:dark:text-gray-300 hover:text-gray-800'
-          }`}
+            }`}
           onClick={() => {
             setActiveTab('help')
             setSelectedCategory(null)
@@ -205,35 +204,33 @@ const Support = () => {
         >
           Help Center
         </button>
-        <button 
-          className={`pb-4 px-6 font-medium transition-colors whitespace-nowrap ${
-            activeTab === 'chat' 
-              ? 'text-green-400 border-b-2 border-green-400' 
+        <button
+          className={`pb-4 px-6 font-medium transition-colors whitespace-nowrap ${activeTab === 'chat'
+              ? 'text-green-400 border-b-2 border-green-400'
               : 'dark:text-gray-400 text-gray-600 hover:dark:text-gray-300 hover:text-gray-800'
-          }`}
+            }`}
           onClick={() => setActiveTab('chat')}
         >
           Chat Support
         </button>
-        <button 
-          className={`pb-4 px-6 font-medium transition-colors whitespace-nowrap ${
-            activeTab === 'faq' 
-              ? 'text-green-400 border-b-2 border-green-400' 
+        <button
+          className={`pb-4 px-6 font-medium transition-colors whitespace-nowrap ${activeTab === 'faq'
+              ? 'text-green-400 border-b-2 border-green-400'
               : 'dark:text-gray-400 text-gray-600 hover:dark:text-gray-300 hover:text-gray-800'
-          }`}
+            }`}
           onClick={() => setActiveTab('faq')}
         >
           FAQs
         </button>
       </div>
-      
+
       {activeTab === 'help' && (
         <div className="space-y-8">
           {!selectedCategory ? (
             <>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {helpCategories.map((category) => (
-                  <div 
+                  <div
                     key={category.id}
                     className="dark:bg-gray-200/10 bg-white rounded-xl p-6 flex items-start space-x-4 dark:hover:bg-gray-200/15 hover:bg-gray-50 transition-all cursor-pointer dark:border-gray-800 border-gray-200 hover:border-green-800/50 hover:shadow-lg hover:shadow-green-900/10"
                     onClick={() => setSelectedCategory(category.id)}
@@ -248,13 +245,13 @@ const Support = () => {
                   </div>
                 ))}
               </div>
-              
+
               <div className="dark:bg-gray-200/10 bg-white rounded-xl p-6 dark:border-gray-800 border-gray-200">
                 <h2 className="text-xl font-semibold mb-4">Contact Support Team</h2>
                 <p className="dark:text-gray-400 text-gray-600 mb-6">
                   Our support team is available 24/7 to help with any issues you may encounter.
                 </p>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="flex items-center space-x-4 p-5 dark:bg-gray-900 bg-gray-100 rounded-lg dark:border-gray-800 border-gray-200 hover:border-green-800 transition-colors">
                     <div className="bg-green-900/50 p-3 rounded-full">
@@ -266,15 +263,21 @@ const Support = () => {
                       <p className="text-green-400 font-mono">+1 (888) 555-1234</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center space-x-4 p-5 dark:bg-gray-900 bg-gray-100 rounded-lg dark:border-gray-800 border-gray-200 hover:border-green-800 transition-colors">
                     <div className="bg-blue-900/50 p-3 rounded-full">
                       <i className="fas fa-comment-alt text-xl text-blue-400" />
                     </div>
-                    <div>
-                      <h3 className="font-medium text-lg text-start dark:text-gray-200 text-gray-800">Email Support</h3>
-                      <p className="text-sm dark:text-gray-400 text-gray-600 mb-2 text-start">Response within 24 hours</p>
-                      <p className="text-green-400 font-mono">support@greenride.com</p>
+                    <div className="w-full sm:w-auto flex flex-col items-start justify-start gap-1 sm:gap-1 p-2">
+                      <h3 className="font-medium text-lg text-start text-gray-800 dark:text-gray-200">
+                        Email Support
+                      </h3>
+                      <p className="text-sm text-start text-gray-600 dark:text-gray-400">
+                        Response within 24 hours
+                      </p>
+                      <p className="text-green-500 font-mono break-all">
+                        support@greenride.com
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -283,7 +286,7 @@ const Support = () => {
           ) : (
             <div className="dark:bg-gray-200/10 bg-white rounded-xl dark:border-gray-800 border-gray-200">
               <div className="p-4 dark:border-b dark:border-gray-800 border-b-gray-300 flex items-center dark:bg-gray-900 bg-gray-100 rounded-t-xl">
-                <button 
+                <button
                   className="mr-4 dark:text-gray-400 text-gray-600 hover:dark:text-white hover:text-gray-800"
                   onClick={() => setSelectedCategory(null)}
                 >
@@ -300,7 +303,7 @@ const Support = () => {
           )}
         </div>
       )}
-      
+
       {activeTab === 'chat' && (
         <div className="dark:bg-gray-200/10 bg-white rounded-xl dark:border-gray-800 border-gray-200 flex flex-col h-[70vh]">
           <div className="p-4 dark:border-b dark:border-gray-800 border-b-gray-300 flex items-center dark:bg-gray-900 bg-gray-100 rounded-t-xl">
@@ -314,17 +317,17 @@ const Support = () => {
               </p>
             </div>
           </div>
-          
+
           <div className="flex-1 overflow-y-auto p-6 space-y-6 dark:bg-gray-900/30 bg-gray-50">
             {chatMessages.map((msg, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 <div className={`max-w-[75%] ${msg.sender === 'user' ? 'text-right' : 'text-left'}`}>
                   <div className={`
-                    ${msg.sender === 'user' 
-                      ? 'dark:bg-green-900/50 bg-green-100 dark:text-green-100 text-green-900 rounded-2xl rounded-tr-none' 
+                    ${msg.sender === 'user'
+                      ? 'dark:bg-green-900/50 bg-green-100 dark:text-green-100 text-green-900 rounded-2xl rounded-tr-none'
                       : 'dark:bg-gray-800 bg-gray-200 rounded-2xl rounded-tl-none'
                     } p-4
                   `}>
@@ -351,7 +354,7 @@ const Support = () => {
             )}
             <div ref={chatEndRef} />
           </div>
-          
+
           <form onSubmit={handleSendMessage} className="p-4 dark:border-t dark:border-gray-800 border-t-gray-300 dark:bg-gray-900 bg-gray-100 rounded-b-xl">
             <div className="flex space-x-2">
               <input
@@ -361,7 +364,7 @@ const Support = () => {
                 placeholder="Type your message..."
                 className="flex-1 dark:bg-gray-800 bg-white dark:border-gray-700 border-gray-300 rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-900/50"
               />
-              <button 
+              <button
                 type="submit"
                 disabled={!message.trim()}
                 className="bg-green-600 hover:bg-green-700 text-white px-5 rounded-lg transition-colors flex items-center justify-center disabled:dark:bg-gray-700 disabled:bg-gray-300 disabled:cursor-not-allowed"
@@ -372,7 +375,7 @@ const Support = () => {
           </form>
         </div>
       )}
-      
+
       {activeTab === 'faq' && (
         <div className="dark:bg-gray-200/10 bg-white rounded-xl p-6 dark:border-gray-800 border-gray-200">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 gap-4">
@@ -386,17 +389,17 @@ const Support = () => {
               <i className="fas fa-search absolute left-3 top-3 dark:text-gray-400 text-gray-500" />
             </div>
           </div>
-          
+
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="dark:border-gray-800 border-gray-300 rounded-lg overflow-hidden dark:bg-gray-900/30 bg-gray-50 transition-all duration-200"
                 style={{
                   boxShadow: expandedFaq === index ? '0 4px 6px -1px rgba(0, 255, 128, 0.1)' : 'none'
                 }}
               >
-                <div 
+                <div
                   className="flex justify-between items-center p-5 cursor-pointer dark:hover:bg-gray-800/50 hover:bg-gray-100 transition-colors"
                   onClick={() => toggleFaq(index)}
                 >
@@ -407,11 +410,11 @@ const Support = () => {
                     <i className="fas fa-chevron-down dark:text-gray-400 text-gray-500 transition-transform" />
                   )}
                 </div>
-                
+
                 {expandedFaq === index && (
                   <div className="p-5 pt-0 animate-fadeIn">
                     <p className="dark:text-gray-300 text-gray-600 pl-1">{faq.answer}</p>
-                    <button 
+                    <button
                       className="mt-4 text-green-400 text-sm font-medium flex items-center"
                       onClick={() => {
                         setActiveTab('chat')
@@ -426,7 +429,7 @@ const Support = () => {
               </div>
             ))}
           </div>
-          
+
           <div className="mt-8 p-5 dark:bg-green-900/20 bg-green-100 dark:border-green-800/50 border-green-200 rounded-lg dark:hover:bg-green-900/30 hover:bg-green-50 transition-colors">
             <div className="flex items-start space-x-4">
               <i className="fas fa-question-circle text-green-400 text-xl mt-1" />
@@ -436,7 +439,7 @@ const Support = () => {
                   Our support team is available 24/7 to answer your questions.
                 </p>
                 <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
-                  <button 
+                  <button
                     className="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg transition-colors text-sm font-medium"
                     onClick={() => setActiveTab('chat')}
                   >

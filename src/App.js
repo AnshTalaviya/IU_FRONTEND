@@ -72,6 +72,7 @@ import SettingsPage from "./components/profile/Setting";
 
 // Misc
 import Faqs from "./components/Faqs";
+import Games from "./components/DriverDashboard/Page/Games";
 
 function App() {
   const navigate = useNavigate();
@@ -97,10 +98,11 @@ function App() {
         <Routes>
           {/* Driver Dashboard - No Layout */}
           <Route path="/driver" element={<DriverPannle />}>
-            <Route index element={<DriverDashboard />} />
-            <Route path="ridehistory" element={<RideHistory />} />
-            <Route path="earnings" element={<Earnings />} />
             <Route path="profile" element={<Profile />} />
+            <Route index element={<DriverDashboard />} />
+            <Route path="earnings" element={<Earnings />} />
+            <Route path="ridehistory" element={<RideHistory />} />
+            <Route path="games" element={<Games />} />
             <Route path="support" element={<Support />} />
             <Route path="settings" element={<Settings />} />
           </Route>

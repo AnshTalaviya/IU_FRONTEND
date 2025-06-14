@@ -208,7 +208,7 @@ const Profile = () => {
 
     try {
       const response = await axios.put(
-        'http://localhost:5000/api/user/profile', // Use your actual backend URL
+        'https://login-signup-iu.onrender.com/api/user/profile', // Use your actual backend URL
         payload
       );
 
@@ -279,6 +279,7 @@ const Profile = () => {
         return <input type="text" {...commonProps} />;
     }
   };
+  
 
   return (
     <div className="max-w-6xl mx-auto p-4 dark:bg-gray-950 bg-gray-50 min-h-screen">

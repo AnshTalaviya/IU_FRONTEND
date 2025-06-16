@@ -41,19 +41,19 @@ const Car_Rides = () => {
   }, []);
   const slides = [
     {
-      image: "https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      image: "/images/Idhar Udhar Car 1.png",
       title: "Premium Rides",
       subtitle: "Experience luxury on wheels",
       bgColor: "from-green-600/80 to-green-800/80"
     },
     {
-      image: "https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      image: "/images/Idhar Udhar Car 2.png",
       title: "Eco-Friendly",
       subtitle: "Green transportation for a better tomorrow",
       bgColor: "from-blue-600/80 to-blue-800/80"
     },
     {
-      image: "https://images.pexels.com/photos/2920064/pexels-photo-2920064.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      image: "/images/Idhar Udhar Car 3.png",
       title: "24/7 Service",
       subtitle: "Your trusted ride partner anytime, anywhere",
       bgColor: "from-purple-600/80 to-purple-800/80"
@@ -549,7 +549,7 @@ const Car_Rides = () => {
                   transition: { duration: 0.3, ease: "easeInOut" }
                 }}
                 className="max-h-80 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-700 ease-in-out hover:shadow-xl hover:shadow-green-500/20"
-                src="/images/Rentals2.png"
+                src="/images/Idhar Udhar Car 4.jpg"
                 alt="GreenCar App"
               />
             </div>

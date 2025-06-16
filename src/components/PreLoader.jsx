@@ -19,6 +19,7 @@ export default function Preloader({ onComplete }) {
     const finishTimer = setTimeout(() => {
       if (onComplete) onComplete();
     }, 6000);
+
     return () => {
       clearTimeout(textTimer);
       clearTimeout(finalCarTimer);
@@ -35,48 +36,49 @@ export default function Preloader({ onComplete }) {
   );
 
   return (
-    <div className="relative w-full h-screen bg-black overflow-hidden flex items-center justify-center z-50">
-      {/* Road Line */}
-      <div
-        className={`absolute bottom-[40%] w-full h-3 bg-gradient-to-r from-gray-700 to-gray-800 rounded-full shadow-lg overflow-hidden transition-opacity duration-1000 ${hideRoad ? "animate-road-out" : ""
-          }`}
-      >
-        <div className="absolute top-1/2 left-0 w-full h-1 border-t-2 border-dashed border-white/50 transform -translate-y-1/2" />
-      </div>
-
-      {/* First Car */}
-      {!showText && (
-        <div className="absolute bottom-[43%] left-[-120px] animate-move-car flex items-center z-20">
-          <MotionLines />
-          <CarSVG />
-        </div>
-      )}
-
-      {/* Text + Final Car */}
-      {showText && (
+    <div className="fixed inset-0 w-full h-full bg-black overflow-hidden flex items-center justify-center z-50">
+      {/* Center Container */}
+      <div className="relative w-full h-full flex items-center justify-center">
+        {/* Road Line */}
         <div
-          className="absolute w-full z-30 flex justify-center px-[2vw] text-center"
-          style={{ bottom: "40%" }}
+          className={`absolute top-1/2 left-0 w-full h-3 bg-gradient-to-r from-gray-700 to-gray-800 rounded-full shadow-lg overflow-hidden transform -translate-y-1/2 transition-opacity duration-1000 ${hideRoad ? "animate-road-out" : ""
+            }`}
         >
-          <div className="flex flex-row items-center justify-center space-x-3 max-w-full pl-[3vw]">
-            {showFinalCar && (
-              <div className="flex items-center animate-car-to-text scale-[1]">
-                <MotionLines />
-                <CarSVG />
-              </div>
-            )}
-            <h1
-              className="text-white font-mono font-black animate-idhar-appear whitespace-nowrap"
-              style={{
-                fontSize: "clamp(28px, 7vw, 64px)",
-              }}
-            >
-              Idhar<span className="text-green-400 font-mono">Udhar</span>
-            </h1>
-          </div>
+          <div className="absolute top-1/2 left-0 w-full h-1 border-t-2 border-dashed border-white/50 transform -translate-y-1/2" />
         </div>
-      )}
 
+        {/* First Car */}
+        {/* First Car */}
+        {!showText && (
+          <div className="absolute top-1/2 -translate-y-[60%] left-[-120px] animate-move-car flex items-center z-20">
+            <MotionLines />
+            <CarSVG />
+          </div>
+        )}
+
+        {/* Text + Final Car */}
+        {showText && (
+          <div className="absolute top-1/2 left-0 w-full z-30 flex justify-center px-[2vw] text-center -translate-y-[60%]">
+            <div className="flex flex-row items-center justify-center space-x-3 max-w-full pl-[3vw]">
+              {showFinalCar && (
+                <div className="flex items-center animate-car-to-text scale-[1]">
+                  <MotionLines />
+                  <CarSVG />
+                </div>
+              )}
+              <h1
+                className="text-white font-mono font-black animate-idhar-appear whitespace-nowrap"
+                style={{
+                  fontSize: "clamp(26px, 6vw, 60px)",
+                }}
+              >
+                Idhar<span className="text-green-400 font-mono">Udhar</span>
+              </h1>
+            </div>
+          </div>
+        )}
+
+      </div>
     </div>
   );
 }
@@ -84,7 +86,7 @@ export default function Preloader({ onComplete }) {
 function CarSVG() {
   return (
     <svg
-      className="w-[20vw] max-w-[120px] h-auto min-w-[70px]"
+      className="w-[22vw] max-w-[120px] h-auto min-w-[70px]"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 102 40"
     >

@@ -15,7 +15,7 @@ const ChooseRideSection = () => {
       icon: <Car size={32} />,
       price: "₹249",
       description: "Comfortable sedans for daily commute",
-      image: "/images/Home_Page1.png",
+      image: "/images/Idhar Udhar Car 1.png",
       buttonText: "Book GreenCars",
       route: "/book"
     },
@@ -33,7 +33,7 @@ const ChooseRideSection = () => {
       icon: <Truck size={32} />,
       price: "₹249",
       description: "Spacious SUVs for group travel",
-      image: "/images/Home-Page8.png",
+      image: "/images/Idhar Udhar Car 2.png",
       buttonText: "Book GreenXL",
       route: "/book"
     },

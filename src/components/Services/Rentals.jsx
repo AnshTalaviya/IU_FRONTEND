@@ -34,19 +34,19 @@ export default function Rentals() {
 
   const slides = [
     {
-      image: "/images/new1.jpeg",
+      image: "/images/Idhar Udhar Car 2.png",
       title: "Idhar Udhar Rentals",
       subtitle: "Flexible vehicle rentals by the hour, day, or week for all your travel needs",
       bgColor: "from-green-600/80 to-green-800/80"
     },
     {
-      image: "https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      image: "/images/Idhar Udhar Car 3.png",
       title: "Premium Rides",
       subtitle: "Experience luxury on wheels",
       bgColor: "from-blue-600/80 to-blue-800/80"
     },
     {
-      image: "https://images.pexels.com/photos/2920064/pexels-photo-2920064.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      image: "/images/Idhar Udhar Car 1.png",
       title: "24/7 Service",
       subtitle: "Your trusted ride partner anytime, anywhere",
       bgColor: "from-purple-600/80 to-purple-800/80"
@@ -177,7 +177,7 @@ export default function Rentals() {
       </div>
 
       {/* Hero Slider */}
-      <section className="relative min-h-[90vh] bg-gradient-to-br from-green-700 to-green-900 text-white overflow-hidden flex items-center py-10 px-4 sm:px-6 lg:px-12 mt-10">
+      <section className="relative min-h-[90vh] bg-gradient-to-br from-green-700 to-green-900 text-white overflow-hidden flex items-center py-10 px-4 sm:px-6 lg:px-12">
         {/* Sea Wave Animation Background */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="ocean">
@@ -188,7 +188,7 @@ export default function Rentals() {
           <div className="absolute inset-0 bg-gradient-to-br from-green-700/40 to-green-900/40"></div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between w-full h-full gap-10 relative z-20">
+        <div className="flex flex-col md:flex-row items-center justify-between w-full h-full gap-10 relative z-20 mt-10">
           {/* Left Content */}
           <div className="w-full md:w-[40%] relative z-20 flex items-center justify-center min-h-[300px] rounded-2xl">
             {slides.map((slide, index) => (

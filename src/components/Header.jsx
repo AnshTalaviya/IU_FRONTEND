@@ -5,7 +5,7 @@ import {
   Menu,
   Moon,
   Sun,
-  Globe,
+  
   X,
   Mail,
   Phone,
@@ -146,9 +146,7 @@ const Header = () => {
               <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-green-200 dark:hover:bg-gray-700">
                 {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
               </button>
-              <button className="p-2 rounded-full hover:bg-green-200 dark:hover:bg-gray-700">
-                <Globe size={20} />
-              </button>
+             
               {isAuthenticated ? (
                 <div className="relative group focus-within:z-50">
                   <button className="w-10 h-10 rounded-full bg-green-700 text-white flex items-center justify-center font-semibold hover:bg-green-800 transition focus:outline-none">
@@ -216,9 +214,7 @@ const Header = () => {
             <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-green-200 dark:hover:bg-gray-700">
               {isDarkMode ? <Sun size={30} /> : <Moon size={30} />}
             </button>
-            <button className="p-2 rounded-full hover:bg-green-200 dark:hover:bg-gray-700">
-              <Globe size={30} />
-            </button>
+           
             {isAuthenticated ? (
               <div className="relative">
                 <button

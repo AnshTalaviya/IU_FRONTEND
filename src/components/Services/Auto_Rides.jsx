@@ -63,50 +63,8 @@ export default function Auto_Rides() {
     return (
         <div className="relative overflow-hidden">
 
-            {/* Animated Background Dots */}
-            <div className="fixed inset-0 pointer-events-none z-0">
-                {generateDots().map((dot) => (
-                    <motion.div
-                        key={dot.id}
-                        className="absolute bg-green-500/50 rounded-full"
-                        style={{
-                            left: `${dot.x}%`,
-                            top: `${dot.y}%`,
-                            width: `${dot.size}px`,
-                            height: `${dot.size}px`
-                        }}
-                        initial={{ opacity: 0, scale: 0, y: 0 }}
-                        animate={{
-                            opacity: 1,
-                            scale: 1,
-                            y: [0, -dot.distance, 0],
-                            transition: {
-                                opacity: {
-                                    delay: dot.delay,
-                                    duration: 0.7,
-                                    ease: "easeInOut"
-                                },
-                                scale: {
-                                    delay: dot.delay,
-                                    duration: 0.7,
-                                    ease: "easeInOut"
-                                },
-                                y: {
-                                    delay: dot.delay,
-                                    duration: dot.duration,
-                                    ease: "easeInOut",
-                                    repeat: Infinity,
-                                    repeatType: "reverse"
-                                }
-                            }
-                        }}
-                    />
-                ))}
-            </div>
-
-
             {/* Hero Slider */}
-            <section className="relative min-h-[90vh] bg-gradient-to-br from-green-700 to-green-900 text-white overflow-hidden flex items-center py-10 px-4 sm:px-6 lg:px-12 mt-10">
+            <section className="min-h-[90vh] bg-gradient-to-br from-green-700 to-green-900 text-white overflow-hidden flex items-center pb-10 px-4 sm:px-6 lg:px-8">
                 {/* Ocean Wave Background */}
                 <div className="absolute inset-0 overflow-hidden z-0">
                     <div className="ocean">
@@ -118,31 +76,31 @@ export default function Auto_Rides() {
                 </div>
 
                 {/* Content */}
-                <div className="flex flex-col md:flex-row items-center justify-between w-full gap-10 relative z-20">
-                    {/* Left Side Text */}
-                    <div className="w-full md:w-[40%] min-h-[300px] flex items-center justify-center">
+                <div className="flex flex-col lg:flex-row items-center justify-between w-full h-full gap-10 relative z-20 mt-10">
+                    {/* Left Content */}
+                    <div className="w-full lg:w-[40%] relative z-20 flex items-center justify-center min-h-[300px] rounded-2xl">
                         {slides.map((slide, index) => (
                             <div
                                 key={index}
-                                className={`transition-all duration-1000 ease-in-out ${index === currentSlide
+                                className={`w-full transition-all duration-1000 ease-in-out ${index === currentSlide
                                     ? 'opacity-100 scale-100 absolute'
                                     : 'opacity-0 scale-95 pointer-events-none absolute'
-                                    } px-2 sm:px-6 flex flex-col items-center md:items-start text-center md:text-left`}
+                                    } px-2 sm:px-6 flex flex-col items-center lg:items-start text-center lg:text-left`}
                             >
-                                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-3 leading-tight hover:scale-105 hover:text-green-200 transition duration-300">
+                                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-3 leading-tight transition hover:scale-105 text-white hover:text-green-700">
                                     {slide.title}
                                 </h1>
-                                <p className="text-sm sm:text-lg lg:text-xl mb-5 text-gray-200 transition-opacity duration-500">
+                                <p className="text-sm sm:text-lg lg:text-xl mb-5 transition duration-1000 delay-200 text-gray-200">
                                     {slide.subtitle}
                                 </p>
-                                <div className="flex flex-col sm:flex-row gap-4">
-                                    <Link to="/book">
-                                        <button className="bg-white text-green-600 font-semibold px-6 py-3 rounded-lg shadow-lg transition duration-300 hover:bg-gray-100 hover:scale-105">
+                                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start transition duration-1000 delay-400 min-w-[280px] sm:min-w-[320px]">
+                                    <Link to="/book" className="w-full sm:w-auto">
+                                        <button className="bg-white text-green-600 font-semibold px-6 py-3 rounded-lg shadow-lg transition-all duration-300 hover:bg-gray-100 hover:scale-105 transform hover:shadow-xl whitespace-nowrap w-full">
                                             Book a Ride
                                         </button>
                                     </Link>
-                                    <Link to="/safety">
-                                        <button className="bg-green-600 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition duration-300 hover:bg-green-700 hover:scale-105">
+                                    <Link to="/safety" className="w-full sm:w-auto">
+                                        <button className="bg-green-600 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition-all duration-300 hover:bg-green-700 hover:scale-105 transform hover:shadow-xl whitespace-nowrap w-full">
                                             Learn About Safety
                                         </button>
                                     </Link>
@@ -151,8 +109,8 @@ export default function Auto_Rides() {
                         ))}
                     </div>
 
-                    {/* Right Side Image */}
-                    <div className="w-full md:w-[60%] h-[70vh] relative overflow-hidden rounded-2xl shadow-2xl  flex items-center justify-center">
+                    {/* Right Slider */}
+                    <div className="w-full lg:w-[60%] h-[40vh] sm:h-[50vh] md:h-[70vh] relative overflow-hidden rounded-2xl shadow-2xl transform hover:scale-[1.02] transition-transform duration-300 flex items-center justify-center">
                         {slides.map((slide, index) => (
                             <div
                                 key={index}
@@ -171,11 +129,11 @@ export default function Auto_Rides() {
                         ))}
 
                         {/* Floating Info Card */}
-                        <div className="absolute bottom-4  z-20 bg-white text-gray-800 dark:bg-gray-800 dark:text-white shadow-xl rounded-lg p-4 flex items-center gap-4 w-[230px] transform hover:scale-[1.02] transition-transform duration-300 ">
-                            <div className="h-12 w-12 rounded-full bg-green-200 flex items-center justify-center ">
+                        <div className="absolute bottom-4 z-20 bg-white text-gray-800 dark:bg-gray-800 dark:text-white shadow-xl rounded-lg p-3 sm:p-4 flex items-center gap-3 sm:gap-4 w-[200px] sm:w-[230px] transform hover:scale-[1.02] transition-transform duration-300">
+                            <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-green-200 flex items-center justify-center">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    className="h-6 w-6 text-green-600"
+                                    className="h-5 w-5 sm:h-6 sm:w-6 text-green-600"
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
@@ -186,8 +144,8 @@ export default function Auto_Rides() {
                                 </svg>
                             </div>
                             <div>
-                                <p className="text-sm text-gray-500 dark:text-gray-300">Average Arrival Time</p>
-                                <p className="font-semibold text-gray-900 dark:text-white">3 minutes</p>
+                                <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-300">Average Arrival Time</p>
+                                <p className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white">3 minutes</p>
                             </div>
                         </div>
                     </div>
@@ -228,14 +186,55 @@ export default function Auto_Rides() {
             100% { transform: translateX(-50%) scaleY(1); }
           }
         `).join('')}
-      `}</style>
+        `}</style>
             </section>
 
+
             {/* Features Section */}
-            <div className="bg-white dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8" >
-                <div className="max-w-7xl mx-auto text-center " data-aos="fade-up">
+            <div className="bg-white dark:bg-gray-900 py-8 sm:py-12 px-4 sm:px-6 lg:px-8 relative z-10 relative overflow-hidden">
+                {/* Animated Background Dots */}
+                <div className="absolute inset-0 pointer-events-none">
+                    {generateDots().map((dot) => (
+                        <motion.div
+                            key={dot.id}
+                            className="absolute bg-green-500/30 rounded-full"
+                            style={{
+                                left: `${dot.x}%`,
+                                top: `${dot.y}%`,
+                                width: `${dot.size}px`,
+                                height: `${dot.size}px`
+                            }}
+                            initial={{ opacity: 0, scale: 0, y: 0 }}
+                            animate={{
+                                opacity: 1,
+                                scale: 1,
+                                y: [0, -dot.distance, 0],
+                                transition: {
+                                    opacity: {
+                                        delay: dot.delay,
+                                        duration: 0.7,
+                                        ease: "easeInOut"
+                                    },
+                                    scale: {
+                                        delay: dot.delay,
+                                        duration: 0.7,
+                                        ease: "easeInOut"
+                                    },
+                                    y: {
+                                        delay: dot.delay,
+                                        duration: dot.duration,
+                                        ease: "easeInOut",
+                                        repeat: Infinity,
+                                        repeatType: "reverse"
+                                    }
+                                }
+                            }}
+                        />
+                    ))}
+                </div>
+                <div className="max-w-7xl mx-auto text-center" data-aos="fade-up">
                     <motion.h1
-                        className="text-3xl sm:text-4xl font-extrabold text-green-600   mb-4"
+                        className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-green-600 mb-3 sm:mb-4"
                         whileHover={{
                             scale: 1.05,
                             color: "#16a34a",
@@ -247,7 +246,7 @@ export default function Auto_Rides() {
                         Why Choose GreenAuto?
                     </motion.h1>
                     <motion.p
-                        className="text-gray-600 dark:text-gray-300 max-w-xl mx-auto mb-10"
+                        className="text-sm sm:text-base lg:text-lg text-gray-600 dark:text-gray-300 max-w-xl mx-auto mb-6 sm:mb-10"
                         data-aos-easing="ease-in-out"
                         whileHover={{
                             scale: 1.05,
@@ -257,7 +256,7 @@ export default function Auto_Rides() {
                         The perfect balance of comfort, affordability, and convenience for your daily city travels
                     </motion.p>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                         {/* Card Template */}
                         {[
                             {
@@ -290,19 +289,19 @@ export default function Auto_Rides() {
                                     boxShadow: "0 12px 28px rgba(0, 0, 0, 0.12)",
                                     transition: { ease: "easeOut" },
                                 }}
-                                className="bg-white dark:bg-gray-800 shadow-md rounded-xl p-6 text-left"
+                                className="bg-white dark:bg-gray-800 shadow-md rounded-xl p-4 sm:p-6 text-left"
                                 data-aos="fade-up"
                                 data-aos-easing="ease-in-out"
                             >
-                                <div className="mb-4 text-green-600">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <div className="mb-3 sm:mb-4 text-green-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         {item.iconPath}
                                     </svg>
                                 </div>
-                                <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                                <h2 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-2">
                                     {item.title}
                                 </h2>
-                                <p className="text-gray-600 dark:text-gray-300">
+                                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">
                                     {item.desc}
                                 </p>
                             </motion.div>
@@ -313,27 +312,67 @@ export default function Auto_Rides() {
 
 
             {/* Pricing Section */}
-            <section className="bg-gray-100 dark:bg-gray-800 py-16 px-10 sm:px-24 flex justify-center items-center">
+            <section className="bg-gray-100 dark:bg-gray-800 py-8 sm:py-16 px-4 sm:px-6 lg:px-8 flex justify-center items-center relative overflow-hidden">
+                {/* Animated Background Dots */}
+                <div className="absolute inset-0 pointer-events-none">
+                    {generateDots().map((dot) => (
+                        <motion.div
+                            key={dot.id}
+                            className="absolute bg-green-500/30 rounded-full"
+                            style={{
+                                left: `${dot.x}%`,
+                                top: `${dot.y}%`,
+                                width: `${dot.size}px`,
+                                height: `${dot.size}px`
+                            }}
+                            initial={{ opacity: 0, scale: 0, y: 0 }}
+                            animate={{
+                                opacity: 1,
+                                scale: 1,
+                                y: [0, -dot.distance, 0],
+                                transition: {
+                                    opacity: {
+                                        delay: dot.delay,
+                                        duration: 0.7,
+                                        ease: "easeInOut"
+                                    },
+                                    scale: {
+                                        delay: dot.delay,
+                                        duration: 0.7,
+                                        ease: "easeInOut"
+                                    },
+                                    y: {
+                                        delay: dot.delay,
+                                        duration: dot.duration,
+                                        ease: "easeInOut",
+                                        repeat: Infinity,
+                                        repeatType: "reverse"
+                                    }
+                                }
+                            }}
+                        />
+                    ))}
+                </div>
                 <div
                     className="max-w-6xl w-full text-center"
                     data-aos="zoom-out"
                     data-aos-easing="ease-in-out"
                 >
                     {/* Heading */}
-                    <motion.h1 className="text-4xl md:text-5xl font-bold text-green-600 "
+                    <motion.h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-green-600"
                         whileHover={{ scale: 1.05, color: "#16a34a", }} >
                         Simple & Transparent Pricing
                     </motion.h1>
 
                     {/* Subtext */}
-                    <motion.p className="text-gray-600 dark:text-gray-300 mt-2 text-base"
+                    <motion.p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-2"
                         whileHover={{ scale: 1.05, }}
                     >
                         Affordable auto rides with no hidden charges, clear pricing for every journey
                     </motion.p>
 
                     {/* Cards */}
-                    <div className="flex flex-row justify-center items-center gap-6 mt-12 mx-auto">
+                    <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 mt-8 sm:mt-12 mx-auto">
                         {/* === Card Template === */}
                         {[
                             {
@@ -358,7 +397,7 @@ export default function Auto_Rides() {
                                     scale: 1.1,
                                     boxShadow: "0 15px 40px rgba(0, 0, 0, 0.2)",
                                 }}
-                                className="relative border border-gray-300 dark:border-gray-600 rounded-lg shadow-md bg-white dark:bg-gray-900 w-80"
+                                className="relative border border-gray-300 dark:border-gray-600 rounded-lg shadow-md bg-white dark:bg-gray-900 w-full sm:w-[300px] md:w-[350px]"
                                 data-aos="fade-up"
                                 data-aos-easing="ease-in-out"
                             >
@@ -371,7 +410,7 @@ export default function Auto_Rides() {
                                 {/* Card Header */}
                                 <div className="bg-green-600 text-white py-3 rounded-t-lg text-center">
                                     <motion.h3
-                                        className="text-lg font-semibold"
+                                        className="text-base sm:text-lg font-semibold"
                                         whileHover={{ scale: 1.05 }}
                                     >
                                         {plan.title}
@@ -379,9 +418,9 @@ export default function Auto_Rides() {
                                 </div>
 
                                 {/* Pricing Content */}
-                                <div className="py-6 text-center">
+                                <div className="py-4 sm:py-6 text-center">
                                     <motion.h2
-                                        className="text-4xl font-bold text-gray-900 dark:text-white"
+                                        className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white"
                                         whileHover={{ scale: 1.05 }}
                                     >
                                         {plan.price}
@@ -394,10 +433,10 @@ export default function Auto_Rides() {
                                         Base fare: {plan.baseFare}
                                     </motion.p>
 
-                                    <div className="mt-4 space-y-3 text-gray-700 dark:text-gray-200 text-sm text-left px-6">
+                                    <div className="mt-4 space-y-2 sm:space-y-3 text-gray-700 dark:text-gray-200 text-sm text-left px-4 sm:px-6">
                                         {plan.features.map((feature, fIndex) => (
                                             <motion.p key={fIndex} whileHover={{ scale: 1.02 }}>
-                                                <span className="inline-block w-2 h-2 rounded-full bg-green-600 mr-4 shadow-[0_0_8px_0.2px_#bbf7d0]" />
+                                                <span className="inline-block w-2 h-2 rounded-full bg-green-600 mr-3 sm:mr-4 shadow-[0_0_8px_0.2px_#bbf7d0]" />
                                                 {feature}
                                             </motion.p>
                                         ))}
@@ -405,10 +444,10 @@ export default function Auto_Rides() {
                                 </div>
 
                                 {/* CTA Button */}
-                                <div className="px-6 pb-6">
-                                    <Link to={plan.link}>
+                                <div className="px-4 sm:px-6 pb-4 sm:pb-6">
+                                    <Link to={plan.link} className="block w-full">
                                         <motion.button
-                                            className="w-full py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded"
+                                            className="w-full py-2 sm:py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded text-sm sm:text-base"
                                             whileHover={{
                                                 scale: 1.05,
                                                 backgroundColor: "#16a34a",
@@ -426,13 +465,52 @@ export default function Auto_Rides() {
             </section>
 
             {/* 4th part */}
-
-            <div className="bg-white dark:bg-gray-900 py-12 px-2">
-                <section className="bg-green-700 hover:bg-green-600 rounded-2xl text-white py-12 px-4 md:px-8 max-w-7xl mx-auto my-12 transform hover:scale-[1.02] transition-all duration-700 ease-in-out hover:shadow-xl hover:shadow-green-500/20">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                        <div data-aos="zoom-in" data-aos-easing="ease-in-out" className="space-y-4 m-6">
+            <div className="bg-white dark:bg-gray-900 py-8 sm:py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+                {/* Animated Background Dots */}
+                <div className="absolute inset-0 pointer-events-none">
+                    {generateDots().map((dot) => (
+                        <motion.div
+                            key={dot.id}
+                            className="absolute bg-green-500/30 rounded-full"
+                            style={{
+                                left: `${dot.x}%`,
+                                top: `${dot.y}%`,
+                                width: `${dot.size}px`,
+                                height: `${dot.size}px`
+                            }}
+                            initial={{ opacity: 0, scale: 0, y: 0 }}
+                            animate={{
+                                opacity: 1,
+                                scale: 1,
+                                y: [0, -dot.distance, 0],
+                                transition: {
+                                    opacity: {
+                                        delay: dot.delay,
+                                        duration: 0.7,
+                                        ease: "easeInOut"
+                                    },
+                                    scale: {
+                                        delay: dot.delay,
+                                        duration: 0.7,
+                                        ease: "easeInOut"
+                                    },
+                                    y: {
+                                        delay: dot.delay,
+                                        duration: dot.duration,
+                                        ease: "easeInOut",
+                                        repeat: Infinity,
+                                        repeatType: "reverse"
+                                    }
+                                }
+                            }}
+                        />
+                    ))}
+                </div>
+                <section className="bg-green-700 hover:bg-green-600 rounded-xl sm:rounded-2xl text-white py-8 sm:py-12 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto my-6 sm:my-12 transform hover:scale-[1.02] transition-all duration-700 ease-in-out hover:shadow-xl hover:shadow-green-500/20">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-center">
+                        <div data-aos="zoom-in" data-aos-easing="ease-in-out" className="space-y-3 sm:space-y-4 m-4 sm:m-6">
                             <motion.h2
-                                className="text-3xl md:text-4xl font-bold text-start"
+                                className="text-2xl sm:text-3xl md:text-4xl font-bold text-start"
                                 whileHover={{
                                     scale: 1.02,
                                     transition: { duration: 0.3, ease: "easeInOut" }
@@ -441,7 +519,7 @@ export default function Auto_Rides() {
                                 Ready for an Auto Ride?
                             </motion.h2>
                             <motion.p
-                                className="text-lg opacity-90 text-start"
+                                className="text-base sm:text-lg opacity-90 text-start"
                                 whileHover={{
                                     scale: 1.02,
                                     transition: { duration: 0.3, ease: "easeInOut" }
@@ -449,11 +527,12 @@ export default function Auto_Rides() {
                             >
                                 Download our app and book your first auto ride with a special discount. Use code FIRSTAUTO for 25% off.
                             </motion.p>
-                            <div className="pt-4 text-start">
+                            <div className="pt-3 sm:pt-4 text-start">
                                 <Link
                                     to="/book"
-                                    className="inline-flex items-center justify-center gap-2 text-sm font-medium h-11 px-8 rounded-md bg-white text-green-700 hover:bg-gray-100 transition-all duration-700 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-green-500/50"
-                                >    Rent Now
+                                    className="inline-flex items-center justify-center gap-2 text-sm font-medium h-10 sm:h-11 px-6 sm:px-8 rounded-md bg-white text-green-700 hover:bg-gray-100 transition-all duration-700 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-green-500/50"
+                                >
+                                    Rent Now
                                 </Link>
                             </div>
                         </div>
@@ -464,7 +543,7 @@ export default function Auto_Rides() {
                                     scale: 1.02,
                                     transition: { duration: 0.3, ease: "easeInOut" }
                                 }}
-                                className="max-h-80 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-700 ease-in-out hover:shadow-xl hover:shadow-green-500/20"
+                                className="w-full max-h-[250px] sm:max-h-[300px] md:max-h-[350px] rounded-lg shadow-lg transform hover:scale-105 transition-all duration-700 ease-in-out hover:shadow-xl hover:shadow-green-500/20 object-cover"
                                 src="/images/auto2.jpg"
                                 alt="GreenCar App"
                             />

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';  // Import Link from react-router-dom
 import { Car, Bike, Truck, Clock, Package } from 'lucide-react';
+import { motion } from 'framer-motion';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -56,8 +57,66 @@ const ChooseRideSection = () => {
     }
   ];
 
+  // Generate random positions for dots with animation properties
+  const generateDots = () => {
+    const dots = [];
+    for (let i = 0; i < 50; i++) {
+      dots.push({
+        id: i,
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        size: Math.random() * 4 + 2,
+        delay: Math.random() * 2,
+        duration: Math.random() * 2 + 2,
+        distance: Math.random() * 20 + 10
+      });
+    }
+    return dots;
+  };
+
   return (
-    <section className="py-16 bg-white dark:bg-[#1F2937]">
+    <section className="py-16 bg-white dark:bg-[#1F2937] relative">
+      {/* Animated Background Dots */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {generateDots().map((dot) => (
+          <motion.div
+            key={dot.id}
+            className="absolute bg-green-500/50 rounded-full"
+            style={{
+              left: `${dot.x}%`,
+              top: `${dot.y}%`,
+              width: `${dot.size}px`,
+              height: `${dot.size}px`
+            }}
+            initial={{ opacity: 0, scale: 0, y: 0 }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              y: [0, -dot.distance, 0],
+              transition: {
+                opacity: {
+                  delay: dot.delay,
+                  duration: 0.7,
+                  ease: "easeInOut"
+                },
+                scale: {
+                  delay: dot.delay,
+                  duration: 0.7,
+                  ease: "easeInOut"
+                },
+                y: {
+                  delay: dot.delay,
+                  duration: dot.duration,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  repeatType: "reverse"
+                }
+              }
+            }}
+          />
+        ))}
+      </div>
+
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4">Choose Your Ride</h2>

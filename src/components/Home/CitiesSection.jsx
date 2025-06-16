@@ -3,6 +3,8 @@ import { Search, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { motion } from 'framer-motion';
+
 
 
 const CitiesSection: React.FC = () => {
@@ -34,8 +36,66 @@ const CitiesSection: React.FC = () => {
     city.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  // Generate random positions for dots with animation properties
+  const generateDots = () => {
+    const dots = [];
+    for (let i = 0; i < 50; i++) {
+      dots.push({
+        id: i,
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        size: Math.random() * 4 + 2,
+        delay: Math.random() * 2,
+        duration: Math.random() * 2 + 2,
+        distance: Math.random() * 20 + 10
+      });
+    }
+    return dots;
+  };
+
   return (
-    <section className="py-16 bg-white dark:bg-gray-900">
+    <section className="py-16 bg-white dark:bg-gray-900 relative">
+
+      {/* Animated Background Dots */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {generateDots().map((dot) => (
+          <motion.div
+            key={dot.id}
+            className="absolute bg-green-500/50 rounded-full"
+            style={{
+              left: `${dot.x}%`,
+              top: `${dot.y}%`,
+              width: `${dot.size}px`,
+              height: `${dot.size}px`
+            }}
+            initial={{ opacity: 0, scale: 0, y: 0 }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              y: [0, -dot.distance, 0],
+              transition: {
+                opacity: {
+                  delay: dot.delay,
+                  duration: 0.7,
+                  ease: "easeInOut"
+                },
+                scale: {
+                  delay: dot.delay,
+                  duration: 0.7,
+                  ease: "easeInOut"
+                },
+                y: {
+                  delay: dot.delay,
+                  duration: dot.duration,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  repeatType: "reverse"
+                }
+              }
+            }}
+          />
+        ))}
+      </div>
       <div className="container mx-auto px-4">
         <div
           data-aos="zoom-in"
@@ -62,20 +122,20 @@ const CitiesSection: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4 text-center mb-8">
-  {filteredCities.map((city, index) => (
-   <Link
-    key={index}
-    to="#"
-    className="relative dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors py-2 rounded-md group flex items-center justify-center min-w-[80px]"
-   >
-    <span>{city}</span>
-    <span className="absolute right-2 top-[55%] -translate-y-[45%] w-6 h-6 rounded-2xl bg-green-500 flex items-center justify-center ml-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
-     <MapPin size={16} className="text-white" />
-    </span>
-    <div className="absolute inset-0 bg-transparent group-hover:bg-green-500/10 rounded-md"></div>
-   </Link>
-  ))}
- </div>
+          {filteredCities.map((city, index) => (
+            <Link
+              key={index}
+              to="#"
+              className="relative dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors py-2 rounded-md group flex items-center justify-center min-w-[80px]"
+            >
+              <span>{city}</span>
+              <span className="absolute right-2 top-[55%] -translate-y-[45%] w-6 h-6 rounded-2xl bg-green-500 flex items-center justify-center ml-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <MapPin size={16} className="text-white" />
+              </span>
+              <div className="absolute inset-0 bg-transparent group-hover:bg-green-500/10 rounded-md"></div>
+            </Link>
+          ))}
+        </div>
 
         <div className="text-center">
           <Link

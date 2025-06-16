@@ -177,7 +177,7 @@ export default function Rentals() {
       </div>
 
       {/* Hero Slider */}
-      <section className="relative min-h-[90vh] bg-gradient-to-br from-green-700 to-green-900 text-white overflow-hidden flex items-center py-10 px-4 sm:px-6 lg:px-12 mt-10">
+      <section className="relative min-h-[90vh] bg-gradient-to-br from-green-700 to-green-900 text-white overflow-hidden flex items-center py-10 px-4 sm:px-6 lg:px-12">
         {/* Sea Wave Animation Background */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="ocean">
@@ -188,16 +188,16 @@ export default function Rentals() {
           <div className="absolute inset-0 bg-gradient-to-br from-green-700/40 to-green-900/40"></div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between w-full h-full gap-10 relative z-20">
+        <div className="flex flex-col lg:flex-row items-center justify-between w-full h-full gap-10 relative z-20 mt-10">
           {/* Left Content */}
-          <div className="w-full md:w-[40%] relative z-20 flex items-center justify-center min-h-[300px] rounded-2xl">
+          <div className="w-full lg:w-[40%] relative z-20 flex items-center justify-center min-h-[300px] rounded-2xl">
             {slides.map((slide, index) => (
               <div
                 key={index}
                 className={`w-full transition-all duration-1000 ease-in-out ${index === currentSlide
                   ? 'opacity-100 scale-100 absolute'
                   : 'opacity-0 scale-95 pointer-events-none absolute'
-                  } px-2 sm:px-6 flex flex-col items-center md:items-start text-center md:text-left`}
+                  } px-2 sm:px-6 flex flex-col items-center lg:items-start text-center lg:text-left`}
               >
                 <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-3 leading-tight transition hover:scale-105 text-white hover:text-green-700">
                   {slide.title}
@@ -205,12 +205,12 @@ export default function Rentals() {
                 <p className="text-sm sm:text-lg lg:text-xl mb-5 transition duration-1000 delay-200 text-gray-200">
                   {slide.subtitle}
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start transition duration-1000 delay-400">
-                  <button className="bg-white text-green-600 font-semibold px-6 py-3 rounded-lg shadow-lg transition-all duration-300 hover:bg-gray-100 hover:scale-105 transform hover:shadow-xl">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start transition duration-1000 delay-400 min-w-[280px] sm:min-w-[320px]">
+                  <button className="bg-white text-green-600 font-semibold px-6 py-3 rounded-lg shadow-lg transition-all duration-300 hover:bg-gray-100 hover:scale-105 transform hover:shadow-xl whitespace-nowrap w-full sm:w-auto">
                     Rent a Vehicle
                   </button>
-                  <Link to="/safety">
-                    <button className="bg-green-600 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition-all duration-300 hover:bg-green-700 hover:scale-105 transform hover:shadow-xl">
+                  <Link to="/safety" className="w-full sm:w-auto">
+                    <button className="bg-green-600 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition-all duration-300 hover:bg-green-700 hover:scale-105 transform hover:shadow-xl whitespace-nowrap w-full">
                       Learn About Safety
                     </button>
                   </Link>
@@ -220,7 +220,7 @@ export default function Rentals() {
           </div>
 
           {/* Right Slider */}
-          <div className="w-full md:w-[60%] h-[40vh] sm:h-[50vh] md:h-[70vh] relative overflow-hidden rounded-2xl shadow-2xl transform hover:scale-[1.02] transition-transform duration-300 flex items-center justify-center">
+          <div className="w-full lg:w-[60%] h-[40vh] sm:h-[50vh] md:h-[70vh] relative overflow-hidden rounded-2xl shadow-2xl transform hover:scale-[1.02] transition-transform duration-300 flex items-center justify-center">
             {slides.map((slide, index) => (
               <div
                 key={index}

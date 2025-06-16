@@ -3,9 +3,11 @@ import { Check, Smartphone } from "lucide-react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from "react-router-dom";
+import { motion } from 'framer-motion';
+
 
 const DownloadAppSection = () => {
-    useEffect(() => {
+  useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
 
@@ -18,12 +20,69 @@ const DownloadAppSection = () => {
     "Access 24/7 in-app support",
   ];
 
+
+  // Generate random positions for dots with animation properties
+  const generateDots = () => {
+    const dots = [];
+    for (let i = 0; i < 50; i++) {
+      dots.push({
+        id: i,
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        size: Math.random() * 4 + 2,
+        delay: Math.random() * 2,
+        duration: Math.random() * 2 + 2,
+        distance: Math.random() * 20 + 10
+      });
+    }
+    return dots;
+  };
   return (
-    <section className="py-16 bg-white dark:bg-gray-900">
+    <section className="py-16 bg-white dark:bg-gray-900 relative">
+      {/* Animated Background Dots */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {generateDots().map((dot) => (
+          <motion.div
+            key={dot.id}
+            className="absolute bg-green-500/50 rounded-full"
+            style={{
+              left: `${dot.x}%`,
+              top: `${dot.y}%`,
+              width: `${dot.size}px`,
+              height: `${dot.size}px`
+            }}
+            initial={{ opacity: 0, scale: 0, y: 0 }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              y: [0, -dot.distance, 0],
+              transition: {
+                opacity: {
+                  delay: dot.delay,
+                  duration: 0.7,
+                  ease: "easeInOut"
+                },
+                scale: {
+                  delay: dot.delay,
+                  duration: 0.7,
+                  ease: "easeInOut"
+                },
+                y: {
+                  delay: dot.delay,
+                  duration: dot.duration,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  repeatType: "reverse"
+                }
+              }
+            }}
+          />
+        ))}
+      </div>
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div
-          data-aos="zoom-in" className="lg:w-1/2 relative">
+            data-aos="zoom-in" className="lg:w-1/2 relative">
             <div className="bg-green-500/10 absolute -inset-4 rounded-lg blur-xl"></div>
             <div className="relative">
               <div
@@ -51,7 +110,7 @@ const DownloadAppSection = () => {
                   boxShadow: "0 0 10px rgba(255, 255, 255, 0.08)", // soft glow
                   filter: "drop-shadow(0 0 2px rgba(255, 255, 255, 0.1))",
                   borderRadius: "15PX",
-                  height:"450PX"
+                  height: "450PX"
                 }}
               />
               <div

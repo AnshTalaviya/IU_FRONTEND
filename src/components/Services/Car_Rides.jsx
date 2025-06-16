@@ -104,7 +104,7 @@ const Car_Rides = () => {
       </div>
 
       {/* Hero Slider */}
-      <section className="relative min-h-[90vh] bg-gradient-to-br from-green-700 to-green-900 text-white overflow-hidden flex items-center py-10 px-4 sm:px-6 lg:px-12 mt-10">
+      <section className="relative min-h-[90vh] bg-gradient-to-br from-green-700 to-green-900 text-white overflow-hidden flex items-center py-10 px-4 sm:px-6 lg:px-12">
         {/* Sea Wave Animation Background */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="ocean">
@@ -118,16 +118,16 @@ const Car_Rides = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-green-700/40 to-green-900/40"></div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between w-full h-full gap-10 relative z-20">
+        <div className="flex flex-col lg:flex-row items-center justify-between w-full h-full gap-10 relative z-20 mt-10">
           {/* Left Content */}
-          <div className="w-full md:w-[40%] relative z-20 flex items-center justify-center min-h-[300px] rounded-2xl">
+          <div className="w-full lg:w-[40%] relative z-20 flex items-center justify-center min-h-[300px] rounded-2xl">
             {slides.map((slide, index) => (
               <div
                 key={index}
                 className={`w-full transition-all duration-1000 ease-in-out ${index === currentSlide
                   ? 'opacity-100 scale-100 absolute'
                   : 'opacity-0 scale-95 pointer-events-none absolute'
-                  } px-2 sm:px-6 flex flex-col items-center md:items-start text-center md:text-left`}
+                  } px-2 sm:px-6 flex flex-col items-center lg:items-start text-center lg:text-left`}
               >
                 <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-3 leading-tight transition hover:scale-105 text-white hover:text-green-700">
                   {slide.title}
@@ -135,14 +135,14 @@ const Car_Rides = () => {
                 <p className="text-sm sm:text-lg lg:text-xl mb-5 transition duration-1000 delay-200 text-gray-200">
                   {slide.subtitle}
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start transition duration-1000 delay-400">
-                  <Link to="/book">
-                    <button className="bg-white text-green-600 font-semibold px-6 py-3 rounded-lg shadow-lg transition-all duration-300 hover:bg-gray-100 hover:scale-105 transform hover:shadow-xl">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start transition duration-1000 delay-400 min-w-[280px] sm:min-w-[320px]">
+                  <Link to="/book" className="w-full sm:w-auto">
+                    <button className="bg-white text-green-600 font-semibold px-6 py-3 rounded-lg shadow-lg transition-all duration-300 hover:bg-gray-100 hover:scale-105 transform hover:shadow-xl whitespace-nowrap w-full">
                       Book a Ride
                     </button>
                   </Link>
-                  <Link to="/safety">
-                    <button className="bg-green-600 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition-all duration-300 hover:bg-green-700 hover:scale-105 transform hover:shadow-xl">
+                  <Link to="/safety" className="w-full sm:w-auto">
+                    <button className="bg-green-600 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition-all duration-300 hover:bg-green-700 hover:scale-105 transform hover:shadow-xl whitespace-nowrap w-full">
                       Learn About Safety
                     </button>
                   </Link>
@@ -152,7 +152,7 @@ const Car_Rides = () => {
           </div>
 
           {/* Right Slider */}
-          <div className="w-full md:w-[60%] h-[40vh] sm:h-[50vh] md:h-[70vh] relative overflow-hidden rounded-2xl shadow-2xl transform hover:scale-[1.02] transition-transform duration-300 flex items-center justify-center">
+          <div className="w-full lg:w-[60%] h-[40vh] sm:h-[50vh] md:h-[70vh] relative overflow-hidden rounded-2xl shadow-2xl transform hover:scale-[1.02] transition-transform duration-300 flex items-center justify-center">
 
             {/* Image Slides */}
             {slides.map((slide, index) => (
@@ -509,12 +509,13 @@ const Car_Rides = () => {
       </div>
 
       {/* CTA Section */}
-      <div className="bg-white dark:bg-gray-900 py-12 px-2">
-        <section className="bg-green-600 rounded-2xl text-white py-12 px-4 md:px-8 max-w-7xl mx-auto my-12 transform hover:scale-[1.02] transition-all duration-700 ease-in-out hover:shadow-xl hover:shadow-green-500/20">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div data-aos="zoom-in" data-aos-easing="ease-in-out" className="space-y-4 m-6">
+      <div className="bg-white dark:bg-gray-900 py-10 px-4 sm:px-6 lg:px-8">
+        <section className="bg-[#166534] hover:bg-green-700 rounded-2xl text-white py-10 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto transition-all duration-700 ease-in-out transform hover:scale-[1.02] hover:shadow-xl hover:shadow-green-500/20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            {/* Left Text */}
+            <div data-aos="zoom-in" className="space-y-5 text-center md:text-left">
               <motion.h2
-                className="text-3xl md:text-4xl font-bold text-start"
+                className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight"
                 whileHover={{
                   scale: 1.02,
                   transition: { duration: 0.3, ease: "easeInOut" }
@@ -522,17 +523,23 @@ const Car_Rides = () => {
               >
                 Ready to Experience GreenCar?
               </motion.h2>
+
               <motion.p
-                className="text-lg opacity-90 text-start"
+                className="text-base sm:text-lg text-white/90 leading-relaxed"
                 whileHover={{
                   scale: 1.02,
                   transition: { duration: 0.3, ease: "easeInOut" }
                 }}
               >
                 Download our app and get your first ride with a special discount.
-                Use code <strong className="transform hover:scale-110 transition-all duration-700 ease-in-out">FIRSTRIDE</strong> for 50% off.
+                Use code{" "}
+                <strong className="hover:scale-110 inline-block transition-all duration-700 ease-in-out">
+                  FIRSTRIDE
+                </strong>{" "}
+                for 50% off.
               </motion.p>
-              <div className="pt-4 text-start">
+
+              <div className="pt-3">
                 <Link
                   to="/book"
                   className="inline-flex items-center justify-center gap-2 text-sm font-medium h-11 px-8 rounded-md bg-white text-green-700 hover:bg-gray-100 transition-all duration-700 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-green-500/50"
@@ -542,13 +549,14 @@ const Car_Rides = () => {
               </div>
             </div>
 
-            <div className="flex justify-center" data-aos="zoom-in">
+            {/* Right Image */}
+            <div className="flex justify-center md:justify-end" data-aos="zoom-in">
               <motion.img
                 whileHover={{
                   scale: 1.02,
                   transition: { duration: 0.3, ease: "easeInOut" }
                 }}
-                className="max-h-80 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-700 ease-in-out hover:shadow-xl hover:shadow-green-500/20"
+                className="w-full h-auto rounded-lg shadow-lg transition-all duration-700 ease-in-out hover:scale-105 hover:shadow-xl hover:shadow-green-500/20"
                 src="/images/Rentals2.png"
                 alt="GreenCar App"
               />
@@ -556,6 +564,7 @@ const Car_Rides = () => {
           </div>
         </section>
       </div>
+
 
       {/* New Testimonials Section */}
       <section className="bg-gray-100 dark:bg-gray-900 py-16 px-4">

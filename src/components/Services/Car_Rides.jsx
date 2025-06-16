@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Slider from 'react-slick';
-import AOS from 'aos';
 import { motion } from 'framer-motion';
+import AOS from 'aos';
 import 'aos/dist/aos.css';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
 const Car_Rides = () => {
   useEffect(() => {
@@ -34,43 +31,35 @@ const Car_Rides = () => {
     return dots;
   };
 
-      const [currentSlide, setCurrentSlide] = useState(0);
-  
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    arrows: false,
-    customPaging: function (i) {
-      return (
-        <div className="w-3 h-3 bg-white/50 rounded-full hover:bg-white transition-all duration-300 ease-in-out cursor-pointer"></div>
-      );
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+  const slides = [
+    {
+      image: "https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      title: "Premium Rides",
+      subtitle: "Experience luxury on wheels",
+      bgColor: "from-green-600/80 to-green-800/80"
+    },
+    {
+      image: "https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      title: "Eco-Friendly",
+      subtitle: "Green transportation for a better tomorrow",
+      bgColor: "from-blue-600/80 to-blue-800/80"
+    },
+    {
+      image: "https://images.pexels.com/photos/2920064/pexels-photo-2920064.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      title: "24/7 Service",
+      subtitle: "Your trusted ride partner anytime, anywhere",
+      bgColor: "from-purple-600/80 to-purple-800/80"
     }
-  };
- const slides = [
-        {
-            image: "https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-            title: "Premium Rides",
-            subtitle: "Experience luxury on wheels",
-            bgColor: "from-green-600/80 to-green-800/80"
-        },
-        {
-            image: "https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-            title: "Eco-Friendly",
-            subtitle: "Green transportation for a better tomorrow",
-            bgColor: "from-blue-600/80 to-blue-800/80"
-        },
-        {
-            image: "https://images.pexels.com/photos/2920064/pexels-photo-2920064.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-            title: "24/7 Service",
-            subtitle: "Your trusted ride partner anytime, anywhere",
-            bgColor: "from-purple-600/80 to-purple-800/80"
-        }
-    ];
+  ];
+
   return (
     <div className="relative overflow-hidden">
       {/* Animated Background Dots */}
@@ -115,544 +104,339 @@ const Car_Rides = () => {
       </div>
 
       {/* Hero Slider */}
-      <section className="relative h-screen overflow-hidden">
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-all duration-1000 ease-in-out ${index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-              }`}
-          >
-            <div className="relative h-full">
-              <img
-                src={slide.image}
-                alt={slide.title}
-                className="w-full h-full object-cover"
-              />
-              <div className={`absolute inset-0 bg-gradient-to-r ${slide.bgColor} transition-all duration-1000`} />
-              <div className="absolute inset-0 flex items-center justify-center z-10">
-                <div className="text-center text-white max-w-4xl px-4">
-                  <h1 className={`text-5xl md:text-7xl font-bold mb-4 transform transition-all duration-1000 ${index === currentSlide ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-                    }`}>
-                    {slide.title}
-                  </h1>
-                  <p className={`text-xl md:text-2xl mb-8 transform transition-all duration-1000 delay-200 ${index === currentSlide ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-                    }`}>
-                    {slide.subtitle}
-                  </p>
-                  <div className={`flex flex-col sm:flex-row gap-4 justify-center transform transition-all duration-1000 delay-400 ${index === currentSlide ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-                    }`}>
-                    <button className="bg-white text-green-600 font-semibold px-8 py-4 rounded-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 hover:shadow-lg">
+      <section className="relative min-h-[90vh] bg-gradient-to-br from-green-700 to-green-900 text-white overflow-hidden flex items-center py-10 px-4 sm:px-6 lg:px-12 mt-10">
+        {/* Sea Wave Animation Background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="ocean">
+            <div className="wave wave1"></div>
+            <div className="wave wave2"></div>
+            <div className="wave wave3"></div>
+            <div className="wave wave4"></div>
+            <div className="wave wave5"></div>
+            <div className="wave wave6"></div>
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-br from-green-700/40 to-green-900/40"></div>
+        </div>
+
+        <div className="flex flex-col md:flex-row items-center justify-between w-full h-full gap-10 relative z-20">
+          {/* Left Content */}
+          <div className="w-full md:w-[40%] relative z-20 flex items-center justify-center min-h-[300px] rounded-2xl">
+            {slides.map((slide, index) => (
+              <div
+                key={index}
+                className={`w-full transition-all duration-1000 ease-in-out ${index === currentSlide
+                  ? 'opacity-100 scale-100 absolute'
+                  : 'opacity-0 scale-95 pointer-events-none absolute'
+                  } px-2 sm:px-6 flex flex-col items-center md:items-start text-center md:text-left`}
+              >
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-3 leading-tight transition hover:scale-105 text-white hover:text-green-700">
+                  {slide.title}
+                </h1>
+                <p className="text-sm sm:text-lg lg:text-xl mb-5 transition duration-1000 delay-200 text-gray-200">
+                  {slide.subtitle}
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start transition duration-1000 delay-400">
+                  <Link to="/book">
+                    <button className="bg-white text-green-600 font-semibold px-6 py-3 rounded-lg shadow-lg transition-all duration-300 hover:bg-gray-100 hover:scale-105 transform hover:shadow-xl">
                       Book a Ride
                     </button>
-                    <button className="bg-green-600 text-white font-semibold px-8 py-4 rounded-lg hover:bg-green-700 transform hover:scale-105 transition-all duration-300 hover:shadow-lg">
-                      Learn More
+                  </Link>
+                  <Link to="/safety">
+                    <button className="bg-green-600 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition-all duration-300 hover:bg-green-700 hover:scale-105 transform hover:shadow-xl">
+                      Learn About Safety
                     </button>
-                  </div>
+                  </Link>
                 </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Right Slider */}
+          <div className="w-full md:w-[60%] h-[40vh] sm:h-[50vh] md:h-[70vh] relative overflow-hidden rounded-2xl shadow-2xl transform hover:scale-[1.02] transition-transform duration-300 flex items-center justify-center">
+
+            {/* Image Slides */}
+            {slides.map((slide, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 transition-all duration-1000 ease-in-out ${index === currentSlide
+                  ? 'opacity-100 scale-100'
+                  : 'opacity-0 scale-105 pointer-events-none'
+                  }`}
+              >
+                <img
+                  src={slide.image}
+                  alt={slide.title}
+                  className="w-full h-full object-cover rounded-2xl"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-black/50 z-10 rounded-2xl" />
+              </div>
+            ))}
+
+            {/* ✅ Static Card (does not slide) */}
+            <div className="absolute bottom-4  z-20 bg-white text-gray-800 dark:bg-gray-800 dark:text-white shadow-xl rounded-lg p-4 flex items-center gap-4 w-[230px] transform hover:scale-[1.02] transition-transform duration-300 ">
+              <div className="h-12 w-12 rounded-full bg-green-200 flex items-center justify-center ">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 text-green-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-sm text-gray-500 dark:text-gray-300">Average Arrival Time</p>
+                <p className="font-semibold text-gray-900 dark:text-white">3 minutes</p>
               </div>
             </div>
           </div>
-        ))}
 
-        {/* Slide Indicators */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
-                ? 'bg-white scale-125'
-                : 'bg-white/50 hover:bg-white/70'
-                }`}
-            />
-          ))}
+
         </div>
+
+        <style jsx>{`
+          .ocean {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #166534, rgb(1, 136, 52));
+          }
+
+          .wave {
+            position: absolute;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(13, 50, 27, 0.6), rgba(20, 83, 45, 0.3));
+            border-radius: 50%;
+            transform-origin: 50% 50%;
+          }
+
+          .wave1 {
+            animation: wave1 8s linear infinite;
+            z-index: 1;
+            opacity: 0.9;
+            top: 0;
+            left: -50%;
+          }
+
+          .wave2 {
+            animation: wave2 12s linear infinite;
+            z-index: 2;
+            opacity: 0.8;
+            top: 20%;
+            left: -45%;
+            animation-delay: -2s;
+          }
+
+          .wave3 {
+            animation: wave3 15s linear infinite;
+            z-index: 3;
+            opacity: 0.7;
+            top: 40%;
+            left: -55%;
+            animation-delay: -4s;
+          }
+
+          .wave4 {
+            animation: wave4 10s linear infinite;
+            z-index: 4;
+            opacity: 0.6;
+            top: 60%;
+            left: -40%;
+            animation-delay: -6s;
+          }
+
+          .wave5 {
+            animation: wave5 18s linear infinite;
+            z-index: 5;
+            opacity: 0.5;
+            top: 80%;
+            left: -60%;
+            animation-delay: -3s;
+          }
+
+          .wave6 {
+            animation: wave6 14s linear infinite;
+            z-index: 6;
+            opacity: 0.4;
+            top: 90%;
+            left: -50%;
+            animation-delay: -5s;
+          }
+
+          @keyframes wave1 {
+            0% { transform: translateX(0) scaleY(1); }
+            50% { transform: translateX(-25%) scaleY(0.8); }
+            100% { transform: translateX(-50%) scaleY(1); }
+          }
+
+          @keyframes wave2 {
+            0% { transform: translateX(0) scaleY(1); }
+            50% { transform: translateX(-25%) scaleY(0.8); }
+            100% { transform: translateX(-50%) scaleY(1); }
+          }
+
+          @keyframes wave3 {
+            0% { transform: translateX(0) scaleY(1); }
+            50% { transform: translateX(-25%) scaleY(0.8); }
+            100% { transform: translateX(-50%) scaleY(1); }
+          }
+
+          @keyframes wave4 {
+            0% { transform: translateX(0) scaleY(1); }
+            50% { transform: translateX(-25%) scaleY(0.8); }
+            100% { transform: translateX(-50%) scaleY(1); }
+          }
+
+          @keyframes wave5 {
+            0% { transform: translateX(0) scaleY(1); }
+            50% { transform: translateX(-25%) scaleY(0.8); }
+            100% { transform: translateX(-50%) scaleY(1); }
+          }
+
+          @keyframes wave6 {
+            0% { transform: translateX(0) scaleY(1); }
+            50% { transform: translateX(-25%) scaleY(0.8); }
+            100% { transform: translateX(-50%) scaleY(1); }
+          }
+        `}</style>
       </section>
 
-      {/* <div className="relative h-screen">
-        <Slider {...settings} className="hero-slider">
-          <div className="relative h-screen group">
-            <div className="absolute inset-0 bg-black/50 z-10 group-hover:bg-black/40 transition-all duration-700 ease-in-out"></div>
-            <img
-              src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-              alt="Premium Rides"
-              className="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-700 ease-in-out"
-            />
-            <div className="absolute inset-0 z-20 flex items-center justify-center">
-              <div className="text-center text-white max-w-4xl px-4" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">
-                <motion.h1
-                  className="text-5xl md:text-7xl font-bold mb-4"
-                  whileHover={{
-                    scale: 1.02,
-                    color: "#009e25",
-                    transition: { duration: 0.3, ease: "easeInOut" }
-                  }}
-                >
-                  Premium Rides
-                </motion.h1>
-                <motion.p
-                  className="text-xl md:text-2xl mb-8"
-                  whileHover={{
-                    scale: 1.02,
-                    transition: { duration: 0.3, ease: "easeInOut" }
-                  }}
-                >
-                  Experience luxury on wheels
-                </motion.p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <motion.button
-                    className="bg-white text-green-600 font-semibold px-8 py-4 rounded-md"
-                    whileHover={{
-                      scale: 1.05,
-                      backgroundColor: "#f3f4f6",
-                      boxShadow: "0 0 20px rgba(34, 197, 94, 0.3)",
-                      transition: { duration: 0.3, ease: "easeInOut" }
-                    }}
-                  >
-                    <Link to="/book">Book a Ride</Link>
-                  </motion.button>
-                  <motion.button
-                    className="bg-green-600 text-white font-semibold px-8 py-4 rounded-md"
-                    whileHover={{
-                      scale: 1.05,
-                      backgroundColor: "#16a34a",
-                      boxShadow: "0 0 20px rgba(34, 197, 94, 0.3)",
-                      transition: { duration: 0.3, ease: "easeInOut" }
-                    }}
-                  >
-                    <Link to="/safety">Learn About Safety</Link>
-                  </motion.button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="relative h-screen group">
-            <div className="absolute inset-0 bg-black/50 z-10 group-hover:bg-black/40 transition-all duration-700 ease-in-out"></div>
-            <img
-              src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-              alt="Eco-Friendly"
-              className="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-700 ease-in-out"
-            />
-            <div className="absolute inset-0 z-20 flex items-center justify-center">
-              <div className="text-center text-white max-w-4xl px-4" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">
-                <motion.h1
-                  className="text-5xl md:text-7xl font-bold mb-4"
-                  whileHover={{
-                    scale: 1.02,
-                    color: "#4ade80",
-                    transition: { duration: 0.3, ease: "easeInOut" }
-                  }}
-                >
-                  Eco-Friendly
-                </motion.h1>
-                <motion.p
-                  className="text-xl md:text-2xl mb-8"
-                  whileHover={{
-                    scale: 1.02,
-                    transition: { duration: 0.3, ease: "easeInOut" }
-                  }}
-                >
-                  Green transportation for a better tomorrow
-                </motion.p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <motion.button
-                    className="bg-white text-green-600 font-semibold px-8 py-4 rounded-md"
-                    whileHover={{
-                      scale: 1.05,
-                      backgroundColor: "#f3f4f6",
-                      boxShadow: "0 0 20px rgba(34, 197, 94, 0.3)",
-                      transition: { duration: 0.3, ease: "easeInOut" }
-                    }}
-                  >
-                    <Link to="/book">Book a Ride</Link>
-                  </motion.button>
-                  <motion.button
-                    className="bg-green-600 text-white font-semibold px-8 py-4 rounded-md"
-                    whileHover={{
-                      scale: 1.05,
-                      backgroundColor: "#16a34a",
-                      boxShadow: "0 0 20px rgba(34, 197, 94, 0.3)",
-                      transition: { duration: 0.3, ease: "easeInOut" }
-                    }}
-                  >
-                    <Link to="/safety">Learn About Safety</Link>
-                  </motion.button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="relative h-screen group">
-            <div className="absolute inset-0 bg-black/50 z-10 group-hover:bg-black/40 transition-all duration-700 ease-in-out"></div>
-            <img
-              src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2025&q=80"
-              alt="24/7 Service"
-              className="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-700 ease-in-out"
-            />
-            <div className="absolute inset-0 z-20 flex items-center justify-center">
-              <div className="text-center text-white max-w-4xl px-4" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">
-                <motion.h1
-                  className="text-5xl md:text-7xl font-bold mb-4"
-                  whileHover={{
-                    scale: 1.02,
-                    color: "#4ade80",
-                    transition: { duration: 0.3, ease: "easeInOut" }
-                  }}
-                >
-                  24/7 Service
-                </motion.h1>
-                <motion.p
-                  className="text-xl md:text-2xl mb-8"
-                  whileHover={{
-                    scale: 1.02,
-                    transition: { duration: 0.3, ease: "easeInOut" }
-                  }}
-                >
-                  Your trusted ride partner anytime, anywhere
-                </motion.p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <motion.button
-                    className="bg-white text-green-600 font-semibold px-8 py-4 rounded-md"
-                    whileHover={{
-                      scale: 1.05,
-                      backgroundColor: "#f3f4f6",
-                      boxShadow: "0 0 20px rgba(34, 197, 94, 0.3)",
-                      transition: { duration: 0.3, ease: "easeInOut" }
-                    }}
-                  >
-                    <Link to="/book">Book a Ride</Link>
-                  </motion.button>
-                  <motion.button
-                    className="bg-green-600 text-white font-semibold px-8 py-4 rounded-md"
-                    whileHover={{
-                      scale: 1.05,
-                      backgroundColor: "#16a34a",
-                      boxShadow: "0 0 20px rgba(34, 197, 94, 0.3)",
-                      transition: { duration: 0.3, ease: "easeInOut" }
-                    }}
-                  >
-                    <Link to="/safety">Learn About Safety</Link>
-                  </motion.button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Slider>
-      </div> */}
-
-
       {/* Pricing Section */}
-
       <section className="bg-gray-100 dark:bg-gray-800 py-16 px-4 sm:px-8">
-        <div data-aos="zoom-out" data-aos-easing="ease-in-out" className="max-w-6xl mx-auto text-center">
-          <motion.h1
-            className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white "
-            data-aos="fade-up"
-            data-aos-easing="ease-in-out"
-            whileHover={{
-              scale: 1.05,
-              color: "#16a34a",
-              transition: { duration: 0.3, ease: "easeInOut" }
-            }}
-          >
+        <div
+          className="max-w-6xl mx-auto text-center"
+          data-aos="zoom-out"
+          data-aos-easing="ease-in-out"
+        >
+          {/* Heading */}
+          <motion.h1 className="text-4xl md:text-5xl font-bold text-green-600 "
+            whileHover={{ scale: 1.05, color: "#16a34a", }} >
             Simple & Transparent Pricing
           </motion.h1>
+
+          {/* Subtext */}
           <motion.p className="text-gray-600 dark:text-gray-300 mt-2 text-base"
-            data-aos="fade-up"
-            data-aos-delay="200"
-            data-aos-easing="ease-in-out"
-            whileHover={{
-              scale: 1.05,
-              transition: { duration: 0.3, ease: "easeInOut" }
-            }}
+            whileHover={{ scale: 1.05, }}
           >
             Affordable auto rides with no hidden charges, clear pricing for every journey
           </motion.p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-12 px-2 sm:px-2 lg:px-0 mx-auto">
-            {/* Mini */}
-            <motion.div
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
-                transition: { duration: 0.1, ease: "easeInOut" }
-              }}
-              className="relative border border-gray-300 dark:border-gray-600 rounded-lg shadow-md bg-white dark:bg-gray-900"
-              data-aos="fade-up"
-              data-aos-delay="300"
-              data-aos-easing="ease-in-out"
-            >
-              <div className="bg-green-600 text-white py-3 rounded-t-lg text-center">
-                <motion.h3
-                  className="text-lg font-semibold"
-                  whileHover={{
-                    scale: 1.05,
-                    transition: { duration: 0.3, ease: "easeInOut" }
-                  }}
-                >
-                  GreenCar Mini
-                </motion.h3>
-              </div>
-              <div className="py-6 text-center">
-                <motion.h2
-                  className="text-4xl font-bold text-gray-900 dark:text-white"
-                  whileHover={{
-                    scale: 1.05,
-                    transition: { duration: 0.3, ease: "easeInOut" }
-                  }}
-                >
-                  ₹9<span className="text-sm font-light">/km</span>
-                </motion.h2>
-                <motion.p
-                  className="text-sm text-gray-500 dark:text-gray-300 mt-1"
-                  whileHover={{
-                    scale: 1.02,
-                    transition: { duration: 0.3, ease: "easeInOut" }
-                  }}
-                >
-                  Base fare: ₹30
-                </motion.p>
-                <div className="mt-4 space-y-3 text-gray-700 dark:text-gray-200 text-sm text-left px-6">
-                  <motion.p
-                    whileHover={{
-                      scale: 1.02,
-                      transition: { duration: 0.3, ease: "easeInOut" }
-                    }}
-                  >
-                    <span className="inline-block w-2 h-2 rounded-full bg-green-600 mr-2 shadow-[0_0_8px_2px_#bbf7d0]" />
-                    Compact Hatchback
-                  </motion.p>
-                  <motion.p
-                    whileHover={{
-                      scale: 1.02,
-                      transition: { duration: 0.3, ease: "easeInOut" }
-                    }}
-                  >
-                    <span className="inline-block w-2 h-2 rounded-full bg-green-600 mr-2 shadow-[0_0_8px_2px_#bbf7d0]" />
-                    Up to 3 passengers
-                  </motion.p>
-                  <motion.p
-                    whileHover={{
-                      scale: 1.02,
-                      transition: { duration: 0.3, ease: "easeInOut" }
-                    }}
-                  >
-                    <span className="inline-block w-2 h-2 rounded-full bg-green-600 mr-2 shadow-[0_0_8px_2px_#bbf7d0]" />
-                    Air conditioning
-                  </motion.p>
-                </div>
-              </div>
-              <div className="px-6 pb-6">
-                <Link to="/Book_ride">
-                  <motion.button
-                    className="w-full py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded"
-                    whileHover={{
-                      scale: 1.05,
-                      backgroundColor: "#16a34a",
-                      boxShadow: "0 0 20px rgba(34, 197, 94, 0.3)",
-                      transition: { duration: 0.3, ease: "easeInOut" }
-                    }}
-                  >
-                    Book Now
-                  </motion.button>
-                </Link>
-              </div>
-            </motion.div>
+          {/* Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 mx-auto">
+            {/* === Card Template === */}
+            {[
+              {
+                title: "GreenCar Mini",
+                price: "₹9",
+                baseFare: "₹30",
+                features: ["Compact Hatchback", "Up to 3 passengers", "Air conditioning"],
+                badge: "",
+                link: "/Book_ride"
+              },
+              {
+                title: "GreenAuto Premium",
+                price: "₹12",
+                baseFare: "₹40",
+                features: ["Spacious Sedan", "Up to 4 passengers", "Premium comfort"],
+                badge: "GreenCar Sedan",
+                link: "/Book_ride"
+              },
+              {
+                title: "GreenCar XL",
+                price: "₹16",
+                baseFare: "₹60",
+                features: ["SUV/Premium vehicle", "Up to 6 passengers", "Extra luggage space"],
+                badge: "",
+                link: "/Book_ride"
+              }
+            ].map((plan, index) => (
+              <motion.div key={index}
+                whileHover={{
+                  scale: 1.1,
+                  boxShadow: "0 15px 40px rgba(0, 0, 0, 0.2)",
+                }}
+                className="relative border border-gray-300 dark:border-gray-600 rounded-lg shadow-md bg-white dark:bg-gray-900"
+                data-aos="fade-up"
+                data-aos-easing="ease-in-out"
+              >
+                {plan.badge && (
+                  <div className="absolute top-0 right-0 bg-yellow-400 text-white text-xs font-bold px-2 py-1 rounded-b rounded-tr shadow transform hover:scale-105 transition-all duration-700 ease-in-out">
+                    {plan.badge}
+                  </div>
+                )}
 
-            {/* Premium */}
-            <motion.div
-              whileHover={{
-                scale: 1.02,
-                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
-                transition: { duration: 0.3, ease: "easeInOut" }
-              }}
-              className="relative border border-gray-300 dark:border-gray-600 rounded-lg shadow-md bg-white dark:bg-gray-900"
-              data-aos="fade-up"
-              data-aos-delay="400"
-              data-aos-easing="ease-in-out"
-            >
-              <div className="absolute top-0 right-0 bg-yellow-400 text-white text-xs font-bold px-2 py-1 rounded-b rounded-tr shadow transform hover:scale-105 transition-all duration-700 ease-in-out">
-                GreenCar Sedan
-              </div>
-              <div className="bg-green-600 text-white py-3 rounded-t-lg text-center">
-                <motion.h3
-                  className="text-lg font-semibold"
-                  whileHover={{
-                    scale: 1.02,
-                    transition: { duration: 0.3, ease: "easeInOut" }
-                  }}
-                >
-                  GreenAuto Premium
-                </motion.h3>
-              </div>
-              <div className="py-6 text-center">
-                <motion.h2
-                  className="text-4xl font-bold text-gray-900 dark:text-white"
-                  whileHover={{
-                    scale: 1.02,
-                    transition: { duration: 0.3, ease: "easeInOut" }
-                  }}
-                >
-                  ₹12<span className="text-sm font-light">/km</span>
-                </motion.h2>
-                <motion.p
-                  className="text-sm text-gray-500 dark:text-gray-300 mt-1"
-                  whileHover={{
-                    scale: 1.02,
-                    transition: { duration: 0.3, ease: "easeInOut" }
-                  }}
-                >
-                  Base fare: ₹40
-                </motion.p>
-                <div className="mt-4 space-y-3 text-gray-700 dark:text-gray-200 text-sm text-left px-6">
-                  <motion.p
-                    whileHover={{
-                      scale: 1.02,
-                      transition: { duration: 0.3, ease: "easeInOut" }
-                    }}
+                {/* Card Header */}
+                <div className="bg-green-600 text-white py-3 rounded-t-lg text-center">
+                  <motion.h3
+                    className="text-lg font-semibold"
+                    whileHover={{ scale: 1.05 }}
                   >
-                    <span className="inline-block w-2 h-2 rounded-full bg-green-600 mr-2 shadow-[0_0_8px_2px_#bbf7d0]" />
-                    Spacious Sedan
-                  </motion.p>
-                  <motion.p
-                    whileHover={{
-                      scale: 1.02,
-                      transition: { duration: 0.3, ease: "easeInOut" }
-                    }}
-                  >
-                    <span className="inline-block w-2 h-2 rounded-full bg-green-600 mr-2 shadow-[0_0_8px_2px_#bbf7d0]" />
-                    Up to 4 passengers
-                  </motion.p>
-                  <motion.p
-                    whileHover={{
-                      scale: 1.02,
-                      transition: { duration: 0.3, ease: "easeInOut" }
-                    }}
-                  >
-                    <span className="inline-block w-2 h-2 rounded-full bg-green-600 mr-2 shadow-[0_0_8px_2px_#bbf7d0]" />
-                    Premium comfort
-                  </motion.p>
+                    {plan.title}
+                  </motion.h3>
                 </div>
-              </div>
-              <div className="px-6 pb-6">
-                <Link to='/Book_ride'>
-                  <motion.button
-                    className="w-full py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded"
-                    whileHover={{
-                      scale: 1.02,
-                      backgroundColor: "#16a34a",
-                      boxShadow: "0 0 20px rgba(34, 197, 94, 0.3)",
-                      transition: { duration: 0.3, ease: "easeInOut" }
-                    }}
-                  >
-                    Book Now
-                  </motion.button>
-                </Link>
-              </div>
-            </motion.div>
 
-            {/* XL */}
-            <motion.div
-              whileHover={{
-                scale: 1.02,
-                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
-                transition: { duration: 0.3, ease: "easeInOut" }
-              }}
-              className="relative border border-gray-300 dark:border-gray-600 rounded-lg shadow-md bg-white dark:bg-gray-900"
-              data-aos="fade-up"
-              data-aos-delay="500"
-              data-aos-easing="ease-in-out"
-            >
-              <div className="bg-green-600 text-white py-3 rounded-t-lg text-center">
-                <motion.h3
-                  className="text-lg font-semibold"
-                  whileHover={{
-                    scale: 1.02,
-                    transition: { duration: 0.3, ease: "easeInOut" }
-                  }}
-                >
-                  GreenCar XL
-                </motion.h3>
-              </div>
-              <div className="py-6 text-center">
-                <motion.h2
-                  className="text-4xl font-bold text-gray-900 dark:text-white"
-                  whileHover={{
-                    scale: 1.02,
-                    transition: { duration: 0.3, ease: "easeInOut" }
-                  }}
-                >
-                  ₹16<span className="text-sm font-light">/km</span>
-                </motion.h2>
-                <motion.p
-                  className="text-sm text-gray-500 dark:text-gray-300 mt-1"
-                  whileHover={{
-                    scale: 1.02,
-                    transition: { duration: 0.3, ease: "easeInOut" }
-                  }}
-                >
-                  Base fare: ₹60
-                </motion.p>
-                <div className="mt-4 space-y-3 text-gray-700 dark:text-gray-200 text-sm text-left px-6">
-                  <motion.p
-                    whileHover={{
-                      scale: 1.02,
-                      transition: { duration: 0.3, ease: "easeInOut" }
-                    }}
+                {/* Pricing Content */}
+                <div className="py-6 text-center">
+                  <motion.h2
+                    className="text-4xl font-bold text-gray-900 dark:text-white"
+                    whileHover={{ scale: 1.05 }}
                   >
-                    <span className="inline-block w-2 h-2 rounded-full bg-green-600 mr-2 shadow-[0_0_8px_2px_#bbf7d0]" />
-                    SUV/Premium vehicle
-                  </motion.p>
+                    {plan.price}
+                    <span className="text-sm font-light">/km</span>
+                  </motion.h2>
                   <motion.p
-                    whileHover={{
-                      scale: 1.02,
-                      transition: { duration: 0.3, ease: "easeInOut" }
-                    }}
+                    className="text-sm text-gray-500 dark:text-gray-300 mt-1"
+                    whileHover={{ scale: 1.02 }}
                   >
-                    <span className="inline-block w-2 h-2 rounded-full bg-green-600 mr-2 shadow-[0_0_8px_2px_#bbf7d0]" />
-                    Up to 6 passengers
+                    Base fare: {plan.baseFare}
                   </motion.p>
-                  <motion.p
-                    whileHover={{
-                      scale: 1.02,
-                      transition: { duration: 0.3, ease: "easeInOut" }
-                    }}
-                  >
-                    <span className="inline-block w-2 h-2 rounded-full bg-green-600 mr-2 shadow-[0_0_8px_2px_#bbf7d0]" />
-                    Extra luggage space
-                  </motion.p>
+
+                  <div className="mt-4 space-y-3 text-gray-700 dark:text-gray-200 text-sm text-left px-6">
+                    {plan.features.map((feature, fIndex) => (
+                      <motion.p key={fIndex} whileHover={{ scale: 1.02 }}>
+                        <span className="inline-block w-2 h-2 rounded-full bg-green-600 mr-4 shadow-[0_0_8px_0.2px_#bbf7d0]" />
+                        {feature}
+                      </motion.p>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              <div className="px-6 pb-6">
-                <Link to='/Book_ride'>
-                  <motion.button
-                    className="w-full py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded"
-                    whileHover={{
-                      scale: 1.02,
-                      backgroundColor: "#16a34a",
-                      boxShadow: "0 0 20px rgba(34, 197, 94, 0.3)",
-                      transition: { duration: 0.3, ease: "easeInOut" }
-                    }}
-                  >
-                    Book Now
-                  </motion.button>
-                </Link>
-              </div>
-            </motion.div>
+
+                {/* CTA Button */}
+                <div className="px-6 pb-6">
+                  <Link to={plan.link}>
+                    <motion.button
+                      className="w-full py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded"
+                      whileHover={{
+                        scale: 1.05,
+                        backgroundColor: "#16a34a",
+                        boxShadow: "0 0 20px rgba(34, 197, 94, 0.3)"
+                      }}
+                    >
+                      Book Now
+                    </motion.button>
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
+
       {/* Features Section */}
-      <div className="bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
+      <div className="bg-white dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8" >
+        <div className="max-w-7xl mx-auto text-center " data-aos="fade-up">
           <motion.h1
-            className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white mb-4"
+            className="text-3xl sm:text-4xl font-extrabold text-green-600   mb-4"
             whileHover={{
-              scale: 1.02,
+              scale: 1.05,
               color: "#16a34a",
-              transition: { duration: 0.3, ease: "easeInOut" }
+              transition: { ease: "easeInOut" }
             }}
             data-aos="fade-up"
             data-aos-easing="ease-in-out"
@@ -661,131 +445,65 @@ const Car_Rides = () => {
           </motion.h1>
           <motion.p
             className="text-gray-600 dark:text-gray-300 max-w-xl mx-auto mb-10"
-            data-aos="fade-up"
-            data-aos-delay="200"
             data-aos-easing="ease-in-out"
             whileHover={{
-              scale: 1.02,
-              transition: { duration: 0.3, ease: "easeInOut" }
+              scale: 1.05,
+              transition: { ease: "easeInOut" }
             }}
           >
             We provide the best car ride experience with comfort, safety, and affordability in mind
           </motion.p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Card 1 */}
-            <motion.div
-              whileHover={{
-                scale: 1.02,
-                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
-                transition: { duration: 0.3, ease: "easeInOut" }
-              }}
-              className="bg-white dark:bg-gray-800 shadow-md rounded-xl p-6 text-left"
-              data-aos="fade-up"
-              data-aos-delay="300"
-              data-aos-easing="ease-in-out"
-            >
-              <div className="mb-4 text-green-600">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2" />
-                  <circle cx="7" cy="17" r="2" />
-                  <path d="M9 17h6" />
-                  <circle cx="17" cy="17" r="2" />
-                </svg>
-              </div>
-              <motion.h2
-                className="text-xl font-semibold text-gray-900 dark:text-white mb-2"
+            {/* Card Template */}
+            {[
+              {
+                title: "Comfortable Rides",
+                desc: "Enjoy spacious, air-conditioned cars with professional drivers for a smooth journey",
+                iconPath: (
+                  <>
+                    <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2" />
+                    <circle cx="7" cy="17" r="2" />
+                    <path d="M9 17h6" />
+                    <circle cx="17" cy="17" r="2" />
+                  </>
+                ),
+              },
+              {
+                title: "Safe & Secure",
+                desc: "All rides are monitored with real-time tracking, emergency assistance, and verified drivers",
+                iconPath: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />,
+              },
+              {
+                title: "Quick & Efficient",
+                desc: "Fast pickup times, optimized routes, and experienced drivers to get you there quickly",
+                iconPath: <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />,
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
                 whileHover={{
-                  scale: 1.02,
-                  transition: { duration: 0.3, ease: "easeInOut" }
+                  scale: 1.05,
+                  boxShadow: "0 12px 28px rgba(0, 0, 0, 0.12)",
+                  transition: { ease: "easeOut" },
                 }}
+                className="bg-white dark:bg-gray-800 shadow-md rounded-xl p-6 text-left"
+                data-aos="fade-up"
+                data-aos-easing="ease-in-out"
               >
-                Comfortable Rides
-              </motion.h2>
-              <motion.p
-                className="text-gray-600 dark:text-gray-300"
-                whileHover={{
-                  scale: 1.02,
-                  transition: { duration: 0.3, ease: "easeInOut" }
-                }}
-              >
-                Enjoy spacious, air-conditioned cars with professional drivers for a smooth journey
-              </motion.p>
-            </motion.div>
-
-            {/* Card 2 */}
-            <motion.div
-              whileHover={{
-                scale: 1.02,
-                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
-                transition: { duration: 0.3, ease: "easeInOut" }
-              }}
-              className="bg-white dark:bg-gray-800 shadow-md rounded-xl p-6 text-left"
-              data-aos="fade-up"
-              data-aos-delay="400"
-              data-aos-easing="ease-in-out"
-            >
-              <div className="mb-4 text-green-600">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                </svg>
-              </div>
-              <motion.h2
-                className="text-xl font-semibold text-gray-900 dark:text-white mb-2"
-                whileHover={{
-                  scale: 1.02,
-                  transition: { duration: 0.3, ease: "easeInOut" }
-                }}
-              >
-                Safe & Secure
-              </motion.h2>
-              <motion.p
-                className="text-gray-600 dark:text-gray-300"
-                whileHover={{
-                  scale: 1.02,
-                  transition: { duration: 0.3, ease: "easeInOut" }
-                }}
-              >
-                All rides are monitored with real-time tracking, emergency assistance, and verified drivers
-              </motion.p>
-            </motion.div>
-
-            {/* Card 3 */}
-            <motion.div
-              whileHover={{
-                scale: 1.02,
-                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
-                transition: { duration: 0.3, ease: "easeInOut" }
-              }}
-              className="bg-white dark:bg-gray-800 shadow-md rounded-xl p-6 text-left"
-              data-aos="fade-up"
-              data-aos-delay="500"
-              data-aos-easing="ease-in-out"
-            >
-              <div className="mb-4 text-green-600">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-                </svg>
-              </div>
-              <motion.h2
-                className="text-xl font-semibold text-gray-900 dark:text-white mb-2"
-                whileHover={{
-                  scale: 1.02,
-                  transition: { duration: 0.3, ease: "easeInOut" }
-                }}
-              >
-                Quick & Efficient
-              </motion.h2>
-              <motion.p
-                className="text-gray-600 dark:text-gray-300"
-                whileHover={{
-                  scale: 1.02,
-                  transition: { duration: 0.3, ease: "easeInOut" }
-                }}
-              >
-                Fast pickup times, optimized routes, and experienced drivers to get you there quickly
-              </motion.p>
-            </motion.div>
+                <div className="mb-4 text-green-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    {item.iconPath}
+                  </svg>
+                </div>
+                <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                  {item.title}
+                </h2>
+                <p className="text-gray-600 dark:text-gray-300">
+                  {item.desc}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
@@ -824,7 +542,7 @@ const Car_Rides = () => {
               </div>
             </div>
 
-            <div className="flex justify-center">
+            <div className="flex justify-center" data-aos="zoom-in">
               <motion.img
                 whileHover={{
                   scale: 1.02,
@@ -840,65 +558,38 @@ const Car_Rides = () => {
       </div>
 
       {/* New Testimonials Section */}
-      <section className="bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <motion.h2
-            className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-12"
-            data-aos="fade-up"
+      <section className="bg-gray-100 dark:bg-gray-900 py-16 px-4">
+        <div className="max-w-7xl mx-auto" data-aos="fade-up">
+          <motion.h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-12"
             whileHover={{
-              scale: 1.02,
-              transition: { duration: 0.3, ease: "easeInOut" }
+              scale: 1.05,
+              transition: { ease: "easeInOut" }
             }}
           >
             What Our Customers Say
           </motion.h2>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Testimonial 1 */}
             <motion.div
               whileHover={{
-                scale: 1.02,
-                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
-                transition: { duration: 0.3, ease: "easeInOut" }
+                scale: 1.05,
+                transition: { duration: 0.2, ease: "easeOut" },
               }}
-              className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-700 ease-in-out hover:shadow-xl hover:shadow-green-500/20"
+              className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl hover:shadow-green-500/20"
               data-aos="fade-up"
-              data-aos-delay="100"
             >
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center text-green-600 dark:text-green-400 text-xl font-bold">
                   R
                 </div>
                 <div className="ml-4">
-                  <motion.h3
-                    className="text-lg font-semibold text-gray-900 dark:text-white"
-                    whileHover={{
-                      scale: 1.02,
-                      transition: { duration: 0.3, ease: "easeInOut" }
-                    }}
-                  >
-                    Rahul Sharma
-                  </motion.h3>
-                  <motion.p
-                    className="text-gray-600 dark:text-gray-400"
-                    whileHover={{
-                      scale: 1.02,
-                      transition: { duration: 0.3, ease: "easeInOut" }
-                    }}
-                  >
-                    Regular User
-                  </motion.p>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Rahul Sharma</h3>
+                  <p className="text-gray-600 dark:text-gray-400">Regular User</p>
                 </div>
               </div>
-              <motion.p
-                className="text-gray-600 dark:text-gray-300"
-                whileHover={{
-                  scale: 1.02,
-                  transition: { duration: 0.3, ease: "easeInOut" }
-                }}
-              >
+              <p className="text-gray-600 dark:text-gray-300">
                 "The service is amazing! Clean cars, professional drivers, and always on time. GreenCar has made my daily commute so much better."
-              </motion.p>
+              </p>
               <div className="mt-4 flex text-yellow-400">
                 {[...Array(5)].map((_, i) => (
                   <svg key={i} className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -911,11 +602,10 @@ const Car_Rides = () => {
             {/* Testimonial 2 */}
             <motion.div
               whileHover={{
-                scale: 1.02,
-                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
-                transition: { duration: 0.3, ease: "easeInOut" }
+                scale: 1.05,
+                transition: { duration: 0.2, ease: "easeOut" },
               }}
-              className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-700 ease-in-out hover:shadow-xl hover:shadow-green-500/20"
+              className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl hover:shadow-green-500/20"
               data-aos="fade-up"
               data-aos-delay="200"
             >
@@ -924,35 +614,13 @@ const Car_Rides = () => {
                   P
                 </div>
                 <div className="ml-4">
-                  <motion.h3
-                    className="text-lg font-semibold text-gray-900 dark:text-white"
-                    whileHover={{
-                      scale: 1.02,
-                      transition: { duration: 0.3, ease: "easeInOut" }
-                    }}
-                  >
-                    Priya Patel
-                  </motion.h3>
-                  <motion.p
-                    className="text-gray-600 dark:text-gray-400"
-                    whileHover={{
-                      scale: 1.02,
-                      transition: { duration: 0.3, ease: "easeInOut" }
-                    }}
-                  >
-                    Business Traveler
-                  </motion.p>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Priya Patel</h3>
+                  <p className="text-gray-600 dark:text-gray-400">Business Traveler</p>
                 </div>
               </div>
-              <motion.p
-                className="text-gray-600 dark:text-gray-300"
-                whileHover={{
-                  scale: 1.02,
-                  transition: { duration: 0.3, ease: "easeInOut" }
-                }}
-              >
+              <p className="text-gray-600 dark:text-gray-300">
                 "As a frequent business traveler, I appreciate the reliability and comfort of GreenCar. The premium service is worth every penny!"
-              </motion.p>
+              </p>
               <div className="mt-4 flex text-yellow-400">
                 {[...Array(5)].map((_, i) => (
                   <svg key={i} className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -965,48 +633,24 @@ const Car_Rides = () => {
             {/* Testimonial 3 */}
             <motion.div
               whileHover={{
-                scale: 1.02,
-                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
-                transition: { duration: 0.3, ease: "easeInOut" }
+                scale: 1.05,
+                transition: { duration: 0.2, ease: "easeOut" },
               }}
-              className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-700 ease-in-out hover:shadow-xl hover:shadow-green-500/20"
+              className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl hover:shadow-green-500/20"
               data-aos="fade-up"
-              data-aos-delay="300"
             >
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center text-green-600 dark:text-green-400 text-xl font-bold">
                   A
                 </div>
                 <div className="ml-4">
-                  <motion.h3
-                    className="text-lg font-semibold text-gray-900 dark:text-white"
-                    whileHover={{
-                      scale: 1.02,
-                      transition: { duration: 0.3, ease: "easeInOut" }
-                    }}
-                  >
-                    Amit Kumar
-                  </motion.h3>
-                  <motion.p
-                    className="text-gray-600 dark:text-gray-400"
-                    whileHover={{
-                      scale: 1.02,
-                      transition: { duration: 0.3, ease: "easeInOut" }
-                    }}
-                  >
-                    Family User
-                  </motion.p>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Amit Kumar</h3>
+                  <p className="text-gray-600 dark:text-gray-400">Family User</p>
                 </div>
               </div>
-              <motion.p
-                className="text-gray-600 dark:text-gray-300"
-                whileHover={{
-                  scale: 1.02,
-                  transition: { duration: 0.3, ease: "easeInOut" }
-                }}
-              >
+              <p className="text-gray-600 dark:text-gray-300">
                 "Perfect for family trips! Spacious cars, safe drivers, and great service. My kids love the comfortable rides."
-              </motion.p>
+              </p>
               <div className="mt-4 flex text-yellow-400">
                 {[...Array(5)].map((_, i) => (
                   <svg key={i} className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -1017,50 +661,46 @@ const Car_Rides = () => {
             </motion.div>
           </div>
 
+
           {/* Stats Section */}
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+            {/* Happy Customers */}
             <motion.div
-              whileHover={{
-                scale: 1.02,
-                transition: { duration: 0.3, ease: "easeInOut" }
-              }}
-              className="text-center"
+              whileHover={{ scale: 1.05, transition: { ease: "easeOut" } }}
+              className="text-center transform transition-transform"
               data-aos="fade-up"
               data-aos-delay="400"
             >
               <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">10K+</div>
               <div className="text-gray-600 dark:text-gray-400">Happy Customers</div>
             </motion.div>
+
+            {/* Active Drivers */}
             <motion.div
-              whileHover={{
-                scale: 1.02,
-                transition: { duration: 0.3, ease: "easeInOut" }
-              }}
-              className="text-center"
+              whileHover={{ scale: 1.05, transition: { ease: "easeOut" } }}
+              className="text-center transform transition-transform"
               data-aos="fade-up"
               data-aos-delay="500"
             >
               <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">500+</div>
               <div className="text-gray-600 dark:text-gray-400">Active Drivers</div>
             </motion.div>
+
+            {/* Rides Completed */}
             <motion.div
-              whileHover={{
-                scale: 1.02,
-                transition: { duration: 0.3, ease: "easeInOut" }
-              }}
-              className="text-center"
+              whileHover={{ scale: 1.05, transition: { ease: "easeOut" } }}
+              className="text-center transform transition-transform"
               data-aos="fade-up"
               data-aos-delay="600"
             >
               <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">50K+</div>
               <div className="text-gray-600 dark:text-gray-400">Rides Completed</div>
             </motion.div>
+
+            {/* Average Rating */}
             <motion.div
-              whileHover={{
-                scale: 1.02,
-                transition: { duration: 0.3, ease: "easeInOut" }
-              }}
-              className="text-center"
+              whileHover={{ scale: 1.05, transition: { ease: "easeOut" } }}
+              className="text-center transform transition-transform"
               data-aos="fade-up"
               data-aos-delay="700"
             >
@@ -1068,6 +708,7 @@ const Car_Rides = () => {
               <div className="text-gray-600 dark:text-gray-400">Average Rating</div>
             </motion.div>
           </div>
+
         </div>
       </section>
 

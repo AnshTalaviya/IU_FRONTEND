@@ -71,7 +71,7 @@ module.exports = {
         'slide-up': 'slideup 0.4s ease-out',
         'move-car': 'move-car 6s ease-in-out forwards',
         'car-to-text': 'car-to-text 1.2s ease-out forwards',
-        shake: 'shake 0.2s ease-in-out infinite alternate',
+        'shake': 'shake 0.2s ease-in-out infinite alternate',
         'trail-line1': 'trail-line 0.6s ease-out infinite',
         'trail-line2': 'trail-line 0.8s ease-out infinite',
         'trail-line3': 'trail-line 1s ease-out infinite',

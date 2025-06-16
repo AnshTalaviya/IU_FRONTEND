@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import AOS from 'aos';
@@ -34,6 +34,8 @@ const Car_Rides = () => {
     return dots;
   };
 
+      const [currentSlide, setCurrentSlide] = useState(0);
+  
   const settings = {
     dots: true,
     infinite: true,
@@ -49,7 +51,26 @@ const Car_Rides = () => {
       );
     }
   };
-
+ const slides = [
+        {
+            image: "https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            title: "Premium Rides",
+            subtitle: "Experience luxury on wheels",
+            bgColor: "from-green-600/80 to-green-800/80"
+        },
+        {
+            image: "https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            title: "Eco-Friendly",
+            subtitle: "Green transportation for a better tomorrow",
+            bgColor: "from-blue-600/80 to-blue-800/80"
+        },
+        {
+            image: "https://images.pexels.com/photos/2920064/pexels-photo-2920064.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            title: "24/7 Service",
+            subtitle: "Your trusted ride partner anytime, anywhere",
+            bgColor: "from-purple-600/80 to-purple-800/80"
+        }
+    ];
   return (
     <div className="relative overflow-hidden">
       {/* Animated Background Dots */}
@@ -94,7 +115,61 @@ const Car_Rides = () => {
       </div>
 
       {/* Hero Slider */}
-      <div className="relative h-screen">
+      <section className="relative h-screen overflow-hidden">
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-all duration-1000 ease-in-out ${index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+              }`}
+          >
+            <div className="relative h-full">
+              <img
+                src={slide.image}
+                alt={slide.title}
+                className="w-full h-full object-cover"
+              />
+              <div className={`absolute inset-0 bg-gradient-to-r ${slide.bgColor} transition-all duration-1000`} />
+              <div className="absolute inset-0 flex items-center justify-center z-10">
+                <div className="text-center text-white max-w-4xl px-4">
+                  <h1 className={`text-5xl md:text-7xl font-bold mb-4 transform transition-all duration-1000 ${index === currentSlide ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                    }`}>
+                    {slide.title}
+                  </h1>
+                  <p className={`text-xl md:text-2xl mb-8 transform transition-all duration-1000 delay-200 ${index === currentSlide ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                    }`}>
+                    {slide.subtitle}
+                  </p>
+                  <div className={`flex flex-col sm:flex-row gap-4 justify-center transform transition-all duration-1000 delay-400 ${index === currentSlide ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                    }`}>
+                    <button className="bg-white text-green-600 font-semibold px-8 py-4 rounded-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 hover:shadow-lg">
+                      Book a Ride
+                    </button>
+                    <button className="bg-green-600 text-white font-semibold px-8 py-4 rounded-lg hover:bg-green-700 transform hover:scale-105 transition-all duration-300 hover:shadow-lg">
+                      Learn More
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+
+        {/* Slide Indicators */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
+                ? 'bg-white scale-125'
+                : 'bg-white/50 hover:bg-white/70'
+                }`}
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* <div className="relative h-screen">
         <Slider {...settings} className="hero-slider">
           <div className="relative h-screen group">
             <div className="absolute inset-0 bg-black/50 z-10 group-hover:bg-black/40 transition-all duration-700 ease-in-out"></div>
@@ -264,11 +339,11 @@ const Car_Rides = () => {
             </div>
           </div>
         </Slider>
-      </div>
+      </div> */}
 
 
       {/* Pricing Section */}
-      
+
       <section className="bg-gray-100 dark:bg-gray-800 py-16 px-4 sm:px-8">
         <div data-aos="zoom-out" data-aos-easing="ease-in-out" className="max-w-6xl mx-auto text-center">
           <motion.h1
@@ -298,7 +373,7 @@ const Car_Rides = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-12 px-2 sm:px-2 lg:px-0 mx-auto">
             {/* Mini */}
             <motion.div
-              whileHover={{ 
+              whileHover={{
                 scale: 1.05,
                 boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
                 transition: { duration: 0.1, ease: "easeInOut" }
@@ -387,7 +462,7 @@ const Car_Rides = () => {
 
             {/* Premium */}
             <motion.div
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
                 transition: { duration: 0.3, ease: "easeInOut" }
@@ -479,7 +554,7 @@ const Car_Rides = () => {
 
             {/* XL */}
             <motion.div
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
                 transition: { duration: 0.3, ease: "easeInOut" }
@@ -600,7 +675,7 @@ const Car_Rides = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Card 1 */}
             <motion.div
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
                 transition: { duration: 0.3, ease: "easeInOut" }
@@ -640,7 +715,7 @@ const Car_Rides = () => {
 
             {/* Card 2 */}
             <motion.div
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
                 transition: { duration: 0.3, ease: "easeInOut" }
@@ -677,7 +752,7 @@ const Car_Rides = () => {
 
             {/* Card 3 */}
             <motion.div
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
                 transition: { duration: 0.3, ease: "easeInOut" }
@@ -751,7 +826,7 @@ const Car_Rides = () => {
 
             <div className="flex justify-center">
               <motion.img
-                whileHover={{ 
+                whileHover={{
                   scale: 1.02,
                   transition: { duration: 0.3, ease: "easeInOut" }
                 }}
@@ -781,7 +856,7 @@ const Car_Rides = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Testimonial 1 */}
             <motion.div
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
                 transition: { duration: 0.3, ease: "easeInOut" }
@@ -835,7 +910,7 @@ const Car_Rides = () => {
 
             {/* Testimonial 2 */}
             <motion.div
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
                 transition: { duration: 0.3, ease: "easeInOut" }
@@ -889,7 +964,7 @@ const Car_Rides = () => {
 
             {/* Testimonial 3 */}
             <motion.div
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
                 transition: { duration: 0.3, ease: "easeInOut" }
@@ -945,7 +1020,7 @@ const Car_Rides = () => {
           {/* Stats Section */}
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
             <motion.div
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 transition: { duration: 0.3, ease: "easeInOut" }
               }}
@@ -957,7 +1032,7 @@ const Car_Rides = () => {
               <div className="text-gray-600 dark:text-gray-400">Happy Customers</div>
             </motion.div>
             <motion.div
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 transition: { duration: 0.3, ease: "easeInOut" }
               }}
@@ -969,7 +1044,7 @@ const Car_Rides = () => {
               <div className="text-gray-600 dark:text-gray-400">Active Drivers</div>
             </motion.div>
             <motion.div
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 transition: { duration: 0.3, ease: "easeInOut" }
               }}
@@ -981,7 +1056,7 @@ const Car_Rides = () => {
               <div className="text-gray-600 dark:text-gray-400">Rides Completed</div>
             </motion.div>
             <motion.div
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 transition: { duration: 0.3, ease: "easeInOut" }
               }}

@@ -46,16 +46,17 @@ function Login() {
   };
 
   const handleGoogleLogin = async () => {
-    try {
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
+  try {
+    const result = await signInWithPopup(auth, provider);
+    const user = result.user;
 
-      // Send email to backend to login or register user
-      const res = await axios.post('https://login-signup-iu.onrender.com/api/auth/google-login', {
-        email: user.email,
-        name: user.displayName,
-      });
+    // Backend call
+    const res = await axios.post('https://login-signup-iu.onrender.com/api/auth/google-login', {
+      email: user.email,
+      name: user.displayName,
+    });
 
+    if (res.data?.token && res.data?.user) {
       login(res.data.token);
       localStorage.setItem('user', JSON.stringify(res.data.user));
 
@@ -65,10 +66,17 @@ function Login() {
       } else {
         navigate('/');
       }
-    } catch (err) {
-      setMessage(err.response?.data?.message || 'Google Login failed');
+    } else {
+      throw new Error('Invalid response from server');
     }
-  };
+
+  } catch (err) {
+    console.error('Google Login Error:', err);
+    const errorMessage = err.response?.data?.message || err.message || 'Google Login failed';
+    setMessage(errorMessage);
+  }
+};
+
 
   return (
     <div className="flex items-center justify-center bg-white dark:bg-gray-900 text-white pb-20 pt-36 px-4">

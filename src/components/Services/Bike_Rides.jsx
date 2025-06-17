@@ -77,17 +77,13 @@ export default function Bike_Rides() {
     return (
         <div className="relative overflow-hidden">
 
-            {/* Hero Slider */}
-            <section className="relative min-h-[90vh] bg-gradient-to-br from-green-700 to-green-900 text-white overflow-hidden flex items-center py-6 sm:py-10 px-4 sm:px-6 lg:px-12">
-                {/* Ocean Wave Background */}
-                <div className="absolute inset-0 overflow-hidden z-0">
-                    <div className="ocean">
-                        {[1, 2, 3, 4, 5, 6].map((n) => (
-                            <div key={n} className={`wave wave${n}`}></div>
-                        ))}
-                    </div>
-                    <div className="absolute inset-0 bg-gradient-to-br from-green-700/40 to-green-900/40"></div>
-                </div>
+
+                        {/* Right Image and Card */}
+                        <div className="w-full md:w-1/2 relative flex justify-center items-center ">
+                            <img src="/images/Idhar Udhar Bike 1.png"
+                                alt="Car"
+                                className="rounded-xl shadow-lg w-full h-[250px] sm:h-[350px] md:h-[400px] object-cover"
+                            />
 
                 {/* Content */}
                 <div className="flex flex-col md:flex-row items-center justify-between w-full gap-6 sm:gap-10 relative z-20 mt-6 sm:mt-10">
@@ -421,10 +417,18 @@ export default function Bike_Rides() {
                 </section>
             </div>
 
-
-
-
-
+                            {/* Image Section */}
+                            <div className="flex justify-center">
+                                <img
+                                    src="/images/Idhar Udhar Bike 3.png"
+                                    alt="Bike rider"
+                                    className="max-h-80 rounded-lg shadow-lg"
+                                />
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </>
         </div>
     )
 }

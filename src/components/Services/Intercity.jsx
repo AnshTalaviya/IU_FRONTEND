@@ -486,16 +486,12 @@ export default function Intercity() {
                             </div>
                         </div>
 
-                        {/* Right Image */}
-                        <div className="flex justify-center md:justify-end" data-aos="zoom-in">
-                            <motion.img
-                                whileHover={{
-                                    scale: 1.02,
-                                    transition: { duration: 0.3, ease: "easeInOut" }
-                                }}
-                                className="w-full h-auto rounded-lg shadow-lg transition-all duration-700 ease-in-out hover:scale-105 hover:shadow-xl hover:shadow-green-500/20"
-                                src="/images/Group_travel.png"
-                                alt="GreenCar App"
+                        {/* Image Section */}
+                        <div className="flex justify-center">
+                            <img
+                                src="/images/Idhar Udhar Car 6.png"
+                                alt="Group travel"
+                                className="max-h-80 rounded-lg shadow-lg"
                             />
                         </div>
                     </div>

@@ -53,7 +53,7 @@ const Car_Rides = () => {
       bgColor: "from-blue-600/80 to-blue-800/80"
     },
     {
-      image: "/images/Idhar Udhar Car 3.png",
+      image: "/images/Idhar Udhar Car 6.png",
       title: "24/7 Service",
       subtitle: "Your trusted ride partner anytime, anywhere",
       bgColor: "from-purple-600/80 to-purple-800/80"

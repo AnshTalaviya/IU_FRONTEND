@@ -358,7 +358,7 @@ export default function Intercity() {
                         {/* Image Section */}
                         <div className="flex justify-center">
                             <img
-                                src="/images/Group_travel.png"
+                                src="/images/Idhar Udhar Car 6.png"
                                 alt="Group travel"
                                 className="max-h-80 rounded-lg shadow-lg"
                             />

@@ -465,7 +465,7 @@ export default function Auto_Rides() {
                                     transition: { duration: 0.3, ease: "easeInOut" }
                                 }}
                                 className="max-h-80 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-700 ease-in-out hover:shadow-xl hover:shadow-green-500/20"
-                                src="/images/auto2.jpg"
+                                src="/images/Idhar Udhar Rikshaw 2.png"
                                 alt="GreenCar App"
                             />
                         </div>

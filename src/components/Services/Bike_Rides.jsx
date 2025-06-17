@@ -38,7 +38,7 @@ export default function Bike_Rides() {
 
                         {/* Right Image and Card */}
                         <div className="w-full md:w-1/2 relative flex justify-center items-center ">
-                            <img src="/images/Auto_rides.png"
+                            <img src="/images/Idhar Udhar Bike 1.png"
                                 alt="Car"
                                 className="rounded-xl shadow-lg w-full h-[250px] sm:h-[350px] md:h-[400px] object-cover"
                             />
@@ -213,7 +213,7 @@ export default function Bike_Rides() {
                             {/* Image Section */}
                             <div className="flex justify-center">
                                 <img
-                                    src="/images/Rentals2.png"
+                                    src="/images/Idhar Udhar Bike 3.png"
                                     alt="Bike rider"
                                     className="max-h-80 rounded-lg shadow-lg"
                                 />

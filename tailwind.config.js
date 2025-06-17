@@ -69,6 +69,10 @@ module.exports = {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-5px)' }
         },
+         fadeInUp: {
+          "0%": { opacity: 0, transform: "translateY(20px)" },
+          "100%": { opacity: 1, transform: "translateY(0)" },
+        }
       },
       animation: {
         'glow-pulse': 'glow 2s infinite ease-in-out',
@@ -84,9 +88,9 @@ module.exports = {
         'idhar-appear': 'idhar-bounce 0.4s ease-out forwards',
         'move-road': 'road-move 0.3s ease-in-out infinite',
         'smoke-trail': 'smoke 1s ease-out infinite',
-        'icon-bounce': 'icon-bounce 1.5s ease-in-out infinite',
         // ✅ Newly added animation
         'float-card': 'floatCard 4s ease-in-out infinite',
+        fadeInUp: "fadeInUp 0.3s ease-out",
       },
     },
   },

@@ -256,6 +256,7 @@ import SettingsPage from "./components/profile/Setting";
 // Misc
 import Faqs from "./components/Faqs";
 import Games from "./components/DriverDashboard/Page/Games";
+import Searching_ride from "./components/RideBooking/Searching_ride";
 
 function App() {
   const navigate = useNavigate();
@@ -319,6 +320,7 @@ function App() {
                   <Route path="/book" element={<RideBooking />} />
                   <Route path="/book-ride" element={<ServiceOptions />} />
                   <Route path="/bike-ride" element={<BikeRide />} />
+                  <Route path="/Searching_ride" element={<Searching_ride />} />
                   <Route path="/confirm" element={<BikeProps />} />
                   <Route path="/ride-tracking" element={<RideTrackingPage />} />
                   <Route path="/rating" element={<RideCompleted />} />

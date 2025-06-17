@@ -166,7 +166,7 @@ const ConfirmRide = ({
           </div>
         </div>
 
-        <Link to="/ride-tracking" state={{ showPopup: true }}>
+        <Link to="/Searching_ride" state={{ showPopup: true }}>
           <button className="w-full cursor-pointer bg-green-600 hover:bg-green-700 py-3 rounded-lg text-sm font-medium text-black">
             Confirm {rideType} (₹{totalFare})
           </button>

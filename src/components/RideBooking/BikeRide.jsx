@@ -3,35 +3,6 @@ import { User } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function BikeRide() {
-  const handlePayment = () => {
-    if (typeof window.Razorpay === 'undefined') {
-      alert("Razorpay  not loaded.");
-      return;
-    }
-
-    const options = {
-      key: "rzp_test_abc123XYZ", // ✅ Replace this with your actual Razorpay key
-      amount: 9900,
-      currency: "INR",
-      name: "GreenBike",
-      description: "Ride Booking Payment",
-      image: "/icons/bike.png",
-      handler: function (response) {
-        alert("Payment successful. Payment ID: " + response.razorpay_payment_id);
-      },
-      prefill: {
-        name: "Test User",
-        email: "user@example.com",
-        contact: "9999999999",
-      },
-      theme: {
-        color: "#0f172a",
-      },
-    };
-
-    const rzp = new window.Razorpay(options);
-    rzp.open();
-  };
 
   return (
     <div className="min-h-[85vh] bg-white dark:bg-[#1F2937] text-white flex items-center justify-center px-4 py-10">
@@ -84,7 +55,6 @@ export default function BikeRide() {
             <div className="flex gap-3">
               <Link to={"/confirm"}>
                 <button
-                  onClick={handlePayment}
                   className="bg-[#2e3c51] hover:bg-[#3a4b65] text-white px-2 py-1.5 rounded-2xl text-sm font-medium cursor-pointer"
                 >
                   Fastest Option
@@ -92,7 +62,6 @@ export default function BikeRide() {
               </Link>
               <Link to={"/confirm"}>
                 <button
-                  onClick={handlePayment}
                   className="bg-[#2e3c51] hover:bg-[#3a4b65] text-white px-2 py-1.5 rounded-2xl text-sm font-medium cursor-pointer"
                 >
                   Economical

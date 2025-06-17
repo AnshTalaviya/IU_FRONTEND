@@ -3,9 +3,11 @@ import { Check, Smartphone } from "lucide-react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from "react-router-dom";
+import { motion } from 'framer-motion';
+
 
 const DownloadAppSection = () => {
-    useEffect(() => {
+  useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
 
@@ -19,11 +21,12 @@ const DownloadAppSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-white dark:bg-gray-900">
+    <section className="py-16 bg-white dark:bg-gray-900 relative">
+
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div
-          data-aos="zoom-in" className="lg:w-1/2 relative">
+            data-aos="zoom-in" className="lg:w-1/2 relative">
             <div className="bg-green-500/10 absolute -inset-4 rounded-lg blur-xl"></div>
             <div className="relative">
               <div
@@ -51,7 +54,7 @@ const DownloadAppSection = () => {
                   boxShadow: "0 0 10px rgba(255, 255, 255, 0.08)", // soft glow
                   filter: "drop-shadow(0 0 2px rgba(255, 255, 255, 0.1))",
                   borderRadius: "15PX",
-                  height:"450PX"
+                  height: "450PX"
                 }}
               />
               <div

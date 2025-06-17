@@ -58,8 +58,9 @@ const ChooseRideSection = () => {
   ];
 
   return (
-    <section className="py-16 relative overflow-hidden bg-white dark:bg-[#1F2937] before:absolute before:inset-0 before:bg-[radial-gradient(ellipse_at_center,_rgba(34,197,94,0.08)_0%,_transparent_70%)] before:animate-pulse-custom">
-      <div className="container mx-auto px-4 relative z-10">
+    <section className="py-16 bg-white dark:bg-[#1F2937] relative">
+      <div className="container mx-auto px-4">
+
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4">Choose Your Ride</h2>
           <p className="text-gray-400 text-sm max-w-2xl mx-auto">

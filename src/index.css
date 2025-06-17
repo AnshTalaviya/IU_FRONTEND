@@ -77,3 +77,11 @@ html, body {
   stroke-linejoin: round;
 }
 
+/* global.css or index.css */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

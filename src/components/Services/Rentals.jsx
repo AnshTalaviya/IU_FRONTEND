@@ -34,19 +34,19 @@ export default function Rentals() {
 
   const slides = [
     {
-      image: "/images/new1.jpeg",
+      image: "/images/Idhar Udhar Car 2.png",
       title: "Idhar Udhar Rentals",
       subtitle: "Flexible vehicle rentals by the hour, day, or week for all your travel needs",
       bgColor: "from-green-600/80 to-green-800/80"
     },
     {
-      image: "https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      image: "/images/Idhar Udhar Car 3.png",
       title: "Premium Rides",
       subtitle: "Experience luxury on wheels",
       bgColor: "from-blue-600/80 to-blue-800/80"
     },
     {
-      image: "https://images.pexels.com/photos/2920064/pexels-photo-2920064.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      image: "/images/Idhar Udhar Car 1.png",
       title: "24/7 Service",
       subtitle: "Your trusted ride partner anytime, anywhere",
       bgColor: "from-purple-600/80 to-purple-800/80"

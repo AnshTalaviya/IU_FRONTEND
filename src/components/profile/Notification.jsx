@@ -52,45 +52,64 @@ export default function Notifications() {
       : notifications.filter((n) => n.type === filter);
 
   return (
-    <div className="max-w-3xl mx-auto p-6 text-white mt-10">
-      <div className="flex items-center justify-between mb-4">
-        <div className="flex items-center gap-2 text-2xl font-semibold">
-          <span className="text-green-400">🔔</span> Notifications
-          <span className="bg-green-500 text-white text-xs rounded-full px-2 py-0.5 ml-1">2</span>
+    <div className="max-w-4xl mx-auto p-4 sm:p-6 text-white mt-6 sm:mt-10">
+      {/* Header */}
+      <div className="flex flex-wrap items-center justify-between mb-6 gap-y-3">
+        <div className="flex items-center gap-2 text-xl sm:text-2xl font-semibold">
+          <span className="text-green-400">🔔</span>
+          <span>Notifications</span>
+          <span className="bg-green-500 text-white text-xs rounded-full px-2 py-0.5 ml-1">
+            {notifications.filter((n) => n.unread).length}
+          </span>
         </div>
-        <button className="flex items-center text-white bg-transparent border border-gray-600 px-3 py-1 rounded-md hover:bg-gray-700">
-          <span className="mr-2">⚙️</span> Settings
+
+        <button className="flex items-center text-white bg-transparent border border-gray-600 px-3 py-1 rounded-md hover:bg-gray-700 text-sm sm:text-base">
+          <span className="mr-1">⚙️</span> Settings
         </button>
       </div>
 
-      <div className="flex gap-2 mb-4">
-        {['All', 'Rides', 'Promotions', 'Payments', 'System'].map((tab) => (
-          <button
-            key={tab}
-            onClick={() => setFilter(tab)}
-            className={`px-4 py-1 rounded-full text-sm font-medium ${
-              filter === tab ? 'bg-green-600 text-white' : 'bg-gray-700 text-gray-300'
-            }`}
-          >
-            {tab}
-          </button>
-        ))}
+      {/* Filter Tabs with Horizontal Scroll */}
+      <div className="overflow-x-auto no-scrollbar">
+        <div className="flex gap-2 mb-4 w-max">
+          {["All", "Rides", "Promotions", "Payments", "System"].map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setFilter(tab)}
+              className={`px-4 py-1 rounded-full text-sm font-medium whitespace-nowrap transition ${filter === tab
+                  ? "bg-green-600 text-white"
+                  : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                }`}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
       </div>
 
-      <div className="space-y-2">
-        {filteredNotifications.map((n, idx) => (
-          <div key={idx} className="bg-[#1e293b] p-4 rounded-md flex items-start gap-4 shadow">
-            <div className="text-2xl">{n.icon}</div>
-            <div className="flex-1">
-              <div className="font-semibold text-white">{n.title}</div>
-              <div className="text-gray-400 text-sm">{n.description}</div>
+      {/* Notifications List */}
+      <div className="space-y-3">
+        {filteredNotifications.length > 0 ? (
+          filteredNotifications.map((n, idx) => (
+            <div
+              key={idx}
+              className="bg-[#1e293b] p-4 rounded-md flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4 shadow"
+            >
+              <div className="text-2xl">{n.icon}</div>
+              <div className="flex-1">
+                <div className="font-semibold text-white text-base sm:text-lg">{n.title}</div>
+                <div className="text-gray-400 text-sm sm:text-base">{n.description}</div>
+              </div>
+              <div className="text-sm text-gray-500 whitespace-nowrap flex items-center">
+                {n.time}
+                {n.unread && (
+                  <span className="ml-2 w-2 h-2 bg-green-500 rounded-full inline-block"></span>
+                )}
+              </div>
             </div>
-            <div className="text-sm text-gray-500 whitespace-nowrap">
-              {n.time}
-              {n.unread && <span className="ml-2 w-2 h-2 bg-green-500 rounded-full inline-block"></span>}
-            </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <div className="text-gray-400 text-center py-10">No notifications found.</div>
+        )}
       </div>
     </div>
   );

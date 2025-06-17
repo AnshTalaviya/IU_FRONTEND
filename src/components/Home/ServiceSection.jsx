@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Bike, Car, Truck, Package, UtensilsCrossed, ShoppingBag
 } from 'lucide-react';
+import { motion, useAnimation } from 'framer-motion';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -10,8 +11,9 @@ const ServiceCard = ({ icon, title, description, image, onClick, comingSoon, aos
   useEffect(() => {
     AOS.init({
       duration: 1000,
-      once: false,   // animation har baar chale
-      mirror: true,  // scroll up pe bhi chale
+      once: false,
+      mirror: true,
+      easing: 'ease-in-out'
     });
   }, []);
 
@@ -54,6 +56,51 @@ const ServiceCard = ({ icon, title, description, image, onClick, comingSoon, aos
 
 const ServiceSection = () => {
   const navigate = useNavigate();
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const controls = useAnimation();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          controls.start("animate");
+        } else {
+          setIsVisible(false);
+          controls.start("initial");
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [controls]);
+
+  // Generate random positions for dots with animation properties
+  const generateDots = () => {
+    const dots = [];
+    for (let i = 0; i < 50; i++) {
+      dots.push({
+        id: i,
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        size: Math.random() * 4 + 2,
+        delay: Math.random() * 2,
+        duration: Math.random() * 2 + 2,
+        distance: Math.random() * 20 + 10
+      });
+    }
+    return dots;
+  };
 
   const services = [
     {
@@ -113,8 +160,53 @@ const ServiceSection = () => {
   };
 
   return (
-    <section className="py-16 bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-4">
+    <section ref={sectionRef} className="py-16 bg-white dark:bg-gray-900 relative">
+      {/* Animated Background Dots */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {generateDots().map((dot) => (
+          <motion.div
+            key={dot.id}
+            className="absolute bg-green-500/50 rounded-full"
+            style={{
+              left: `${dot.x}%`,
+              top: `${dot.y}%`,
+              width: `${dot.size}px`,
+              height: `${dot.size}px`
+            }}
+            initial={{ opacity: 0, scale: 0, y: 0 }}
+            animate={controls}
+            variants={{
+              initial: { opacity: 0, scale: 0, y: 0 },
+              animate: {
+                opacity: 1,
+                scale: 1,
+                y: [0, -dot.distance, 0],
+                transition: {
+                  opacity: {
+                    delay: dot.delay,
+                    duration: 0.7,
+                    ease: "easeInOut"
+                  },
+                  scale: {
+                    delay: dot.delay,
+                    duration: 0.7,
+                    ease: "easeInOut"
+                  },
+                  y: {
+                    delay: dot.delay,
+                    duration: dot.duration,
+                    ease: "easeInOut",
+                    repeat: Infinity,
+                    repeatType: "reverse"
+                  }
+                }
+              }
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4">
             What service do you need today?

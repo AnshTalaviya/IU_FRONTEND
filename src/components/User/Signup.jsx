@@ -18,7 +18,7 @@ function Signup() {
 
   const [otpSent, setOtpSent] = useState(false);
   const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false); // ✅ Loading state
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { login } = useAuth();
 
@@ -32,15 +32,31 @@ function Signup() {
 
   const handleSendOtp = async () => {
     if (!form.agreed) return setMessage("Please accept terms and conditions.");
-    setLoading(true); // ✅ Start loading
+    setLoading(true);
+
     try {
-      const res = await axios.post("https://login-signup-iu.onrender.com/api/auth/send-otp", form);
-      setOtpSent(true);
-      setMessage(res.data.message);
+      const res = await axios.post(
+        "https://login-signup-iu.onrender.com/api/auth/send-otp",
+        form,
+        {
+          validateStatus: () => true, // ✅ Allow all responses
+        }
+      );
+
+      console.log("Response Status:", res.status);
+      console.log("Response Data:", res.data);
+
+      if (res.status === 200 || res.status === 201) {
+        setOtpSent(true);
+        setMessage(res.data?.message || "OTP sent successfully.");
+      } else {
+        setMessage(res.data?.message || "Failed to send OTP.");
+      }
     } catch (err) {
+      console.error("Send OTP Error:", err);
       setMessage(err.response?.data?.message || "Error sending OTP");
     } finally {
-      setLoading(false); // ✅ Stop loading
+      setLoading(false);
     }
   };
 

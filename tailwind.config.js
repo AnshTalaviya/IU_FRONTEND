@@ -3,7 +3,7 @@ module.exports = {
   darkMode: 'class',
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
-    "./public/index.html"
+    "./public/index.html",
   ],
   theme: {
     extend: {
@@ -19,8 +19,8 @@ module.exports = {
           '50%': { boxShadow: '0 0 8px 4px rgba(34,197,94,0.4)' },
         },
         pulseCustom: {
-          '0%, 100%': { transform: 'scale(1)', opacity: '0.6' },
-          '50%': { transform: 'scale(1.15)', opacity: '0.3' },
+          '0%, 100%': { transform: 'scale(1)', opacity: '0.9' },
+          '50%': { transform: 'scale(1.08)', opacity: '0.6' },
         },
         slideup: {
           '0%': { transform: 'translateY(20px)', opacity: 0 },
@@ -64,10 +64,15 @@ module.exports = {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-6px)' },
         },
+        // ✅ Newly added animation
+        floatCard: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-5px)' }
+        },
       },
       animation: {
         'glow-pulse': 'glow 2s infinite ease-in-out',
-        'pulse-custom': 'pulseCustom 3s ease-in-out infinite',
+        'pulse-custom': 'pulseCustom 2s ease-in-out infinite',
         'slide-up': 'slideup 0.4s ease-out',
         'move-car': 'move-car 6s ease-in-out forwards',
         'car-to-text': 'car-to-text 1.2s ease-out forwards',
@@ -80,6 +85,8 @@ module.exports = {
         'move-road': 'road-move 0.3s ease-in-out infinite',
         'smoke-trail': 'smoke 1s ease-out infinite',
         'icon-bounce': 'icon-bounce 1.5s ease-in-out infinite',
+        // ✅ Newly added animation
+        'float-card': 'floatCard 4s ease-in-out infinite',
       },
     },
   },

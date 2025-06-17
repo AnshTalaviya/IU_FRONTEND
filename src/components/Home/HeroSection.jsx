@@ -174,7 +174,7 @@ const HeroSection = () => {
               transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
             >
               <img
-                src="/images/home_page1.png"
+                src="/images/Idhar Udhar Car 1.png" 
                 alt="Luxury car"
                 className="w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] object-cover rounded-xl"
               />

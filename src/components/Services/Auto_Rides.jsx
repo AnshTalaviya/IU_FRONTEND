@@ -106,7 +106,7 @@ export default function Auto_Rides() {
 
 
             {/* Hero Slider */}
-            <section className="relative min-h-[90vh] bg-gradient-to-br from-green-700 to-green-900 text-white overflow-hidden flex items-center py-10 px-4 sm:px-6 lg:px-12 mt-10">
+            <section className="relative min-h-[90vh] bg-gradient-to-br from-green-700 to-green-900 text-white overflow-hidden flex items-center py-10 px-4 sm:px-6 lg:px-12">
                 {/* Ocean Wave Background */}
                 <div className="absolute inset-0 overflow-hidden z-0">
                     <div className="ocean">

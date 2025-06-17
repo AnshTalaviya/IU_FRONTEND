@@ -14,24 +14,6 @@ export default function Rentals() {
     });
   }, []);
 
-  // Generate random positions for dots with animation properties
-  const generateDots = () => {
-    const dots = [];
-    for (let i = 0; i < 50; i++) {
-      dots.push({
-        id: i,
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-        size: Math.random() * 4 + 2,
-        delay: Math.random() * 2,
-        duration: Math.random() * 2 + 2,
-        distance: Math.random() * 20 + 10
-      });
-    }
-    return dots;
-  };
-
-
   const slides = [
     {
       image: "/images/Idhar Udhar Car 2.png",
@@ -90,8 +72,6 @@ export default function Rentals() {
     },
   ];
 
-
-
   const packages = [
     {
       title: "Hourly Rental",
@@ -131,50 +111,8 @@ export default function Rentals() {
     },
   ];
 
-
   return (
     <div className="relative overflow-hidden">
-
-      {/* Animated Background Dots */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        {generateDots().map((dot) => (
-          <motion.div
-            key={dot.id}
-            className="absolute bg-green-500/50 rounded-full"
-            style={{
-              left: `${dot.x}%`,
-              top: `${dot.y}%`,
-              width: `${dot.size}px`,
-              height: `${dot.size}px`
-            }}
-            initial={{ opacity: 0, scale: 0, y: 0 }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              y: [0, -dot.distance, 0],
-              transition: {
-                opacity: {
-                  delay: dot.delay,
-                  duration: 0.7,
-                  ease: "easeInOut"
-                },
-                scale: {
-                  delay: dot.delay,
-                  duration: 0.7,
-                  ease: "easeInOut"
-                },
-                y: {
-                  delay: dot.delay,
-                  duration: dot.duration,
-                  ease: "easeInOut",
-                  repeat: Infinity,
-                  repeatType: "reverse"
-                }
-              }
-            }}
-          />
-        ))}
-      </div>
 
       {/* Hero Slider */}
       <section className="relative min-h-[90vh] bg-gradient-to-br from-green-700 to-green-900 text-white overflow-hidden flex items-center py-10 px-4 sm:px-6 lg:px-12">
@@ -442,17 +380,15 @@ export default function Rentals() {
           </div>
         </div>
       </section>
-
-
-      {/* 4th part */}
-
-
-      <div className="bg-white dark:bg-gray-900 py-12 px-2">
-        <section className="bg-green-600 rounded-2xl text-white py-12 px-4 md:px-8 max-w-7xl mx-auto my-12 transform hover:scale-[1.02] transition-all duration-700 ease-in-out hover:shadow-xl hover:shadow-green-500/20">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div data-aos="zoom-in" data-aos-easing="ease-in-out" className="space-y-4 m-6">
+ 
+      {/* CTA Section */}
+      <div className="bg-white dark:bg-gray-900 py-10 px-4 sm:px-6 lg:px-8">
+        <section className="bg-[#166534] rounded-2xl text-white py-10 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto transition-all duration-700 ease-in-out transform hover:scale-[1.02] hover:shadow-xl hover:shadow-green-500/20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            {/* Left Text */}
+            <div data-aos="zoom-in" className="space-y-5 text-center md:text-left">
               <motion.h2
-                className="text-3xl md:text-4xl font-bold text-start"
+                className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight"
                 whileHover={{
                   scale: 1.02,
                   transition: { duration: 0.3, ease: "easeInOut" }
@@ -460,7 +396,9 @@ export default function Rentals() {
               >
                 Need a Vehicle for Longer?
               </motion.h2>
-              <motion.p className="text-lg opacity-90 text-start"
+
+              <motion.p
+                className="text-base sm:text-lg text-white/90 leading-relaxed"
                 whileHover={{
                   scale: 1.02,
                   transition: { duration: 0.3, ease: "easeInOut" }
@@ -469,7 +407,8 @@ export default function Rentals() {
                 Contact our team for special monthly rates and corporate fleet
                 solutions. Custom packages available.
               </motion.p>
-              <div className="pt-4 text-start">
+
+              <div className="pt-3">
                 <Link
                   to="/book"
                   className="inline-flex items-center justify-center gap-2 text-sm font-medium h-11 px-8 rounded-md bg-white text-green-700 hover:bg-gray-100 transition-all duration-700 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-green-500/50"
@@ -479,21 +418,23 @@ export default function Rentals() {
               </div>
             </div>
 
-            <div className="flex justify-center" data-aos="zoom-in">
+            {/* Right Image */}
+            <div className="flex justify-center md:justify-end" data-aos="zoom-in">
               <motion.img
                 whileHover={{
                   scale: 1.02,
                   transition: { duration: 0.3, ease: "easeInOut" }
                 }}
-
-                className="max-h-80 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-700 ease-in-out hover:shadow-xl hover:shadow-green-500/20"
+                className="w-full h-auto rounded-lg shadow-lg transition-all duration-700 ease-in-out hover:scale-105 hover:shadow-xl hover:shadow-green-500/20"
                 src="/images/Rentals2.png"
+
                 alt="GreenCar App"
               />
             </div>
           </div>
         </section>
       </div>
+
 
     </div>
   );

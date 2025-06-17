@@ -14,23 +14,6 @@ const Car_Rides = () => {
     });
   }, []);
 
-  // Generate random positions for dots with animation properties
-  const generateDots = () => {
-    const dots = [];
-    for (let i = 0; i < 50; i++) {
-      dots.push({
-        id: i,
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-        size: Math.random() * 4 + 2,
-        delay: Math.random() * 2,
-        duration: Math.random() * 2 + 2,
-        distance: Math.random() * 20 + 10
-      });
-    }
-    return dots;
-  };
-
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -62,46 +45,6 @@ const Car_Rides = () => {
 
   return (
     <div className="relative overflow-hidden">
-      {/* Animated Background Dots */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        {generateDots().map((dot) => (
-          <motion.div
-            key={dot.id}
-            className="absolute bg-green-500/50 rounded-full"
-            style={{
-              left: `${dot.x}%`,
-              top: `${dot.y}%`,
-              width: `${dot.size}px`,
-              height: `${dot.size}px`
-            }}
-            initial={{ opacity: 0, scale: 0, y: 0 }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              y: [0, -dot.distance, 0],
-              transition: {
-                opacity: {
-                  delay: dot.delay,
-                  duration: 0.7,
-                  ease: "easeInOut"
-                },
-                scale: {
-                  delay: dot.delay,
-                  duration: 0.7,
-                  ease: "easeInOut"
-                },
-                y: {
-                  delay: dot.delay,
-                  duration: dot.duration,
-                  ease: "easeInOut",
-                  repeat: Infinity,
-                  repeatType: "reverse"
-                }
-              }
-            }}
-          />
-        ))}
-      </div>
 
       {/* Hero Slider */}
       <section className="relative min-h-[90vh] bg-gradient-to-br from-green-700 to-green-900 text-white overflow-hidden flex items-center py-10 px-4 sm:px-6 lg:px-12">
@@ -510,7 +453,7 @@ const Car_Rides = () => {
 
       {/* CTA Section */}
       <div className="bg-white dark:bg-gray-900 py-10 px-4 sm:px-6 lg:px-8">
-        <section className="bg-[#166534] hover:bg-green-700 rounded-2xl text-white py-10 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto transition-all duration-700 ease-in-out transform hover:scale-[1.02] hover:shadow-xl hover:shadow-green-500/20">
+        <section className="bg-[#166534] rounded-2xl text-white py-10 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto transition-all duration-700 ease-in-out transform hover:scale-[1.02] hover:shadow-xl hover:shadow-green-500/20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             {/* Left Text */}
             <div data-aos="zoom-in" className="space-y-5 text-center md:text-left">

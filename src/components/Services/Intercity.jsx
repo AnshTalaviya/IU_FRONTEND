@@ -144,7 +144,7 @@ export default function Intercity() {
                 <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-6 sm:gap-10 relative z-20 mt-6 sm:mt-10">
                     {/* Left Text */}
                     <div className="w-full lg:w-[40%] min-h-[250px] flex flex-col items-center lg:items-start text-center lg:text-left px-2 sm:px-6">
-                        <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-3 leading-tight hover:scale-105 hover:text-green-200 transition duration-300">
+                        <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-3 leading-tight transition duration-300">
                             Idhar Udhar Intercity
                         </h1>
                         <p className="text-sm sm:text-base lg:text-lg mb-4 text-gray-200">
@@ -176,38 +176,7 @@ export default function Intercity() {
                         />
                         <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-black/50 z-10 rounded-2xl" />
 
-                        {/* Info Card */}
-                        <div className="absolute bottom-4 z-20 bg-white text-gray-800 dark:bg-gray-800 dark:text-white shadow-xl rounded-lg p-3 sm:p-4 flex items-center gap-3 sm:gap-4 w-[200px] sm:w-[230px] transform hover:scale-[1.02] transition duration-300">
-                            <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-green-200 flex items-center justify-center">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-5 w-5 sm:h-6 sm:w-6 text-green-600"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    strokeWidth={2}
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        d="M12 11.5a2 2 0 100-4 2 2 0 000 4z"
-                                    />
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
-                                    />
-                                </svg>
-                            </div>
-                            <div>
-                                <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-300">
-                                    Available in
-                                </p>
-                                <p className="text-sm sm:text-base font-semibold text-gray-900 dark:text-white">
-                                    50+ City Pairs
-                                </p>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
 
@@ -254,20 +223,11 @@ export default function Intercity() {
                 <div className="max-w-7xl mx-auto text-center" data-aos="fade-up">
                     <motion.h1
                         className="text-3xl sm:text-4xl font-extrabold text-green-600 mb-4"
-                        whileHover={{
-                            scale: 1.05,
-                            color: "#16a34a",
-                            transition: { ease: "easeInOut" },
-                        }}
                     >
                         Why Choose Intercity Service?
                     </motion.h1>
                     <motion.p
                         className="text-gray-600 dark:text-gray-300 max-w-xl mx-auto mb-10"
-                        whileHover={{
-                            scale: 1.05,
-                            transition: { ease: "easeInOut" },
-                        }}
                     >
                         The most comfortable and convenient way to travel between cities with professional drivers.
                     </motion.p>
@@ -276,12 +236,7 @@ export default function Intercity() {
                         {intercityFeatures.map((item, idx) => (
                             <motion.div
                                 key={idx}
-                                className="bg-white dark:bg-gray-800 shadow-md rounded-xl p-6 text-left"
-                                whileHover={{
-                                    scale: 1.05,
-                                    boxShadow: "0 12px 28px rgba(0, 0, 0, 0.12)",
-                                    transition: { ease: "easeOut" },
-                                }}
+                                className="bg-white dark:bg-gray-800 shadow-md rounded-xl p-6 text-left transition-all duration-300 ease-in-out transform hover:scale-[1.01]"
                                 data-aos="fade-up"
                                 data-aos-delay={idx * 100}
                                 data-aos-easing="ease-in-out"
@@ -390,11 +345,6 @@ export default function Intercity() {
                 <motion.h2
                     className="text-3xl md:text-4xl font-bold text-gray-800 mb-3 dark:text-white"
                     data-aos="fade-up"
-                    whileHover={{
-                        scale: 1.03,
-                        color: "#16a34a",
-                        transition: { ease: "easeInOut" },
-                    }}
                 >
                     Book Your Intercity Ride in 3 Simple Steps
                 </motion.h2>
@@ -402,10 +352,6 @@ export default function Intercity() {
                 <motion.p
                     className="text-gray-500 mb-10 dark:text-gray-300"
                     data-aos="fade-up"
-                    whileHover={{
-                        scale: 1.03,
-                        transition: { ease: "easeInOut" },
-                    }}
                 >
                     Fast, easy, and convenient booking process for your intercity travel needs
                 </motion.p>
@@ -414,12 +360,7 @@ export default function Intercity() {
                     {steps.map((step, index) => (
                         <motion.div
                             key={step.number}
-                            className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow transition-all"
-                            whileHover={{
-                                scale: 1.05,
-                                boxShadow: "0 12px 24px rgba(0,0,0,0.1)",
-                                transition: { ease: "easeOut" },
-                            }}
+                            className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow transition-all transition-all duration-700 ease-in-out transform hover:scale-[1.01]"
                             data-aos="fade-up"
                             data-aos-delay={index * 100}
                         >
@@ -435,10 +376,6 @@ export default function Intercity() {
                 </div>
 
                 <motion.div
-                    whileHover={{
-                        scale: 1.05,
-                        transition: { ease: "easeInOut" },
-                    }}
                     data-aos="zoom-in"
                 >
                     <Link to="/Book_ride">
@@ -451,26 +388,18 @@ export default function Intercity() {
 
             {/* CTA Section */}
             <div className="bg-white dark:bg-gray-900 py-10 px-4 sm:px-6 lg:px-8">
-                <section className="bg-[#166534] rounded-2xl text-white py-10 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto transition-all duration-700 ease-in-out transform hover:scale-[1.02] hover:shadow-xl hover:shadow-green-500/20">
+                <section className="bg-[#166534] rounded-2xl text-white py-10 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto ">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
                         {/* Left Text */}
                         <div data-aos="zoom-in" className="space-y-5 text-center md:text-left">
                             <motion.h2
                                 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight"
-                                whileHover={{
-                                    scale: 1.02,
-                                    transition: { duration: 0.3, ease: "easeInOut" }
-                                }}
                             >
                                 Planning a Group Trip?
                             </motion.h2>
 
                             <motion.p
                                 className="text-base sm:text-lg text-white/90 leading-relaxed"
-                                whileHover={{
-                                    scale: 1.02,
-                                    transition: { duration: 0.3, ease: "easeInOut" }
-                                }}
                             >
                                 We offer special rates for group travel and corporate bookings. Contact our team for custom quotes.
 
@@ -479,19 +408,19 @@ export default function Intercity() {
                             <div className="pt-3">
                                 <Link
                                     to="/book"
-                                    className="inline-flex items-center justify-center gap-2 text-sm font-medium h-11 px-8 rounded-md bg-white text-green-700 hover:bg-gray-100 transition-all duration-700 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-green-500/50"
+                                    className="inline-flex items-center justify-center gap-2 text-sm font-medium h-11 px-8 rounded-md bg-white text-green-700 hover:bg-gray-100 transition-all duration-300 ease-in-out transform hover:scale-105"
                                 >
                                     Book Now
                                 </Link>
                             </div>
                         </div>
 
-                        {/* Image Section */}
-                        <div className="flex justify-center">
-                            <img
-                                src="/images/Idhar Udhar Car 6.png"
-                                alt="Group travel"
-                                className="max-h-80 rounded-lg shadow-lg"
+                        {/* Right Image */}
+                        <div className="flex justify-center md:justify-end" data-aos="zoom-in">
+                            <motion.img
+                                className="w-full h-auto rounded-lg shadow-lg transition-all duration-700 ease-in-out"
+                                src="/images/Group_travel.png"
+                                alt="GreenCar App"
                             />
                         </div>
                     </div>

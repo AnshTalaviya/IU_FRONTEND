@@ -1,10 +1,8 @@
 import React, { useEffect } from "react";
 import { Check, Smartphone } from "lucide-react";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
-import { motion } from 'framer-motion';
-
 
 const DownloadAppSection = () => {
   useEffect(() => {
@@ -21,128 +19,67 @@ const DownloadAppSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-white dark:bg-gray-900 relative">
-
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
-          <div
-            data-aos="zoom-in" className="lg:w-1/2 relative">
-            <div className="bg-green-500/10 absolute -inset-4 rounded-lg blur-xl"></div>
-            <div className="relative">
-              <div
-                className="absolute -right-4 -top-4 bg-gray-800 text-white px-4 py-2 rounded-lg z-10"
-                style={{
-                  border: "6px solid rgba(21, 243, 102, 0.1)",
-                  animation: "subtleGlow 4s ease-in-out infinite",
-                  borderRadius: "0.75rem",
-                  transition: "border-color 1s ease-in-out",
-                  transform: "scale(1)",
-                  // eslint-disable-next-line
-                  animation: "subtleGlow 2s ease-in-out infinite",
-                }}
-              >
-                <div className="text-sm">Your ride is arriving!</div>
-                <div className="text-green-400 text-xs">ETA: 3 minutes</div>
-              </div>
-              <img
-                src="/images/Home-Page9.png"
-                alt="IdharUdhar App"
-                className="rounded-lg shadow-2xl w-full border-4 border-black dark:border-gray-700"
-                style={{
-                  position: "relative",
-                  border: "6px solid rgba(252, 249, 249, 0.4)", // more transparent white
-                  boxShadow: "0 0 10px rgba(255, 255, 255, 0.08)", // soft glow
-                  filter: "drop-shadow(0 0 2px rgba(255, 255, 255, 0.1))",
-                  borderRadius: "15PX",
-                  height: "450PX"
-                }}
-              />
-              <div
-                className="absolute -bottom-4 -left-4 bg-gray-800 text-white px-3 py-1 rounded-lg flex items-center"
-                style={{
-                  border: "6px solid rgba(34, 197, 94, 0.1)",
-                  animation: "subtleGlow 4s ease-in-out infinite",
-                  borderRadius: "0.75rem",
-                  transition: "border-color 1s ease-in-out",
-                  transform: "scale(1)",
-                  // eslint-disable-next-line
-                  animation: "subtleGlow 2s ease-in-out infinite",
-                }}
-              >
-                <span className="flex items-center">
-                  <span className="flex items-center">
-                    {[...Array(5)].map((_, i) => (
-                      <svg
-                        key={i}
-                        className="w-4 h-4 text-yellow-400"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </span>
-                  <span className="ml-1">4.9</span>
-                </span>
-              </div>
-            </div>
+    <section className="py-20 bg-gradient-to-b from-white to-green-50 dark:from-gray-900 dark:to-gray-800">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-center gap-16">
+        
+        {/* LEFT: APP IMAGE */}
+        <div data-aos="fade-up" className="relative w-full lg:w-1/2">
+          <div className="absolute -inset-4 bg-green-400/10 rounded-2xl blur-2xl" />
+          <div className="relative rounded-3xl overflow-hidden border border-white/30 dark:border-gray-700">
+            <img
+              src="/images/IUAPPDOWNLODE.png"
+              alt="App Screenshot"
+              className="w-full object-cover"
+            />
+            
           </div>
 
-          <div className="lg:w-1/2 text-left">
-            <div className="flex items-center bg-green-500/20 text-gary dark:text-green-500 px-4 py-2 rounded-full text-sm font-medium mb-4 w-40">
-              <Smartphone className="" />
-              Mobile App
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold dark:text-white mb-6">
-              Download the IdharUdhar App for a Seamless Experience
-            </h2>
-            <p className="dark:text-gray-400 text-lg mb-8">
-              Get the full IdharUdhar experience right in your pocket. Our app
-              provides real-time tracking, quick booking, multiple payment
-              options, and exclusive rewards.
+          {/* App Store Buttons */}
+          <div className="flex justify-center flex-wrap mt-6 sm:flex-row gap-4">
+            <Link to="#" className="hover:scale-105 transition-transform">
+              <img src="/images/Home-icon1.png" alt="Google Play" className="h-14" />
+            </Link>
+            <Link to="#" className="hover:scale-105 transition-transform">
+              <img src="/images/Home-icon2.png" alt="App Store" className="h-14" />
+            </Link>
+          </div>
+        </div>
+
+        {/* RIGHT: TEXT SECTION */}
+        <div data-aos="fade-left" className="w-full lg:w-1/2">
+          <div className="inline-flex items-center bg-green-100 dark:bg-green-800 text-green-800 dark:text-green-300 px-4 py-1 rounded-full text-sm font-semibold mb-4 shadow-sm">
+            <Smartphone className="mr-2 w-4 h-4" />
+            Mobile App
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white mb-6 leading-tight">
+            Download the IdharUdhar App for a Seamless Experience
+          </h2>
+
+          <p className="text-gray-600 dark:text-gray-400 text-lg mb-8 leading-relaxed">
+            Ride smarter with our mobile app. Book with ease, track live, pay flexibly, and unlock exclusive rewards – all in one tap.
+          </p>
+
+          <div className="space-y-3 mb-10">
+            {features.map((feature, index) => (
+              <div key={index} className="flex items-center text-gray-700 dark:text-gray-300">
+                <Check className="text-green-500 mr-3 w-5 h-5" />
+                {feature}
+              </div>
+            ))}
+          </div>
+
+          <div className="p-5 bg-green-50 dark:bg-green-900 border border-green-400/20 rounded-xl shadow-md">
+            <p className="text-sm text-gray-800 dark:text-gray-100 mb-2">
+              <strong className="text-black dark:text-white">Driver Partner?</strong>{" "}
+              Download the Driver App and start earning with IdharUdhar.
             </p>
-
-            <div className="space-y-4 mb-8">
-              {features.map((feature, index) => (
-                <div key={index} className="flex items-center dark:text-gray-300">
-                  <Check className="text-green-500 mr-3 w-5 h-5" />
-                  <span>{feature}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="#" className="transition-transform hover:scale-105">
-                <img
-                  src="/images/Home-icon1.png"
-                  alt="Get it on Google Play"
-                  className="h-[60px] w-[20]"
-                />
-              </Link>
-              <Link to="#" className="transition-transform hover:scale-105">
-                <img
-                  src="/images/Home-icon2.png"
-                  alt="Download on the App Store"
-                  className="h-[60px] w-[60] "
-                />
-              </Link>
-            </div>
-
-            <div className="mt-8 p-4 rounded-lg bg-green-500/10 border border-green-500/50">
-              <p className="mb-2 dark:text-gray-400">
-                <span className="font-semibold text-black dark:text-white">
-                  Driver Partner?
-                </span>{" "}
-                Download the dedicated driver app to start earning with
-                Idhar Udhar today!
-              </p>
-              <Link
-                to="#"
-                className="text-green-500 hover:text-green-400 transition-colors"
-              >
-                Learn more about becoming a partner
-              </Link>
-            </div>
+            <Link
+              to="#"
+              className="text-green-600 dark:text-green-400 font-medium hover:underline"
+            >
+              Learn more about becoming a partner →
+            </Link>
           </div>
         </div>
       </div>

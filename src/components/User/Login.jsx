@@ -86,7 +86,7 @@ function Login() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full p-3 mb-4 bg-[#0d1117] text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-              placeholder="you@example.com"
+              placeholder="Enter Your Email"
             />
             <motion.button
               onClick={handleSendOtp}

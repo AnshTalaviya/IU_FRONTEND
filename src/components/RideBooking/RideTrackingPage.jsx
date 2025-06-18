@@ -25,8 +25,8 @@ const RideTrackingPage = () => {
   }, [location.state]);
 
   useEffect(() => {
-    const totalDuration = 180; // 3 minutes in seconds
-    const displayDuration = 5; // finish in 5 real seconds
+    const totalDuration = 180;
+    const displayDuration = 5;
     let secondsLeft = totalDuration;
     let elapsed = 0;
 
@@ -52,139 +52,108 @@ const RideTrackingPage = () => {
   }, [navigate]);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#1F2937] text-white flex items-center justify-center p-6 relative">
-      <style>
-        {`
-            @keyframes slide-up {
-              from {
-                transform: translateY(20px);
-                opacity: 0;
-              }
-              to {
-                transform: translateY(0);
-                opacity: 1;
-              }
-            }
-            .animate-slide-up {
-              animation: slide-up 0.4s ease-out;
-            }
-          `}
-      </style>
-
-      <div className="bg-[#1e293b] w-full max-w-3xl rounded-xl shadow-2xl overflow-hidden">
-        <div className="w-full bg-gray-600 h-70 p-6 border-b border-gray-700 flex flex-col items-center justify-center text-center">
-          <p className="text-sm text-gray-400">Interactive map would be displayed here</p>
-          <div className="mt-2 text-xs text-gray-500 space-y-1">
-            <div>Driver: 22:52:02, 7/2/2023</div>
-            <div>Pickup: 22:52:10, 7/2/2023</div>
-            <div>Dropoff: 23:15:55, 7/2/2023</div>
-          </div>
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white flex items-center justify-center px-4 py-8">
+      <div className="bg-gray-900 w-full max-w-3xl rounded-2xl shadow-2xl overflow-hidden">
+        {/* Header */}
+        <div className="bg-gray-800 p-6 text-center border-b border-gray-700">
+          <h2 className="text-xl font-semibold">Driver is on the way</h2>
+          <p className="text-gray-400 text-sm mt-1">Tracking your ride in real-time</p>
         </div>
 
-        <div className="w-full bg-green-600 text-white text-lg px-6 py-2">
-          <div className="flex justify-between items-center p-2">
-            <span className="font-semibold">Driver is on the way to pickup</span>
-            <span className="flex items-center gap-1">
-              <Clock className="w-4 h-4" /> {displayMinutes}
-            </span>
-          </div>
-          <div className="h-3 mt-2 bg-green-500 rounded-full overflow-hidden">
+        {/* Progress Bar */}
+        <div className="bg-green-700 text-white text-sm px-6 py-3 flex justify-between items-center">
+          <span className="flex items-center gap-2 font-medium">
+            <Clock className="w-4 h-4" /> {displayMinutes}
+          </span>
+          <div className="h-2 w-2/3 bg-green-600 rounded-full overflow-hidden">
             <div
-              className="h-full bg-green-400 rounded-full transition-all duration-100"
+              className="h-full bg-green-400 rounded-full transition-all duration-200"
               style={{ width: `${progress}%` }}
             ></div>
           </div>
         </div>
 
-        <div className="p-6">
-          <h2 className="text-white font-semibold text-lg mb-4">
-            Your Ride <span className="text-sm text-gray-400">Order #TR-320995</span>
-          </h2>
-
-          <div className="mb-4 space-y-3">
-            <div className="flex items-start gap-3 text-sm">
-              <MapPin className="text-green-500 w-5 h-5 mt-1" />
-              <div>
-                <p className="text-white font-semibold">Pickup</p>
-                <p className="text-gray-400 text-sm">123 Green Avenue, Sector 15</p>
+        {/* Trip Info */}
+        <div className="p-6 space-y-5">
+          <div>
+            <h3 className="font-semibold text-lg mb-2">Trip Details</h3>
+            <div className="space-y-3 text-sm">
+              <div className="flex gap-3 items-start">
+                <MapPin className="text-green-500 w-5 h-5" />
+                <div>
+                  <p className="font-semibold">Pickup</p>
+                  <p className="text-gray-400">Naroda, Ahmedabad</p>
+                </div>
               </div>
-            </div>
-
-            <div className="flex items-start gap-3 text-sm">
-              <MapPin className="text-green-500 w-5 h-5 mt-1" />
-              <div>
-                <p className="text-white font-semibold">Dropoff</p>
-                <p className="text-gray-400 text-sm">GreenTech Business Park, Cyber City</p>
+              <div className="flex gap-3 items-start">
+                <MapPin className="text-green-500 w-5 h-5" />
+                <div>
+                  <p className="font-semibold">Dropoff</p>
+                  <p className="text-gray-400">Maninagar, Ahmedabad</p>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="flex items-center justify-between border-t border-gray-700 pt-4">
-            <div className="flex items-center gap-4">
+          <div className="flex justify-between items-center border-t pt-4 border-gray-700">
+            <div className="flex gap-3 items-center">
               <img
                 src="https://i.pravatar.cc/100?img=12"
-                className="rounded-full w-12 h-12"
                 alt="Driver"
+                className="w-12 h-12 rounded-full"
               />
               <div>
-                <p className="text-white font-semibold">Rahul Singh</p>
-                <p className="text-xs text-gray-400">⭐ 4.8 • 1243 trips</p>
+                <p className="font-semibold">Rahul Singh</p>
+                <p className="text-sm text-gray-400">⭐ 4.8 • 1243 trips</p>
               </div>
             </div>
-            <div className="text-right text-sm text-gray-400 leading-5">
-              <p className="text-white font-semibold">Honda City</p>
-              <p className="font-semibold">DL 01 AB 1234</p>
+            <div className="text-right text-sm text-gray-300">
+              <p className="font-semibold">Honda City</p>
+              <p className="text-gray-400">DL 01 AB 1234</p>
               <p>White</p>
             </div>
           </div>
 
-          <div className="flex gap-3 mt-5">
-            <button className="flex items-center justify-center gap-2 bg-green-600 w-full py-2 rounded text-sm font-medium hover:bg-green-700 transition">
+          {/* Action Buttons */}
+          <div className="flex gap-4 mt-4">
+            <button className="w-full bg-green-600 hover:bg-green-700 text-sm py-2 rounded-md flex items-center justify-center gap-2 font-medium">
               <Phone className="w-4 h-4" /> Call Driver
             </button>
-            <button className="flex items-center justify-center gap-2 bg-[#0f172a] border border-gray-700 w-full py-2 rounded text-sm font-medium hover:bg-[#1c2a3a] transition">
+            <button className="w-full bg-gray-800 hover:bg-gray-700 border border-gray-600 text-sm py-2 rounded-md flex items-center justify-center gap-2 font-medium">
               <MessageCircle className="w-4 h-4" /> Message
             </button>
           </div>
 
-          <div className="bg-[#0f172a] p-4 mt-5 rounded-md border border-gray-700 text-sm">
+          {/* Safety Section */}
+          <div className="bg-gray-800 p-4 rounded-md border border-gray-700 mt-5 text-sm">
             <div className="flex items-start gap-3">
-              <ShieldCheck className="text-green-500 w-5 h-5 mt-1" />
+              <ShieldCheck className="text-green-500 w-5 h-5" />
               <div>
-                <p className="text-white font-semibold">Trip Safety</p>
+                <p className="font-semibold text-white">Trip Safety</p>
                 <p className="text-gray-400 text-xs">
                   Share your trip status with friends and family for added safety. Your ride is protected with insurance coverage.
                 </p>
-                <button className="mt-2 text-xs text-green-400 font-medium hover:underline">
-                  Share trip status
-                </button>
+                <button className="mt-2 text-xs text-green-400 hover:underline">Share trip status</button>
               </div>
             </div>
           </div>
 
-          <button className="flex items-center justify-center gap-2 bg-red-600 mt-5 w-full py-3 rounded text-sm font-semibold hover:bg-red-700 transition">
-            <AlertTriangle className="w-4 h-4" /> SOS Emergency Button
+          {/* Emergency Button */}
+          <button className="w-full bg-red-600 hover:bg-red-700 text-white text-sm py-3 mt-4 rounded-md flex items-center justify-center gap-2 font-semibold">
+            <AlertTriangle className="w-5 h-5" /> SOS Emergency
           </button>
         </div>
-      </div>
 
-      {showPopup && (
-        <div className="fixed bottom-4 left-4 right-4 md:bottom-6 md:right-6 md:left-auto z-50">
-          <div className="bg-gray-950 text-white px-4 py-4 md:px-6 md:py-5 rounded-xl shadow-xl flex items-start gap-4 w-full max-w-sm md:max-w-md animate-slide-up relative mx-auto md:mx-0">
-            <div className="flex-1">
-              <p className="font-semibold text-base md:text-lg">Ride Confirmed</p>
-              <p className="text-sm text-white/90">Your ride has been booked successfully.</p>
+        {/* Popup */}
+        {showPopup && (
+          <div className="fixed bottom-6 right-6 z-50">
+            <div className="bg-black text-white px-6 py-4 rounded-xl shadow-lg animate-bounce-in">
+              <p className="font-semibold">Ride Confirmed</p>
+              <p className="text-sm text-gray-300">Your ride has been booked successfully.</p>
             </div>
-            <button
-              onClick={() => setShowPopup(false)}
-              className="absolute top-2 right-3 text-white hover:text-white/70 text-xl font-bold cursor-pointer"
-            >
-              ×
-            </button>
           </div>
-        </div>
-      )}
-
+        )}
+      </div>
     </div>
   );
 };

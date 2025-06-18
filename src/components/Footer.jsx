@@ -57,8 +57,7 @@ const Footer = () => {
               {[
                 { href: '/Services/Auto_rides', label: 'Daily Rides' },
                 { href: '/Services/rentals', label: 'Rentals' },
-                { href: '/Services/Intercity', label: 'Intercity' },
-                { href: '#', label: 'Corporate' },
+                // { href: '/Services/Intercity', label: 'Intercity' },
                 { href: '#', label: 'Delivery' },
                 { href: '/allcities', label: 'View All Cities' },
               ].map(service => (

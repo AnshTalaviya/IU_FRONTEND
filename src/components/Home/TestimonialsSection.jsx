@@ -3,74 +3,75 @@ import { Star, Quote } from 'lucide-react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const Testimonial = ({ image, name, role, rating, quote }) => {
-  useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
-  }, []);
+const TestimonialCard = ({ image, name, role, rating, quote }) => {
   return (
     <div
-      data-aos="zoom-in" className="relative bg-white dark:bg-[#1F2937] rounded-2xl p-6 transition-all duration-300 transform hover:scale-102 border dark:border-gray-700 shadow-lg">
+      data-aos="fade-up"
+      className="relative bg-white dark:bg-[#1F2937] rounded-xl p-6 shadow-md border dark:border-gray-700 transition duration-300 hover:shadow-2xl"
+    >
+      {/* Decorative Quote Icon */}
+      <div className="absolute top-4 right-4 bg-green-100 dark:bg-green-900 p-2 rounded-full">
+        <Quote className="text-green-600 dark:text-green-300 w-5 h-5" />
+      </div>
 
-
-      {/* Half Circle Decorative Element */}
-      <div
-        className="absolute top-0 right-0 w-20 h-20 bg-[#DCFCE7] dark:bg-[#10211F] rounded-bl-full"
-      />
-
-      <div className="flex items-start mb-4 relative z-10">
+      {/* Profile Info */}
+      <div className="flex items-center mb-4">
         <img
           src={image}
           alt={name}
-          className="w-14 h-14 rounded-full object-cover border-2 border-green-500 mr-4 mt-1"
+          className="w-14 h-14 rounded-full object-cover border-2 border-green-500"
         />
-        <div>
-          <h4 className="text-lg font-semibold text-black dark:text-white text-start">{name}</h4>
-          <p className="text-gray-600 dark:text-gray-400 text-sm text-start">{role}</p>
-          <div className="flex mt-2">
+        <div className="ml-4">
+          <h4 className="text-lg font-semibold text-black dark:text-white">{name}</h4>
+          <p className="text-sm text-gray-500 dark:text-gray-400">{role}</p>
+          <div className="flex mt-1">
             {[...Array(5)].map((_, i) => (
               <Star
                 key={i}
-                className={`w-4 h-4 ${i < rating ? "text-yellow-400 fill-yellow-400" : "text-gray-600"}`}
+                className={`w-4 h-4 ${i < rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`}
               />
             ))}
           </div>
         </div>
       </div>
 
-      <Quote className="absolute top-4 right-4 text-green-500 w-6 h-6 opacity-50 z-10" />
-
-      <p className="text-green-nexus-200 dark:text-gray-300 italic text-sm leading-relaxed relative z-10 text-start">
-        {quote}
+      {/* Quote Text */}
+      <p className="text-sm italic text-gray-600 dark:text-gray-300 leading-relaxed">
+        "{quote}"
       </p>
     </div>
   );
 };
 
 const TestimonialsSection = () => {
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true });
+  }, []);
+
   const testimonials = [
     {
-      image: "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      image: "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg",
       name: "Priya Sharma",
       role: "Regular Commuter",
       rating: 5,
       quote: "IdharUdhar has transformed my daily commute. The drivers are always on time, and the cars are immaculate. I feel safe and comfortable every ride."
     },
     {
-      image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
       name: "Rahul Kapoor",
       role: "Business Executive",
       rating: 5,
       quote: "As someone who travels for work regularly, I rely on IdharUdhar for reliable intercity rides. Their corporate service is unmatched - professional drivers and excellent customer support."
     },
     {
-      image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg",
       name: "Ananya Patel",
       role: "College Student",
       rating: 4,
       quote: "The bike rides are perfect for my quick trips to college. Affordable and quick, especially during rush hour. The app is super easy to use and the rewards system is great!"
     },
     {
-      image: "https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      image: "https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg",
       name: "Vikram Singh",
       role: "Entrepreneur",
       rating: 5,
@@ -78,28 +79,22 @@ const TestimonialsSection = () => {
     }
   ];
 
-
   return (
-    <section className="py-16 bg-white dark:bg-[#1F2937]  relative">
-
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4">What Our Riders Say</h2>
-          <p className="text-gray-400 text-sm max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our riders have to say about their IdharUdhar experience.
+    <section className="py-20 bg-gradient-to-b from-green-50 to-white dark:from-gray-900 dark:to-[#0f172a]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Heading */}
+        <div className="text-center mb-14">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">What Our Riders Say</h2>
+          <div className="w-20 h-1 bg-green-500 mx-auto mb-4 rounded" />
+          <p className="text-gray-600 dark:text-gray-400 max-w-xl mx-auto text-sm sm:text-base">
+            Real voices from real riders who trust IdharUdhar for safe, reliable, and green transportation.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Testimonials Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Testimonial
-              key={index}
-              image={testimonial.image}
-              name={testimonial.name}
-              role={testimonial.role}
-              rating={testimonial.rating}
-              quote={testimonial.quote}
-            />
+            <TestimonialCard key={index} {...testimonial} />
           ))}
         </div>
       </div>

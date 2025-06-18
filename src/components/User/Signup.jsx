@@ -97,19 +97,7 @@ function Signup() {
             type="text"
             value={form.fullName}
             onChange={handleChange}
-            placeholder="John Doe"
-            className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-          />
-        </div>
-
-        <div className="mb-4">
-          <label className="block text-sm font-semibold text-left text-white mb-1">Email</label>
-          <input
-            name="email"
-            type="email"
-            value={form.email}
-            onChange={handleChange}
-            placeholder="email@example.com"
+            placeholder="Enter Your Full Name"
             className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
           />
         </div>
@@ -121,7 +109,19 @@ function Signup() {
             type="tel"
             value={form.phone}
             onChange={handleChange}
-            placeholder="1234567890"
+            placeholder="Enter Your Phone Number"
+            className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-sm font-semibold text-left text-white mb-1">Email</label>
+          <input
+            name="email"
+            type="email"
+            value={form.email}
+            onChange={handleChange}
+            placeholder="Enter Your Email"
             className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
           />
         </div>
@@ -148,6 +148,7 @@ function Signup() {
                 type="text"
                 value={form.vehicleType}
                 onChange={handleChange}
+                placeholder='Enter Your Vehicle Type'
                 className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
               />
             </div>
@@ -159,6 +160,7 @@ function Signup() {
                 type="text"
                 value={form.vehicleNumber}
                 onChange={handleChange}
+                placeholder='Enter Your Vehicle Number'
                 className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
               />
             </div>
@@ -170,6 +172,7 @@ function Signup() {
                 type="text"
                 value={form.licenseNumber}
                 onChange={handleChange}
+                placeholder='Enter Your License Number'
                 className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
               />
             </div>

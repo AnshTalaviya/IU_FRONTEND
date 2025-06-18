@@ -35,7 +35,7 @@ const HeroSection = () => {
   const [pickup, setPickup] = useState("");
   const [dropoff, setDropoff] = useState("");
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user } = useAuth(); 
 
   const isDisabled = !pickup.trim() || !dropoff.trim();
 

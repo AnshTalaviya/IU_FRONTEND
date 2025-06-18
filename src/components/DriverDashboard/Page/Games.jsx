@@ -19,9 +19,9 @@ function Games() {
   const games = [
     {
       id: 1,
-      title: 'Memory Matrix',
+      title: 'Memory',
       description: 'Enhance your memory and concentration with this pattern-matching game',
-      icon: '🧠',
+      icon: '🧙‍♀',
       color: 'from-green-400 to-green-600',
       features: [
         'Improves Short-term Memory',
@@ -41,7 +41,7 @@ function Games() {
     },
     {
       id: 2,
-      title: 'Math Challenge',
+      title: 'Snack',
       description: 'Sharpen your mathematical skills with engaging problem-solving exercises',
       icon: '🔢',
       color: 'from-green-400 to-green-600',
@@ -122,8 +122,8 @@ function Games() {
               {games.map((game, index) => (
                 <motion.div
                   key={game.id}
-                  className="group relative rounded-3xl p-8 bg-gray-800/50 backdrop-blur-lg cursor-pointer"
-                  onClick={() => setSelectedGame(game.id)}
+                  className="group relative rounded-3xl p-8 bg-gray-800/10 backdrop-blur-lg cursor-pointer border border-white/20 hover:border-white/60"
+
                   onMouseEnter={() => setHoveredGame(game.id)}
                   onMouseLeave={() => setHoveredGame(null)}
                   initial={{ opacity: 0, y: 50 }}
@@ -143,7 +143,7 @@ function Games() {
                       animate={hoveredGame === game.id ? { x: 10 } : { x: 0 }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
-                      <div className={`w-24 h-24 bg-gray-900/50 rounded-2xl flex items-center justify-center border border-${game.color.split('-')[1]}/30 group-hover:border-${game.color.split('-')[1]}/50 transition-all duration-500`}>
+                      <div className={`w-24 h-24 bg-gray-900/50 rounded-2xl flex items-center justify-center border border-white/30 group-hover:border-white/80 transition-all duration-500`}>
                         <motion.span
                           className="text-5xl"
                           animate={hoveredGame === game.id ? { scale: 1.2, rotate: 5 } : { scale: 1, rotate: 0 }}
@@ -153,7 +153,13 @@ function Games() {
                         </motion.span>
                       </div>
                       <div className="flex-1">
-                        <h2 className={`text-3xl font-bold mb-3 bg-gradient-to-r ${game.color} bg-clip-text text-transparent`}>
+                        {/* 
+                        <h2 className="text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-green-500 via-green-600 to-green-500">
+                           {game.title}
+                        </h2> */}
+
+
+                        <h2 className={`text-3xl font-bold mb-3 bg-gradient-to-r ${game.color} text-green-600`}>
                           {game.title}
                         </h2>
                         <div className="flex flex-wrap gap-2">
@@ -219,6 +225,7 @@ function Games() {
                       className="text-center"
                       animate={hoveredGame === game.id ? { y: 5 } : { y: 0 }}
                       transition={{ type: "spring", stiffness: 300 }}
+                      onClick={() => setSelectedGame(game.id)}
                     >
                       <p className="text-green-500/70 text-sm font-medium group-hover:text-green-400 transition-colors duration-300">
                         Click to play and see more details
@@ -277,6 +284,9 @@ function MemoryMatrix({ gameData }) {
               className="bg-green-600 hover:bg-green-700 border-2 border-green-400/30 rounded-lg transition-all px-6 py-4 w-full text-white font-bold text-lg text-center mt-4"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => window.open('https://v0-memory-matching-game-phi.vercel.app/', '_blank')}
+
+
             >
               Start New Game
             </motion.button>
@@ -379,6 +389,8 @@ function MathChallenge({ gameData }) {
               className="bg-green-600 hover:bg-green-700 border-2 border-green-400/30 rounded-lg transition-all px-6 py-4 w-full text-white font-bold text-lg text-center mt-4"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => window.open('https://v0-mobile-snake-game-lemon.vercel.app/', '_blank')}
+
             >
               Start New Game
             </motion.button>

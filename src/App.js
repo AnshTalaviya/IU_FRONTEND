@@ -58,6 +58,7 @@ import MiniTruckDelivery from "./pages/MiniTruckDelivery";
 import MovingService from "./pages/MovingService";
 import CityDelivery from "./pages/CityDelivery";
 
+
 // Profile
 import UserProfile from "./components/profile/userProfile";
 import ViewAllRides from "./components/profile/viewAllRide";
@@ -68,6 +69,10 @@ import SettingsPage from "./components/profile/Setting";
 import Faqs from "./components/Faqs";
 import Games from "./components/DriverDashboard/Page/Games";
 import Searching_ride from "./components/RideBooking/Searching_ride";
+import VehicleSelector from "./components/VehicleSelector/VehicleSelector";
+import SelectParcel from "./components/VehicleSelector/SelectParcel";
+import ParcelDetails from "./components/VehicleSelector/ParcelDetails";
+import EstimateResults from "./components/VehicleSelector/EstimateResults";
 
 function App() {
   const navigate = useNavigate();
@@ -149,11 +154,11 @@ function App() {
                   <Route path="/spacious" element={<GreenAuto />} />
 
                   {/* Courier & Delivery */}
-                  <Route path="/courier-ride" element={<CourierDelivery />} />
-                  <Route path="/services/bike-delivery" element={<BikeDelivery />} />
-                  <Route path="/services/mini-trucks" element={<MiniTruckDelivery />} />
-                  <Route path="/services/move-service" element={<MovingService />} />
-                  <Route path="/services/city-to-city" element={<CityDelivery />} />
+                  <Route path="/vehicle-selector" element={<VehicleSelector />} />
+                  <Route path="/select-parcel" element={<SelectParcel />} />
+                  <Route path="/parcel-details" element={<ParcelDetails />} />
+                  <Route path="/estimate-results" element={<EstimateResults />} />
+                  
 
                 </Routes>
               </Layout>

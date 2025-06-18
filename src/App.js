@@ -52,12 +52,12 @@ import RideCompleted from "./components/RideBooking/RideCompleted";
 import ConfirmRide from "./components/RideBooking/ConfirmRide";
 
 // Deliveries
-import FoodRide from "./components/RidePages/FoodDelivery/FoodRide";
-import FoodProps from "./components/RidePages/FoodDelivery/FoodProps";
-import FoodXL from "./components/RidePages/FoodDelivery/FoodXL";
-import Grocery from "./components/RidePages/Grocery/Grocery";
-import GroceryProps from "./components/RidePages/Grocery/GroceryProps";
-import GroceryXL from "./components/RidePages/Grocery/GroceryXL";
+import CourierDelivery from "./pages/CourierDelivery";
+import BikeDelivery from "./pages/BikeDelivery";
+import MiniTruckDelivery from "./pages/MiniTruckDelivery";
+import MovingService from "./pages/MovingService";
+import CityDelivery from "./pages/CityDelivery";
+
 
 // Profile
 import UserProfile from "./components/profile/userProfile";
@@ -160,15 +160,6 @@ function App() {
                   <Route path="/estimate-results" element={<EstimateResults />} />
                   
 
-                  {/* Food */}
-                  <Route path="/food-delivery" element={<FoodRide />} />
-                  <Route path="/food" element={<FoodProps />} />
-                  <Route path="/foodxl" element={<FoodXL />} />
-
-                  {/* Grocery */}
-                  <Route path="/grocery-delivery" element={<Grocery />} />
-                  <Route path="/grocery" element={<GroceryProps />} />
-                  <Route path="/groceryxl" element={<GroceryXL />} />
                 </Routes>
               </Layout>
             }

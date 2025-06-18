@@ -46,8 +46,7 @@ export default function ParcelDetails() {
     });
   };
 
-  const inputBaseClass =
-    "w-full py-2 pl-10 pr-4 rounded-md bg-gray-800 text-white border focus:outline-none";
+  const inputBaseClass = "w-full py-2 pl-10 pr-4 rounded-mdtext-white bg-gradient-to-br from-black via-gray-900 to-black border focus:outline-none";
 
   const getInputClass = (hasError, value) => {
     if (hasError) return `${inputBaseClass} border-red-500 ring-2 ring-red-500`;
@@ -58,7 +57,7 @@ export default function ParcelDetails() {
   const containerClass = "relative flex flex-col text-gray-400";
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12 text-white bg-green-900/50">
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12 text-white bg-gradient-to-br from-black via-gray-900 to-black">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}

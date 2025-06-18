@@ -14,28 +14,28 @@ const vehicleOptions = [
     description: "Ideal for small parcels, documents, or lightweight items.",
     iconName: "FaMotorcycle",
     weight: "Max 10 KG",
-    bg: "bg-green-900/50",
+    bg: "bg-green-700/50",
   },
   {
     title: "Medium & Safe",
     description: "Perfect for electronics, boxes, and mid-size deliveries.",
     iconName: "FaTruckPickup",
     weight: "Max 50 KG",
-    bg: "bg-yellow-900/50",
+    bg: "bg-green-700/50",
   },
   {
     title: "Spacious & Strong",
     description: "Best for furniture, heavier goods, or stacked parcels.",
     iconName: "MdLocalShipping",
     weight: "Max 80 KG",
-    bg: "bg-blue-900/50",
+    bg: "bg-green-700/50",
   },
   {
     title: "Heavy Duty",
     description: "For bulk deliveries, industrial items, or extra-large loads.",
     iconName: "FaTruckMoving",
     weight: "Max 1000 KG",
-    bg: "bg-red-900/50",
+    bg: "bg-green-700/50",
   },
 ];
 
@@ -65,7 +65,7 @@ export default function VehicleSelector() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-4 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white flex flex-col items-center justify-center px-4 py-12">
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}

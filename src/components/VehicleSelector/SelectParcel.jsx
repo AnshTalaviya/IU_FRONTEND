@@ -39,7 +39,6 @@ export default function SelectParcel() {
     return <div className="text-center text-white py-12">No vehicle selected</div>;
   }
 
-  const fixedBgClass = "bg-green-900/50";
   const { title, description, iconName } = selectedVehicle;
 
   const handleContinue = () => {
@@ -61,7 +60,7 @@ export default function SelectParcel() {
   };
 
   return (
-    <div className={`min-h-screen flex flex-col items-center p-6 mt-10 text-white ${fixedBgClass}`}>
+    <div className="min-h-screen flex flex-col items-center p-6 mt-10 text-white bg-gradient-to-br from-black via-gray-900 to-black">
       <div className="w-full max-w-2xl bg-black/60 rounded-xl p-8 shadow-lg text-center">
         <div className="mb-4">{iconMap[iconName]}</div>
         <h2 className="text-2xl font-bold mb-2">{title}</h2>

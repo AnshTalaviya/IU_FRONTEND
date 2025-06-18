@@ -49,7 +49,7 @@ export default function EstimateResults() {
   };
 
   return (
-    <div className="min-h-screen px-4 py-12 bg-gradient-to-br from-green-900 via-black to-green-950 text-white">
+    <div className="min-h-screen px-4 py-12 text-white bg-gradient-to-br from-black via-gray-900 to-black">
       <motion.h1
         initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}

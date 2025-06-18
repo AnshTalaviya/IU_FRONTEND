@@ -52,11 +52,11 @@ import RideCompleted from "./components/RideBooking/RideCompleted";
 import ConfirmRide from "./components/RideBooking/ConfirmRide";
 
 // Deliveries
-import CourierDelivery from "./pages/CourierDelivery";
-import BikeDelivery from "./pages/BikeDelivery";
-import MiniTruckDelivery from "./pages/MiniTruckDelivery";
-import MovingService from "./pages/MovingService";
-import CityDelivery from "./pages/CityDelivery";
+// import CourierDelivery from "./pages/CourierDelivery";
+// import BikeDelivery from "./pages/BikeDelivery";
+// import MiniTruckDelivery from "./pages/MiniTruckDelivery";
+// import MovingService from "./pages/MovingService";
+// import CityDelivery from "./pages/CityDelivery";
 
 
 // Profile

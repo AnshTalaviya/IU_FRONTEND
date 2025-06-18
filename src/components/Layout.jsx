@@ -1,7 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
-import ChatSupport from './ChatSupport';
 
 const Layout = ({ children }) => {
   const location = useLocation();
@@ -16,8 +15,6 @@ const Layout = ({ children }) => {
 
       {/* Render footer only if not in hideFooterOnPaths */}
       {!hideFooterOnPaths.includes(location.pathname) && <Footer />}
-
-      <ChatSupport />
     </div>
   );
 };

@@ -116,7 +116,7 @@ const ServiceSection = () => {
       title: "Courier Delivery",
       description: "Fast & secure package delivery",
       image: "/images/Home-Page5.png",
-      path: "/courier-ride",
+      path: "/vehicle-selector",
       aos: "flip-left"
     },
     {

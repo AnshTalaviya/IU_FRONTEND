@@ -16,7 +16,7 @@ export default function Rentals() {
 
   const slides = [
     {
-      image: "/images/Idhar Udhar Car 2.png",
+      image: "/images/Idhar Udhar Car 6.png",
       title: "Idhar Udhar Rentals",
       subtitle: "Flexible vehicle rentals by the hour, day, or week for all your travel needs",
       bgColor: "from-green-600/80 to-green-800/80"

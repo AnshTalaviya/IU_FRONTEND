@@ -370,8 +370,10 @@ export default function Auto_Rides() {
                                 whileHover={{
                                     transition: { duration: 0.3, ease: "easeInOut" }
                                 }}
+
                                 className="w-full max-h-[250px] sm:max-h-[300px] md:max-h-[350px] rounded-lg shadow-lg transition-all duration-700 ease-in-out object-cover"
                                 src="/images/auto2.jpg"
+
                                 alt="GreenCar App"
                             />
                         </div>

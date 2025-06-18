@@ -26,11 +26,9 @@ const SafetyBlog = () => {
   return (
     <div className=" bg-white dark:bg-[#0f172a] py-16 px-6 text-black dark:text-white">
       <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-10">
+        <div className="flex justify-center items-center mb-10">
           <h2 className="text-3xl font-bold">Safety Blog</h2>
-          <button className="bg-[#1e293b] px-4 py-2 rounded-md text-sm transition hover:bg-green-900 text-white">
-            View All Articles
-          </button>
+         
         </div>
         <div className="grid md:grid-cols-3 gap-10">
           {blogs.map((blog) => (

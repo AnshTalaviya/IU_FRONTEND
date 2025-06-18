@@ -1,93 +1,47 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
+
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { motion } from 'framer-motion';
-
 
 export default function Bike_Rides() {
 
     useEffect(() => {
         AOS.init({
-            duration: 500,
-            once: false,
-            mirror: true,
-            easing: 'ease-in-out'
+            duration: 1500,
+            once: true,
         });
     }, []);
 
-    const features = [
-        {
-            title: "Beat the Traffic",
-            desc: "Navigate through congested roads quickly with skilled riders who know the best routes",
-            icon: (
-                <>
-                    <circle cx="18.5" cy="17.5" r="3.5"></circle>
-                    <circle cx="5.5" cy="17.5" r="3.5"></circle>
-                    <circle cx="15" cy="5" r="1"></circle>
-                    <path d="M12 17.5V14l-3-3 4-3 2 3h2"></path>
-                </>
-            ),
-        },
-        {
-            title: "Safety First",
-            desc: "All rides come with complimentary helmets, trained riders, and real-time tracking",
-            icon: (
-                <path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-4z" />
-            ),
-        },
-        {
-            title: "Affordable & Fast",
-            desc: "Our bike rides are the most cost-effective and quickest way to reach nearby destinations",
-            icon: (
-                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-            ),
-        },
-    ];
-
-
-    const slides = [
-        {
-            title: "GreenBike Standard",
-            subtitle: "Reliable and affordable Bike rides for everyday travel",
-            image: "/images/Auto_rides.png"
-
-
-        },
-        {
-            title: "GreenBike Premium",
-            subtitle: "Comfort with style – premium Bike rides for your urban lifestyle",
-            image: "/images/auto2.jpg"
-        },
-    ];
-
-
-    const [currentSlide, setCurrentSlide] = useState(0);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentSlide((prev) => (prev + 1) % slides.length);
-        }, 3000);
-        return () => clearInterval(interval);
-    }, []);
-
-
-
     return (
-        <div className="relative overflow-hidden">
+        <div>
+            <>
+                <div data-aos="fade-up" className="bg-[#166534] text-white px-4 sm:px-6 lg:px-8 py-12 md:py-24">
+                    <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-12">
 
-            {/* Hero Slider */}
-            <section className="relative min-h-[90vh] bg-gradient-to-br from-green-700 to-green-900 text-white overflow-hidden flex items-center py-6 sm:py-10 px-4 sm:px-6 lg:px-12">
-                {/* Ocean Wave Background */}
-                <div className="absolute inset-0 overflow-hidden z-0">
-                    <div className="ocean">
-                        {[1, 2, 3, 4, 5, 6].map((n) => (
-                            <div key={n} className={`wave wave${n}`}></div>
-                        ))}
-                    </div>
-                    <div className="absolute inset-0 bg-gradient-to-br from-green-700/40 to-green-900/40"></div>
-                </div>
+                        {/* Left Content */}
+                        <div className="w-full md:w-1/2 md:pl-4">
+                            <h1 className="text-4xl md:text-5xl font-bold mb-6">GreenAuto Rides</h1>
+                            <p className="text-lg md:text-xl mb-8">
+                                Convenient, affordable, and eco-friendly auto rickshaw rides for your daily commute
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                <button className="bg-white text-green-600 font-semibold px-6 py-3 rounded-md hover:bg-gray-100 transition">
+                                    Book a Ride
+                                </button>
+                                <button className="bg-green-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-green-700 transition">
+                                    <Link to="/safety">    Learn About Safety</Link>
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Right Image and Card */}
+                        <div className="w-full md:w-1/2 relative flex justify-center items-center ">
+                            <img src="/images/Idhar Udhar Bike 1.png"
+                                alt="Car"
+                                className="rounded-xl shadow-lg w-full h-[250px] sm:h-[350px] md:h-[400px] object-cover"
+                            />
 
                 {/* Content */}
                 <div className="flex flex-col md:flex-row items-center justify-between w-full gap-6 sm:gap-10 relative z-20 mt-6 sm:mt-10">
@@ -120,8 +74,7 @@ export default function Bike_Rides() {
                                     </Link>
                                 </div>
                             </div>
-                        ))}
-                    </div>
+                        </div>
 
                     {/* Right Side Image */}
                     <div className="w-full md:w-[60%] h-[40vh] sm:h-[50vh] md:h-[70vh] relative overflow-hidden rounded-2xl shadow-2xl flex items-center justify-center">
@@ -142,37 +95,21 @@ export default function Bike_Rides() {
                             </div>
                         ))}
  
+
                     </div>
                 </div>
 
-                {/* Wave Animation CSS */}
-                <style jsx>{`
-        .ocean {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          overflow: hidden;
-          background: linear-gradient(to bottom, #166534, rgb(1, 136, 52));
-        }
+                {/* Why Choose GreenCar */}
+                <div className="bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
+                    <div className="max-w-7xl mx-auto text-center">
+                        <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
+                            Why Choose GreenBike?
+                        </h1>
+                        <p className="text-gray-600 max-w-xl mx-auto mb-10 dark:text-gray-300">
+                            The fastest way to navigate through city traffic with trained riders and safety equipment
+                        </p>
 
-        .wave {
-          position: absolute;
-          width: 200%;
-          height: 100%;
-          background: linear-gradient(45deg, rgba(13, 50, 27, 0.6), rgba(20, 83, 45, 0.3));
-          border-radius: 50%;
-          transform-origin: 50% 50%;
-        }
-
-        ${[...Array(6)].map((_, i) => `
-          .wave${i + 1} {
-            animation: wave${i + 1} ${8 + i * 2}s linear infinite;
-            z-index: ${i + 1};
-            opacity: ${0.9 - i * 0.1};
-            top: ${i * 15}%;
-            left: ${-50 + i * 5}%;
-            animation-delay: -${i * 1.5}s;
-          }
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
           @keyframes wave${i + 1} {
             0% { transform: translateX(0) scaleY(1); }
@@ -208,25 +145,26 @@ export default function Bike_Rides() {
                                 data-aos-easing="ease-in-out"
                             >
                                 <div className="mb-4 text-green-600">
+                                    {/* Shield Icon */}
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
-                                        className="h-8 w-8"
+                                        className="h-8 w-8 text-green-nexus-600 drop-shadow-md dark:text-green-nexus-400"
                                         fill="none"
                                         viewBox="0 0 24 24"
                                         stroke="currentColor"
-                                        strokeWidth={2}
                                     >
-                                        {item.icon}
+                                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
                                     </svg>
                                 </div>
-                                <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                                    {item.title}
-                                </h2>
-                                <p className="text-gray-600 dark:text-gray-300">{item.desc}</p>
-                            </motion.div>
-                        ))}
+                                <h2 className="text-xl font-semibold text-gray-900 mb-2 dark:text-white">Affordable & Fast</h2>
+                                <p className="text-gray-600 dark:text-gray-300">
+                                    Our bike rides are the most cost-effective and quickest way to reach nearby destinations
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
 
             {/* Pricing Section */}
@@ -273,10 +211,21 @@ export default function Bike_Rides() {
                                 {plan.badge && (
                                     <div className="absolute top-0 right-0 bg-yellow-400 text-white text-xs font-bold px-2 py-1 rounded-b rounded-tr shadow">
                                         {plan.badge}
-                                    </div>
-                                )}
 
-                                {/* Card Header */}
+                                    </div>
+                                </div>
+                                <div className="px-6 pb-6">
+                                    <Link to='/Book_ride'> <button className="w-full py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded transition">
+                                        Book Now
+                                    </button></Link>
+                                </div>
+                            </div>
+
+                            {/* Box 2 */}
+                            <div className="relative border border-gray-300 dark:border-gray-600 rounded-lg shadow-md bg-white dark:bg-gray-900 w-80">
+                                <div className="absolute top-0 right-0 bg-yellow-400 text-white text-xs font-bold px-2 py-1 rounded-b rounded-tr shadow">
+                                    POPULAR
+                                </div>
                                 <div className="bg-green-600 text-white py-3 rounded-t-lg text-center">
                                     <motion.h3 className="text-base sm:text-lg font-semibold">
                                         {plan.title}
@@ -359,12 +308,39 @@ export default function Bike_Rides() {
                         </div>
                     </div>
                 </section>
-            </div>
 
+                {/* 4th part */}
+                <div className="bg-white dark:bg-gray-900 py-12 px-2">
+                    <section className="bg-[#166534] rounded-2xl text-white py-12 px-4 md:px-8 max-w-7xl mx-auto my-12 ">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                            {/* Text Section */}
+                            <div data-aos="zoom-in" className="space-y-4 m-6">
+                                <h2 className="text-3xl md:text-4xl font-bold text-start">Ready for a Quick Ride?</h2>
+                                <p className="text-lg opacity-90 text-start">
+                                    Download our app and book your first bike ride with a special discount. Use code FIRSTBIKE for 30% off.
+                                </p>
+                                <div className="pt-4 text-start">
+                                    <Link
+                                        to="/book"
+                                        className="inline-flex items-center justify-center gap-2 text-sm font-medium h-11 px-8 rounded-md bg-white text-green-700 hover:bg-gray-100 transition"
+                                    >
+                                        Rent Now
+                                    </Link>
+                                </div>
+                            </div>
 
-
-
-
+                            {/* Image Section */}
+                            <div className="flex justify-center">
+                                <img
+                                    src="/images/Idhar Udhar Bike 3.png"
+                                    alt="Bike rider"
+                                    className="max-h-80 rounded-lg shadow-lg"
+                                />
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </>
         </div>
     )
 }

@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
+import { motion } from 'framer-motion';
 
 function Signup() {
   const [form, setForm] = useState({
@@ -39,12 +40,9 @@ function Signup() {
         "https://login-signup-iu.onrender.com/api/auth/send-otp",
         form,
         {
-          validateStatus: () => true, // ✅ Allow all responses
+          validateStatus: () => true,
         }
       );
-
-      console.log("Response Status:", res.status);
-      console.log("Response Data:", res.data);
 
       if (res.status === 200 || res.status === 201) {
         setOtpSent(true);
@@ -53,7 +51,6 @@ function Signup() {
         setMessage(res.data?.message || "Failed to send OTP.");
       }
     } catch (err) {
-      console.error("Send OTP Error:", err);
       setMessage(err.response?.data?.message || "Error sending OTP");
     } finally {
       setLoading(false);
@@ -82,53 +79,60 @@ function Signup() {
   };
 
   return (
-    <div className='bg-white dark:bg-gray-900 pb-4 md:pb-16 pt-8 md:pt-28 px-4'>
-      <div className="max-w-md mx-auto bg-[#0d1117] p-6 rounded-xl shadow-xl mt-10 text-white">
-        <h2 className="text-2xl font-bold mb-4 text-center">Idhar Udhar Signup</h2>
+    <div className="flex mt-13 items-center justify-center min-h-screen bg-gradient-to-tr from-gray-900 via-black to-gray-900 px-4">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="bg-[#161b22] w-full max-w-md p-8 rounded-2xl shadow-2xl backdrop-blur-md border border-gray-700"
+      >
+        <h2 className="text-3xl font-bold text-center text-white mb-6">
+          Sign up for <span className="text-green-400">Idhar Udhar</span>
+        </h2>
 
         <div className="mb-4">
-          <label className="block text-sm font-semibold text-left mb-1">Full Name</label>
+          <label className="block text-sm font-semibold text-left text-white mb-1">Full Name</label>
           <input
             name="fullName"
             type="text"
             value={form.fullName}
             onChange={handleChange}
             placeholder="John Doe"
-            className="w-full bg-[#0d1117] border border-gray-700 rounded-md px-3 py-2"
+            className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
           />
         </div>
 
         <div className="mb-4">
-          <label className="block text-sm font-semibold text-left mb-1">Email</label>
+          <label className="block text-sm font-semibold text-left text-white mb-1">Email</label>
           <input
             name="email"
             type="email"
             value={form.email}
             onChange={handleChange}
             placeholder="email@example.com"
-            className="w-full bg-[#0d1117] border border-gray-700 rounded-md px-3 py-2"
+            className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
           />
         </div>
 
         <div className="mb-4">
-          <label className="block text-sm font-semibold text-left mb-1">Phone</label>
+          <label className="block text-sm font-semibold text-left text-white mb-1">Phone</label>
           <input
             name="phone"
             type="tel"
             value={form.phone}
             onChange={handleChange}
             placeholder="1234567890"
-            className="w-full bg-[#0d1117] border border-gray-700 rounded-md px-3 py-2"
+            className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
           />
         </div>
 
         <div className="mb-4">
-          <label className="block text-sm font-semibold text-left mb-1">Role</label>
+          <label className="block text-sm font-semibold text-left text-white mb-1">Role</label>
           <select
             name="role"
             value={form.role}
             onChange={handleChange}
-            className="w-full bg-[#0d1117] border border-gray-700 rounded-md px-3 py-2"
+            className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
           >
             <option>User</option>
             <option>Driver</option>
@@ -138,35 +142,35 @@ function Signup() {
         {form.role === "Driver" && (
           <>
             <div className="mb-4">
-              <label className="block text-sm font-semibold text-left mb-1">Vehicle Type</label>
+              <label className="block text-sm font-semibold text-left text-white mb-1">Vehicle Type</label>
               <input
                 name="vehicleType"
                 type="text"
                 value={form.vehicleType}
                 onChange={handleChange}
-                className="w-full bg-[#0d1117] border border-gray-700 rounded-md px-3 py-2"
+                className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
               />
             </div>
 
             <div className="mb-4">
-              <label className="block text-sm font-semibold text-left mb-1">Vehicle Number</label>
+              <label className="block text-sm font-semibold text-left text-white mb-1">Vehicle Number</label>
               <input
                 name="vehicleNumber"
                 type="text"
                 value={form.vehicleNumber}
                 onChange={handleChange}
-                className="w-full bg-[#0d1117] border border-gray-700 rounded-md px-3 py-2"
+                className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
               />
             </div>
 
             <div className="mb-4">
-              <label className="block text-sm font-semibold text-left mb-1">License Number</label>
+              <label className="block text-sm font-semibold text-left text-white mb-1">License Number</label>
               <input
                 name="licenseNumber"
                 type="text"
                 value={form.licenseNumber}
                 onChange={handleChange}
-                className="w-full bg-[#0d1117] border border-gray-700 rounded-md px-3 py-2"
+                className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
               />
             </div>
           </>
@@ -180,46 +184,48 @@ function Signup() {
             onChange={handleChange}
             className="accent-green-600"
           />
-          <label className="text-sm">I agree to the terms and conditions</label>
+          <label className="text-sm text-white">I agree to the terms and conditions</label>
         </div>
 
         {!otpSent ? (
-          <button
+          <motion.button
             onClick={handleSendOtp}
             disabled={loading}
-            className={`w-full rounded-md px-4 py-2 font-semibold ${
-              loading ? 'bg-gray-600 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700'
-            }`}
+            whileTap={{ scale: 0.95 }}
+            className={`w-full ${loading ? 'bg-gray-600 cursor-not-allowed' : 'bg-green-500 hover:bg-green-600'} text-black font-bold py-3 rounded-lg transition`}
           >
             {loading ? 'Sending OTP...' : 'Send OTP'}
-          </button>
+          </motion.button>
         ) : (
           <>
             <div className="mb-4 mt-4">
-              <label className="block text-sm font-semibold text-left mb-1">Enter OTP</label>
+              <label className="block text-sm font-semibold text-left text-white mb-1">Enter OTP</label>
               <input
                 name="otp"
                 type="text"
                 value={form.otp}
                 onChange={handleChange}
                 placeholder="6-digit OTP"
-                className="w-full bg-[#0d1117] border border-gray-700 rounded-md px-3 py-2"
+                className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
               />
             </div>
 
-            <button
+            <motion.button
               onClick={handleVerifyOtp}
-              className="w-full bg-blue-600 hover:bg-blue-700 rounded-md px-4 py-2 font-semibold"
+              whileTap={{ scale: 0.95 }}
+              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-lg transition"
             >
               Verify OTP
-            </button>
+            </motion.button>
           </>
         )}
 
         {message && (
-          <p className="text-sm mt-4 text-yellow-400 text-center">{message}</p>
+          <p className={`text-center text-sm mt-4 ${message.toLowerCase().includes('otp') || message.toLowerCase().includes('success') ? 'text-green-400' : 'text-red-400'}`}>
+            {message}
+          </p>
         )}
-      </div>
+      </motion.div>
     </div>
   );
 }

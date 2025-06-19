@@ -97,20 +97,32 @@ const Header = () => {
   };
 
   const getInitials = (fullName) => {
-    if (!fullName) {
-      const storedUser = localStorage.getItem("user");
-      if (storedUser) {
-        try {
-          const parsedUser = JSON.parse(storedUser);
-          fullName = parsedUser?.fullName;
-        } catch {
-          return "JD";
-        }
+  // Step 1: If fullName is not provided, try to get it from localStorage
+  if (!fullName) {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      try {
+        const parsedUser = JSON.parse(storedUser);
+        fullName = parsedUser?.fullName;
+      } catch {
+        return ""; // Invalid JSON, return empty string instead of "JD"
       }
+    } else {
+      return ""; // No fullName and nothing in localStorage
     }
-    const parts = fullName?.split(" ");
-    return parts?.length > 1 ? parts[0][0] + parts[1][0] : parts[0][0];
-  };
+  }
+
+  // Step 2: Generate initials from fullName
+  const parts = fullName?.trim().split(" ").filter(Boolean); // remove extra spaces
+  if (!parts || parts.length === 0) return "";
+
+  if (parts.length > 1) {
+    return (parts[0][0] + parts[1][0]).toUpperCase();
+  }
+
+  return parts[0][0]?.toUpperCase() || "";
+};
+
 
   return (
     <>

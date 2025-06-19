@@ -237,8 +237,7 @@ const Car_Rides = () => {
           data-aos-easing="ease-in-out"
         >
           {/* Heading */}
-          <motion.h1 className="text-4xl md:text-5xl font-bold text-green-600"
-            whileHover={{ color: "#16a34a" }} >
+          <motion.h1 className="text-4xl md:text-5xl font-bold text-green-600">
             Simple & Transparent Pricing
           </motion.h1>
 
@@ -277,10 +276,7 @@ const Car_Rides = () => {
               }
             ].map((plan, index) => (
               <motion.div key={index}
-                whileHover={{
-                  boxShadow: "0 15px 40px rgba(0, 0, 0, 0.2)",
-                }}
-                className="relative border border-gray-300 dark:border-gray-600 rounded-lg shadow-md bg-white dark:bg-gray-900 transition-all duration-500 ease-in-out transform hover:scale-[1.01] "
+                className="relative border border-gray-300 dark:border-gray-600 rounded-lg shadow-md bg-white dark:bg-gray-900 transition-all duration-500 ease-in-out transform "
                 data-aos="fade-up"
                 data-aos-easing="ease-in-out"
               >
@@ -327,12 +323,7 @@ const Car_Rides = () => {
                 <div className="px-6 pb-6">
                   <Link to={plan.link}>
                     <motion.button
-                      className="w-full py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded"
-                      whileHover={{
-                        backgroundColor: "#16a34a",
-                        boxShadow: "0 0 20px rgba(34, 197, 94, 0.3)"
-                      }}
-                    >
+                      className="w-full py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded hover:scale-102">
                       Book Now
                     </motion.button>
                   </Link>
@@ -489,7 +480,7 @@ const Car_Rides = () => {
               whileHover={{
                 transition: { duration: 0.2, ease: "easeOut" },
               }}
-              className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-xl hover:shadow-gray-500/10 transform hover:scale-[1.01] transition-all duration-300 ease-in-out transform"
+              className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:scale-[1.01] transition-all duration-300 ease-in-out transform"
               data-aos="fade-up"
             >
               <div className="flex items-center mb-4">
@@ -518,7 +509,7 @@ const Car_Rides = () => {
               whileHover={{
                 transition: { duration: 0.2, ease: "easeOut" },
               }}
-              className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-xl hover:shadow-gray-500/10 transform hover:scale-[1.01] transition-all duration-300 ease-in-out transform"
+              className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:scale-[1.01] transition-all duration-300 ease-in-out transform"
               data-aos="fade-up"
               data-aos-delay="200"
             >
@@ -548,7 +539,7 @@ const Car_Rides = () => {
               whileHover={{
                 transition: { duration: 0.2, ease: "easeOut" },
               }}
-              className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-xl hover:shadow-gray-500/10 transform hover:scale-[1.01] transition-all duration-300 ease-in-out "
+              className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm transform hover:scale-[1.01] transition-all duration-300 ease-in-out "
               data-aos="fade-up"
             >
               <div className="flex items-center mb-4">

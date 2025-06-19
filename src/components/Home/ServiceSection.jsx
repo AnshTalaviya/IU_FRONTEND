@@ -65,10 +65,10 @@ const ServiceSection = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          controls.start("animate");
+          // controls.start("animate");
         } else {
           setIsVisible(false);
-          controls.start("initial");
+          // controls.start("initial");
         }
       },
       { threshold: 0.1 }

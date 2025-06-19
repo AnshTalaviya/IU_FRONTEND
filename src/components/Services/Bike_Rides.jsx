@@ -308,7 +308,7 @@ export default function Bike_Rides() {
                                 <div className="px-4 sm:px-6 pb-4 sm:pb-6">
                                     <Link to={plan.link} className="block w-full">
                                         <motion.button
-                                            className="w-full py-2 sm:py-3 bg-green-600 text-white font-semibold rounded text-sm sm:text-base  transition-all duration-300 ease-in-out transform hover:scale-[1.01]"
+                                            className="w-full py-2 sm:py-3 bg-green-600 text-white font-semibold rounded text-sm sm:text-base hover:scale-102"
                                         >
                                             Book Now
                                         </motion.button>

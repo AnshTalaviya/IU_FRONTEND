@@ -293,10 +293,7 @@ export default function Rentals() {
             {packages.map((plan, index) => (
               <motion.div
                 key={index}
-                whileHover={{
-                  boxShadow: "0 12px 28px rgba(0, 0, 0, 0.12)",
-                }}
-                className="relative border border-gray-300 dark:border-gray-600 rounded-lg shadow-md bg-white dark:bg-gray-900"
+                className="relative border border-gray-300 dark:border-gray-600 rounded-lg shadow-md bg-white dark:bg-gray-900 transition-all duration-300"
                 data-aos="fade-up"
                 data-aos-easing="ease-in-out"
               >
@@ -334,11 +331,7 @@ export default function Rentals() {
                 <div className="px-6 pb-6">
                   <Link to="/Book_ride">
                     <motion.button
-                      className="w-full py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded  transition-all duration-300 transform hover:scale-[1.01] ease-in-out transform"
-                      whileHover={{
-                        backgroundColor: "#16a34a",
-                        boxShadow: "0 0 20px rgba(34, 197, 94, 0.3)",
-                      }}
+                      className="w-full py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded hover:scale-102"
                     >
                       Book Now
                     </motion.button>

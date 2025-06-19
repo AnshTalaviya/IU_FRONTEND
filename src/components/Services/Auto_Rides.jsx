@@ -228,7 +228,6 @@ export default function Auto_Rides() {
 
             {/* Pricing Section */}
             <section className="bg-gray-100 dark:bg-gray-800 py-8 sm:py-16 px-4 sm:px-6 lg:px-8 flex justify-center items-center relative overflow-hidden">
-
                 <div
                     className="max-w-6xl w-full text-center"
                     data-aos="zoom-out"

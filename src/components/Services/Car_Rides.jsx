@@ -276,7 +276,7 @@ const Car_Rides = () => {
               }
             ].map((plan, index) => (
               <motion.div key={index}
-                className="relative border border-gray-300 dark:border-gray-600 rounded-lg shadow-md bg-white dark:bg-gray-900 transition-all duration-500 ease-in-out transform "
+                className="relative border border-gray-300 dark:border-gray-600 rounded-lg shadow-md bg-white dark:bg-gray-900"
                 data-aos="fade-up"
                 data-aos-easing="ease-in-out"
               >

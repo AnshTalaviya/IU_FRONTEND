@@ -361,10 +361,6 @@ export default function Bike_Rides() {
                 </section>
             </div>
 
-
-
-
-
         </div>
     )
 }

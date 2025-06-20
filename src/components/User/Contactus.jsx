@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { IndianRupee, Headphones, Calendar } from 'lucide-react';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import emailjs from 'emailjs-com';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -8,16 +9,16 @@ const ContactPage = () => {
     phone: '',
     email: '',
     message: '',
-    captcha: '',
     terms: false,
   });
 
   const [errors, setErrors] = useState({});
+  const [isSending, setIsSending] = useState(false);
+  const [successMsg, setSuccessMsg] = useState('');
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    if (name === 'phone' && !/^\d*$/.test(value)) return; // allows only digits
-    setFormData({ ...formData, [name]: value });
+    const { name, value, type, checked } = e.target;
+    setFormData({ ...formData, [name]: type === 'checkbox' ? checked : value });
   };
 
   const validate = () => {
@@ -37,81 +38,90 @@ const ContactPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validate()) {
-      alert('Form submitted successfully!');
-      window.location.reload();
-    }
+    if (!validate()) return;
+
+    setIsSending(true);
+    setSuccessMsg('');
+    emailjs.send(
+      'service_qwwxk59',       // 🔁 Replace with your EmailJS Service ID
+      'template_ndmj5wv',      // 🔁 Replace with your Template ID
+      {
+        from_name: formData.name,
+        phone: formData.phone,
+        message: formData.message,
+        reply_to: formData.email,
+      },
+      'q7h1BahWUznHytYWE' // 🔁 Replace with your Public Key from EmailJS
+    )
+      .then(() => {
+        setSuccessMsg('Message sent successfully!');
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          message: '',
+          terms: false,
+        });
+        setErrors({});
+      })
+      .catch(() => {
+        setSuccessMsg('Failed to send message. Please try again.');
+      })
+      .finally(() => setIsSending(false));
   };
 
   return (
     <>
       <section className="bg-white dark:bg-gray-900 dark:text-gray-300 text-gray-800 sm:py-16 lg:py-10">
         <div className="min-h-screen bg-green-800 bg-green-blur dark:text-gray-300 text-gray-800 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-14 pb-32 relative overflow-hidden">
-          <div className="absolute -top-5 -left-5 w-20 sm:w-28 h-20 sm:h-28 bg-white bg-opacity-30 dark:bg-opacity-20 rounded-full animate-pulse z-0"></div>
           <h2 className="text-[28px] sm:text-[32px] font-bold text-white mb-2 text-center">Get In Touch</h2>
           <p className="text-gray-200 text-center max-w-2xl text-[14px] sm:text-[15px] mb-10 sm:mb-14 leading-relaxed px-4">
             Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
           </p>
 
-          <div className="absolute top-42 left-294 w-20 sm:w-28 h-20 sm:h-28 bg-white bg-opacity-30 dark:bg-opacity-20 rounded-full animate-pulse z-0"></div>
-
-
-          <div className="absolute -bottom-4 -right-4 w-20 sm:w-28 h-20 sm:h-28 bg-white bg-opacity-30 dark:bg-opacity-20 rounded-full animate-pulse z-0"></div>
           <div className="bg-green-100 backdrop-blur-sm rounded-[20px] shadow-[0px_10px_30px_rgba(0,0,0,0.1)] flex flex-col lg:flex-row w-full max-w-[960px] overflow-hidden mx-4">
-
-
             {/* Left Panel */}
-            <div className="bg-green-700 text-white p-6 sm:p-8 lg:w-[360px] flex flex-col justify-between relative">
+            <div className="bg-green-700 text-white p-6 sm:p-8 lg:w-[360px] flex flex-col justify-between">
               <div className='px-2 sm:px-4 py-4 sm:py-6'>
-                <div>
-                  <h2 className="text-xl sm:text-2xl font-bold mb-2">Contact Information</h2>
-                  <p className="text-sm mb-6 sm:mb-8 leading-relaxed text-gray-200">
-                    We're here to help and answer any questions you might have.
-                  </p>
-                </div>
+                <h2 className="text-xl sm:text-2xl font-bold mb-2">Contact Information</h2>
+                <p className="text-sm mb-6 sm:mb-8 leading-relaxed text-gray-200">
+                  We're here to help and answer any questions you might have.
+                </p>
                 <div className="space-y-4 sm:space-y-5 text-sm mx-2 sm:mx-6 py-2 sm:py-4">
                   <div className="flex items-center gap-3">
-                    <div className="bg-white/20 p-2 rounded-full">
-                      <FaPhone className="w-4 h-4" />
-                    </div>
+                    <div className="bg-white/20 p-2 rounded-full"><FaPhone className="w-4 h-4" /></div>
                     <p>+91 99999 88888</p>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="bg-white/20 p-2 rounded-full">
-                      <FaEnvelope className="w-4 h-4" />
-                    </div>
+                    <div className="bg-white/20 p-2 rounded-full"><FaEnvelope className="w-4 h-4" /></div>
                     <p>support@idharudhar.com</p>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="bg-white/20 p-2 rounded-full">
-                      <FaMapMarkerAlt className="w-4 h-4" />
-                    </div>
+                    <div className="bg-white/20 p-2 rounded-full"><FaMapMarkerAlt className="w-4 h-4" /></div>
                     <p>Ahmedabad, Gujarat, India</p>
                   </div>
-                  <div className="absolute -bottom-6 -right-4 w-20 sm:w-28 h-20 sm:h-28 bg-white bg-opacity-30 dark:bg-opacity-20 rounded-full animate-pulse z-0"></div>
                 </div>
               </div>
             </div>
 
             {/* Right Panel */}
-            <div className="p-6 sm:p-10 lg:w-[600px] bg-white dark:bg-gray-900 dark:text-gray-300 text-gray-800 relative">
+            <div className="p-6 sm:p-10 lg:w-[600px] bg-white dark:bg-gray-900 dark:text-gray-300 text-gray-800">
               <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                   <div>
-                    <label className="block text-sm text-gray-600 dark:text-gray-200 mb-1">Your Name</label>
+                    <label className="block text-sm mb-1">Your Name</label>
                     <input
                       name="name"
                       type="text"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full border-b border-black dark:border-white outline-none p-2 text-sm text-gray-700 dark:text-gray-200 placeholder:text-gray-400"
+                      className="w-full border-b outline-none p-2 text-sm"
                       placeholder="Enter your name"
-                      required
                     />
-                    {errors.name && <p className="text-red-600 text-sm mt-1">{errors.name}</p>}
+                    {errors.name && <p className="text-red-600 text-sm">{errors.name}</p>}
                   </div>
                   <div>
-                    <label className="block text-sm text-gray-600 dark:text-gray-200 mb-1">Phone Number</label>
+                    <label className="block text-sm mb-1">Phone Number</label>
                     <input
                       name="phone"
                       type="tel"
@@ -119,52 +129,59 @@ const ContactPage = () => {
                       maxLength={10}
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full border-b border-black dark:border-white outline-none p-2 text-sm text-gray-700 dark:text-gray-200 placeholder:text-gray-400"
+                      className="w-full border-b outline-none p-2 text-sm"
                       placeholder="Enter your phone number"
-                      required
                     />
-                    {errors.phone && <p className="text-red-600 text-sm mt-1">{errors.phone}</p>}
+                    {errors.phone && <p className="text-red-600 text-sm">{errors.phone}</p>}
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm text-gray-600 dark:text-gray-200 mb-1">Your Email</label>
+                  <label className="block text-sm mb-1">Your Email</label>
                   <input
                     name="email"
                     type="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full border-b border-black dark:border-white outline-none p-2 text-sm text-gray-700 dark:text-gray-200 placeholder:text-gray-400"
+                    className="w-full border-b outline-none p-2 text-sm"
                     placeholder="Enter your email"
-                    required
                   />
-                  {errors.email && <p className="text-red-600 text-sm mt-1">{errors.email}</p>}
+                  {errors.email && <p className="text-red-600 text-sm">{errors.email}</p>}
                 </div>
 
                 <div>
-                  <label className="block text-sm text-gray-600 dark:text-gray-200 mb-1">Message</label>
+                  <label className="block text-sm mb-1">Message</label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full border-b border-black dark:border-white outline-none p-2 text-sm text-gray-700 dark:text-gray-200 placeholder:text-gray-400 resize-none h-24"
+                    className="w-full border-b outline-none p-2 text-sm resize-none h-24"
                     placeholder="Write your message here"
-                    required
                   />
-                  {errors.message && <p className="text-red-600 text-sm mt-1">{errors.message}</p>}
+                  {errors.message && <p className="text-red-600 text-sm">{errors.message}</p>}
                 </div>
+
+                <div className="flex items-center gap-2">
+                  <input type="checkbox" name="terms" checked={formData.terms} onChange={handleChange} />
+                  <label htmlFor="terms" className="text-sm">I agree to the terms and conditions</label>
+                </div>
+                {errors.terms && <p className="text-red-600 text-sm">{errors.terms}</p>}
+
+                {successMsg && <p className="text-green-600 font-medium">{successMsg}</p>}
 
                 <button
                   type="submit"
+                  disabled={isSending}
                   className="w-full sm:w-auto bg-green-700 text-white px-6 py-2 rounded-md hover:bg-green-800/90 transition text-sm"
                 >
-                  Send Message
+                  {isSending ? "Sending..." : "Send Message"}
                 </button>
               </form>
             </div>
           </div>
         </div>
 
+        {/* Google Maps */}
         <div className="w-full h-60 sm:h-80 md:h-96 my-10 sm:my-20 px-4 sm:px-20">
           <iframe
             title="Google Maps Location"
@@ -178,10 +195,8 @@ const ContactPage = () => {
           />
         </div>
 
+        {/* Feature Section */}
         <section className="relative bg-[#166534] text-white w-full mt-10 sm:mt-16">
-          <div className="absolute inset-0 bg-cover bg-center opacity-10"
-            style={{ backgroundImage: "url('https://www.shutterstock.com/image-vector/travel-tourism-concept-set-tourists-260nw-2294415843.jpg')" }}
-          />
           <div className="relative z-10 max-w-7xl mx-auto px-4 py-12 sm:py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 text-center">
             {[{
               Icon: IndianRupee,
@@ -210,4 +225,3 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
-

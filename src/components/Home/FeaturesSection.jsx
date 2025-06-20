@@ -7,10 +7,8 @@ import 'aos/dist/aos.css';
 const FeatureCard = ({ icon, title, description }) => {
   return (
     <motion.div
-      whileHover={{ scale: 1.05 }}
       whileInView={{ opacity: 1, y: 0 }}
       initial={{ opacity: 0, y: 30 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
       className="rounded-2xl bg-white/10 dark:bg-gray-800/40 backdrop-blur-xl p-6 border border-white/10 shadow-xl transition-all duration-300"
     >
       <div className="text-green-500 text-2xl mb-4">

@@ -44,7 +44,7 @@ const RideTrackingPage = () => {
         clearInterval(interval);
         setProgress(100);
         setDisplayMinutes("0 min");
-        setTimeout(() => navigate("/rating"), 500);
+        setTimeout(() => navigate("/payment"), 500);
       }
     }, 1000);
 

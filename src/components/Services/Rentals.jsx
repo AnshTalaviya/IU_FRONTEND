@@ -144,11 +144,11 @@ export default function Rentals() {
                   {slide.subtitle}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start transition duration-1000 delay-400 min-w-[280px] sm:min-w-[320px]">
-                  <button className="bg-white text-green-600 font-semibold px-6 py-3 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-[1.03] ease-in-out transform hover:bg-gray-100 hover:shadow-xl whitespace-nowrap w-full sm:w-auto">
+                  <button className="bg-white text-green-600 font-semibold px-6 py-3 rounded-lg shadow-lg transition-all duration-300 hover:scale-[1.03] ease-in-out transform hover:bg-gray-100 hover:shadow-xl whitespace-nowrap w-full sm:w-auto">
                     Rent a Vehicle
                   </button>
                   <Link to="/safety" className="w-full sm:w-auto">
-                    <button className="bg-green-600 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-[1.03] ease-in-out transform hover:bg-green-700 hover:shadow-xl whitespace-nowrap w-full">
+                    <button className="bg-green-600 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition-all duration-300 hover:scale-[1.03] ease-in-out transform hover:bg-green-700 hover:shadow-xl whitespace-nowrap w-full">
                       Learn About Safety
                     </button>
                   </Link>
@@ -242,7 +242,7 @@ export default function Rentals() {
                   boxShadow: "0 12px 28px rgba(0, 0, 0, 0.12)",
                   transition: { duration: 0.1, ease: "easeOut" },
                 }}
-                className="bg-white dark:bg-gray-800 shadow-md rounded-xl p-6 text-left transition-all duration-300 transform hover:scale-[1.01] ease-in-out transform"
+                className="bg-white dark:bg-gray-800 shadow-md rounded-xl p-6 text-left transition-all duration-300 hover:scale-[1.01] ease-in-out transform"
                 data-aos="fade-up"
                 data-aos-easing="ease-in-out"
               >

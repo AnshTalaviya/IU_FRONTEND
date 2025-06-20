@@ -388,7 +388,7 @@ const Car_Rides = () => {
                   boxShadow: "0 12px 28px rgba(0, 0, 0, 0.12)",
                   transition: { ease: "easeOut" },
                 }}
-                className="bg-white dark:bg-gray-800 shadow-md rounded-xl p-6 text-left transition-all duration-300 ease-in-out transform hover:scale-[1.01] transition-all transform"
+                className="bg-white dark:bg-gray-800 shadow-md rounded-xl p-6 text-left duration-300 ease-in-out hover:scale-[1.01] transition-all transform"
                 data-aos="fade-up"
                 data-aos-easing="ease-in-out"
               >

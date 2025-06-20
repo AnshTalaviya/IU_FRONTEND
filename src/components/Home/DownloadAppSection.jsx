@@ -24,7 +24,6 @@ const DownloadAppSection = () => {
         
         {/* LEFT: APP IMAGE */}
         <div data-aos="fade-up" className="relative w-full lg:w-1/2">
-          <div className="absolute -inset-4 bg-green-400/10 rounded-2xl blur-2xl" />
           <div className="relative rounded-3xl overflow-hidden border border-white/30 dark:border-gray-700">
             <img
               src="/images/IUAPPDOWNLODE.png"

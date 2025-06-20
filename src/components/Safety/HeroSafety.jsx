@@ -65,7 +65,7 @@ const HeroSafety = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white py-20 px-6 font-sans min-h-screen">
+    <div className="text-white py-20 px-6 font-sans min-h-screen">
       {/* Title and Introduction */}
       <section className="max-w-6xl mx-auto text-center">
         <motion.div
@@ -170,58 +170,6 @@ const HeroSafety = () => {
               <div className="text-gray-400 text-sm">{story.role}</div>
             </motion.div>
           ))}
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="mt-32 max-w-6xl mx-auto text-center relative overflow-hidden">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="relative z-10"
-        >
-          <h2 className="text-4xl font-bold mb-4">
-            Join the <span className="text-green-400">Safety Movement</span>
-          </h2>
-          <p className="text-gray-300 mb-8 max-w-xl mx-auto">
-            Together, we’re building a safer, smarter delivery network — every user, every trip, every time.
-          </p>
-          <button className="bg-green-400 text-black hover:bg-green-300 transition px-12 py-4 font-bold rounded-full text-lg shadow-lg shadow-green-500/30 hover:scale-105 duration-300">
-            Get Started Now
-          </button>
-        </motion.div>
-
-        {/* Glowing Ring */}
-        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-green-500/20 rounded-full blur-3xl z-0" />
-
-        {/* Flying Icons */}
-        <div className="absolute inset-0 pointer-events-none z-0">
-          <motion.div
-            initial={{ x: -50, opacity: 0 }}
-            animate={{ x: 0, opacity: 0.3 }}
-            transition={{ duration: 2, delay: 0.3 }}
-            className="absolute top-10 left-10 text-green-400"
-          >
-            <Shield size={40} />
-          </motion.div>
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 0.3 }}
-            transition={{ duration: 2, delay: 0.6 }}
-            className="absolute bottom-10 right-16 text-green-400"
-          >
-            <UserCheck size={40} />
-          </motion.div>
-          <motion.div
-            initial={{ x: 50, opacity: 0 }}
-            animate={{ x: 0, opacity: 0.3 }}
-            transition={{ duration: 2, delay: 0.9 }}
-            className="absolute top-24 right-20 text-green-400"
-          >
-            <Radar size={40} />
-          </motion.div>
         </div>
       </section>
     </div>

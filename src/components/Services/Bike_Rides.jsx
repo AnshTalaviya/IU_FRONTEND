@@ -230,7 +230,7 @@ export default function Bike_Rides() {
             </div>
 
             {/* Pricing Section */}
-            <section className="bg-gray-100 dark:bg-gray-800 py-8 sm:py-16 px-4 sm:px-6 lg:px-8 flex justify-center items-center relative overflow-hidden">
+            <section className="py-8 sm:py-16 px-4 sm:px-6 lg:px-8 flex justify-center items-center relative overflow-hidden">
                 {/* Main Content */}
                 <div className="max-w-6xl w-full text-center relative z-10" data-aos="zoom-out" data-aos-easing="ease-in-out">
                     {/* Heading */}

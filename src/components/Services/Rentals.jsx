@@ -270,7 +270,7 @@ export default function Rentals() {
 
 
       {/* 3d */}
-      <section className="bg-gray-100 dark:bg-gray-800 py-16 px-4 sm:px-8">
+      <section className="py-16 px-4 sm:px-8">
         <div
           className="max-w-6xl mx-auto text-center"
           data-aos="zoom-in"

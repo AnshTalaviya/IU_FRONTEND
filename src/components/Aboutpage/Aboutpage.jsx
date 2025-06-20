@@ -11,7 +11,7 @@ import {
 
 const Aboutpage = () => {
   return (
-    <div className="bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white py-20 px-6 min-h-screen font-sans">
+    <div className="bg-gradient-to-br text-white py-20 px-6 min-h-screen font-sans">
       {/* About Section */}
       <section className="max-w-6xl mx-auto text-center">
         <motion.div

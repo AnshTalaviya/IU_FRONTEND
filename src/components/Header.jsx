@@ -148,7 +148,7 @@ const Header = () => {
         </div>
 
         {/* Main Nav */}
-        <div className={`bg-white text-black dark:bg-gray-900 dark:text-white py-4 px-4 fixed ${isMobile ? "top-0" : "top-9"} left-0 w-full z-40 transition-shadow duration-300 ${scrolled ? "shadow-lg" : ""}`}>
+        <div className={`bg-white text-black dark:bg-gray-800 dark:text-white py-4 px-4 fixed ${isMobile ? "top-0" : "top-9"} left-0 w-full z-40 transition-shadow duration-300 ${scrolled ? "shadow-lg" : ""}`}>
           <div className="container mx-auto flex justify-between items-center">
             <div className="text-2xl font-bold"><Logo /></div>
 

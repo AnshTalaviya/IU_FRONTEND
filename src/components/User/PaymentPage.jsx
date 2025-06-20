@@ -23,8 +23,8 @@ const PaymentPage = () => {
     "w-full px-4 py-2 rounded-lg bg-white/5 text-white placeholder-gray-400 border border-white/10 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 transition-all duration-300";
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0f172a] via-[#1e3a34] to-[#14532d] text-white py-10 px-4 flex items-center justify-center">
-      <div className="max-w-5xl w-full bg-[#0d1b2a]/60 backdrop-blur-xl border border-green-600/50 rounded-3xl shadow-[0_0_80px_#10b98155] p-10 space-y-6 transition-all duration-500">
+    <div className="min-h-screen text-white py-10 px-4 flex items-center justify-center">
+      <div className="max-w-5xl w-full bg-[#0d1b2a]/60 backdrop-blur-xl border border-green-600/50 rounded-3xl p-10 space-y-6">
         <div className="text-center mb-10">
           <h1 className="text-4xl sm:text-5xl font-extrabold bg-clip-text text-transparent text-white mb-3">
             Select Payment Option

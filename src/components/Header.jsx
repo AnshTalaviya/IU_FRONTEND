@@ -175,9 +175,9 @@ const Header = () => {
 
             {/* Right Menu */}
             <div className="hidden md:flex items-center space-x-4">
-              <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-green-200 dark:hover:bg-gray-700">
+              {/* <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-green-200 dark:hover:bg-gray-700">
                 {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-              </button>
+              </button> */}
               {isAuthenticated ? (
                 <div className="relative group focus-within:z-50">
                   <button className="w-10 h-10 rounded-full bg-green-700 text-white font-semibold hover:bg-green-800">

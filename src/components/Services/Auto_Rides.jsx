@@ -228,7 +228,6 @@ export default function Auto_Rides() {
 
             {/* Pricing Section */}
             <section className="bg-gray-100 dark:bg-gray-800 py-8 sm:py-16 px-4 sm:px-6 lg:px-8 flex justify-center items-center relative overflow-hidden">
-
                 <div
                     className="max-w-6xl w-full text-center"
                     data-aos="zoom-out"
@@ -266,10 +265,7 @@ export default function Auto_Rides() {
                             }
                         ].map((plan, index) => (
                             <motion.div key={index}
-                                whileHover={{
-                                    boxShadow: "0 15px 40px rgba(0, 0, 0, 0.2)",
-                                }}
-                                className="relative border border-gray-300 dark:border-gray-600 rounded-lg shadow-md bg-white dark:bg-gray-900 w-full sm:w-[300px] md:w-[350px] transition-all duration-300 ease-in-out transform hover:scale-[1.01]"
+                                className="relative border border-gray-300 dark:border-gray-600 rounded-lg shadow-md bg-white dark:bg-gray-900 w-full sm:w-[300px] md:w-[350px]"
                                 data-aos="fade-up"
                                 data-aos-easing="ease-in-out"
                             >
@@ -316,10 +312,7 @@ export default function Auto_Rides() {
                                 <div className="px-4 sm:px-6 pb-4 sm:pb-6">
                                     <Link to={plan.link} className="block w-full">
                                         <motion.button
-                                            className="w-full py-2 sm:py-3 bg-green-600 text-white font-semibold rounded text-sm sm:text-base"
-                                            whileHover={{
-                                                boxShadow: "0 0 20px rgba(34, 197, 94, 0.3)"
-                                            }}
+                                            className="w-full py-2 sm:py-3 bg-green-600 text-white font-semibold rounded text-sm sm:text-base hover:scale-102"
                                         >
                                             Book Now
                                         </motion.button>

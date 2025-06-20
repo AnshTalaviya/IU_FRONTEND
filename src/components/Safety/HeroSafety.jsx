@@ -101,8 +101,8 @@ const HeroSafety = () => {
         </div>
       </section>
 
-      {/* 🚀 New Section: Your Role in Safety */}
-      <section className="mt-28 max-w-5xl mx-auto text-center">
+      {/* ✅ Updated Section: Your Role in Safety */}
+      <section className="mt-28 max-w-6xl mx-auto text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -173,8 +173,7 @@ const HeroSafety = () => {
         </div>
       </section>
 
-
-      {/* 🚀 Enhanced CTA Section */}
+      {/* CTA Section */}
       <section className="mt-32 max-w-6xl mx-auto text-center relative overflow-hidden">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -194,10 +193,10 @@ const HeroSafety = () => {
           </button>
         </motion.div>
 
-        {/* Glowing Ring Background */}
+        {/* Glowing Ring */}
         <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-green-500/20 rounded-full blur-3xl z-0" />
 
-        {/* Flying Icons Animation */}
+        {/* Flying Icons */}
         <div className="absolute inset-0 pointer-events-none z-0">
           <motion.div
             initial={{ x: -50, opacity: 0 }}
@@ -225,7 +224,6 @@ const HeroSafety = () => {
           </motion.div>
         </div>
       </section>
-
     </div>
   );
 };

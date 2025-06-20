@@ -117,7 +117,7 @@ const PaymentPage = () => {
                 </p>
                 <Link to={"/rating"}>
                 <button className="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg font-bold shadow-md mt-4 transition-all">
-                  Confirm Ride
+                  Pay cash
                 </button>
                 </Link>
               </div>

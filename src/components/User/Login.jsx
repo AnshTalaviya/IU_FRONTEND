@@ -122,19 +122,19 @@ function Login() {
         )}
 
         {/* Divider */}
-        <div className="flex items-center my-6">
+        {/* <div className="flex items-center my-6">
           <div className="flex-grow h-px bg-gray-700"></div>
           <span className="text-gray-500 px-3 text-sm">or</span>
           <div className="flex-grow h-px bg-gray-700"></div>
-        </div>
+        </div> */}
 
         {/* Google Login */}
-        <button
+        {/* <button
           onClick={handleGoogleLogin}
           className="w-full flex items-center justify-center gap-2 py-3 bg-white hover:bg-gray-100 text-black font-semibold rounded-lg border border-gray-300 transition"
         >
           <FcGoogle className="text-xl" /> Continue with Google
-        </button>
+        </button> */}
 
         {/* Message (Success / Error) */}
         {message && (

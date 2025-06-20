@@ -1,147 +1,233 @@
 import React from "react";
-import { ShieldCheck, MapPin, PhoneCall, AlertTriangle, Eye, UserCheck } from "lucide-react";
 import { motion } from "framer-motion";
+import {
+  Shield,
+  UserCheck,
+  GraduationCap,
+  BadgeCheck,
+  Radar,
+  AlertTriangle,
+  ThumbsUp,
+  PhoneCall,
+  Eye,
+} from "lucide-react";
 
 const HeroSafety = () => {
-  return (
-    <div className="text-gray-900 font-sans">
+  const safetySteps = [
+    {
+      icon: <UserCheck size={36} />,
+      title: "Driver Background Check",
+      desc: "All drivers undergo criminal background screening and verification before joining.",
+    },
+    {
+      icon: <GraduationCap size={36} />,
+      title: "Safety Education",
+      desc: "We educate our drivers and users through periodic safety awareness campaigns.",
+    },
+    {
+      icon: <BadgeCheck size={36} />,
+      title: "Trusted Driver Badge",
+      desc: "High-rated drivers earn our 'Trusted Driver' badge after consistent safe service.",
+    },
+    {
+      icon: <Radar size={36} />,
+      title: "Predictive Safety AI",
+      desc: "Our system analyzes patterns to preempt and prevent risks on the go.",
+    },
+    {
+      icon: <Shield size={36} />,
+      title: "Ride Insurance",
+      desc: "All trips include insurance to protect you from accidents or emergencies.",
+    },
+    {
+      icon: <AlertTriangle size={36} />,
+      title: "Emergency Protocol",
+      desc: "Fast SOS activation and proactive contact with emergency responders.",
+    },
+  ];
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-green-800 to-green-600 text-white py-16 px-6 text-center">
+  const userSafetyTips = [
+    {
+      icon: <Eye size={36} />,
+      title: "Stay Alert",
+      desc: "Always confirm driver identity and be aware of your surroundings during pickup/drop.",
+    },
+    {
+      icon: <PhoneCall size={36} />,
+      title: "Use In-App Communication",
+      desc: "For safety, avoid sharing personal contact info. Use the app's secure chat or call.",
+    },
+    {
+      icon: <ThumbsUp size={36} />,
+      title: "Give Feedback",
+      desc: "Help us maintain safety by rating your ride and reporting any concerns quickly.",
+    },
+  ];
+
+  return (
+    <div className="bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white py-20 px-6 font-sans min-h-screen">
+      {/* Title and Introduction */}
+      <section className="max-w-6xl mx-auto text-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-6">Your Safety Is Our Mission</h1>
-          <p className="text-lg md:text-xl max-w-3xl mx-auto mb-10">
-            From pickup to drop-off, IdharUdhar ensures your journey is secure, transparent, and always under watch.
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            Our <span className="text-green-400">Commitment</span> to Safety
+          </h1>
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-12">
+            At IdharUdhar, safety is not just a feature — it's the foundation of every ride.
+            We're dedicated to proactive prevention, real-time support, and peace of mind.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <button className="bg-white text-green-800 font-bold px-8 py-3 rounded-full hover:bg-gray-100 transition">
-              Explore Safety Features
-            </button>
-            <button className="bg-black text-white border border-white px-8 py-3 rounded-full hover:bg-green-700 transition flex items-center gap-2">
-              <AlertTriangle size={20} /> Emergency Help
-            </button>
-          </div>
         </motion.div>
-      </section>
 
-      {/* Why Safety Matters */}
-      <section className="py-14 px-6 text-center text-white">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">Why Safety Matters to Us</h2>
-        <p className="text-lg text-gray-700 max-w-4xl mx-auto">
-          We understand the trust you place in us every time you book a ride. That’s why we’ve
-          implemented the same high-level safety features seen in leading services like Ola, Uber,
-          and Rapido — tailored for you.
-        </p>
-      </section>
-
-      {/* Features */}
-      <section className="py-20 px-6 text-white">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 text-left">
-          {[
-            {
-              title: "Verified Drivers",
-              icon: <UserCheck size={40} />,
-              desc: "Every driver is background-checked and identity-verified before joining our platform.",
-            },
-            {
-              title: "Live Ride Tracking",
-              icon: <MapPin size={40} />,
-              desc: "Share your trip in real-time with loved ones for complete peace of mind.",
-            },
-            {
-              title: "Emergency Alert Button",
-              icon: <AlertTriangle size={40} />,
-              desc: "In-app emergency button to instantly notify local authorities and your trusted contacts.",
-            },
-            {
-              title: "24x7 Support",
-              icon: <PhoneCall size={40} />,
-              desc: "A dedicated support team is available around the clock for any concern.",
-            },
-            {
-              title: "Ride Monitoring",
-              icon: <Eye size={40} />,
-              desc: "AI-powered ride monitoring to detect unusual route deviations or long stops.",
-            },
-            {
-              title: "Insurance Coverage",
-              icon: <ShieldCheck size={40} />,
-              desc: "All rides come with insurance coverage to ensure rider protection.",
-            },
-          ].map((feature, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {safetySteps.map((step, index) => (
             <motion.div
               key={index}
-              className="bg-gray-800 p-6 rounded-xl"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white/10 p-6 rounded-2xl backdrop-blur-xl border border-white/10 shadow-md text-left"
             >
-              <div className="text-green-700 mb-4">{feature.icon}</div>
-              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-              <p className="text-gray-200">{feature.desc}</p>
+              <div className="text-green-400 mb-4">{step.icon}</div>
+              <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+              <p className="text-gray-300">{step.desc}</p>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* Tracking Highlight */}
-      <section className="py-20 px-6 bg-gradient-to-r from-green-700 to-green-500 text-white text-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Real-Time Ride Tracking</h2>
-          <p className="text-lg max-w-3xl mx-auto">
-            Track your ride from start to finish, and share your live route with friends and family.
-          </p>
-        </motion.div>
-      </section>
-
-      {/* Emergency Help */}
-      <section className="py-20 px-6 bg-black text-white text-center">
-        <motion.div
+      {/* 🚀 New Section: Your Role in Safety */}
+      <section className="mt-28 max-w-5xl mx-auto text-center">
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
+          className="text-3xl font-bold mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Emergency? Help is One Tap Away</h2>
-          <p className="text-lg text-white/90 max-w-3xl mx-auto mb-8">
-            Use the SOS button in the app to send instant alerts to authorities and your emergency contacts.
+          Your Role in <span className="text-green-400">Safety</span>
+        </motion.h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {userSafetyTips.map((tip, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.2 }}
+              viewport={{ once: true }}
+              className="bg-white/10 p-6 rounded-2xl backdrop-blur-xl border border-white/10 shadow-md text-left"
+            >
+              <div className="text-green-400 mb-4">{tip.icon}</div>
+              <h3 className="text-xl font-semibold mb-2">{tip.title}</h3>
+              <p className="text-gray-300">{tip.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Real Stories Section */}
+      <section className="mt-28 max-w-6xl mx-auto text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-3xl font-bold mb-12"
+        >
+          Real <span className="text-green-400">Stories</span> from Our Users
+        </motion.h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {[
+            {
+              name: "Aarav S.",
+              role: "Small Business Owner",
+              feedback:
+                "IdharUdhar helped me deliver customer parcels daily with peace of mind. The safety assurance makes a huge difference.",
+            },
+            {
+              name: "Meera R.",
+              role: "Student",
+              feedback:
+                "I sent important documents across town and was able to track everything live. The driver was verified and polite. Felt very secure.",
+            },
+          ].map((story, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.2 }}
+              viewport={{ once: true }}
+              className="bg-white/10 p-6 rounded-2xl backdrop-blur-xl border border-white/10 shadow-md text-left"
+            >
+              <p className="text-gray-300 text-lg mb-4 italic">"{story.feedback}"</p>
+              <div className="text-green-400 font-semibold">{story.name}</div>
+              <div className="text-gray-400 text-sm">{story.role}</div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+
+      {/* 🚀 Enhanced CTA Section */}
+      <section className="mt-32 max-w-6xl mx-auto text-center relative overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="relative z-10"
+        >
+          <h2 className="text-4xl font-bold mb-4">
+            Join the <span className="text-green-400">Safety Movement</span>
+          </h2>
+          <p className="text-gray-300 mb-8 max-w-xl mx-auto">
+            Together, we’re building a safer, smarter delivery network — every user, every trip, every time.
           </p>
-          <button className="bg-red-600 px-10 py-3 text-lg font-semibold rounded-full hover:bg-red-700 transition">
-            Tap to Learn About SOS
+          <button className="bg-green-400 text-black hover:bg-green-300 transition px-12 py-4 font-bold rounded-full text-lg shadow-lg shadow-green-500/30 hover:scale-105 duration-300">
+            Get Started Now
           </button>
         </motion.div>
-      </section>
 
-      {/* Support Section */}
-      <section className="py-20 px-6 bg-gray-50 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Need Help? We’re Here 24/7</h2>
-        <p className="text-lg max-w-3xl mx-auto text-gray-700 mb-6">
-          Our support team is available any time via chat, phone, or email. No matter the issue — big or small.
-        </p>
-        <button className="bg-green-700 text-white px-8 py-3 rounded-full hover:bg-green-800 transition">
-          Contact Support
-        </button>
-      </section>
+        {/* Glowing Ring Background */}
+        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-green-500/20 rounded-full blur-3xl z-0" />
 
-      {/* Final CTA */}
-      <section className="py-20 px-6 bg-green-700 text-white text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready for a Safe Ride?</h2>
-        <p className="text-lg max-w-xl mx-auto mb-6">Book your next trip with IdharUdhar and feel the safety in every mile.</p>
-        <button className="bg-white text-green-800 px-8 py-3 font-bold rounded-full hover:bg-gray-100 transition">
-          Book a Ride Now
-        </button>
+        {/* Flying Icons Animation */}
+        <div className="absolute inset-0 pointer-events-none z-0">
+          <motion.div
+            initial={{ x: -50, opacity: 0 }}
+            animate={{ x: 0, opacity: 0.3 }}
+            transition={{ duration: 2, delay: 0.3 }}
+            className="absolute top-10 left-10 text-green-400"
+          >
+            <Shield size={40} />
+          </motion.div>
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 0.3 }}
+            transition={{ duration: 2, delay: 0.6 }}
+            className="absolute bottom-10 right-16 text-green-400"
+          >
+            <UserCheck size={40} />
+          </motion.div>
+          <motion.div
+            initial={{ x: 50, opacity: 0 }}
+            animate={{ x: 0, opacity: 0.3 }}
+            transition={{ duration: 2, delay: 0.9 }}
+            className="absolute top-24 right-20 text-green-400"
+          >
+            <Radar size={40} />
+          </motion.div>
+        </div>
       </section>
 
     </div>
   );
 };
-
 
 export default HeroSafety;

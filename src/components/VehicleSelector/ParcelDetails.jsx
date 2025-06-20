@@ -26,7 +26,7 @@ export default function ParcelDetails() {
   };
 
   const validatePhone = (value) => {
-    const numericValue = value.replace(/\D/g, ""); // Remove non-numeric
+    const numericValue = value.replace(/\D/g, "");
     if (!/^\d{10}$/.test(numericValue)) {
       setPhoneError("Phone must be exactly 10 digits.");
     } else {
@@ -62,7 +62,7 @@ export default function ParcelDetails() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full max-w-2xl bg-black/60 p-8 rounded-2xl shadow-2xl"
+        className="w-full max-w-2xl p-8 rounded-2xl shadow-2xl"
       >
         <h2 className="text-3xl font-bold text-center mb-6 text-white tracking-wide">
           📦 Delivery Details

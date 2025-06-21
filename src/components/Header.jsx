@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 import {
   Menu, Moon, Sun, X, Mail, Phone, ChevronDown, User, Bell, Settings, LogOut,
 } from "lucide-react";
@@ -62,6 +63,7 @@ const Header = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [showComingSoon, setShowComingSoon] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setServicesOpen(false);
@@ -97,31 +99,31 @@ const Header = () => {
   };
 
   const getInitials = (fullName) => {
-  // Step 1: If fullName is not provided, try to get it from localStorage
-  if (!fullName) {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      try {
-        const parsedUser = JSON.parse(storedUser);
-        fullName = parsedUser?.fullName;
-      } catch {
-        return ""; // Invalid JSON, return empty string instead of "JD"
+    // Step 1: If fullName is not provided, try to get it from localStorage
+    if (!fullName) {
+      const storedUser = localStorage.getItem("user");
+      if (storedUser) {
+        try {
+          const parsedUser = JSON.parse(storedUser);
+          fullName = parsedUser?.fullName;
+        } catch {
+          return ""; // Invalid JSON, return empty string instead of "JD"
+        }
+      } else {
+        return ""; // No fullName and nothing in localStorage
       }
-    } else {
-      return ""; // No fullName and nothing in localStorage
     }
-  }
 
-  // Step 2: Generate initials from fullName
-  const parts = fullName?.trim().split(" ").filter(Boolean); // remove extra spaces
-  if (!parts || parts.length === 0) return "";
+    // Step 2: Generate initials from fullName
+    const parts = fullName?.trim().split(" ").filter(Boolean);
+    if (!parts || parts.length === 0) return "";
 
-  if (parts.length > 1) {
-    return (parts[0][0] + parts[1][0]).toUpperCase();
-  }
+    if (parts.length > 1) {
+      return (parts[0][0] + parts[1][0]).toUpperCase();
+    }
 
-  return parts[0][0]?.toUpperCase() || "";
-};
+    return parts[0][0]?.toUpperCase() || "";
+  };
 
 
   return (
@@ -156,17 +158,19 @@ const Header = () => {
             <nav className="hidden md:flex items-center space-x-6">
               <Link to="/" className="hover:text-green-400">Home</Link>
               <div className="relative">
-                <button onClick={() => setServicesOpen(!servicesOpen)} className="flex items-center hover:text-green-400">
+                <button
+                  onClick={() => navigate("/services")}
+                  className="flex items-center hover:text-green-400"
+                >
                   Services
-                  <ChevronDown className={`ml-1 transition-transform ${servicesOpen ? "rotate-180" : ""}`} size={16} />
                 </button>
-                <div className={`absolute top-full mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg transition-all ${servicesOpen ? "opacity-100 max-h-96" : "opacity-0 max-h-0 overflow-hidden"}`}>
-                  <Link to="/Services/carrides" className="block px-4 py-2 hover:bg-green-200 dark:hover:bg-green-700">Car Rides</Link>
+                {/* <div className={`absolute top-full mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg transition-all ${servicesOpen ? "opacity-100 max-h-96" : "opacity-0 max-h-0 overflow-hidden"}`}> */}
+                {/* <Link to="/Services/carrides" className="block px-4 py-2 hover:bg-green-200 dark:hover:bg-green-700">Car Rides</Link>
                   <Link to="/Services/rentals" className="block px-4 py-2 hover:bg-green-200 dark:hover:bg-green-700">Rentals</Link>
                   <Link to="/Services/Auto_rides" className="block px-4 py-2 hover:bg-green-200 dark:hover:bg-green-700">Auto Rides</Link>
-                  <Link to="/Services/Bike_rides" className="block px-4 py-2 hover:bg-green-200 dark:hover:bg-green-700">Bike Rides</Link>
-                  <button onClick={() => setShowComingSoon(true)} className="w-full text-left block px-4 py-2 hover:bg-green-200 dark:hover:bg-green-700">Intercity</button>
-                </div>
+                  <Link to="/Services/Bike_rides" className="block px-4 py-2 hover:bg-green-200 dark:hover:bg-green-700">Bike Rides</Link> */}
+                {/* <button onClick={() => setShowComingSoon(true)} className="w-full text-left block px-4 py-2 hover:bg-green-200 dark:hover:bg-green-700">Intercity</button> */}
+                {/* </div> */}
               </div>
               <Link to="/safety" className="hover:text-green-400">Safety</Link>
               <Link to="/about" className="hover:text-green-400">About</Link>

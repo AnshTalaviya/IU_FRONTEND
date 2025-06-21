@@ -121,7 +121,6 @@ export default function Service() {
             onClick={() => setSelected(service)}
             className="relative cursor-pointer bg-white/10 backdrop-blur-lg border border-green-500/30 rounded-2xl p-4 flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:shadow-green-500/20 transition"
           >
-            {/* Badge */}
             {index === 0 && (
               <span className="absolute top-0 right-0 bg-green-500 text-xs px-2 py-1 rounded-bl-lg text-black font-bold">
                 Popular
@@ -132,7 +131,6 @@ export default function Service() {
                 Budget
               </span>
             )}
-
             <div className="text-green-400 mb-2">{service.icon}</div>
             <h2 className="text-base font-semibold">{service.title}</h2>
           </motion.div>
@@ -192,13 +190,39 @@ export default function Service() {
               <h4 className="text-green-400 font-semibold mb-2">Overview</h4>
               <p className="text-sm text-gray-300 mb-4">{selected.description}</p>
 
-              <div className="bg-black/30 border border-green-500/10 p-4 rounded-lg mb-4">
-                <h4 className="text-green-400 font-semibold mb-2">Ideal For</h4>
+              <div className="bg-black/40 border border-green-500/10 p-4 rounded-lg mb-4">
+                <h4 className="text-green-400 font-semibold mb-2">When to Use This</h4>
                 <ul className="list-disc list-inside text-sm text-gray-300 space-y-1">
-                  <li>Daily commutes</li>
-                  <li>Outstation travel</li>
-                  <li>Quick bookings</li>
-                  <li>Students & professionals</li>
+                  {selected.title === 'Bike Rides' && (
+                    <>
+                      <li>Quick rides to work or college</li>
+                      <li>Short-distance travel in traffic</li>
+                    </>
+                  )}
+                  {selected.title === 'Auto Rides' && (
+                    <>
+                      <li>Trips to railway stations or bus stops</li>
+                      <li>Local errands and nearby markets</li>
+                    </>
+                  )}
+                  {selected.title === 'Rentals' && (
+                    <>
+                      <li>Outstation family trips</li>
+                      <li>Full-day business travel</li>
+                    </>
+                  )}
+                  {selected.title === 'Intercity' && (
+                    <>
+                      <li>Pre-planned long journeys</li>
+                      <li>One-way travel with luggage</li>
+                    </>
+                  )}
+                  {selected.title === 'Car Ride' && (
+                    <>
+                      <li>Airport drop/pickup</li>
+                      <li>Daily city commute</li>
+                    </>
+                  )}
                 </ul>
               </div>
 
@@ -210,6 +234,12 @@ export default function Service() {
                   <li>Choose payment method</li>
                   <li>Track your ride in real-time</li>
                 </ol>
+              </div>
+
+              <div className="mt-4 bg-green-500/10 border border-green-500/20 p-4 rounded-md">
+                <p className="text-sm italic text-green-300">
+                  💡 Tip: Always check driver rating before confirming for the smoothest experience!
+                </p>
               </div>
             </div>
 

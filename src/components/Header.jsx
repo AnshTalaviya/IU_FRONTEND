@@ -155,23 +155,9 @@ const Header = () => {
             <div className="text-2xl font-bold"><Logo /></div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-6">
-              <Link to="/" className="hover:text-green-400">Home</Link>
-              <div className="relative">
-                <button
-                  onClick={() => navigate("/services")}
-                  className="flex items-center hover:text-green-400"
-                >
-                  Services
-                </button>
-                {/* <div className={`absolute top-full mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg transition-all ${servicesOpen ? "opacity-100 max-h-96" : "opacity-0 max-h-0 overflow-hidden"}`}> */}
-                {/* <Link to="/Services/carrides" className="block px-4 py-2 hover:bg-green-200 dark:hover:bg-green-700">Car Rides</Link>
-                  <Link to="/Services/rentals" className="block px-4 py-2 hover:bg-green-200 dark:hover:bg-green-700">Rentals</Link>
-                  <Link to="/Services/Auto_rides" className="block px-4 py-2 hover:bg-green-200 dark:hover:bg-green-700">Auto Rides</Link>
-                  <Link to="/Services/Bike_rides" className="block px-4 py-2 hover:bg-green-200 dark:hover:bg-green-700">Bike Rides</Link> */}
-                {/* <button onClick={() => setShowComingSoon(true)} className="w-full text-left block px-4 py-2 hover:bg-green-200 dark:hover:bg-green-700">Intercity</button> */}
-                {/* </div> */}
-              </div>
+            <nav className="hidden md:flex justify-center space-x-6">
+              <Link to="/" className="hover:text-green-400 m-0">Home</Link>
+              <Link to="/services" className="hover:text-green-400">Services</Link>
               <Link to="/safety" className="hover:text-green-400">Safety</Link>
               <Link to="/about" className="hover:text-green-400">About</Link>
               <Link to="/contact" className="hover:text-green-400">Contact Us</Link>

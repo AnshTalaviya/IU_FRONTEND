@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   FaCar,
   FaMotorcycle,
@@ -92,6 +92,15 @@ const cardVariants = {
 
 export default function Service() {
   const [selected, setSelected] = useState(null);
+  const [comingSoon, setComingSoon] = useState(false);
+
+  const handleSelect = (service) => {
+    if (service.title === 'Intercity') {
+      setComingSoon(true);
+    } else {
+      setSelected(service);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white px-4 py-16">
@@ -118,37 +127,47 @@ export default function Service() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={cardVariants}
-            onClick={() => setSelected(service)}
-            className="relative cursor-pointer bg-white/10 backdrop-blur-lg border border-green-500/30 rounded-2xl p-4 flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:shadow-green-500/20 transition"
+            onClick={() => handleSelect(service)}
+            className="cursor-pointer bg-white/10 backdrop-blur-lg border border-green-500/30 rounded-2xl p-4 flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:shadow-green-500/20 transition"
           >
-            {index === 0 && (
-              <span className="absolute top-0 right-0 bg-green-500 text-xs px-2 py-1 rounded-bl-lg text-black font-bold">
-                Popular
-              </span>
-            )}
-            {index === 2 && (
-              <span className="absolute top-0 right-0 bg-yellow-400 text-xs px-2 py-1 rounded-bl-lg text-black font-bold">
-                Budget
-              </span>
-            )}
             <div className="text-green-400 mb-2">{service.icon}</div>
             <h2 className="text-base font-semibold">{service.title}</h2>
           </motion.div>
         ))}
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
-        className="text-center mt-6"
-      >
-        <p className="text-lg font-medium text-green-400">Need something specific?</p>
-        <button className="mt-2 px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-full shadow-md transition">
-          Contact Our 24/7 Support
-        </button>
-      </motion.div>
 
+      {/* Coming Soon Popup */}
+      <AnimatePresence>
+        {comingSoon && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50"
+          >
+            <motion.div
+              initial={{ y: 40 }}
+              animate={{ y: 0 }}
+              exit={{ y: 40 }}
+              className="bg-gradient-to-b from-gray-800 to-gray-900 p-8 rounded-2xl shadow-xl border border-green-500/30 max-w-md text-center"
+            >
+              <h2 className="text-3xl font-bold text-green-400 mb-4">🚧 Coming Soon!</h2>
+              <p className="text-gray-300 mb-4">
+                Intercity rides are launching soon with exciting features for long-distance travel.
+              </p>
+              <button
+                onClick={() => setComingSoon(false)}
+                className="mt-2 px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-full shadow-md transition"
+              >
+                Close
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Selected Service Details */}
       {selected && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -167,8 +186,6 @@ export default function Service() {
                   ? 'No meter shock, just smooth rides!'
                   : selected.title === 'Rentals'
                   ? 'Your vehicle, your schedule.'
-                  : selected.title === 'Intercity'
-                  ? 'Long journey? We’ve got your back!'
                   : 'Ride easy, ride smart.'}
               </p>
             </div>
@@ -211,12 +228,6 @@ export default function Service() {
                       <li>Full-day business travel</li>
                     </>
                   )}
-                  {selected.title === 'Intercity' && (
-                    <>
-                      <li>Pre-planned long journeys</li>
-                      <li>One-way travel with luggage</li>
-                    </>
-                  )}
                   {selected.title === 'Car Ride' && (
                     <>
                       <li>Airport drop/pickup</li>
@@ -234,12 +245,6 @@ export default function Service() {
                   <li>Choose payment method</li>
                   <li>Track your ride in real-time</li>
                 </ol>
-              </div>
-
-              <div className="mt-4 bg-green-500/10 border border-green-500/20 p-4 rounded-md">
-                <p className="text-sm italic text-green-300">
-                  💡 Tip: Always check driver rating before confirming for the smoothest experience!
-                </p>
               </div>
             </div>
 
@@ -278,6 +283,17 @@ export default function Service() {
           </div>
         </motion.div>
       )}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        className="text-center mt-6"
+      >
+        <p className="text-lg font-medium text-green-400">Need something specific?</p>
+        <button className="mt-2 px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-full shadow-md transition">
+          Contact Our 24/7 Support
+        </button>
+      </motion.div>
     </div>
   );
 }

@@ -74,6 +74,7 @@ import SelectParcel from "./components/VehicleSelector/SelectParcel";
 import ParcelDetails from "./components/VehicleSelector/ParcelDetails";
 import EstimateResults from "./components/VehicleSelector/EstimateResults";
 import PaymentPage from "./components/User/PaymentPage";
+import Service from "./components/ServicePage/Service";
 
 function App() {
   const navigate = useNavigate();
@@ -116,11 +117,12 @@ function App() {
               <Layout>
                 <Routes>
                   <Route path="/" element={<HomePage />} />
-                  <Route path="/Services/carrides" element={<Car_Rides />} />
+                  {/* <Route path="/Services/carrides" element={<Car_Rides />} />
                   <Route path="/Services/rentals" element={<Rentals />} />
                   <Route path="/Services/Auto_rides" element={<Auto_Rides />} />
                   <Route path="/Services/Bike_rides" element={<Bike_Rides />} />
-                  <Route path="/Services/Intercity" element={<Intercity />} />
+                  <Route path="/Services/Intercity" element={<Intercity />} /> */}
+                  <Route path="/services" element={<Service />} />
                   <Route path="/Book_ride" element={<Book_Ride />} />
                   <Route path="/about" element={<Aboutpage />} />
                   <Route path="/contact" element={<Contactus />} />

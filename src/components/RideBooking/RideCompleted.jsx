@@ -67,11 +67,10 @@ export default function RideCompleted() {
                 className="transition transform hover:scale-110"
               >
                 <Star
-                  className={`w-10 h-10 ${
-                    rating >= star
+                  className={`w-10 h-10 ${rating >= star
                       ? "text-yellow-400 fill-yellow-400"
                       : "text-gray-600"
-                  }`}
+                    }`}
                   strokeWidth={1.5}
                 />
               </button>
@@ -87,12 +86,20 @@ export default function RideCompleted() {
           onChange={(e) => setFeedback(e.target.value)}
         />
 
-        <button
-          onClick={handleSubmit}
-          className="mt-6 bg-green-600 hover:bg-green-700 text-black font-semibold px-8 py-3 rounded-xl text-lg transition"
-        >
-          Submit Rating
-        </button>
+        <div className="flex justify-between">
+          <button
+            onClick={handleSubmit}
+            className="mt-6 bg-green-600 hover:bg-green-700 text-black font-semibold px-8 py-2 rounded-xl text-lg transition"
+          >
+            Submit Rating
+          </button>
+          <button
+            onClick={()=>navigate("/")}
+            className="mt-6 bg-green-600 hover:bg-green-700 text-black font-semibold px-8 py-2 rounded-xl text-lg transition"
+          >
+            Not Now
+          </button>
+        </div>
       </div>
 
       {/* ✅ Success Toast */}
@@ -112,9 +119,8 @@ function Toast({ message, error }) {
   return (
     <div className="fixed bottom-5 right-5 z-50 animate-slide-up">
       <div
-        className={`px-5 py-4 rounded-lg shadow-xl flex items-center gap-4 max-w-md w-full ${
-          error ? "bg-red-600" : "bg-gray-950"
-        } text-white`}
+        className={`px-5 py-4 rounded-lg shadow-xl flex items-center gap-4 max-w-md w-full ${error ? "bg-red-600" : "bg-gray-950"
+          } text-white`}
       >
         <div className="flex-1 text-sm font-medium">{message}</div>
         <button className="text-xl font-bold leading-none">×</button>

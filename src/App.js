@@ -75,6 +75,8 @@ import ParcelDetails from "./components/VehicleSelector/ParcelDetails";
 import EstimateResults from "./components/VehicleSelector/EstimateResults";
 import PaymentPage from "./components/User/PaymentPage";
 import Service from "./components/ServicePage/Service";
+import PaymentSuccess from "./components/User/PaymentSuccess";
+import Invoice from "./components/User/Invoice";
 
 function App() {
   const navigate = useNavigate();
@@ -144,6 +146,8 @@ function App() {
                   <Route path="/confirm" element={<BikeProps />} />
                   <Route path="/ride-tracking" element={<RideTrackingPage />} />
                   <Route path="/payment" element={<PaymentPage />} />
+                  <Route path="/payment-success" element={<PaymentSuccess />} />
+                  <Route path="/invoice" element={<Invoice />} />
                   <Route path="/rating" element={<RideCompleted />} />
                   <Route path="/confirm-ride" element={<ConfirmRide />} />
 

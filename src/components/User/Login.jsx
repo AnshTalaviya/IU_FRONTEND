@@ -65,7 +65,7 @@ function Login() {
   // };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-tr from-gray-900 via-black to-gray-900 px-4">
+    <div className="flex items-center justify-center min-h-screen px-4">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}

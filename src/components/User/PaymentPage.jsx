@@ -62,7 +62,7 @@ const PaymentPage = () => {
                   <input type="text" placeholder="MM/YY" className={`w-1/2 ${inputStyle}`} />
                   <input type="password" placeholder="CVV" className={`w-1/2 ${inputStyle}`} />
                 </div>
-                <Link to={"/rating"}>
+                <Link to={"/payment-success"}>
                 <button className="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg font-bold shadow-md mt-4 transition-all">
                   Pay Now
                 </button>
@@ -73,7 +73,7 @@ const PaymentPage = () => {
             {selectedMethod === "upi" && (
               <form className="space-y-4 animate-fade-in">
                 <input type="text" placeholder="yourname@upi" className={inputStyle} />
-                <Link to={"/rating"}>
+                <Link to={"/payment-success"}>
                 <button className="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg font-bold shadow-md mt-4 transition-all">
                   Pay via UPI
                 </button>
@@ -88,7 +88,7 @@ const PaymentPage = () => {
                   <span className="text-green-300 font-semibold">Paytm</span>
                 </p>
                 <p className="text-md text-gray-500">Balance: ₹550.00</p>
-                <Link to={"/rating"}>
+                <Link to={"/payment-success"}>
                 <button className="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg font-bold shadow-md mt-4 transition-all">
                   Pay with Wallet
                 </button>
@@ -102,7 +102,7 @@ const PaymentPage = () => {
                   Available Credits:{" "}
                   <span className="text-green-300 font-semibold">₹200</span>
                 </p>
-                <Link to={"/rating"}>
+                <Link to={"/payment-success"}>
                 <button className="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg font-bold shadow-md mt-4 transition-all">
                   Use Ride Credits
                 </button>
@@ -115,7 +115,7 @@ const PaymentPage = () => {
                 <p className="text-lg text-gray-400">
                   Pay cash to the driver after your ride.
                 </p>
-                <Link to={"/rating"}>
+                <Link to={"/payment-success"}>
                 <button className="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg font-bold shadow-md mt-4 transition-all">
                   Pay cash
                 </button>

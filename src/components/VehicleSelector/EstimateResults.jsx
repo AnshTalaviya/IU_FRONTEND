@@ -15,30 +15,16 @@ export default function EstimateResults() {
   const { state } = useLocation();
 
   const results = [
-    {
-      title: "Quick & Light",
-      price: "₹80 - ₹110",
-      weight: "10 Kg",
-      iconName: "FaMotorcycle",
-    },
-    {
-      title: "Medium & Safe",
-      price: "₹120 - ₹180",
-      weight: "50 Kg",
-      iconName: "FaTruckPickup",
-    },
-    {
-      title: "Spacious & Strong",
-      price: "₹200 - ₹350",
-      weight: "80 Kg",
-      iconName: "MdLocalShipping",
-    },
-    {
-      title: "Heavy Duty",
-      price: "₹700 - ₹1200",
-      weight: "1000 Kg",
-      iconName: "FaTruckMoving",
-    },
+    { title: "Quick & Light", price: "₹80 - ₹110", weight: "10 Kg", iconName: "FaMotorcycle" },
+    { title: "Medium & Safe", price: "₹120 - ₹180", weight: "50 Kg", iconName: "FaTruckPickup" },
+    { title: "Spacious & Strong", price: "₹200 - ₹350", weight: "80 Kg", iconName: "MdLocalShipping" },
+    { title: "Heavy Duty", price: "₹700 - ₹1200", weight: "1000 Kg", iconName: "FaTruckMoving" },
+    { title: "Heavy Duty", price: "₹700 - ₹1200", weight: "1000 Kg", iconName: "FaTruckMoving" },
+    { title: "Heavy Duty", price: "₹700 - ₹1200", weight: "1000 Kg", iconName: "FaTruckMoving" },
+    { title: "Heavy Duty", price: "₹700 - ₹1200", weight: "1000 Kg", iconName: "FaTruckMoving" },
+    { title: "Heavy Duty", price: "₹700 - ₹1200", weight: "1000 Kg", iconName: "FaTruckMoving" },
+    { title: "Heavy Duty", price: "₹700 - ₹1200", weight: "1000 Kg", iconName: "FaTruckMoving" },
+    { title: "Heavy Duty", price: "₹700 - ₹1200", weight: "1000 Kg", iconName: "FaTruckMoving" },
   ];
 
   const iconMap = {
@@ -60,13 +46,18 @@ export default function EstimateResults() {
       </motion.h1>
 
       <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-        {/* Left Side - Vehicle Estimate Cards */}
-        <div className="space-y-6">
+        {/* Left Side - Cards (no margin between) */}
+        <div
+          className="max-h-[600px] overflow-y-auto pr-2"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
+          <style>{`::-webkit-scrollbar { display: none; }`}</style>
+
           {results.map((item, i) => (
             <motion.div
               key={i}
               whileHover={{ scale: 1.03 }}
-              className="flex justify-between items-center p-6 bg-black/50 rounded-xl shadow-xl border border-green-800"
+              className="mb-4 last:mb-0 flex justify-between items-center p-5 bg-black/50 rounded-xl shadow-xl border border-green-800 transition duration-300"
             >
               <div className="flex items-center gap-4">
                 <div>{iconMap[item.iconName]}</div>
@@ -82,28 +73,25 @@ export default function EstimateResults() {
           ))}
         </div>
 
-        {/* Right Side - Pickup/Drop & QR */}
+        {/* Right Side - Pickup/Drop/QR */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
           className="space-y-6"
         >
-          {/* Pickup */}
           <div className="flex items-center gap-4 p-4 rounded-lg border border-green-700">
             <FaLocationArrow className="text-green-400 text-xl" />
             <p className="text-white text-sm md:text-base font-medium">{state?.pickup}</p>
             <Pencil className="ml-auto text-gray-300 cursor-pointer" size={18} />
           </div>
 
-          {/* Drop */}
           <div className="flex items-center gap-4 p-4 rounded-lg border border-red-700">
             <FaMapMarkerAlt className="text-red-400 text-xl" />
             <p className="text-white text-sm md:text-base font-medium">{state?.drop}</p>
             <Pencil className="ml-auto text-gray-300 cursor-pointer" size={18} />
           </div>
 
-          {/* QR Code */}
           <div className="bg-black/40 rounded-lg p-6 text-center border border-blue-900 shadow-inner">
             <h3 className="text-xl font-semibold text-white mb-3">Love what you see? ❤️</h3>
             <img

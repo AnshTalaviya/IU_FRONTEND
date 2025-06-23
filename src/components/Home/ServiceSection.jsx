@@ -112,7 +112,7 @@ const ServiceSection = () => {
     },
     {
       icon: <Package size={32} />,
-      title: "Courier Delivery",
+      title: "Parcel Delivery",
       description: "Fast & secure package delivery",
       image: "/images/Home-Page5.png",
       path: "/vehicle-selector",

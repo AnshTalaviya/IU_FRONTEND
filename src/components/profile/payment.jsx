@@ -75,8 +75,8 @@ export default function PaymentPage() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="p-6 min-h-screen bg-gray-900 text-white flex flex-col items-center">
-      <div className="bg-gray-800 p-6 rounded-lg w-full max-w-2xl">
+    <div className="min-h-screen w-full text-white flex flex-col items-center">
+      <div className="bg-gray-800 p-6 w-full">
         <div className="flex justify-center mb-4">
           <button
             className="bg-green-600 px-4 py-2 rounded-lg flex items-center gap-2"

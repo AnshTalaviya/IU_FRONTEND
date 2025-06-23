@@ -71,7 +71,7 @@ const RideCard = ({ ride }) => {
 
 export default function RecentRides() {
     return (
-        <div className="p-6 bg-gray-950 text-white min-h-screen">
+        <div className="p-6 text-white min-h-screen">
             <div className="flex justify-between items-center mb-6">
                 <h2 className="text-xl font-semibold">Your Recent Rides</h2>
                 <Link to={"/ViewAllRides"}>

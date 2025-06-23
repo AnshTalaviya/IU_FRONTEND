@@ -152,7 +152,7 @@ const Header = () => {
         {/* Main Nav */}
         <div className={`bg-white text-black dark:bg-gray-800 dark:text-white py-4 px-4 fixed ${isMobile ? "top-0" : "top-9"} left-0 w-full z-40 transition-shadow duration-300 ${scrolled ? "shadow-lg" : ""}`}>
           <div className="container mx-auto flex justify-between items-center">
-            <div><img src="/Images/logo.png" className="ml-4" width={"40px"} alt="" /></div>
+            <div><img src="/images/logo.png" className="ml-4" width={"40px"} alt="" /></div>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex justify-center space-x-6">

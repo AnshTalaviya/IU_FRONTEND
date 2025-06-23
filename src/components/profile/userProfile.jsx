@@ -12,7 +12,7 @@ import axios from "axios";
 import PaymentPage from "./payment";
 import RecentRides from "./myride";
 
-const API_BASE = "https://login-signup-iu.onrender.com";
+const API_BASE = "https://iubackend-production.up.railway.app";
 
 export default function UserProfile() {
   const [userId, setUserId] = useState(null);

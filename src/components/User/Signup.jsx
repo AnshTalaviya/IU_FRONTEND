@@ -37,7 +37,7 @@ function Signup() {
 
     try {
       const res = await axios.post(
-        "https://login-signup-iu.onrender.com/api/auth/send-otp",
+        "https://iubackend-production.up.railway.app/api/auth/send-otp",
         form,
         {
           validateStatus: () => true,
@@ -59,7 +59,7 @@ function Signup() {
 
   const handleVerifyOtp = async () => {
     try {
-      const res = await axios.post("https://login-signup-iu.onrender.com/api/auth/verify-otp", {
+      const res = await axios.post("https://iubackend-production.up.railway.app/api/auth/verify-otp", {
         email: form.email,
         otp: form.otp,
       });

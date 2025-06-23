@@ -22,7 +22,7 @@ const ServiceCard = ({ icon, title, description, image, onClick, comingSoon, aos
       data-aos={aos}
       onClick={!comingSoon ? onClick : null}
       className={`group relative w-full max-w-[280px] h-[180px] rounded-xl overflow-hidden 
-        shadow-lg mx-auto cursor-pointer transition-all duration-700 ease-in-out border border-2 border-green-800 hover:ring-2 hover:ring-green-500/50
+        shadow-lg mx-auto cursor-pointer transition-all duration-700 ease-in-out border-2 border-green-800 hover:ring-2 hover:ring-green-500/50
         ${comingSoon ? 'opacity-70 pointer-events-none' : ''}`}
     >
       <img

@@ -73,6 +73,8 @@ import VehicleSelector from "./components/VehicleSelector/VehicleSelector";
 import SelectParcel from "./components/VehicleSelector/SelectParcel";
 import ParcelDetails from "./components/VehicleSelector/ParcelDetails";
 import EstimateResults from "./components/VehicleSelector/EstimateResults";
+import Dashboard from "./components/SubDriver/Dashboard";
+ import ProfileSubdriver from "./components/SubDriver/ProfileSubdriver";
 
 function App() {
   const navigate = useNavigate();
@@ -108,7 +110,7 @@ function App() {
           </Route>
 
           {/* All other pages inside Layout */}
-          
+
           <Route
             path="*"
             element={
@@ -159,12 +161,15 @@ function App() {
                   <Route path="/select-parcel" element={<SelectParcel />} />
                   <Route path="/parcel-details" element={<ParcelDetails />} />
                   <Route path="/estimate-results" element={<EstimateResults />} />
-                  
+
 
                 </Routes>
               </Layout>
             }
           />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/profilesubdriver" element={<ProfileSubdriver />} />
+
         </Routes>
       </div>
     </ThemeProvider>

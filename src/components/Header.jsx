@@ -199,21 +199,7 @@ const Header = () => {
         {/* Mobile Nav */}
         <div className={`fixed inset-0 z-30 pt-28 px-4 transition-transform duration-300 md:hidden ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"} bg-white text-black dark:bg-gray-900 dark:text-white`}>
           <Link to="/" className="block py-2 border-b hover:text-green-500">Home</Link>
-          <div>
-            <button onClick={() => setServicesOpen(!servicesOpen)} className="w-full text-left py-2 flex justify-between items-center border-b">
-              <span>Services</span>
-              <ChevronDown className={`transition-transform ${servicesOpen ? "rotate-180" : ""}`} size={16} />
-            </button>
-            {servicesOpen && (
-              <div className="pl-4 space-y-1 flex flex-col">
-                <Link to="/Services/carrides">Car Rides</Link>
-                <Link to="/Services/rentals">Rentals</Link>
-                <Link to="/Services/Auto_rides">Auto Rides</Link>
-                <Link to="/Services/Bike_rides">Bike Rides</Link>
-                <button onClick={() => setShowComingSoon(true)} className="text-left">Intercity</button>
-              </div>
-            )}
-          </div>
+          <Link to="/services" className="block py-2 border-b hover:text-green-500">Services</Link>
           <Link to="/safety" className="block py-2 border-b hover:text-green-500">Safety</Link>
           <Link to="/about" className="block py-2 border-b hover:text-green-500">About</Link>
           <Link to="/contact" className="block py-2 hover:text-green-500">Contact Us</Link>

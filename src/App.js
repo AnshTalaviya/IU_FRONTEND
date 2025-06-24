@@ -77,6 +77,7 @@ import PaymentPage from "./components/User/PaymentPage";
 import Service from "./components/ServicePage/Service";
 import PaymentSuccess from "./components/User/PaymentSuccess";
 import Invoice from "./components/User/Invoice";
+import Dashboard from "./components/SubDriver/Dashboard";
 
 function App() {
   const navigate = useNavigate();
@@ -174,7 +175,9 @@ function App() {
               </Layout>
             }
           />
+          <Route path="dashboard" element={<Dashboard />} />
         </Routes>
+
       </div>
     </ThemeProvider>
   );

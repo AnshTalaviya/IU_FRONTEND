@@ -128,7 +128,7 @@ export default function Service() {
             viewport={{ once: true }}
             variants={cardVariants}
             onClick={() => handleSelect(service)}
-            className="cursor-pointer bg-white/10 backdrop-blur-lg border border-green-500/30 rounded-2xl p-4 flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:shadow-green-500/20 transition"
+            className="cursor-pointer bg-white/10 backdrop-blur-lg border border-green-500/30 rounded-2xl p-4 flex flex-col items-center justify-center text-center shadow-lg hover:scale-102 transition"
           >
             <div className="text-green-400 mb-2">{service.icon}</div>
             <h2 className="text-base font-semibold">{service.title}</h2>

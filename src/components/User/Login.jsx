@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
-import { auth, provider } from '../../firebase';
-import { signInWithPopup } from 'firebase/auth';
-import { FcGoogle } from 'react-icons/fc';
+// import { auth, provider } from '../../firebase';
+// import { signInWithPopup } from 'firebase/auth';
 import { motion } from 'framer-motion';
 
 function Login() {
@@ -19,7 +18,7 @@ function Login() {
   const handleSendOtp = async () => {
     setLoading(true);
     try {
-      const res = await axios.post('https://login-signup-iu.onrender.com/api/auth/login-otp', { email });
+      const res = await axios.post('https://iubackend-production.up.railway.app/api/auth/login-otp', { email });
       setStep(2);
       setMessage(res.data.message);
     } catch (err) {
@@ -31,7 +30,7 @@ function Login() {
 
   const handleVerifyOtp = async () => {
     try {
-      const res = await axios.post('https://login-signup-iu.onrender.com/api/auth/verify-otp', { email, otp });
+      const res = await axios.post('https://iubackend-production.up.railway.app/api/auth/verify-otp', { email, otp });
       login(res.data.token);
       localStorage.setItem('user', JSON.stringify(res.data.user));
       const role = res.data.user.role;
@@ -41,32 +40,32 @@ function Login() {
     }
   };
 
-  const handleGoogleLogin = async () => {
-    try {
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
+  // const handleGoogleLogin = async () => {
+  //   try {
+  //     const result = await signInWithPopup(auth, provider);
+  //     const user = result.user;
 
-      const res = await axios.post('https://login-signup-iu.onrender.com/api/auth/google-login', {
-        email: user.email,
-        name: user.displayName,
-      });
+  //     const res = await axios.post('https://iubackend-production.up.railway.app/api/auth/google-login', {
+  //       email: user.email,
+  //       name: user.displayName,
+  //     });
 
-      if (res.data?.token && res.data?.user) {
-        login(res.data.token);
-        localStorage.setItem('user', JSON.stringify(res.data.user));
-        const role = res.data.user.role;
-        navigate(role === 'Driver' ? '/driver' : '/');
-      } else {
-        throw new Error('Invalid response from server');
-      }
-    } catch (err) {
-      const errorMessage = err.response?.data?.message || err.message || 'Google Login failed';
-      setMessage(errorMessage);
-    }
-  };
+  //     if (res.data?.token && res.data?.user) {
+  //       login(res.data.token);
+  //       localStorage.setItem('user', JSON.stringify(res.data.user));
+  //       const role = res.data.user.role;
+  //       navigate(role === 'Driver' ? '/driver' : '/');
+  //     } else {
+  //       throw new Error('Invalid response from server');
+  //     }
+  //   } catch (err) {
+  //     const errorMessage = err.response?.data?.message || err.message || 'Google Login failed';
+  //     setMessage(errorMessage);
+  //   }
+  // };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-tr from-gray-900 via-black to-gray-900 px-4">
+    <div className="flex items-center justify-center min-h-screen px-4">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}

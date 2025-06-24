@@ -16,7 +16,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 py-14">
           {/* Company Info */}
           <div>
-            <Logo />
+            <div className='justify-center flex'>
+              <img src="./images/logo.png" width={"40px"} alt="" />
+              <Logo className="ml-2 text-green-500" />
+            </div>
             <p className="mt-4 mb-6">
               Your premium eco-friendly ride-sharing service. Available 24/7 in over 500+ cities nationwide.
             </p>

@@ -60,11 +60,11 @@ export default function DashboardNav() {
       </h3>
 
       <div className="Nav-buttons flex items-center justify-center gap-4">
-        <span className='dark:text-white font-medium flex items-center'>
+        {/* <span className='dark:text-white font-medium flex items-center'>
           {Isonline ? 'Online' : 'Offline'}
-        </span>
+        </span> */}
 
-        <div className="ToggleButton flex items-center">
+        {/* <div className="ToggleButton flex items-center">
           <button
             onClick={ToggleOnline}
             className={`relative inline-flex items-center h-5 rounded-full w-11 px-1 transition-colors duration-300 
@@ -75,7 +75,7 @@ export default function DashboardNav() {
                 ${Isonline ? 'translate-x-2.5' : 'translate-x-0'}`}
             />
           </button>
-        </div>
+        </div> */}
 
         <div className={`onlineStatus text-green-400/80 h-6 w-6 text-lg items-center justify-center ${Isonline ? 'flex' : 'hidden'}`}>
           <i className="fas fa-car animate-pulse"></i>
@@ -251,7 +251,7 @@ export default function DashboardNav() {
             </div>
 
             {/* Floating action buttons */}
-            <div className="sticky bottom-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 p-4">
+            {/* <div className="sticky bottom-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 p-4">
               <div className="flex space-x-3">
                 <button
                   onClick={cancleRide}
@@ -268,7 +268,7 @@ export default function DashboardNav() {
                   <span>Accept Ride</span>
                 </button>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       )}

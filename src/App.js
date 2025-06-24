@@ -118,6 +118,7 @@ function App() {
             element={
               <Layout>
                 <Routes>
+                  {/* <Route path="/" element={<Invoice />} /> */}
                   <Route path="/" element={<HomePage />} />
                   {/* <Route path="/Services/carrides" element={<Car_Rides />} />
                   <Route path="/Services/rentals" element={<Rentals />} />

@@ -37,7 +37,7 @@ export default function DriverDashboard() {
       </div>
 
       {/* Offline Banner */}
-      {!Isonline && (
+      {/* {!Isonline && (
         <div className="bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-xl p-6 text-center space-y-4 shadow">
           <i className="fas fa-car-side text-blue-500 text-3xl"></i>
           <h2 className="text-xl font-semibold text-gray-800 dark:text-white">You're Offline</h2>
@@ -49,7 +49,7 @@ export default function DriverDashboard() {
             Go Online
           </button>
         </div>
-      )}
+      )} */}
 
       {/* Dashboard Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

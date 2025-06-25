@@ -80,7 +80,7 @@ const Profile = () => {
       }
 
       try {
-        const response = await axios.get(`https://login-signup-iu.onrender.com/api/user/profile?userId=${userId}`);
+        const response = await axios.get(`https://iubackend-production.up.railway.app/api/user/profile?userId=${userId}`);
         const data = response.data;
 
         // Update profileData state
@@ -208,7 +208,7 @@ const Profile = () => {
 
     try {
       const response = await axios.put(
-        'https://login-signup-iu.onrender.com/api/user/profile', // Use your actual backend URL
+        'https://iubackend-production.up.railway.app/api/user/profile', // Use your actual backend URL
         payload
       );
 

@@ -73,8 +73,18 @@ import VehicleSelector from "./components/VehicleSelector/VehicleSelector";
 import SelectParcel from "./components/VehicleSelector/SelectParcel";
 import ParcelDetails from "./components/VehicleSelector/ParcelDetails";
 import EstimateResults from "./components/VehicleSelector/EstimateResults";
+<<<<<<< HEAD
 import Dashboard from "./components/SubDriver/Dashboard";
  import ProfileSubdriver from "./components/SubDriver/ProfileSubdriver";
+=======
+import PaymentPage from "./components/User/PaymentPage";
+import Service from "./components/ServicePage/Service";
+import PaymentSuccess from "./components/User/PaymentSuccess";
+import Invoice from "./components/User/Invoice";
+import RideHistory2 from "./components/SubDriver/RideHistory2";
+import Profile2 from "./components/SubDriver/Profile2";
+import Earning from "./components/SubDriver/Earning";
+>>>>>>> 2504fd346c9f646489d19fca1bc19439978a4cc6
 
 function App() {
   const navigate = useNavigate();
@@ -116,12 +126,16 @@ function App() {
             element={
               <Layout>
                 <Routes>
+                  {/* <Route path="/" element={<Invoice />} /> */}
                   <Route path="/" element={<HomePage />} />
-                  <Route path="/Services/carrides" element={<Car_Rides />} />
+                  {/* <Route path="/" element={<Profile2 />} /> */}
+                  
+                  {/* <Route path="/Services/carrides" element={<Car_Rides />} />
                   <Route path="/Services/rentals" element={<Rentals />} />
                   <Route path="/Services/Auto_rides" element={<Auto_Rides />} />
                   <Route path="/Services/Bike_rides" element={<Bike_Rides />} />
-                  <Route path="/Services/Intercity" element={<Intercity />} />
+                  <Route path="/Services/Intercity" element={<Intercity />} /> */}
+                  <Route path="/services" element={<Service />} />
                   <Route path="/Book_ride" element={<Book_Ride />} />
                   <Route path="/about" element={<Aboutpage />} />
                   <Route path="/contact" element={<Contactus />} />
@@ -142,6 +156,9 @@ function App() {
                   <Route path="/Searching_ride" element={<Searching_ride />} />
                   <Route path="/confirm" element={<BikeProps />} />
                   <Route path="/ride-tracking" element={<RideTrackingPage />} />
+                  <Route path="/payment" element={<PaymentPage />} />
+                  <Route path="/payment-success" element={<PaymentSuccess />} />
+                  <Route path="/invoice" element={<Invoice />} />
                   <Route path="/rating" element={<RideCompleted />} />
                   <Route path="/confirm-ride" element={<ConfirmRide />} />
 
@@ -171,6 +188,7 @@ function App() {
           <Route path="/profilesubdriver" element={<ProfileSubdriver />} />
 
         </Routes>
+
       </div>
     </ThemeProvider>
   );

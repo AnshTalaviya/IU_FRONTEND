@@ -15,7 +15,18 @@ function Signup() {
     licenseNumber: "",
     otp: "",
     agreed: false,
+    ride: "primary",
   });
+
+  const removeSubDriver = (indexToRemove) => {
+  const updated = subDrivers.filter((_, idx) => idx !== indexToRemove);
+  setSubDrivers(updated);
+};
+
+
+  const [subDrivers, setSubDrivers] = useState([
+    { name: "", license: "", vehicleNumber: "", vehicleType: "" },
+  ]);
 
   const [otpSent, setOtpSent] = useState(false);
   const [message, setMessage] = useState("");
@@ -31,14 +42,30 @@ function Signup() {
     }));
   };
 
+  const handleSubDriverChange = (index, field, value) => {
+    const updatedDrivers = [...subDrivers];
+    updatedDrivers[index][field] = value;
+    setSubDrivers(updatedDrivers);
+  };
+
+  const addMoreSubDriver = () => {
+    setSubDrivers([
+      ...subDrivers,
+      { name: "", license: "", vehicleNumber: "", vehicleType: "" },
+    ]);
+  };
+
   const handleSendOtp = async () => {
     if (!form.agreed) return setMessage("Please accept terms and conditions.");
     setLoading(true);
 
     try {
       const res = await axios.post(
-        "https://login-signup-iu.onrender.com/api/auth/send-otp",
-        form,
+        "http://localhost:5000/api/auth/send-otp",
+        {
+          ...form,
+          subDrivers: form.ride === "sub" ? subDrivers : [],
+        },
         {
           validateStatus: () => true,
         }
@@ -59,7 +86,7 @@ function Signup() {
 
   const handleVerifyOtp = async () => {
     try {
-      const res = await axios.post("https://login-signup-iu.onrender.com/api/auth/verify-otp", {
+      const res = await axios.post("http://localhost:5000/api/auth/verify-otp", {
         email: form.email,
         otp: form.otp,
       });
@@ -79,7 +106,7 @@ function Signup() {
   };
 
   return (
-    <div className="flex mt-13 items-center justify-center min-h-screen bg-gradient-to-tr from-gray-900 via-black to-gray-900 px-4">
+    <div className="flex mt-13 items-center justify-center min-h-screen px-4">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -98,7 +125,7 @@ function Signup() {
             value={form.fullName}
             onChange={handleChange}
             placeholder="Enter Your Full Name"
-            className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md"
           />
         </div>
 
@@ -110,7 +137,7 @@ function Signup() {
             value={form.phone}
             onChange={handleChange}
             placeholder="Enter Your Phone Number"
-            className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md"
           />
         </div>
 
@@ -122,7 +149,7 @@ function Signup() {
             value={form.email}
             onChange={handleChange}
             placeholder="Enter Your Email"
-            className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md"
           />
         </div>
 
@@ -132,7 +159,7 @@ function Signup() {
             name="role"
             value={form.role}
             onChange={handleChange}
-            className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md"
           >
             <option>User</option>
             <option>Driver</option>
@@ -141,45 +168,141 @@ function Signup() {
 
         {form.role === "Driver" && (
           <>
-            <div className="mb-4">
-              <label className="block text-sm font-semibold text-left text-white mb-1">Vehicle Type</label>
-              <input
-                name="vehicleType"
-                type="text"
-                value={form.vehicleType}
-                onChange={handleChange}
-                placeholder='Enter Your Vehicle Type'
-                className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-              />
+            <div className="flex pb-3 sm:space-x-10 flex-wrap">
+              <label className="inline-flex items-center text-white">
+                <input
+                  type="radio"
+                  name="ride"
+                  value="primary"
+                  checked={form.ride === "primary"}
+                  onChange={handleChange}
+                  className="form-radio mr-2"
+                />
+                Primary Driver
+              </label>
+              <label className="inline-flex items-center text-white">
+                <input
+                  type="radio"
+                  name="ride"
+                  value="sub"
+                  checked={form.ride === "sub"}
+                  onChange={handleChange}
+                  className="form-radio mr-2"
+                />
+                Sub Driver
+              </label>
             </div>
 
-            <div className="mb-4">
-              <label className="block text-sm font-semibold text-left text-white mb-1">Vehicle Number</label>
-              <input
-                name="vehicleNumber"
-                type="text"
-                value={form.vehicleNumber}
-                onChange={handleChange}
-                placeholder='Enter Your Vehicle Number'
-                className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-              />
-            </div>
+            {form.ride === "primary" && (
+              <>
+                <div className="mb-4">
+                  <label className="block text-sm font-semibold text-left text-white mb-1">Vehicle Type</label>
+                  <input
+                    name="vehicleType"
+                    type="text"
+                    value={form.vehicleType}
+                    onChange={handleChange}
+                    placeholder="Enter Your Vehicle Type"
+                    className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md"
+                  />
+                </div>
 
-            <div className="mb-4">
-              <label className="block text-sm font-semibold text-left text-white mb-1">License Number</label>
-              <input
-                name="licenseNumber"
-                type="text"
-                value={form.licenseNumber}
-                onChange={handleChange}
-                placeholder='Enter Your License Number'
-                className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-              />
-            </div>
+                <div className="mb-4">
+                  <label className="block text-sm font-semibold text-left text-white mb-1">Vehicle Number</label>
+                  <input
+                    name="vehicleNumber"
+                    type="text"
+                    value={form.vehicleNumber}
+                    onChange={handleChange}
+                    placeholder="Enter Your Vehicle Number"
+                    className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md"
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <label className="block text-sm font-semibold text-left text-white mb-1">License Number</label>
+                  <input
+                    name="licenseNumber"
+                    type="text"
+                    value={form.licenseNumber}
+                    onChange={handleChange}
+                    placeholder="Enter Your License Number"
+                    className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md"
+                  />
+                </div>
+              </>
+            )}
+
+            {form.ride === "sub" && (
+              <div className="space-y-6">
+                {subDrivers.map((driver, index) => (
+                  <div key={index} className="border border-gray-700 p-4 rounded-md space-y-2 bg-[#0d1117] relative">
+                    <h4 className="font-semibold text-lg text-white mb-2">Sub Driver {index + 1}</h4>
+
+                    {/* ❌ Delete Button */}
+                    {subDrivers.length > 1 && (
+                      <button
+                        onClick={() => removeSubDriver(index)}
+                        className="absolute top-2 right-2 text-red-400 hover:text-red-600 font-bold"
+                        title="Remove this sub driver"
+                      >
+                        ✕
+                      </button>
+                    )}
+
+                    <input
+                      type="text"
+                      placeholder="Driver Name"
+                      value={driver.name}
+                      onChange={(e) =>
+                        handleSubDriverChange(index, "name", e.target.value)
+                      }
+                      className="w-full px-3 py-2 bg-[#161b22] text-white border border-gray-600 rounded-md"
+                    />
+                    <input
+                      type="text"
+                      placeholder="License Number"
+                      value={driver.license}
+                      onChange={(e) =>
+                        handleSubDriverChange(index, "license", e.target.value)
+                      }
+                      className="w-full px-3 py-2 bg-[#161b22] text-white border border-gray-600 rounded-md"
+                    />
+                    <input
+                      type="text"
+                      placeholder="Vehicle Number"
+                      value={driver.vehicleNumber}
+                      onChange={(e) =>
+                        handleSubDriverChange(index, "vehicleNumber", e.target.value)
+                      }
+                      className="w-full px-3 py-2 bg-[#161b22] text-white border border-gray-600 rounded-md"
+                    />
+                    <input
+                      type="text"
+                      placeholder="Vehicle Type (e.g., Bike, Auto)"
+                      value={driver.vehicleType}
+                      onChange={(e) =>
+                        handleSubDriverChange(index, "vehicleType", e.target.value)
+                      }
+                      className="w-full px-3 py-2 bg-[#161b22] text-white border border-gray-600 rounded-md"
+                    />
+                  </div>
+                ))}
+
+                <button
+                  type="button"
+                  onClick={addMoreSubDriver}
+                  className="bg-yellow-500 text-black px-4 py-2 rounded-md hover:bg-yellow-400"
+                >
+                  + Add Another Sub Driver
+                </button>
+              </div>
+            )}
+
           </>
         )}
 
-        <div className="mb-4 flex items-center gap-2">
+        <div className="mb-4 flex items-center gap-2 mt-4">
           <input
             name="agreed"
             type="checkbox"
@@ -209,7 +332,7 @@ function Signup() {
                 value={form.otp}
                 onChange={handleChange}
                 placeholder="6-digit OTP"
-                className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md"
               />
             </div>
 

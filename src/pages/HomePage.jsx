@@ -6,7 +6,7 @@ import TestimonialsSection from '../components/Home/TestimonialsSection';
 import DownloadAppSection from '../components/Home/DownloadAppSection';
 
 
-const HomePage: React.FC = () => {
+const HomePage = () => {
   return (
     <div className="min-h-screen w-full">
       <HeroSection />

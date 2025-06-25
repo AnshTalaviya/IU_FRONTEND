@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 export default function Dashboard() {
+<<<<<<< HEAD
   // Static subdrivers and details
   const [subdrivers] = useState([
     { fullName: "Amit Sharma" },
@@ -71,6 +72,11 @@ export default function Dashboard() {
       ],
     },
   ];
+=======
+  // Subdrivers state
+  const [subdrivers, setSubdrivers] = useState([]);
+  // Track which driver dashboards are expanded
+>>>>>>> 2504fd346c9f646489d19fca1bc19439978a4cc6
   const [expandedDrivers, setExpandedDrivers] = useState({});
 
   // Toggle driver dashboard expansion
@@ -81,6 +87,7 @@ export default function Dashboard() {
     }));
   };
 
+<<<<<<< HEAD
   // Sort subdrivers by name
   const sortedSubdrivers = [...subdrivers].sort((a, b) => {
     if (!a.fullName) return 1;
@@ -105,6 +112,86 @@ export default function Dashboard() {
 
   // Total rides
   const totalRides = subdriverDetails.reduce((sum, d) => sum + d.rides, 0);
+=======
+  useEffect(() => {
+    // Example: Add more drivers to test
+    const testSubdrivers = [
+      { fullName: "Amit Sharma" },
+      { fullName: "Ravi Mehta" },
+      { fullName: "Suresh Patel" },
+      { fullName: "Rohit Singh" },
+    ];
+    localStorage.setItem('subdrivers', JSON.stringify(testSubdrivers));
+    setSubdrivers(testSubdrivers);
+  }, []);
+
+  // Function to generate dummy details for any number of drivers
+  function generateSubdriverDetails(count) {
+    const baseDetails = [
+      {
+        license: 'BIKE-LIC-001',
+        vehicleNumber: 'GJ01BK0001',
+        vehicleType: 'Bike',
+        earnings: 46.25,
+        rides: 5,
+        rating: 4.7,
+        acceptance: '92%',
+        onlineHours: '3.5',
+        recentRides: [
+          { earning: 10.25, time: '8 mins ago', status: 'completed' },
+          { time: '25 mins ago', status: 'cancelled' },
+          { earning: 18.00, time: '1 hour ago', status: 'completed' },
+        ],
+      },
+      {
+        license: 'BIKE-LIC-002',
+        vehicleNumber: 'GJ01BK0002',
+        vehicleType: 'Bike',
+        earnings: 39.75,
+        rides: 3,
+        rating: 4.3,
+        acceptance: '88%',
+        onlineHours: '2.8',
+        recentRides: [
+          { earning: 12.00, time: '12 mins ago', status: 'completed' },
+          { earning: 15.00, time: '40 mins ago', status: 'completed' },
+          { time: '1 hour ago', status: 'cancelled' },
+        ],
+      },
+      {
+        license: 'BIKE-LIC-003',
+        vehicleNumber: 'GJ01BK4951',
+        vehicleType: 'Bike',
+        earnings: 79.75,
+        rides: 7,
+        rating: 4.9,
+        acceptance: '88%',
+        onlineHours: '2.8',
+        recentRides: [
+          { earning: 12.00, time: '12 mins ago', status: 'completed' },
+          { earning: 15.00, time: '40 mins ago', status: 'completed' },
+          { time: '1 hour ago', status: 'cancelled' },
+        ],
+      },
+    ];
+    let details = [];
+    for (let i = 0; i < count; i++) {
+      const base = baseDetails[i % baseDetails.length];
+      details.push({
+        ...base,
+        license: `BIKE-LIC-00${i + 1}`,
+        vehicleNumber: `GJ01BK${1000 + i}`,
+        earnings: (40 + Math.random() * 60).toFixed(2) * 1,
+        rides: 3 + Math.floor(Math.random() * 7),
+        rating: (4 + Math.random()).toFixed(1) * 1,
+        acceptance: `${85 + Math.floor(Math.random() * 15)}%`,
+        onlineHours: (2 + Math.random() * 3).toFixed(1),
+        // Optionally, randomize recentRides as well
+      });
+    }
+    return details;
+  }
+>>>>>>> 2504fd346c9f646489d19fca1bc19439978a4cc6
 
   // Cards for each subdriver
   const getCards = (details) => ([
@@ -138,6 +225,38 @@ export default function Dashboard() {
     },
   ]);
 
+<<<<<<< HEAD
+=======
+  // Sort subdrivers by name
+  const sortedSubdrivers = [...subdrivers].sort((a, b) => {
+    if (!a.fullName) return 1;
+    if (!b.fullName) return -1;
+    return a.fullName.localeCompare(b.fullName);
+  });
+
+  // Generate details for all drivers
+  const subdriverDetails = generateSubdriverDetails(sortedSubdrivers.length);
+
+  // Calculate summary values
+  const totalDrivers = sortedSubdrivers.length;
+  const usedDetails = subdriverDetails;
+  const totalEarnings = usedDetails.length ? usedDetails.reduce((sum, d) => sum + d.earnings, 0).toFixed(2) : '0.00';
+  const avgRating = usedDetails.length ? (usedDetails.reduce((sum, d) => sum + d.rating, 0) / usedDetails.length).toFixed(1) : '0.00';
+  const avgAcceptance = usedDetails.length ? (usedDetails.reduce((sum, d) => sum + parseFloat(d.acceptance), 0) / usedDetails.length).toFixed(2) : '0.00';
+  // Sum of online hours
+  const totalOnlineHours = usedDetails.length ? usedDetails.reduce((sum, d) => sum + parseFloat(d.onlineHours), 0).toFixed(2) : '0.00';
+
+  // Combine all recent rides from all drivers
+  const allRecentRides = usedDetails.flatMap((d, idx) =>
+    d.recentRides.map(ride => ({
+      ...ride,
+      driver: sortedSubdrivers[idx]?.fullName || `Driver ${idx + 1}`,
+    }))
+  );
+  // Total rides
+  const totalRides = usedDetails.reduce((sum, d) => sum + d.rides, 0);
+
+>>>>>>> 2504fd346c9f646489d19fca1bc19439978a4cc6
   return (
     <div className="bg-gray-100 dark:bg-gray-900 min-h-screen px-4 sm:px-6 py-6 space-y-16 transition-all">
       {/* Main summary section with averages and total earnings */}

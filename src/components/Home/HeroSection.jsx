@@ -4,46 +4,17 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import { motion } from "framer-motion";
 
-// Animation Variants
-const fancyFadeUp = {
-  hidden: { opacity: 0, y: 80, rotate: -10, scale: 0.8 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    rotate: 0,
-    scale: 1,
-    transition: {
-      type: "spring",
-      stiffness: 60,
-      damping: 22,
-    },
-  },
-};
-
-const shimmerEffect = {
-  animate: {
-    opacity: [1, 0.7, 1],
-    transition: {
-      repeat: Infinity,
-      duration: 4,
-      ease: "easeInOut",
-    },
-  },
-};
-
 const HeroSection = () => {
   const [pickup, setPickup] = useState("");
   const [dropoff, setDropoff] = useState("");
   const navigate = useNavigate();
-  const { user } = useAuth(); 
+  const { user } = useAuth();
 
   const isDisabled = !pickup.trim() || !dropoff.trim();
 
   const handleFindRides = () => {
     if (!isDisabled) {
-      navigate(
-        `/book?pickup=${encodeURIComponent(pickup)}&dropoff=${encodeURIComponent(dropoff)}`
-      );
+      navigate(`/book?pickup=${encodeURIComponent(pickup)}&dropoff=${encodeURIComponent(dropoff)}`);
     }
   };
 
@@ -52,168 +23,108 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="text-white min-h-screen flex items-center relative overflow-hidden bg-gradient-to-br from-green-700 via-green-800 to-green-900 animate-gradientMove">
-      {/* Floating particles */}
-      <motion.div
-        className="absolute inset-0 -z-10 pointer-events-none"
-        animate={{ y: [0, -20, 0], opacity: [0.8, 1, 0.8] }}
-        transition={{ repeat: Infinity, duration: 10, ease: "easeInOut" }}
-      >
-        <div className="absolute top-[10%] left-[15%] w-3 h-3 bg-green-400 rounded-full blur-sm opacity-70" />
-        <div className="absolute top-[40%] left-[80%] w-4 h-4 bg-green-300 rounded-full blur-md opacity-60" />
-        <div className="absolute bottom-[20%] left-[50%] w-2 h-2 bg-green-500 rounded-full blur-sm opacity-80" />
-      </motion.div>
+    <section className="bg-gradient-to-br from-[#022c22] to-[#001510] mt-10 sm:mt-20 lg:mt-28 text-white">
+      {/* Main Grid */}
+      <div className="w-full max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+        {/* LEFT Content */}
+        <div className="space-y-6 text-center lg:text-left">
+          <motion.h1
+            className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <span className="text-green-400">Eco Rides</span> That<br />
+            <span className="text-green-300">Move You Forward</span>
+          </motion.h1>
 
-      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-12 py-16 sm:py-24 lg:py-32 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* LEFT SIDE */}
-          <div className="space-y-6 text-center lg:text-left flex flex-col justify-center items-center lg:items-start relative">
-            <motion.h1
-              variants={fancyFadeUp}
-              initial="hidden"
-              animate="visible"
-              className="relative text-3xl sm:text-4xl md:text-5xl font-bold leading-tight z-10"
-            >
-              <motion.span className="block text-white" {...shimmerEffect}>The Future of</motion.span>
-              <motion.span className="block text-green-300" {...shimmerEffect}>Ride Sharing</motion.span>
-              <motion.span className="block text-white" {...shimmerEffect}>is Green & Sustainable</motion.span>
-            </motion.h1>
+          <motion.p
+            className="text-lg text-white/80 max-w-lg mx-auto lg:mx-0"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
+            Book green rides with IdharUdhar. 🚗 Clean, fast, and reliable rides across 500+ cities. Zero hassle, max comfort.
+          </motion.p>
 
-            <motion.p
-              variants={fancyFadeUp}
-              initial="hidden"
-              animate="visible"
-              className="relative text-base md:text-lg text-white/90 max-w-xl z-10"
-            >
-              Experience seamless, eco-friendly rides at your fingertips.
-              <span className="block mt-2">
-                Idhar-Udhar connects you with reliable drivers in over <strong>500+ cities</strong> nationwide.
-              </span>
-            </motion.p>
-
-            {/* Form */}
-            <motion.div
-              variants={fancyFadeUp}
-              initial="hidden"
-              animate="visible"
-              className="relative border border-white/20 rounded-xl p-4 sm:p-6 shadow-lg space-y-4 max-w-lg w-full z-10"
-            >
-              {/* Pickup */}
-              <motion.div
-                className="flex items-center bg-white/10 rounded-md px-3 py-2 border border-white/20"
-                animate={{
-                  boxShadow: [
-                    "0 0 0px #22c55e",
-                    "0 0 10px #22c55e",
-                    "0 0 0px #22c55e"
-                  ],
-                }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 4,
-                  ease: "easeInOut",
-                }}
-              >
-                <FaMapMarkerAlt className="text-green-300 mr-3" />
-                <input
-                  type="text"
-                  placeholder="Pickup Location"
-                  className="bg-transparent outline-none w-full text-white placeholder-gray-300"
-                  value={pickup}
-                  onChange={(e) => setPickup(e.target.value)}
-                />
-              </motion.div>
-
-              {/* Dropoff */}
-              <motion.div
-                className="flex items-center bg-white/10 rounded-md px-3 py-2 border border-white/20"
-                animate={{
-                  boxShadow: [
-                    "0 0 0px #22c55e",
-                    "0 0 10px #22c55e",
-                    "0 0 0px #22c55e"
-                  ],
-                }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 4,
-                  ease: "easeInOut",
-                }}
-              >
-                <FaMapMarkerAlt className="text-green-300 mr-3" />
-                <input
-                  type="text"
-                  placeholder="Dropoff Location"
-                  className="bg-transparent outline-none w-full text-white placeholder-gray-300"
-                  value={dropoff}
-                  onChange={(e) => setDropoff(e.target.value)}
-                />
-              </motion.div>
-
-              {/* Button */}
-              <motion.button
-                onClick={handleFindRides}
-                disabled={isDisabled}
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-                className={`w-full py-2 rounded-md flex items-center justify-center gap-2 font-semibold transition-colors
-                  bg-green-500 text-white
-                  ${isDisabled ? "opacity-50 cursor-not-allowed border border-white/40" : "hover:bg-green-600"}`}
-              >
-                <FaSearch />
-                Find Rides
-              </motion.button>
-            </motion.div>
-          </div>
-
-          {/* RIGHT SIDE */}
-          <div className="relative w-full h-full hidden lg:block">
-            <motion.div
-              className="relative overflow-hidden rounded-xl shadow-xl z-20"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-            >
-              <img
-                src="/images/Idhar Udhar Car 1.png" 
-                alt="Luxury car"
-                className="w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] object-cover rounded-xl"
+          {/* Input Box */}
+          <motion.div
+            className="bg-white/5 border border-white/10 backdrop-blur-xl p-5 rounded-2xl space-y-4 shadow-2xl max-w-md mx-auto lg:mx-0"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          >
+            {/* Pickup */}
+            <div className="flex items-center gap-3 px-4 py-3 bg-white/10 rounded-md border border-white/10">
+              <FaMapMarkerAlt className="text-green-300 text-xl" />
+              <input
+                type="text"
+                value={pickup}
+                onChange={(e) => setPickup(e.target.value)}
+                placeholder="Pickup Location"
+                className="w-full bg-transparent text-white placeholder-white/60 focus:outline-none"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-green-800/40 to-transparent rounded-xl"></div>
+            </div>
 
-              <div
-                className="absolute inset-x-0 bottom-0 p-3 text-white rounded-lg shadow-[0_8px_30px_rgba(0,0,0,0.35)]"
-                style={{
-                  boxShadow: "inset 0 -100px 120px -15px rgba(0, 0, 0, 0.89)",
-                }}
-              >
-                <div className="flex items-center space-x-3 mt-24">
-                  <div className="bg-green-500 rounded-full w-9 h-9 flex items-center justify-center text-sm font-bold">
-                    G
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-base">IdharUdhar Premium</h3>
-                    <p className="text-xs text-green-300">Electric Luxury Experience</p>
-                  </div>
-                </div>
-                <div className="flex justify-between items-center mt-3">
-                  <div>
-                    <p className="text-xs">Starting at</p>
-                    <p className="text-lg font-bold">₹199</p>
-                  </div>
-                  <motion.button
-                    onClick={handleBookNow}
-                    whileHover={{ scale: 1.1 }}
-                    animate={{ scale: [1, 1.05, 1] }}
-                    transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                    className="text-sm bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md"
-                  >
-                    Book Now
-                  </motion.button>
-                </div>
-              </div>
-            </motion.div>
-          </div>
+            {/* Dropoff */}
+            <div className="flex items-center gap-3 px-4 py-3 bg-white/10 rounded-md border border-white/10">
+              <FaMapMarkerAlt className="text-green-300 text-xl" />
+              <input
+                type="text"
+                value={dropoff}
+                onChange={(e) => setDropoff(e.target.value)}
+                placeholder="Dropoff Location"
+                className="w-full bg-transparent text-white placeholder-white/60 focus:outline-none"
+              />
+            </div>
+
+            {/* Find Rides Button */}
+            <motion.button
+              onClick={handleFindRides}
+              disabled={isDisabled}
+              whileTap={{ scale: 0.95 }}
+              className={`w-full py-3 rounded-md font-semibold flex items-center justify-center gap-2 transition-all duration-300 ${
+                isDisabled
+                  ? "bg-green-500/30 cursor-not-allowed"
+                  : "bg-green-500 hover:bg-green-600"
+              }`}
+            >
+              <FaSearch />
+              Find Rides
+            </motion.button>
+          </motion.div>
         </div>
+
+        {/* RIGHT - Premium Ride Promo */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+          className="hidden lg:block"
+        >
+          <div className="relative rounded-3xl overflow-hidden shadow-xl hover:scale-102 transition-transform duration-500 group">
+            <img
+              src="/images/Idhar Udhar Car 1.png"
+              alt="Premium Ride"
+              className="w-full h-[400px] object-cover rounded-3xl"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-5 flex justify-between items-center bg-black/50 backdrop-blur-md rounded-b-3xl">
+              <div>
+                <h3 className="text-xl font-semibold">IdharUdhar Premium</h3>
+                <p className="text-green-300 text-sm">EV Class • Starting ₹199</p>
+              </div>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleBookNow}
+                className="bg-green-500 hover:bg-green-600 px-4 py-2 text-sm rounded-md font-medium shadow-md"
+              >
+                Book Now
+              </motion.button>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

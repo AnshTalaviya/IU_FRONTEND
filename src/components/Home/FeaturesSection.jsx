@@ -7,10 +7,8 @@ import 'aos/dist/aos.css';
 const FeatureCard = ({ icon, title, description }) => {
   return (
     <motion.div
-      whileHover={{ scale: 1.05 }}
       whileInView={{ opacity: 1, y: 0 }}
       initial={{ opacity: 0, y: 30 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
       className="rounded-2xl bg-white/10 dark:bg-gray-800/40 backdrop-blur-xl p-6 border border-white/10 shadow-xl transition-all duration-300"
     >
       <div className="text-green-500 text-2xl mb-4">
@@ -61,10 +59,7 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <section className="relative bg-gradient-to-br from-gray-900 via-black to-gray-900 py-20 px-4 overflow-hidden">
-      <div className="absolute -top-20 -left-20 w-96 h-96 bg-green-500/10 rounded-full blur-3xl"></div>
-      <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-green-400/10 rounded-full blur-3xl"></div>
-
+    <section className="py-20 px-4 overflow-hidden lg:mx-16">
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">

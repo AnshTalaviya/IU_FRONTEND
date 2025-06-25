@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 import {
   Menu, Moon, Sun, X, Mail, Phone, ChevronDown, User, Bell, Settings, LogOut,
 } from "lucide-react";
@@ -62,6 +63,7 @@ const Header = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [showComingSoon, setShowComingSoon] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setServicesOpen(false);
@@ -97,6 +99,7 @@ const Header = () => {
   };
 
   const getInitials = (fullName) => {
+    // Step 1: If fullName is not provided, try to get it from localStorage
     if (!fullName) {
       const storedUser = localStorage.getItem("user");
       if (storedUser) {
@@ -104,13 +107,24 @@ const Header = () => {
           const parsedUser = JSON.parse(storedUser);
           fullName = parsedUser?.fullName;
         } catch {
-          return "JD";
+          return ""; // Invalid JSON, return empty string instead of "JD"
         }
+      } else {
+        return ""; // No fullName and nothing in localStorage
       }
     }
-    const parts = fullName?.split(" ");
-    return parts?.length > 1 ? parts[0][0] + parts[1][0] : parts[0][0];
+
+    // Step 2: Generate initials from fullName
+    const parts = fullName?.trim().split(" ").filter(Boolean);
+    if (!parts || parts.length === 0) return "";
+
+    if (parts.length > 1) {
+      return (parts[0][0] + parts[1][0]).toUpperCase();
+    }
+
+    return parts[0][0]?.toUpperCase() || "";
   };
+
 
   return (
     <>
@@ -136,26 +150,14 @@ const Header = () => {
         </div>
 
         {/* Main Nav */}
-        <div className={`bg-white text-black dark:bg-gray-900 dark:text-white py-4 px-4 fixed ${isMobile ? "top-0" : "top-9"} left-0 w-full z-40 transition-shadow duration-300 ${scrolled ? "shadow-lg" : ""}`}>
+        <div className={`bg-white text-black dark:bg-gray-800 dark:text-white py-4 px-4 fixed ${isMobile ? "top-0" : "top-9"} left-0 w-full z-40 transition-shadow duration-300 ${scrolled ? "shadow-lg" : ""}`}>
           <div className="container mx-auto flex justify-between items-center">
-            <div className="text-2xl font-bold"><Logo /></div>
+            <div><img src="/images/logo.png" className="ml-4" width={"40px"} alt="" /></div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-6">
-              <Link to="/" className="hover:text-green-400">Home</Link>
-              <div className="relative">
-                <button onClick={() => setServicesOpen(!servicesOpen)} className="flex items-center hover:text-green-400">
-                  Services
-                  <ChevronDown className={`ml-1 transition-transform ${servicesOpen ? "rotate-180" : ""}`} size={16} />
-                </button>
-                <div className={`absolute top-full mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg transition-all ${servicesOpen ? "opacity-100 max-h-96" : "opacity-0 max-h-0 overflow-hidden"}`}>
-                  <Link to="/Services/carrides" className="block px-4 py-2 hover:bg-green-200 dark:hover:bg-green-700">Car Rides</Link>
-                  <Link to="/Services/rentals" className="block px-4 py-2 hover:bg-green-200 dark:hover:bg-green-700">Rentals</Link>
-                  <Link to="/Services/Auto_rides" className="block px-4 py-2 hover:bg-green-200 dark:hover:bg-green-700">Auto Rides</Link>
-                  <Link to="/Services/Bike_rides" className="block px-4 py-2 hover:bg-green-200 dark:hover:bg-green-700">Bike Rides</Link>
-                  <button onClick={() => setShowComingSoon(true)} className="w-full text-left block px-4 py-2 hover:bg-green-200 dark:hover:bg-green-700">Intercity</button>
-                </div>
-              </div>
+            <nav className="hidden md:flex justify-center space-x-6">
+              <Link to="/" className="hover:text-green-400 m-0">Home</Link>
+              <Link to="/services" className="hover:text-green-400">Services</Link>
               <Link to="/safety" className="hover:text-green-400">Safety</Link>
               <Link to="/about" className="hover:text-green-400">About</Link>
               <Link to="/contact" className="hover:text-green-400">Contact Us</Link>
@@ -163,9 +165,9 @@ const Header = () => {
 
             {/* Right Menu */}
             <div className="hidden md:flex items-center space-x-4">
-              <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-green-200 dark:hover:bg-gray-700">
+              {/* <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-green-200 dark:hover:bg-gray-700">
                 {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-              </button>
+              </button> */}
               {isAuthenticated ? (
                 <div className="relative group focus-within:z-50">
                   <button className="w-10 h-10 rounded-full bg-green-700 text-white font-semibold hover:bg-green-800">
@@ -197,21 +199,7 @@ const Header = () => {
         {/* Mobile Nav */}
         <div className={`fixed inset-0 z-30 pt-28 px-4 transition-transform duration-300 md:hidden ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"} bg-white text-black dark:bg-gray-900 dark:text-white`}>
           <Link to="/" className="block py-2 border-b hover:text-green-500">Home</Link>
-          <div>
-            <button onClick={() => setServicesOpen(!servicesOpen)} className="w-full text-left py-2 flex justify-between items-center border-b">
-              <span>Services</span>
-              <ChevronDown className={`transition-transform ${servicesOpen ? "rotate-180" : ""}`} size={16} />
-            </button>
-            {servicesOpen && (
-              <div className="pl-4 space-y-1 flex flex-col">
-                <Link to="/Services/carrides">Car Rides</Link>
-                <Link to="/Services/rentals">Rentals</Link>
-                <Link to="/Services/Auto_rides">Auto Rides</Link>
-                <Link to="/Services/Bike_rides">Bike Rides</Link>
-                <button onClick={() => setShowComingSoon(true)} className="text-left">Intercity</button>
-              </div>
-            )}
-          </div>
+          <Link to="/services" className="block py-2 border-b hover:text-green-500">Services</Link>
           <Link to="/safety" className="block py-2 border-b hover:text-green-500">Safety</Link>
           <Link to="/about" className="block py-2 border-b hover:text-green-500">About</Link>
           <Link to="/contact" className="block py-2 hover:text-green-500">Contact Us</Link>

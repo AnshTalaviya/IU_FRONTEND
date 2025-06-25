@@ -25,7 +25,7 @@ const ServiceCard = ({ icon, title, description, onClick, comingSoon, aos }) => 
       className={`group relative w-full max-w-[280px] h-[180px] rounded-xl overflow-hidden 
         bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white shadow-2xl 
         mx-auto cursor-pointer transition-all duration-700 ease-in-out border border-green-500/40 
-        hover:shadow-green-500/20 hover:scale-[1.02]
+         hover:scale-[1.02]
         ${comingSoon ? 'opacity-60 pointer-events-none' : ''}`}
     >
       {/* Watermark Icon */}

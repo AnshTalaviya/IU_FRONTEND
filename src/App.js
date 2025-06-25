@@ -77,7 +77,9 @@ import PaymentPage from "./components/User/PaymentPage";
 import Service from "./components/ServicePage/Service";
 import PaymentSuccess from "./components/User/PaymentSuccess";
 import Invoice from "./components/User/Invoice";
-import Dashboard from "./components/SubDriver/Dashboard";
+import RideHistory2 from "./components/SubDriver/RideHistory2";
+import Profile2 from "./components/SubDriver/Profile2";
+import Earning from "./components/SubDriver/Earning";
 
 function App() {
   const navigate = useNavigate();
@@ -120,7 +122,9 @@ function App() {
               <Layout>
                 <Routes>
                   {/* <Route path="/" element={<Invoice />} /> */}
-                  <Route path="/" element={<HomePage />} />
+                  {/* <Route path="/" element={<HomePage />} /> */}
+                  <Route path="/" element={<Profile2 />} />
+                  
                   {/* <Route path="/Services/carrides" element={<Car_Rides />} />
                   <Route path="/Services/rentals" element={<Rentals />} />
                   <Route path="/Services/Auto_rides" element={<Auto_Rides />} />

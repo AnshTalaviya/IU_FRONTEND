@@ -122,8 +122,8 @@ function App() {
               <Layout>
                 <Routes>
                   {/* <Route path="/" element={<Invoice />} /> */}
-                  {/* <Route path="/" element={<HomePage />} /> */}
-                  <Route path="/" element={<Profile2 />} />
+                  <Route path="/" element={<HomePage />} />
+                  {/* <Route path="/" element={<Profile2 />} /> */}
                   
                   {/* <Route path="/Services/carrides" element={<Car_Rides />} />
                   <Route path="/Services/rentals" element={<Rentals />} />
@@ -179,7 +179,6 @@ function App() {
               </Layout>
             }
           />
-          <Route path="dashboard" element={<Dashboard />} />
         </Routes>
 
       </div>

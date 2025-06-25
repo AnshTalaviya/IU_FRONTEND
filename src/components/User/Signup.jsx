@@ -61,7 +61,7 @@ function Signup() {
 
     try {
       const res = await axios.post(
-        "https://iubackend-production.up.railway.app/api/auth/send-otp",
+        "http://localhost:5000/api/auth/send-otp",
         {
           ...form,
           subDrivers: form.ride === "sub" ? subDrivers : [],
@@ -86,7 +86,7 @@ function Signup() {
 
   const handleVerifyOtp = async () => {
     try {
-      const res = await axios.post("https://iubackend-production.up.railway.app/api/auth/verify-otp", {
+      const res = await axios.post("http://localhost:5000/api/auth/verify-otp", {
         email: form.email,
         otp: form.otp,
       });

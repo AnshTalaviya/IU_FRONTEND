@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-export default function Dashboard() {
+export default function SubDashboard() {
   // Subdrivers state
   const [subdrivers, setSubdrivers] = useState([]);
   // Track which driver dashboards are expanded

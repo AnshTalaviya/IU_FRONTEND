@@ -1,23 +1,78 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
-} from 'recharts'
+} from 'recharts';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const Earnings = () => {
-  const [timeFrame, setTimeFrame] = useState('week')
-  // eslint-disable-next-line
-  const [hoveredBar, setHoveredBar] = useState(null)
-  const [cashOutModalOpen, setCashOutModalOpen] = useState(false)
-  const [cashOutAmount, setCashOutAmount] = useState('')
-  const [cashOutMethod, setCashOutMethod] = useState('bank')
+  const [timeFrame, setTimeFrame] = useState('week');
+  const [hoveredBar, setHoveredBar] = useState(null);
+  const [cashOutModalOpen, setCashOutModalOpen] = useState(false);
+  const [cashOutAmount, setCashOutAmount] = useState('');
+  const [cashOutMethod, setCashOutMethod] = useState('bank');
   const [payoutHistory, setPayoutHistory] = useState([
-    { id: 1, date: 'Oct 24, 2025', amount: 320.85, method: 'Bank Account (****1234)', status: 'completed' },
-    { id: 2, date: 'Oct 17, 2025', amount: 254.30, method: 'Bank Account (****1234)', status: 'completed' },
-    { id: 3, date: 'Oct 10, 2025', amount: 198.45, method: 'Bank Account (****1234)', status: 'completed' },
-  ])
-  const [showAllPayouts, setShowAllPayouts] = useState(false)
-  const [cashOutLoading, setCashOutLoading] = useState(false)
-  const [cashOutSuccess, setCashOutSuccess] = useState(false)
+    { id: 1, date: 'Oct 24, 2025', amount: 320.85, method: 'Bank Account (**1234)', status: 'completed' },
+    { id: 2, date: 'Oct 17, 2025', amount: 254.30, method: 'Bank Account (**1234)', status: 'completed' },
+    { id: 3, date: 'Oct 10, 2025', amount: 198.45, method: 'Bank Account (**1234)', status: 'completed' },
+  ]);
+  const [showAllPayouts, setShowAllPayouts] = useState(false);
+  const [cashOutLoading, setCashOutLoading] = useState(false);
+  const [cashOutSuccess, setCashOutSuccess] = useState(false);
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const [customRangeSelected, setCustomRangeSelected] = useState(false);
+
+  // Initialize dates on component mount
+  useEffect(() => {
+    const today = new Date();
+    if (timeFrame === 'week') {
+      const startOfWeek = new Date(today);
+      startOfWeek.setDate(today.getDate() - today.getDay() + 1); // Monday
+      setStartDate(startOfWeek);
+      setEndDate(today);
+    } else if (timeFrame === 'month') {
+      const startOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+      setStartDate(startOfMonth);
+      setEndDate(today);
+    } else if (timeFrame === 'year') {
+      const startOfYear = new Date(today.getFullYear(), 0, 1);
+      setStartDate(startOfYear);
+      setEndDate(today);
+    }
+  }, [timeFrame]);
+
+  // Generate data based on date range
+  const generateDataForRange = (start, end) => {
+    if (!start || !end) return { labels: [], earnings: [], rides: [] };
+
+    const daysDiff = Math.ceil((end - start) / (1000 * 60 * 60 * 24)) + 1;
+    const labels = [];
+    const earnings = [];
+    const rides = [];
+    
+    for (let i = 0; i < daysDiff; i++) {
+      const currentDate = new Date(start);
+      currentDate.setDate(start.getDate() + i);
+      
+      // Format label based on time frame
+      if (daysDiff <= 7) {
+        labels.push(currentDate.toLocaleDateString('en-US', { weekday: 'short' }));
+      } else if (daysDiff <= 31) {
+        labels.push(currentDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
+      } else {
+        labels.push(currentDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }));
+      }
+      
+      // Generate realistic data
+      const baseEarning = 50 + Math.random() * 100;
+      const dayFactor = (currentDate.getDay() === 0 || currentDate.getDay() === 6) ? 1.5 : 1;
+      earnings.push(Math.round(baseEarning * dayFactor));
+      rides.push(Math.round(baseEarning * dayFactor / (15 + Math.random() * 5)));
+    }
+    
+    return { labels, earnings, rides };
+  };
 
   const earningsData = {
     week: {
@@ -34,50 +89,72 @@ const Earnings = () => {
       labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
       earnings: [1200, 1350, 1420, 1280, 1500, 1600, 1550, 1400, 1450, 1380, 1600, 1800],
       rides: [95, 105, 110, 100, 115, 125, 120, 110, 115, 105, 130, 145]
-    }
-  }
+    },
+    custom: generateDataForRange(startDate, endDate)
+  };
 
-  const currentData = earningsData[timeFrame]
-  // eslint-disable-next-line
-  const maxEarning = Math.max(...currentData.earnings)
-  const totalEarnings = currentData.earnings.reduce((a, b) => a + b, 0)
-  const totalRides = currentData.rides.reduce((a, b) => a + b, 0)
-  const avgPerRide = totalEarnings / totalRides
-  const availableForCashOut = totalEarnings * 0.9
+  const currentData = customRangeSelected ? earningsData.custom : earningsData[timeFrame];
+  const totalEarnings = currentData.earnings.reduce((a, b) => a + b, 0);
+  const totalRides = currentData.rides.reduce((a, b) => a + b, 0);
+  const avgPerRide = totalRides > 0 ? (totalEarnings / totalRides) : 0;
+  const availableForCashOut = totalEarnings * 0.9;
 
   const timeFrameOptions = [
     { value: 'week', label: 'This Week' },
     { value: 'month', label: 'This Month' },
-    { value: 'year', label: 'This Year' }
-  ]
+    { value: 'year', label: 'This Year' },
+    { value: 'custom', label: 'Custom Range' }
+  ];
+
+  const handleStartDateChange = (date) => {
+    setStartDate(date);
+    if (date && endDate) {
+      setCustomRangeSelected(true);
+    } else {
+      setCustomRangeSelected(false);
+    }
+  };
+
+  const handleEndDateChange = (date) => {
+    setEndDate(date);
+    if (startDate && date) {
+      setCustomRangeSelected(true);
+    } else {
+      setCustomRangeSelected(false);
+    }
+  };
+
+  const handleTimeFrameChange = (value) => {
+    setTimeFrame(value);
+    setCustomRangeSelected(false);
+  };
 
   const handleCashOut = () => {
-    setCashOutAmount(availableForCashOut.toFixed(2))
-    setCashOutModalOpen(true)
-  }
+    setCashOutAmount(availableForCashOut.toFixed(2));
+    setCashOutModalOpen(true);
+  };
 
   const submitCashOut = () => {
-    setCashOutLoading(true)
-    // Simulate API call
+    setCashOutLoading(true);
     setTimeout(() => {
       const newPayout = {
         id: payoutHistory.length + 1,
         date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
         amount: parseFloat(cashOutAmount),
-        method: cashOutMethod === 'bank' ? 'Bank Account (****1234)' : 'PayPal (user@example.com)',
+        method: cashOutMethod === 'bank' ? 'Bank Account (**1234)' : 'PayPal (user@example.com)',
         status: 'pending'
-      }
+      };
       
-      setPayoutHistory([newPayout, ...payoutHistory])
-      setCashOutLoading(false)
-      setCashOutSuccess(true)
+      setPayoutHistory([newPayout, ...payoutHistory]);
+      setCashOutLoading(false);
+      setCashOutSuccess(true);
       
       setTimeout(() => {
-        setCashOutModalOpen(false)
-        setCashOutSuccess(false)
-      }, 1500)
-    }, 2000)
-  }
+        setCashOutModalOpen(false);
+        setCashOutSuccess(false);
+      }, 1500);
+    }, 2000);
+  };
 
   const getStatusBadge = (status) => {
     switch (status) {
@@ -87,25 +164,25 @@ const Earnings = () => {
             <i className="fas fa-check-circle"></i>
             Completed
           </span>
-        )
+        );
       case 'pending':
         return (
           <span className="bg-yellow-900/20 dark:bg-yellow-900/50 text-yellow-600 dark:text-yellow-400 px-2 sm:px-3 py-1 text-xs rounded-full flex items-center gap-1 w-fit">
             <i className="fas fa-clock"></i>
             Pending
           </span>
-        )
+        );
       case 'failed':
         return (
           <span className="bg-red-900/20 dark:bg-red-900/50 text-red-600 dark:text-red-400 px-2 sm:px-3 py-1 text-xs rounded-full flex items-center gap-1 w-fit">
             <i className="fas fa-times-circle"></i>
             Failed
           </span>
-        )
+        );
       default:
-        return null
+        return null;
     }
-  }
+  };
 
   return (
     <div className="dark:bg-gray-950 bg-gray-50 text-gray-800 dark:text-white min-h-screen p-4 sm:p-6">
@@ -160,8 +237,8 @@ const Earnings = () => {
                       onClick={() => setCashOutMethod('paypal')}
                       className={`p-3 rounded-lg border ${cashOutMethod === 'paypal' ? 'border-green-500 bg-green-500/10' : 'dark:border-gray-600 border-gray-300'} flex items-center gap-2`}
                     >
-                      <i className="fab fa-paypal text-lg text-blue-500"></i>
-                      <span>PayPal</span>
+                     <i className="fas fa-wallet text-lg text-blue-500"></i>
+                      <span>Razorpay</span>
                     </button>
                   </div>
                 </div>
@@ -204,17 +281,49 @@ const Earnings = () => {
 
       {/* Filter + Action */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8 gap-4">
-        <div className="flex items-center gap-3 w-full sm:w-auto">
-          <i className="fas fa-calendar-alt text-green-500 text-lg sm:text-xl"></i>
-          <select
-            value={timeFrame}
-            onChange={(e) => setTimeFrame(e.target.value)}
-            className="dark:bg-gray-800 bg-white dark:border-gray-700 border-gray-200 rounded-lg px-3 sm:px-4 py-2 focus:outline-none text-sm hover:dark:bg-gray-700 hover:bg-gray-50 transition-colors cursor-pointer w-full sm:w-auto"
-          >
-            {timeFrameOptions.map((opt) => (
-              <option key={opt.value} value={opt.value}>{opt.label}</option>
-            ))}
-          </select>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full sm:w-auto">
+          <div className="flex items-center gap-3 w-full sm:w-auto">
+            <i className="fas fa-calendar-alt text-green-500 text-lg sm:text-xl"></i>
+            <select
+              value={timeFrame}
+              onChange={(e) => handleTimeFrameChange(e.target.value)}
+              className="dark:bg-gray-800 bg-white dark:border-gray-700 border-gray-200 rounded-lg px-3 sm:px-4 py-2 focus:outline-none text-sm hover:dark:bg-gray-700 hover:bg-gray-50 transition-colors cursor-pointer w-full sm:w-auto"
+            >
+              {timeFrameOptions.map((opt) => (
+                <option key={opt.value} value={opt.value}>{opt.label}</option>
+              ))}
+            </select>
+          </div>
+          
+          {timeFrame === 'custom' && (
+            <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+              <div className="w-full sm:w-auto">
+                <DatePicker
+                  selected={startDate}
+                  onChange={handleStartDateChange}
+                  selectsStart
+                  startDate={startDate}
+                  endDate={endDate}
+                  placeholderText="Start Date"
+                  className="dark:bg-gray-800 bg-white dark:border-gray-700 border-gray-200 rounded-lg px-3 sm:px-4 py-2 focus:outline-none text-sm hover:dark:bg-gray-700 hover:bg-gray-50 transition-colors cursor-pointer w-full"
+                  dateFormat="d MMM , yyyy"
+                />
+              </div>
+              <div className="w-full sm:w-auto">
+                <DatePicker
+                  selected={endDate}
+                  onChange={handleEndDateChange}
+                  selectsEnd
+                  startDate={startDate}
+                  endDate={endDate}
+                  minDate={startDate}
+                  placeholderText="End Date"
+                  className="dark:bg-gray-800 bg-white dark:border-gray-700 border-gray-200 rounded-lg px-3 sm:px-4 py-2 focus:outline-none text-sm hover:dark:bg-gray-700 hover:bg-gray-50 transition-colors cursor-pointer w-full"
+                  dateFormat="d MMM , yyyy"
+                />
+              </div>
+            </div>
+          )}
         </div>
         <button 
           onClick={handleCashOut}
@@ -271,9 +380,13 @@ const Earnings = () => {
       <div className="dark:bg-gray-200/10 bg-white p-4 sm:p-6 rounded-lg mb-6 sm:mb-8 hover:shadow-sm dark:hover:shadow-gray-200/5 hover:shadow-gray-200/10 transition-all">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6 gap-2">
           <h3 className="font-semibold text-lg">Earnings Breakdown</h3>
-          <span className="text-sm dark:text-gray-400 text-gray-600 dark:bg-gray-800 bg-gray-100 px-3 py-1 rounded-full">
-            {timeFrameOptions.find(t => t.value === timeFrame)?.label}
-          </span>
+          <div className="flex items-center gap-2">
+            <span className="text-sm dark:text-gray-400 text-gray-600 dark:bg-gray-800 bg-gray-100 px-3 py-1 rounded-full">
+              {customRangeSelected ? 
+                `${startDate?.toLocaleDateString()} - ${endDate?.toLocaleDateString()}` : 
+                timeFrameOptions.find(t => t.value === timeFrame)?.label}
+            </span>
+          </div>
         </div>
 
         <div className="w-full h-[250px] sm:h-[300px]">
@@ -374,7 +487,7 @@ const Earnings = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Earnings
+export default Earnings;

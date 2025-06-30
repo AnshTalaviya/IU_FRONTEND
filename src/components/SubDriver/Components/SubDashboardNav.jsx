@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useGlobalContext } from '../../../contexts/GlobalContext';
 import { Link } from 'react-router-dom';
 
-export default function DashboardNav() {
+export default function SubDashboardNav() {
   const { Isonline, ToggleOnline, ToggleSidebar } = useGlobalContext();
   const [showNotifications, setShowNotifications] = useState(false);
   const [notifications, setNotifications] = useState([
@@ -11,11 +11,6 @@ export default function DashboardNav() {
     { id: 3, message: "Rating updated to 4.8", time: "2 hours ago", read: true }
   ]);
   const [showRideRequest, setShowRideRequest] = useState(false);
-  const [showChatPopup, setShowChatPopup] = useState(false);
-  const [message, setMessage] = useState('');
-  const [chatMessages, setChatMessages] = useState([
-    { id: 1, text: "Hello! How can we help you today?", sender: 'support', time: 'Just now' },
-  ]);
   // eslint-disable-next-line
   const [rideRequest, setRideRequest] = useState({
     customerName: "Harsh Prajapati",
@@ -56,40 +51,6 @@ export default function DashboardNav() {
     setShowRideRequest(false)
   }
 
-  const toggleChatPopup = () => {
-    setShowChatPopup(prev => !prev);
-  };
-
-  const handleCallNow = () => {
-    window.location.href = 'tel:+911234567890';
-  };
-
-  const handleSendMessage = (e) => {
-    e.preventDefault();
-    if (message.trim() === '') return;
-    
-    const newMessage = {
-      id: chatMessages.length + 1,
-      text: message,
-      sender: 'user',
-      time: 'Just now'
-    };
-    
-    setChatMessages([...chatMessages, newMessage]);
-    setMessage('');
-    
-    // Simulate response after 1 second
-    setTimeout(() => {
-      const responseMessage = {
-        id: chatMessages.length + 2,
-        text: "Thanks for your message! Our team will get back to you shortly.",
-        sender: 'support',
-        time: 'Just now'
-      };
-      setChatMessages(prev => [...prev, responseMessage]);
-    }, 1000);
-  };
-
   return (
     <div className='w-full h-[8%] p-1 bg-gray-200/10 flex justify-between items-center px-2 py-2 rounded-lg md:rounded-none relative'>
       <h3 className='text-3xl dark:text-white flex items-center gap-3 ps-1'>
@@ -99,22 +60,22 @@ export default function DashboardNav() {
       </h3>
 
       <div className="Nav-buttons flex items-center justify-center gap-4">
-        <span className='dark:text-white font-medium flex items-center'>
+        {/* <span className='dark:text-white font-medium flex items-center'>
           {Isonline ? 'Online' : 'Offline'}
-        </span>
+        </span> */}
 
-          <div className="ToggleButton flex items-center">
-            <button
-              onClick={ToggleOnline}
-              className={`relative inline-flex items-center h-5 rounded-full w-11 px-1 transition-colors duration-300 
-                ${Isonline ? 'bg-green-500' : 'bg-gray-600'}`}
-            >
-              <span
-                className={`inline-block w-4 h-4 transform bg-white rounded-full transition-transform duration-300 
-                  ${Isonline ? 'translate-x-2.5' : 'translate-x-0'}`}
-              />
-            </button>
-          </div>
+        {/* <div className="ToggleButton flex items-center">
+          <button
+            onClick={ToggleOnline}
+            className={`relative inline-flex items-center h-5 rounded-full w-11 px-1 transition-colors duration-300 
+              ${Isonline ? 'bg-green-500' : 'bg-gray-600'}`}
+          >
+            <span
+              className={`inline-block w-4 h-4 transform bg-white rounded-full transition-transform duration-300 
+                ${Isonline ? 'translate-x-2.5' : 'translate-x-0'}`}
+            />
+          </button>
+        </div> */}
 
         <div className={`onlineStatus text-green-400/80 h-6 w-6 text-lg items-center justify-center ${Isonline ? 'flex' : 'hidden'}`}>
           <i className="fas fa-car animate-pulse"></i>
@@ -159,109 +120,18 @@ export default function DashboardNav() {
           </div>
         </div>
 
-        {/* Chat Icon with Popup */}
-        <div className="relative">
-          <div
-            className="ChatIcon dark:text-white h-8 w-8 text-lg flex items-center justify-center hover:bg-gray-500/30 rounded-full transition-all duration-200 cursor-pointer"
-            onClick={toggleChatPopup}
-          >
-            <i className="fas fa-comment-dots"></i>
+        <Link to='support'>
+          <div className="QuestionMark dark:text-white h-8 w-8 text-lg flex items-center justify-center hover:bg-gray-500/30 rounded-full transition-all duration-200">
+            <i className="fas fa-question"></i>
           </div>
-          
-          {/* Chat Popup */}
-          {showChatPopup && (
-            <div className="absolute right-0 top-12 w-80 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl z-50 overflow-hidden flex flex-col" style={{ maxHeight: '500px' }}>
-              {/* Chat Header */}
-              <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center bg-gray-50 dark:bg-gray-700">
-                <div className="flex items-center">
-                  <div className="bg-blue-500 dark:bg-blue-600 p-2 rounded-full mr-3">
-                    <i className="fas fa-headset text-white"></i>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-800 dark:text-white">Support Chat</h3>
-                    <p className="text-xs text-gray-500 dark:text-gray-300">We're here to help</p>
-                  </div>
-                </div>
-                <button 
-                  onClick={toggleChatPopup}
-                  className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
-                >
-                  <i className="fas fa-times"></i>
-                </button>
-              </div>
-              
-              {/* Chat Messages */}
-              <div className="flex-1 p-4 overflow-y-auto" style={{ height: '300px' }}>
-                {chatMessages.map((msg) => (
-                  <div 
-                    key={msg.id} 
-                    className={`mb-4 flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
-                  >
-                    <div 
-                      className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${msg.sender === 'user' 
-                        ? 'bg-blue-500 text-white rounded-br-none' 
-                        : 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-bl-none'}`}
-                    >
-                      <p>{msg.text}</p>
-                      <p className={`text-xs mt-1 ${msg.sender === 'user' ? 'text-blue-100' : 'text-gray-500 dark:text-gray-400'}`}>
-                        {msg.time}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              
-              {/* Message Input */}
-              <form onSubmit={handleSendMessage} className="p-3 border-t border-gray-200 dark:border-gray-700">
-                <div className="flex items-center">
-                  <input
-                    type="text"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Type your message..."
-                    className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
-                  />
-                  <button
-                    type="submit"
-                    className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-r-lg transition-colors duration-200"
-                  >
-                    <i className="fas fa-paper-plane"></i>
-                  </button>
-                </div>
-              </form>
-              
-              {/* Call Option */}
-              <div className="p-3 bg-gray-50 dark:bg-gray-700 border-t border-gray-200 dark:border-gray-600">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <div className="bg-green-100 dark:bg-green-900 p-2 rounded-full mr-3">
-                      <i className="fas fa-phone text-green-500 dark:text-green-300"></i>
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-medium text-gray-800 dark:text-white">Prefer to call?</h4>
-                      <p className="text-xs text-gray-500 dark:text-gray-300">Available 24/7</p>
-                    </div>
-                  </div>
-                  <button
-                    onClick={handleCallNow}
-                    className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm flex items-center transition-colors duration-200"
-                  >
-                    <i className="fas fa-phone mr-2"></i>
-                    Call Now
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
+        </Link>
 
         <Link to='profile'>
           <div className="profile h-11 rounded-md flex items-center hover:bg-gray-500/30 transition-all duration-200 p-1">
             <div className="ProfileIcon h-10 w-10 rounded-lg bg-gray-400/60 text-white flex items-center justify-center mr-2">
               <i className="fas fa-user"></i>
             </div>
-          </div>
-        </Link>
+          </div></Link>
       </div>
 
       {showRideRequest && Isonline && (
@@ -379,6 +249,26 @@ export default function DashboardNav() {
                 </div>
               </div>
             </div>
+
+            {/* Floating action buttons */}
+            {/* <div className="sticky bottom-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 p-4">
+              <div className="flex space-x-3">
+                <button
+                  onClick={cancleRide}
+                  className="flex-1 bg-white dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 border border-gray-300 dark:border-gray-600 py-3 px-4 rounded-xl transition flex items-center justify-center space-x-2 font-medium shadow-sm"
+                >
+                  <i className="fas fa-times text-red-500"></i>
+                  <span>Decline</span>
+                </button>
+                <button
+                  onClick={Acceptride}
+                  className="flex-1 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white py-3 px-4 rounded-xl transition flex items-center justify-center space-x-2 font-medium shadow-lg shadow-blue-500/30"
+                >
+                  <i className="fas fa-check-circle"></i>
+                  <span>Accept Ride</span>
+                </button>
+              </div>
+            </div> */}
           </div>
         </div>
       )}

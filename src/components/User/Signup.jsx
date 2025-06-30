@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { motion } from 'framer-motion';
-
 function Signup() {
   const [form, setForm] = useState({
     fullName: "",
@@ -15,25 +14,20 @@ function Signup() {
     licenseNumber: "",
     otp: "",
     agreed: false,
-    ride: "primary",
+    ride: "primary",  
   });
-
   const removeSubDriver = (indexToRemove) => {
   const updated = subDrivers.filter((_, idx) => idx !== indexToRemove);
   setSubDrivers(updated);
 };
-
-
   const [subDrivers, setSubDrivers] = useState([
     { name: "", license: "", vehicleNumber: "", vehicleType: "" },
   ]);
-
   const [otpSent, setOtpSent] = useState(false);
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { login } = useAuth();
-
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setForm((prev) => ({
@@ -41,27 +35,24 @@ function Signup() {
       [name]: type === "checkbox" ? checked : value,
     }));
   };
-
   const handleSubDriverChange = (index, field, value) => {
     const updatedDrivers = [...subDrivers];
     updatedDrivers[index][field] = value;
     setSubDrivers(updatedDrivers);
   };
-
   const addMoreSubDriver = () => {
     setSubDrivers([
       ...subDrivers,
       { name: "", license: "", vehicleNumber: "", vehicleType: "" },
     ]);
   };
-
   const handleSendOtp = async () => {
     if (!form.agreed) return setMessage("Please accept terms and conditions.");
     setLoading(true);
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/send-otp",
+        "https://new-backend-iu.onrender.com/api/auth/send-otp",
         {
           ...form,
           subDrivers: form.ride === "sub" ? subDrivers : [],
@@ -70,7 +61,6 @@ function Signup() {
           validateStatus: () => true,
         }
       );
-
       if (res.status === 200 || res.status === 201) {
         setOtpSent(true);
         setMessage(res.data?.message || "OTP sent successfully.");
@@ -86,11 +76,10 @@ function Signup() {
 
   const handleVerifyOtp = async () => {
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/verify-otp", {
+      const res = await axios.post("https://new-backend-iu.onrender.com/api/auth/verify-otp", {
         email: form.email,
         otp: form.otp,
       });
-
       if (res.data.token && res.data.user) {
         login(res.data.token);
         localStorage.setItem("user", JSON.stringify(res.data.user));
@@ -104,7 +93,6 @@ function Signup() {
       setMessage(err.response?.data?.message || "OTP verification failed");
     }
   };
-
   return (
     <div className="flex mt-13 items-center justify-center min-h-screen px-4">
       <motion.div
@@ -116,7 +104,6 @@ function Signup() {
         <h2 className="text-3xl font-bold text-center text-white mb-6">
           Sign up for <span className="text-green-400">Idhar Udhar</span>
         </h2>
-
         <div className="mb-4">
           <label className="block text-sm font-semibold text-left text-white mb-1">Full Name</label>
           <input
@@ -128,7 +115,6 @@ function Signup() {
             className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md"
           />
         </div>
-
         <div className="mb-4">
           <label className="block text-sm font-semibold text-left text-white mb-1">Phone</label>
           <input
@@ -140,7 +126,6 @@ function Signup() {
             className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md"
           />
         </div>
-
         <div className="mb-4">
           <label className="block text-sm font-semibold text-left text-white mb-1">Email</label>
           <input
@@ -152,7 +137,6 @@ function Signup() {
             className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md"
           />
         </div>
-
         <div className="mb-4">
           <label className="block text-sm font-semibold text-left text-white mb-1">Role</label>
           <select
@@ -165,7 +149,6 @@ function Signup() {
             <option>Driver</option>
           </select>
         </div>
-
         {form.role === "Driver" && (
           <>
             <div className="flex pb-3 sm:space-x-10 flex-wrap">
@@ -192,7 +175,6 @@ function Signup() {
                 Sub Driver
               </label>
             </div>
-
             {form.ride === "primary" && (
               <>
                 <div className="mb-4">
@@ -206,7 +188,6 @@ function Signup() {
                     className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md"
                   />
                 </div>
-
                 <div className="mb-4">
                   <label className="block text-sm font-semibold text-left text-white mb-1">Vehicle Number</label>
                   <input
@@ -218,7 +199,6 @@ function Signup() {
                     className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md"
                   />
                 </div>
-
                 <div className="mb-4">
                   <label className="block text-sm font-semibold text-left text-white mb-1">License Number</label>
                   <input
@@ -232,13 +212,11 @@ function Signup() {
                 </div>
               </>
             )}
-
             {form.ride === "sub" && (
               <div className="space-y-6">
                 {subDrivers.map((driver, index) => (
                   <div key={index} className="border border-gray-700 p-4 rounded-md space-y-2 bg-[#0d1117] relative">
                     <h4 className="font-semibold text-lg text-white mb-2">Sub Driver {index + 1}</h4>
-
                     {/* ❌ Delete Button */}
                     {subDrivers.length > 1 && (
                       <button
@@ -249,7 +227,6 @@ function Signup() {
                         ✕
                       </button>
                     )}
-
                     <input
                       type="text"
                       placeholder="Driver Name"
@@ -288,7 +265,6 @@ function Signup() {
                     />
                   </div>
                 ))}
-
                 <button
                   type="button"
                   onClick={addMoreSubDriver}
@@ -298,10 +274,8 @@ function Signup() {
                 </button>
               </div>
             )}
-
           </>
         )}
-
         <div className="mb-4 flex items-center gap-2 mt-4">
           <input
             name="agreed"
@@ -312,7 +286,6 @@ function Signup() {
           />
           <label className="text-sm text-white">I agree to the terms and conditions</label>
         </div>
-
         {!otpSent ? (
           <motion.button
             onClick={handleSendOtp}
@@ -335,7 +308,6 @@ function Signup() {
                 className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md"
               />
             </div>
-
             <motion.button
               onClick={handleVerifyOtp}
               whileTap={{ scale: 0.95 }}
@@ -345,7 +317,6 @@ function Signup() {
             </motion.button>
           </>
         )}
-
         {message && (
           <p className={`text-center text-sm mt-4 ${message.toLowerCase().includes('otp') || message.toLowerCase().includes('success') ? 'text-green-400' : 'text-red-400'}`}>
             {message}
@@ -355,5 +326,4 @@ function Signup() {
     </div>
   );
 }
-
 export default Signup;

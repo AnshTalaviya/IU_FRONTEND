@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const Profile2 = () => {
+const SubProfile = () => {
   const [profileData, setProfileData] = useState({
     name: 'Rutvik Malhotra',
     fullName: 'Rutvik Malhotra',
@@ -355,4 +355,4 @@ const SubdriverModal = ({ subdriver, onClose }) => (
   </div>
 );
 
-export default Profile2;
+export default SubProfile;

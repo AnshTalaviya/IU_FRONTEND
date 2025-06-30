@@ -46,7 +46,7 @@ const earningsData = {
   }
 };
 
-const Earning = () => {
+const SubEarning = () => {
   const [timeFrame, setTimeFrame] = useState('week');
   const currentData = earningsData[timeFrame];
   const totalEarnings = currentData.earnings.reduce((a, b) => a + b, 0);
@@ -163,4 +163,4 @@ const Earning = () => {
   );
 };
 
-export default Earning;
+export default SubEarning;

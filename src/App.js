@@ -13,11 +13,6 @@ import Preloader from "./components/PreLoader";
 
 // Pages
 import HomePage from "./pages/HomePage";
-import Car_Rides from "./components/Services/Car_Rides";
-import Rentals from "./components/Services/Rentals";
-import Auto_Rides from "./components/Services/Auto_Rides";
-import Bike_Rides from "./components/Services/Bike_Rides";
-import Intercity from "./components/Services/Intercity";
 import Book_Ride from "./components/Services/Book_Ride";
 import SignUp from "./components/User/Signup";
 import Login from "./components/User/Login";
@@ -51,13 +46,6 @@ import RideTrackingPage from "./components/RideBooking/RideTrackingPage";
 import RideCompleted from "./components/RideBooking/RideCompleted";
 import ConfirmRide from "./components/RideBooking/ConfirmRide";
 
-// Deliveries
-// import CourierDelivery from "./pages/CourierDelivery";
-// import BikeDelivery from "./pages/BikeDelivery";
-// import MiniTruckDelivery from "./pages/MiniTruckDelivery";
-// import MovingService from "./pages/MovingService";
-// import CityDelivery from "./pages/CityDelivery";
-
 
 // Profile
 import UserProfile from "./components/profile/userProfile";
@@ -77,9 +65,14 @@ import PaymentPage from "./components/User/PaymentPage";
 import Service from "./components/ServicePage/Service";
 import PaymentSuccess from "./components/User/PaymentSuccess";
 import Invoice from "./components/User/Invoice";
-import RideHistory2 from "./components/SubDriver/RideHistory2";
-import Profile2 from "./components/SubDriver/Profile2";
-import Earning from "./components/SubDriver/Earning";
+
+// subdriver pages
+import SubProfile from "./components/SubDriver/page/SubProfile";
+import SubDashboard from "./components/SubDriver/page/SubDashboard";
+import SubEarning from "./components/SubDriver/page/SubEarning";
+import SubRideHistory from "./components/SubDriver/page/SubRideHistory";
+import SubDriverPanel from "./components/SubDriver/SubDriverPannle";
+
 
 function App() {
   const navigate = useNavigate();
@@ -109,6 +102,17 @@ function App() {
             <Route index element={<DriverDashboard />} />
             <Route path="earnings" element={<Earnings />} />
             <Route path="ridehistory" element={<RideHistory />} />
+            <Route path="games" element={<Games />} />
+            <Route path="support" element={<Support />} />
+            <Route path="settings" element={<Settings />} />
+          </Route>
+
+          {/* SubDriver Dashboard - No Layout */}
+          <Route path="/subdriver" element={<SubDriverPanel />}>
+            <Route path="subprofile" element={<SubProfile />} />
+            <Route index element={<SubDashboard />} />
+            <Route path="subearnings" element={<SubEarning />} />
+            <Route path="subridehistory" element={<SubRideHistory />} />
             <Route path="games" element={<Games />} />
             <Route path="support" element={<Support />} />
             <Route path="settings" element={<Settings />} />

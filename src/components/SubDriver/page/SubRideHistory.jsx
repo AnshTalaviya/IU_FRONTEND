@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
-export default function RideHistory2() {
+export default function SubRideHistory() {
   const initialRides = [
     { id: 1, customer: "Emily S.", driver: "Ram", time: "Today, 2:45 PM", pickup: "123 Main St", dropoff: "456 Market Ave", fare: 14.75, cancelled: false, rating: 5, vehicle: "Toyota Camry", paymentMethod: "Credit Card" },
     { id: 2, customer: "Michael R.", driver: "Shyam", time: "Today, 12:30 PM", pickup: "789 Park Blvd", dropoff: "321 Lake View Dr", fare: 9.50, cancelled: false, rating: 4, vehicle: "Honda Accord", paymentMethod: "Apple Pay" },

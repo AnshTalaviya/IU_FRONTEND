@@ -87,9 +87,9 @@ function App() {
   }, [user, navigate]);
 
   // Show Preloader
-  if (loading) {
-    return <Preloader onComplete={() => setLoading(false)} />;
-  }
+  // if (loading) {
+  //   return <Preloader onComplete={() => setLoading(false)} />;
+  // }
 
   return (
     <ThemeProvider>

@@ -55,14 +55,14 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h3 className="text-green-500 text-base font-semibold mb-4">Services</h3>
+            <h3 className="text-green-500 text-base font-semibold mb-4">Policy</h3>
             <ul className="space-y-3">
               {[
-                { href: '/Services/Auto_rides', label: 'Daily Rides' },
-                { href: '/Services/rentals', label: 'Rentals' },
-                // { href: '/Services/Intercity', label: 'Intercity' },
-                { href: '#', label: 'Delivery' },
-                { href: '/allcities', label: 'View All Cities' },
+                { href: '/privacypolicy', label: 'Privacy Policy IU' },
+                { href: '/servicepolicy', label: 'Service Agreement' },
+                { href: '/zerotolerancepolicy', label: 'Zero Tolerance Policy' },
+                { href: '/tc', label: 'IU Terms and Condition' },
+                { href: '/customertc', label: 'IU Customer Terms And Condition' },
               ].map(service => (
                 <li key={service.label}>
                   <Link to={service.href} className="flex items-center hover:text-green-500 transition-colors">

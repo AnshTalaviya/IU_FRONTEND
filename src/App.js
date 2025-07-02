@@ -72,6 +72,11 @@ import SubDashboard from "./components/SubDriver/page/SubDashboard";
 import SubEarning from "./components/SubDriver/page/SubEarning";
 import SubRideHistory from "./components/SubDriver/page/SubRideHistory";
 import SubDriverPanel from "./components/SubDriver/SubDriverPannle";
+import PrivacyPolicy from "./components/Policy/PrivacyPolicy";
+import TermsAndConditions from "./components/Policy/TermsAndConditions";
+import TermsAndConditions2 from "./components/Policy/TermsAndConditions2";
+import ZeroTolerancePolicy from "./components/Policy/ZeroTolerancePolicy";
+import ServicesAgreement from "./components/Policy/ServicesAgreement";
 
 
 function App() {
@@ -129,7 +134,7 @@ function App() {
                   <Route path="/" element={<HomePage />} />
                   <Route path="/select-vehicle" element={<VehicleSelector />} />
                   {/* <Route path="/" element={<Profile2 />} /> */}
-                  
+
                   {/* <Route path="/Services/carrides" element={<Car_Rides />} />
                   <Route path="/Services/rentals" element={<Rentals />} />
                   <Route path="/Services/Auto_rides" element={<Auto_Rides />} />
@@ -179,7 +184,12 @@ function App() {
                   <Route path="/parcel-details" element={<ParcelDetails />} />
                   <Route path="/estimate-results" element={<EstimateResults />} />
 
-
+                  {/* policy */}
+                  <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+                  <Route path="/tc" element={<TermsAndConditions />} />
+                  <Route path="/customertc" element={<TermsAndConditions2 />} />
+                  <Route path="/zerotolerancepolicy" element={<ZeroTolerancePolicy/>} />
+                  <Route path="/servicepolicy" element={<ServicesAgreement/>} />
                 </Routes>
               </Layout>
             }

@@ -60,7 +60,7 @@ export default function SelectParcel() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center text-white bg-gradient-to-br from-black via-gray-900 to-black">
+    <div className="min-h-screen mt-10 flex flex-col items-center text-white bg-gradient-to-br from-black via-gray-900 to-black">
       <div className="w-full max-w-2xl rounded-xl shadow-lg text-center p-4 sm:p-8">
 
         {/* Centered icon */}

@@ -87,9 +87,9 @@ function App() {
   }, [user, navigate]);
 
   // Show Preloader
-  // if (loading) {
-  //   return <Preloader onComplete={() => setLoading(false)} />;
-  // }
+  if (loading) {
+    return <Preloader onComplete={() => setLoading(false)} />;
+  }
 
   return (
     <ThemeProvider>
@@ -127,6 +127,7 @@ function App() {
                 <Routes>
                   {/* <Route path="/" element={<Invoice />} /> */}
                   <Route path="/" element={<HomePage />} />
+                  <Route path="/select-vehicle" element={<VehicleSelector />} />
                   {/* <Route path="/" element={<Profile2 />} /> */}
                   
                   {/* <Route path="/Services/carrides" element={<Car_Rides />} />

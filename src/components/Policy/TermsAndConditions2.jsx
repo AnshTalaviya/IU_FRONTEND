@@ -122,10 +122,7 @@ const TermsAndConditions2 = () => {
           </p>
         </section>
 
-        <footer className="mt-12 pt-6 border-t border-gray-700 text-sm text-gray-400">
-          <p>© {new Date().getFullYear()} SwiftSend Innovation Private Limited. All rights reserved.</p>
-          <p className="mt-2">These terms and conditions are subject to change without notice.</p>
-        </footer>
+       
       </div>
     </div>
   );

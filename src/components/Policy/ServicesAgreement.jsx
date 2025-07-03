@@ -74,7 +74,7 @@ const ServicesAgreement = () => {
 
           {/* Key Terms Table */}
           <section className="mb-8">
-            <h2 className="text-xl font-bold mb-4">Key Terms</h2>
+            <h2 className="text-xl font-bold mb-4"> Terms</h2>
             <div className="overflow-x-auto">
               <table className="min-w-full border border-gray-700">
                 <thead className="bg-gray-700">
@@ -89,7 +89,7 @@ const ServicesAgreement = () => {
                     <td className="border border-gray-700 p-2 text-gray-300">As per clause 3 (Term and Termination) of the Agreement.</td>
                   </tr>
                   <tr className="border-b border-gray-700 bg-gray-900">
-                    <td className="border border-gray-700 p-2">Services to be provided / availed</td>
+                    <td className="border border-gray-700 p-2">Services to be provided / availed, as the case may be</td>
                     <td className="border border-gray-700 p-2 text-gray-300">As below and in accordance with General Terms and Conditions of the Agreement</td>
                   </tr>
                   <tr className="border-b border-gray-700">
@@ -104,18 +104,10 @@ const ServicesAgreement = () => {
                     <td className="border border-gray-700 p-2">Name of the Owner of the Vehicle (if different from the driver)</td>
                     <td className="border border-gray-700 p-2 text-gray-300">As per Annexure IB and the documents attached to the Agreement.</td>
                   </tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
-
-          {/* Attachments Section */}
-          <section className="mb-8">
-            <h2 className="text-xl font-bold mb-4">Attachments forming part of the Agreement</h2>
-            <p className="mb-4 text-gray-300">
-              This Agreement contains following documents which are, and shall form, an integral part of this Agreement:
-            </p>
-            <ol className="list-decimal pl-6 space-y-2 text-gray-300">
+                  <tr>
+                    <td className="border border-gray-700 p-2">Attachments forming part of the Agreement</td>
+                    <td className="border border-gray-700 p-2 text-gray-300">This Agreement contains following documents which are, and shall form, an integral part of this Agreement:
+                       <ol className="list-decimal mt-2 pl-6 space-y-2 text-gray-300">
               <li>The General Terms and Conditions in Appendix A;</li>
               <li>The Additional Terms and Conditions for 2W (Two-Wheeler) in Appendix B;</li>
               <li>The Additional Terms and Conditions for 3W (Three-Wheeler) and 4W (Four-Wheeler) in Appendix C;</li>
@@ -124,10 +116,17 @@ const ServicesAgreement = () => {
             <p className="mt-4 text-gray-300">
               Reference to this Agreement shall include the applicable above documents and the General Terms and Conditions of Idhar Udhar.
             </p>
-            <p className="mt-4 text-gray-400 italic">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+               <p className="mt-4 text-gray-400 italic">
               (The Service Provider and Idhar Udhar are hereinafter collectively referred to as the "Parties" and individually each as a "Party" and the word Service Provider and You, shall include its driver(s), as well).
             </p>
+            </div>
           </section>
+
+        
 
           {/* Notice Section */}
           <section className="mb-8 bg-gray-900 border-l-4 border-yellow-500 p-4">

@@ -49,7 +49,7 @@ export default function RideCompleted() {
 
       <div className="bg-gray-900 p-8 md:p-10 rounded-2xl shadow-2xl w-full max-w-xl text-white text-center">
         <CheckCircle className="w-16 h-16 md:w-20 md:h-20 text-green-500 mx-auto mb-4" />
-        <h2 className="text-3xl font-bold mb-2">Ride Completed</h2>
+        <h2 className="text-3xl font-bold mb-2">Trip Completed</h2>
         <p className="text-gray-400 mb-6 text-lg">
           Thanks for riding with{" "}
           <span className="text-green-400 font-semibold">Idhar Udhar</span>

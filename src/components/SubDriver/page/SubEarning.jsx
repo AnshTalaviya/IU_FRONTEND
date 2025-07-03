@@ -90,7 +90,7 @@ const SubEarning = () => {
             <span className="text-sm text-gray-600 dark:text-gray-400">Total Earnings</span>
           </div>
           <div className="text-2xl font-bold">${totalEarnings.toFixed(2)}</div>
-          <div className="text-xs text-gray-400 dark:text-gray-500">{totalRides} rides</div>
+          <div className="text-xs text-gray-400 dark:text-gray-500">{totalRides} trips</div>
         </div>
 
         {/* Available for Cashout */}
@@ -113,7 +113,7 @@ const SubEarning = () => {
             <div className="bg-yellow-400/20 p-2 rounded-full">
               <i className="fas fa-chart-line text-yellow-400" />
             </div>
-            <span className="text-sm text-gray-600 dark:text-gray-400">Avg Per Ride</span>
+            <span className="text-sm text-gray-600 dark:text-gray-400">Avg Per Trip</span>
           </div>
           <div className="text-2xl font-bold">${avgPerRide.toFixed(2)}</div>
           <div className="text-xs text-gray-400 dark:text-gray-500">

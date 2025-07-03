@@ -774,7 +774,7 @@ const Settings = () => {
                       {key.split(/(?=[A-Z])/).join(' ')}
                     </div>
                     <div className="text-sm dark:text-gray-400 text-gray-600">
-                      {key === 'RideRequests' && 'Alerts for new ride requests'}
+                      {key === 'RideRequests' && 'Alerts for new trip requests'}
                       {key === 'Earnings' && 'Updates about your earnings'}
                       {key === 'Promotions' && 'Special offers and incentives'}
                       {key === 'AppUpdates' && 'Notifications about new features'}

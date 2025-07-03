@@ -54,7 +54,7 @@ const Profile = () => {
   ]);
 
   const [stats] = useState([
-    { label: 'Total Rides', value: '845', icon: 'route', className: 'dark:text-white text-gray-800' },
+    { label: 'Total Trips', value: '845', icon: 'route', className: 'dark:text-white text-gray-800' },
     { label: 'Acceptance Rate', value: '94%', icon: 'check-circle', className: 'text-green-400' },
     { label: 'Cancellation Rate', value: '1.2%', icon: 'times-circle', className: 'text-red-400' },
     { label: 'On-time Arrival', value: '97%', icon: 'clock', className: 'text-green-400' },
@@ -396,7 +396,7 @@ const Profile = () => {
                   ></i>
                 ))}
                 <span className="ml-2 font-medium dark:text-gray-300 text-gray-700">
-                  {profileData.rating} ({profileData.rides} rides)
+                  {profileData.rating} ({profileData.rides} Trips)
                 </span>
               </div>
 
@@ -435,7 +435,7 @@ const Profile = () => {
               </div>
 
               <p className="text-sm dark:text-gray-400 text-gray-600 mb-5 text-center">
-                You&#39;re a {profileData.level} level driver! Complete 20 more rides this month to reach
+                You&#39;re a {profileData.level} level driver! Complete 20 more trips this month to reach
                 Platinum.
               </p>
 

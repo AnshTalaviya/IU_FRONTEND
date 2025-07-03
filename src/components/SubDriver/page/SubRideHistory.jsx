@@ -60,7 +60,7 @@ export default function SubRideHistory() {
 
   return (
     <div className="p-6 min-h-screen mt-14 bg-gray-50 dark:bg-gray-950 text-gray-800 dark:text-white">
-      <h2 className="text-3xl font-bold mb-6">Ride History</h2>
+      <h2 className="text-3xl font-bold mb-6">Trip History</h2>
 
       {/* Top Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
@@ -90,7 +90,7 @@ export default function SubRideHistory() {
         </select>
 
         <select value={filter} onChange={(e) => setFilter(e.target.value)} className="px-4 py-2 rounded-lg border dark:border-gray-700 bg-white dark:bg-gray-800">
-          <option value="all">All Rides</option>
+          <option value="all">All Trips</option>
           <option value="completed">Completed</option>
           <option value="cancelled">Cancelled</option>
         </select>
@@ -131,7 +131,7 @@ export default function SubRideHistory() {
                     {renderStars(ride.rating)}
                   </div>
                 ) : ride.cancelled ? (
-                  <p className="text-red-500 pt-2">❌ Ride was cancelled</p>
+                  <p className="text-red-500 pt-2">❌Trip  was cancelled</p>
                 ) : (
                   <p className="text-gray-400 pt-2">No rating provided</p>
                 )}
@@ -139,7 +139,7 @@ export default function SubRideHistory() {
             )}
           </div>
         )) : (
-          <p className="text-center text-gray-500 dark:text-gray-400 mt-8">No rides match the selected criteria.</p>
+          <p className="text-center text-gray-500 dark:text-gray-400 mt-8">No trips match the selected criteria.</p>
         )}
       </div>
     </div>

@@ -122,7 +122,7 @@ const RideBooking = () => {
 
       {/* Ride Selection */}
       <div className="mx-2 min-h-full p-5 rounded-lg transition-all duration-300">
-        <h1 className="text-4xl font-semibold my-3">Choose a ride</h1>
+        <h1 className="text-4xl font-semibold my-3">Choose a trip</h1>
 
         <div className="space-y-4">
           {rides.map((ride) => (

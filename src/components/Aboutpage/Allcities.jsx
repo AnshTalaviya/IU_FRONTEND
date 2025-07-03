@@ -134,7 +134,7 @@ export default function Allcities() {
     <section className='w-full'>
       <div className="Allcities_header text-center w-full bg-[#16A34A] pt-25 pb-10">
         <h3 className='text-3xl md:text-4xl font-bold text-gray-900 dark:text-white'>Idhar Udhar Cities</h3>
-        <p className='text-white mt-4 text-lg mx-auto'>Discover all the cities where Idhar Udhar operates. Book a ride anywhere, anytime.</p>
+        <p className='text-white mt-4 text-lg mx-auto'>Discover all the cities where Idhar Udhar operates. Book a trip anywhere, anytime.</p>
         <div className="h-12 sm:w-140 size-[80%] border bg-white dark:bg-black text-gray-800 dark:text-gray-400 rounded-xl relative mx-auto mt-7">
           <i className="fas fa-search absolute text-md text-gray-500 dark:text-gray-400 top-[35%] left-3"></i>
         <input

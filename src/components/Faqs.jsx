@@ -16,7 +16,7 @@ const defaultFaqs = [
         answer: 'Visit the Play Store or App Store and search for "IdharUdhar Taxi". Download and install the app.',
     },
     {
-        question: 'What Should I Be Asking For First Ride?',
+        question: 'What Should I Be Asking For First Trip?',
         answer: 'Ask about safety procedures, estimated cost, and driver credentials.',
     },
     {
@@ -33,11 +33,11 @@ const defaultFaqs = [
     },
     {
         question: 'What is the cancellation policy?',
-        answer: 'You can cancel a ride within 5 minutes without any charge.',
+        answer: 'You can cancel a trip within 5 minutes without any charge.',
     },
     {
         question: 'Is there a loyalty or rewards program?',
-        answer: 'Yes, frequent riders get reward points redeemable for discounts.',
+        answer: 'Yes, frequent rs get reward points redeemable for discounts.',
     },
     {
         question: 'How do I contact customer support?',
@@ -46,88 +46,88 @@ const defaultFaqs = [
 ];
 
 const allFaqs = {
-    bike: [
-        {
-            question: 'What safety measures are in place for bike rides?',
-            answer: 'All riders must wear helmets and follow traffic rules strictly.',
-        },
-        {
-            question: 'Can I choose the type of bike?',
-            answer: 'Currently, the app assigns the nearest available bike automatically.',
-        },
-        {
-            question: 'Are helmets provided with bike rides?',
-            answer: 'Yes, helmets are provided and must be worn for your safety.',
-        },
-        {
-            question: 'Can I carry luggage on the bike ride?',
-            answer: 'Limited small luggage can be carried; large bags are not recommended.',
-        },
-        {
-            question: 'Are bike rides available 24/7?',
-            answer: 'Availability may vary by location, but we aim to provide 24/7 service.',
-        },
-        {
-            question: 'Is there a minimum fare for bike rides?',
-            answer: 'Yes, minimum fare applies based on the city and distance.',
-        },
-    ],
-    car: [
-        {
-            question: 'Are IdharUdhar cars air-conditioned?',
-            answer: 'Yes, all our cars are equipped with AC for your comfort.',
-        },
-        {
-            question: 'Can I schedule a car ride in advance?',
-            answer: 'Yes, you can schedule a ride up to 7 days in advance through the app.',
-        },
-        {
-            question: 'What types of cars are available?',
-            answer: 'We offer sedans, SUVs, and premium cars based on your preference.',
-        },
-        {
-            question: 'Is there an option for a female driver?',
-            answer: 'Yes, you can request a female driver for your ride through the app.',
-        },
-        {
-            question: 'Can I pay tolls or parking through the app?',
-            answer: 'Yes, toll and parking fees are included in your final bill.',
-        },
-        {
-            question: 'Are child seats available?',
-            answer: 'Child seats can be requested in advance for an additional charge.',
-        },
-        {
-            question: 'What happens if my ride is late?',
-            answer: 'You can track your driver in real-time and contact support for delays.',
-        },
-    ],
-    auto: [
-        {
-            question: 'Is meter fare applicable for auto rides?',
-            answer: 'We provide pre-estimated fares, so no meter charges apply.',
-        },
-        {
-            question: 'Can I share an auto ride with others?',
-            answer: 'Yes, shared ride options are available in select cities.',
-        },
-        {
-            question: 'Are autos sanitized regularly?',
-            answer: 'Yes, drivers sanitize autos daily to ensure passenger safety.',
-        },
-        {
-            question: 'How do I request an auto ride?',
-            answer: 'Select the auto ride option in the app and book instantly.',
-        },
-        {
-            question: 'Are auto rides available during peak hours?',
-            answer: 'Autos are available but fares may surge during peak times.',
-        },
-        {
-            question: 'Can I pay via digital wallets for auto rides?',
-            answer: 'Yes, digital wallet payments are accepted through the app.',
-        },
-    ],
+    // bike: [
+    //     {
+    //         question: 'What safety measures are in place for bike trips?',
+    //         answer: 'All riders must wear helmets and follow traffic rules strictly.',
+    //     },
+    //     {
+    //         question: 'Can I choose the type of bike?',
+    //         answer: 'Currently, the app assigns the nearest available bike automatically.',
+    //     },
+    //     {
+    //         question: 'Are helmets provided with bike trips?',
+    //         answer: 'Yes, helmets are provided and must be worn for your safety.',
+    //     },
+    //     {
+    //         question: 'Can I carry luggage on the bike trip?',
+    //         answer: 'Limited small luggage can be carried; large bags are not recommended.',
+    //     },
+    //     {
+    //         question: 'Are bike trips available 24/7?',
+    //         answer: 'Availability may vary by location, but we aim to provide 24/7 service.',
+    //     },
+    //     {
+    //         question: 'Is there a minimum fare for bike trips?',
+    //         answer: 'Yes, minimum fare applies based on the city and distance.',
+    //     },
+    // ],
+    // car: [
+    //     {
+    //         question: 'Are IdharUdhar cars air-conditioned?',
+    //         answer: 'Yes, all our cars are equipped with AC for your comfort.',
+    //     },
+    //     {
+    //         question: 'Can I schedule a car trip in advance?',
+    //         answer: 'Yes, you can schedule a trip up to 7 days in advance through the app.',
+    //     },
+    //     {
+    //         question: 'What types of cars are available?',
+    //         answer: 'We offer sedans, SUVs, and premium cars based on your preference.',
+    //     },
+    //     {
+    //         question: 'Is there an option for a female driver?',
+    //         answer: 'Yes, you can request a female driver for your trip through the app.',
+    //     },
+    //     {
+    //         question: 'Can I pay tolls or parking through the app?',
+    //         answer: 'Yes, toll and parking fees are included in your final bill.',
+    //     },
+    //     {
+    //         question: 'Are child seats available?',
+    //         answer: 'Child seats can be requested in advance for an additional charge.',
+    //     },
+    //     {
+    //         question: 'What happens if my trip is late?',
+    //         answer: 'You can track your driver in real-time and contact support for delays.',
+    //     },
+    // ],
+    // auto: [
+    //     {
+    //         question: 'Is meter fare applicable for auto trips?',
+    //         answer: 'We provide pre-estimated fares, so no meter charges apply.',
+    //     },
+    //     {
+    //         question: 'Can I share an auto trip with others?',
+    //         answer: 'Yes, shared trip options are available in select cities.',
+    //     },
+    //     {
+    //         question: 'Are autos sanitized regularly?',
+    //         answer: 'Yes, drivers sanitize autos daily to ensure passenger safety.',
+    //     },
+    //     {
+    //         question: 'How do I request an auto trip?',
+    //         answer: 'Select the auto trip option in the app and book instantly.',
+    //     },
+    //     {
+    //         question: 'Are auto trips available during peak hours?',
+    //         answer: 'Autos are available but fares may surge during peak times.',
+    //     },
+    //     {
+    //         question: 'Can I pay via digital wallets for auto trips?',
+    //         answer: 'Yes, digital wallet payments are accepted through the app.',
+    //     },
+    // ],
     courier: [
         {
             question: 'What items can I send via courier delivery?',
@@ -171,9 +171,9 @@ const Faqs = () => {
     const faqList = selectedRide ? allFaqs[selectedRide] : defaultFaqs;
 
     const rideTypes = [
-        { key: 'bike', label: 'Bike Ride' },
-        { key: 'car', label: 'Car Ride' },
-        { key: 'auto', label: 'Auto Ride' },
+        // { key: 'bike', label: 'Bike Trip' },
+        // { key: 'car', label: 'Car Trip' },
+        // { key: 'auto', label: 'Auto Trip' },
         { key: 'courier', label: 'Courier Delivery' },
     ];
 
@@ -257,7 +257,7 @@ const Faqs = () => {
                     {[{
                         Icon: IndianRupee,
                         title: "Best Price Guaranteed",
-                        desc: "Get the best rates for quality rides."
+                        desc: "Get the best rates for quality trips."
                     }, {
                         Icon: Headphones,
                         title: "24/7 Customer Care",
@@ -265,7 +265,7 @@ const Faqs = () => {
                     }, {
                         Icon: Calendar,
                         title: "Easy Bookings",
-                        desc: "Plan your ride effortlessly."
+                        desc: "Plan your trip effortlessly."
                     }].map(({ Icon, title, desc }, i) => (
                         <div key={i} className="flex flex-col items-center space-y-3 hover:scale-105 transition-transform">
                             <Icon className="w-12 h-12 border-2 rounded-full p-3 border-white" />
@@ -278,9 +278,9 @@ const Faqs = () => {
 
             {/* Call To Action */}
             <section className="text-[#166534] py-10 text-center px-4">
-                <h2 className="text-2xl sm:text-3xl font-bold mb-4">Ready to book your next ride?</h2>
+                <h2 className="text-2xl sm:text-3xl font-bold mb-4">Ready to book your next trip?</h2>
                 <p className="text-base sm:text-lg mb-6">
-                    Download the IdharUdhar Taxi App and ride smarter, safer, and faster.
+                    Download the IdharUdhar Taxi App and trip smarter, safer, and faster.
                 </p>
                 <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
                     <Link to="#" className="bg-black text-white px-5 py-3 rounded-md hover:bg-gray-800 transition text-sm">

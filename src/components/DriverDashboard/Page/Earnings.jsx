@@ -344,7 +344,7 @@ const Earnings = () => {
             <span className="text-sm dark:text-gray-400 text-gray-600">Total Earnings</span>
           </div>
           <div className="text-xl sm:text-2xl font-bold mb-1">${totalEarnings.toFixed(2)}</div>
-          <div className="text-xs dark:text-gray-500 text-gray-400">From {totalRides} rides</div>
+          <div className="text-xs dark:text-gray-500 text-gray-400">From {totalRides} trips</div>
         </div>
 
         <div className="dark:bg-gray-200/10 bg-white p-4 sm:p-6 rounded-lg hover:dark:bg-gray-200/15 hover:bg-gray-50 transition-all hover:shadow-lg dark:hover:shadow-gray-200/5 hover:shadow-gray-200/20">
@@ -366,7 +366,7 @@ const Earnings = () => {
             <div className="bg-yellow-400/20 p-2 rounded-full">
               <i className="fas fa-chart-line text-yellow-400 text-lg"></i>
             </div>
-            <span className="text-sm dark:text-gray-400 text-gray-600">Avg Per Ride</span>
+            <span className="text-sm dark:text-gray-400 text-gray-600">Avg Per Trip</span>
           </div>
           <div className="text-xl sm:text-2xl font-bold mb-1">${avgPerRide.toFixed(2)}</div>
           <div className="text-xs dark:text-gray-500 text-gray-400 flex items-center gap-1">
@@ -431,7 +431,7 @@ const Earnings = () => {
                 }}
                 formatter={(value, name) => {
                   if (name === 'earnings') return [`$${value}`, 'Earnings']
-                  if (name === 'rides') return [`${value} rides`, 'Rides']
+                  if (name === 'rides') return [`${value} rides`, 'Trips']
                   return [value, name]
                 }}
               />

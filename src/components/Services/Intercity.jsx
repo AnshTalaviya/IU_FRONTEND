@@ -154,7 +154,7 @@ export default function Intercity() {
                             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start min-w-[280px] sm:min-w-[320px]">
                                 <Link to="/book" className="w-full sm:w-auto">
                                     <button className="bg-white text-green-600 font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-lg transition duration-300 hover:bg-gray-100 hover:scale-105 w-full whitespace-nowrap text-sm sm:text-base">
-                                        Book an Intercity Ride
+                                        Book an Intercity Trip
                                     </button>
                                 </Link>
                                 <Link to="/safety" className="w-full sm:w-auto">
@@ -171,7 +171,7 @@ export default function Intercity() {
                     <div className="w-full lg:w-[60%] h-[40vh] sm:h-[50vh] lg:h-[70vh] relative overflow-hidden rounded-2xl shadow-2xl flex items-center justify-center">
                         <img
                             src="/images/Intercity_Ride.png"
-                            alt="Intercity Ride"
+                            alt="Intercity Trip"
                             className="w-full h-full object-cover rounded-2xl"
                         />
                         <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-black/50 z-10 rounded-2xl" />
@@ -266,7 +266,7 @@ export default function Intercity() {
             <section className="bg-gray-50 dark:bg-gray-800 py-10 px-0">
                 <div data-aos="zoom-in" className="text-center mb-10">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">Popular Intercity Routes</h2>
-                    <p className="text-gray-600 mt-2 dark:text-gray-300">Most traveled routes with fixed fares and comfortable rides</p>
+                    <p className="text-gray-600 mt-2 dark:text-gray-300">Most traveled routes with fixed fares and comfortable trips</p>
                 </div>
 
                 <div data-aos="fade-up" className="w-full">
@@ -346,7 +346,7 @@ export default function Intercity() {
                     className="text-3xl md:text-4xl font-bold text-gray-800 mb-3 dark:text-white"
                     data-aos="fade-up"
                 >
-                    Book Your Intercity Ride in 3 Simple Steps
+                    Book Your Intercity Trip in 3 Simple Steps
                 </motion.h2>
 
                 <motion.p
@@ -380,7 +380,7 @@ export default function Intercity() {
                 >
                     <Link to="/Book_ride">
                         <button className="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition">
-                            Book an Intercity Ride Now
+                            Book an Intercity Trip Now
                         </button>
                     </Link>
                 </motion.div>

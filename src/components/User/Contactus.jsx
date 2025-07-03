@@ -198,7 +198,7 @@ const ContactPage = () => {
           {[{
             Icon: IndianRupee,
             title: "Best Price Guaranteed",
-            desc: "Get the best rates for quality rides."
+            desc: "Get the best rates for quality trips."
           }, {
             Icon: Headphones,
             title: "24/7 Customer Care",
@@ -206,7 +206,7 @@ const ContactPage = () => {
           }, {
             Icon: Calendar,
             title: "Easy Bookings",
-            desc: "Plan your ride effortlessly."
+            desc: "Plan your trip effortlessly."
           }].map(({ Icon, title, desc }, i) => (
             <div key={i} className="bg-white/10 p-6 rounded-xl hover:scale-102 transition-transform">
               <Icon className="w-10 h-10 mx-auto mb-3 text-green-400" />

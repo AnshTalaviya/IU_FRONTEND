@@ -5,7 +5,7 @@ const AutoRide = () => {
   const rides = [
     {
       name: 'GreenAuto',
-      desc: 'Efficient three-wheeler auto rides',
+      desc: 'Efficient three-wheeler auto trips',
       price: 129,
       eta: '4 mins',
       capacity: 3,
@@ -31,11 +31,11 @@ const AutoRide = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-[#1F2937] flex items-center justify-center p-4">
       <div className="bg-[#1e293b] w-full max-w-2xl rounded-xl p-6 space-y-6 text-white shadow-lg">
-        <h2 className="text-2xl font-bold">Book Your Ride</h2>
+        <h2 className="text-2xl font-bold">Book Your Trip</h2>
 
         <div className="flex justify-between items-center">
           <div>
-            <h3 className="text-lg font-semibold">Available Rides</h3>
+            <h3 className="text-lg font-semibold">Available TRips</h3>
             <p className="text-sm text-gray-400">For immediate pickup</p>
           </div>
           <Link to="/book-ride">

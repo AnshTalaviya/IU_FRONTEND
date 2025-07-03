@@ -59,7 +59,7 @@ const Support = () => {
 
   const faqs = [
     {
-      question: "How do I get paid for my rides?",
+      question: "How do I get paid for my trip?",
       answer: "Payments are processed weekly and deposited directly to your chosen bank account every Monday. You can also cash out your earnings instantly for a small fee using the 'Cash Out' option on the Earnings page."
     },
     {
@@ -68,7 +68,7 @@ const Support = () => {
     },
     {
       question: "How do I report an issue with a rider?",
-      answer: "To report an issue with a rider, go to your Ride History, select the specific ride, and tap on 'Report an Issue'. You can also contact Support directly through the Support tab."
+      answer: "To report an issue with a rider, go to your trip History, select the specific trip, and tap on 'Report an Issue'. You can also contact Support directly through the Support tab."
     },
     {
       question: "What are the requirements to maintain my driver status?",
@@ -76,7 +76,7 @@ const Support = () => {
     },
     {
       question: "How do I qualify for driver incentives and bonuses?",
-      answer: "Driver incentives and bonuses are based on various factors including number of completed rides, time of day, and location. Check the Promotions section regularly for available incentives, which typically require meeting specific goals within a set timeframe."
+      answer: "Driver incentives and bonuses are based on various factors including number of completed trips, time of day, and location. Check the Promotions section regularly for available incentives, which typically require meeting specific goals within a set timeframe."
     }
   ]
 
@@ -108,7 +108,7 @@ const Support = () => {
       id: 'report',
       icon: <i className="fas fa-exclamation-circle text-2xl text-yellow-400" />,
       title: "Report an Issue",
-      description: "Issues with rides or passengers",
+      description: "Issues with trips or passengers",
       content: (
         <div className="p-4 space-y-4">
           <h3 className="font-semibold text-lg">Report an Issue</h3>
@@ -170,11 +170,11 @@ const Support = () => {
               <span className="font-medium dark:text-gray-200 text-gray-800">Weekend Warrior</span>
               <span className="bg-green-600 text-xs px-2 py-1 rounded">Active</span>
             </div>
-            <p className="text-sm mb-3 dark:text-gray-300 text-gray-600">Complete 20 rides between Fri-Sun to earn $100 bonus</p>
+            <p className="text-sm mb-3 dark:text-gray-300 text-gray-600">Complete 20 trips between Fri-Sun to earn $100 bonus</p>
             <div className="w-full dark:bg-gray-700 bg-gray-200 rounded-full h-2">
               <div className="bg-green-500 h-2 rounded-full" style={{ width: '45%' }}></div>
             </div>
-            <p className="text-xs text-right mt-1 dark:text-gray-400 text-gray-500">9/20 rides completed</p>
+            <p className="text-xs text-right mt-1 dark:text-gray-400 text-gray-500">9/20 trips completed</p>
           </div>
           <button className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg transition-colors">
             View All Promotions
@@ -188,7 +188,7 @@ const Support = () => {
     <div className="dark:bg-gray-950 bg-gray-50 min-h-screen p-4 md:p-8 dark:text-gray-100 text-gray-800">
       <div className="mb-8">
         <h1 className="text-3xl md:text-4xl font-bold mb-2">Support Center</h1>
-        <p className="dark:text-gray-400 text-gray-600">Get help with your account, rides, and payments</p>
+        <p className="dark:text-gray-400 text-gray-600">Get help with your account, trips, and payments</p>
       </div>
 
       <div className="flex border-b dark:border-gray-800 border-gray-300 mb-8 overflow-x-auto">
@@ -276,7 +276,7 @@ const Support = () => {
                         Response within 24 hours
                       </p>
                       <p className="text-green-500 font-mono break-all">
-                        support@greenride.com
+                        support@trip.com
                       </p>
                     </div>
                   </div>

@@ -9,12 +9,12 @@ export default function BikeRide() {
       <div className="bg-[#1f2a3b] rounded-2xl w-full max-w-3xl p-6 sm:p-8 shadow-xl">
 
         <div className="flex justify-between items-center mb-4">
-          <h1 className="text-2xl font-bold">Book Your Ride</h1>
+          <h1 className="text-2xl font-bold">Book Your Trip</h1>
         </div>
 
         <div className="flex justify-between items-center mb-4">
           <div>
-            <h2 className="text-xl font-semibold">Available Rides</h2>
+            <h2 className="text-xl font-semibold">Available Trip</h2>
             <p className="text-sm text-gray-400">
              For immediate pickup
             </p>
@@ -39,7 +39,7 @@ export default function BikeRide() {
               <div>
                 <p className="font-semibold text-white text-lg">GreenBike</p>
                 <p className="text-sm text-gray-400">
-                  Quick & affordable bike rides
+                  Quick & affordable bike trips
                 </p>
               </div>
             </div>

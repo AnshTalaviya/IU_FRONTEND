@@ -36,7 +36,7 @@ const HeroSafety = () => {
     },
     {
       icon: <Shield size={36} />,
-      title: "Ride Insurance",
+      title: "Trip Insurance",
       desc: "All trips include insurance to protect you from accidents or emergencies.",
     },
     {
@@ -60,7 +60,7 @@ const HeroSafety = () => {
     {
       icon: <ThumbsUp size={36} />,
       title: "Give Feedback",
-      desc: "Help us maintain safety by rating your ride and reporting any concerns quickly.",
+      desc: "Help us maintain safety by rating your trip and reporting any concerns quickly.",
     },
   ];
 
@@ -78,7 +78,7 @@ const HeroSafety = () => {
             Our <span className="text-green-400">Commitment</span> to Safety
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-12">
-            At IdharUdhar, safety is not just a feature — it's the foundation of every ride.
+            At IdharUdhar, safety is not just a feature — it's the foundation of every trip.
             We're dedicated to proactive prevention, real-time support, and peace of mind.
           </p>
         </motion.div>

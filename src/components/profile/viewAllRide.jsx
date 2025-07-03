@@ -4,7 +4,7 @@ import { FaCarSide, FaMotorcycle, FaTruckPickup } from 'react-icons/fa';
 const rides = [
   {
     id: 1,
-    type: 'GreenCar Ride',
+    type: 'GreenCar Trip',
     icon: <FaCarSide className="text-blue-400" />,
     status: 'Upcoming',
     date: 'Jun 15, 2023 - 09:30 AM',
@@ -14,7 +14,7 @@ const rides = [
   },
   {
     id: 2,
-    type: 'GreenBike Ride',
+    type: 'GreenBike Trip',
     icon: <FaMotorcycle className="text-green-400" />,
     status: 'Completed',
     date: 'Jun 14, 2023 - 06:15 PM',
@@ -24,7 +24,7 @@ const rides = [
   },
   {
     id: 3,
-    type: 'GreenAuto Ride',
+    type: 'GreenAuto Trip',
     icon: <FaTruckPickup className="text-yellow-400" />,
     status: 'Completed',
     date: 'Jun 12, 2023 - 11:45 AM',
@@ -60,7 +60,7 @@ const ViewAllRides = () => {
 
   return (
     <div className="max-w-4xl mx-auto mt-10 p-6 text-white">
-      <h2 className="text-2xl font-bold mb-6">My Rides</h2>
+      <h2 className="text-2xl font-bold mb-6">My Trips</h2>
 
       {/* Tabs */}
       <div className="flex bg-gray-800 rounded-lg overflow-hidden mb-6">
@@ -82,7 +82,7 @@ const ViewAllRides = () => {
       {/* Ride List */}
       <div className="space-y-4">
         {filteredRides.length === 0 ? (
-          <div className="text-center text-gray-400">No rides found.</div>
+          <div className="text-center text-gray-400">No trips found.</div>
         ) : (
           filteredRides.map((ride) => (
             <div

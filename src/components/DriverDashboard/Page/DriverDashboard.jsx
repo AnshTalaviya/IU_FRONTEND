@@ -31,8 +31,8 @@
 //         <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Welcome back, {fullName} 👋</h1>
 //         <p className="text-gray-600 dark:text-gray-400 mt-1">
 //           {Isonline
-//             ? 'You are online and ready to receive ride requests.'
-//             : 'You are currently offline. Go online to start receiving rides.'}
+//             ? 'You are online and ready to receive trip requests.'
+//             : 'You are currently offline. Go online to start receiving trips.'}
 //         </p>
 //       </div>
 
@@ -59,7 +59,7 @@
 //             icon: 'fas fa-dollar-sign',
 //             color: 'text-green-500',
 //             value: '$86.50',
-//             sub: '7 rides',
+//             sub: '7 trips',
 //           },
 //           {
 //             title: 'Ratings',
@@ -103,7 +103,7 @@
 //       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 //         {/* Recent Rides */}
 //         <div className="md:col-span-2 bg-white dark:bg-gray-800 p-4 rounded-xl shadow">
-//           <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">Recent Rides</h2>
+//           <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">Recent Trips</h2>
 //           <div className="space-y-3">
 //             {recentRides.map((ride, idx) => (
 //               <div
@@ -254,7 +254,7 @@ function SummaryCard1({
       {/* Ride Stats */}
       <div className="grid grid-cols-2 gap-4 text-sm text-gray-200 mt-2">
         <div className="flex justify-between">
-          <span>Rides Completed</span>
+          <span>Trips Completed</span>
           <span className="font-semibold text-white">{rides}</span>
         </div>
         <div className="flex justify-between">
@@ -337,8 +337,8 @@ export default function DriverDashboard() {
         <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Welcome back, {fullName} 👋</h1>
         <p className="text-gray-600 dark:text-gray-400 mt-1">
           {Isonline
-            ? 'You are online and ready to receive ride requests.'
-            : 'You are currently offline. Go online to start receiving rides.'}
+            ? 'You are online and ready to receive trip requests.'
+            : 'You are currently offline. Go online to start receiving trips.'}
         </p>
       </div>
 

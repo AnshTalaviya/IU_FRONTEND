@@ -57,7 +57,7 @@ const RideTrackingPage = () => {
         {/* Header */}
         <div className="bg-gray-800 p-6 text-center border-b border-gray-700">
           <h2 className="text-xl font-semibold">Driver is on the way</h2>
-          <p className="text-gray-400 text-sm mt-1">Tracking your ride in real-time</p>
+          <p className="text-gray-400 text-sm mt-1">Tracking your trip in real-time</p>
         </div>
 
         {/* Progress Bar */}
@@ -131,7 +131,7 @@ const RideTrackingPage = () => {
               <div>
                 <p className="font-semibold text-white">Trip Safety</p>
                 <p className="text-gray-400 text-xs">
-                  Share your trip status with friends and family for added safety. Your ride is protected with insurance coverage.
+                  Share your trip status with friends and family for added safety. Your trip is protected with insurance coverage.
                 </p>
                 <button className="mt-2 text-xs text-green-400 hover:underline">Share trip status</button>
               </div>
@@ -148,8 +148,8 @@ const RideTrackingPage = () => {
         {showPopup && (
           <div className="fixed bottom-6 right-6 z-50">
             <div className="bg-black text-white px-6 py-4 rounded-xl shadow-lg animate-bounce-in">
-              <p className="font-semibold">Ride Confirmed</p>
-              <p className="text-sm text-gray-300">Your ride has been booked successfully.</p>
+              <p className="font-semibold">Trip Confirmed</p>
+              <p className="text-sm text-gray-300">Your trip has been booked successfully.</p>
             </div>
           </div>
         )}

@@ -15,7 +15,7 @@ const PaymentPage = () => {
     { key: "card", label: "Credit / Debit Card", icon: <FaCreditCard size={20} /> },
     { key: "upi", label: "UPI", icon: <FaGooglePay size={20} /> },
     { key: "wallet", label: "Wallet", icon: <FaWallet size={20} /> },
-    { key: "credits", label: "Ride Credits", icon: <FaGift size={20} /> },
+    { key: "credits", label: "Trip Credits", icon: <FaGift size={20} /> },
     { key: "cod", label: "Pay to Driver", icon: <FaMoneyBillWave size={20} /> },
   ];
 
@@ -30,7 +30,7 @@ const PaymentPage = () => {
             Select Payment Option
           </h1>
           <p className="text-sm text-gray-400">
-            Complete your ride with your preferred method
+            Complete your trip with your preferred method
           </p>
         </div>
 
@@ -104,7 +104,7 @@ const PaymentPage = () => {
                 </p>
                 <Link to={"/payment-success"}>
                 <button className="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg font-bold shadow-md mt-4 transition-all">
-                  Use Ride Credits
+                  Use Trip Credits
                 </button>
                 </Link>
               </div>
@@ -113,7 +113,7 @@ const PaymentPage = () => {
             {selectedMethod === "cod" && (
               <div className="space-y-3 text-center animate-fade-in">
                 <p className="text-lg text-gray-400">
-                  Pay cash to the driver after your ride.
+                  Pay cash to the driver after your trip.
                 </p>
                 <Link to={"/payment-success"}>
                 <button className="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg font-bold shadow-md mt-4 transition-all">

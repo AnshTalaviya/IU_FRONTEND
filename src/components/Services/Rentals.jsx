@@ -23,14 +23,14 @@ export default function Rentals() {
     },
     {
       image: "/images/Idhar Udhar Car 3.png",
-      title: "Premium Rides",
+      title: "Premium Trips",
       subtitle: "Experience luxury on wheels",
       bgColor: "from-blue-600/80 to-blue-800/80"
     },
     {
       image: "/images/Idhar Udhar Car 1.png",
       title: "24/7 Service",
-      subtitle: "Your trusted ride partner anytime, anywhere",
+      subtitle: "Your trusted trip partner anytime, anywhere",
       bgColor: "from-purple-600/80 to-purple-800/80"
     }
   ];

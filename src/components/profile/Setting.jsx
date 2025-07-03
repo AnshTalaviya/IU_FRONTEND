@@ -88,18 +88,18 @@ export default function SettingsPage() {
                     {Object.entries(notifications).map(([key, value]) => {
                         const labels = {
                             promotions: "Promotions & Offers",
-                            rideUpdates: "Ride Updates",
+                            rideUpdates: "Trip Updates",
                             partnerOffers: "Partner Offers",
                             news: "News & Features",
-                            rideSummaries: "Ride Summaries",
+                            rideSummaries: "Trip Summaries",
                             systemAlerts: "System Alerts",
                         };
                         const descriptions = {
                             promotions: "Receive special deals and discounts",
-                            rideUpdates: "Notifications about your rides",
+                            rideUpdates: "Notifications about your trips",
                             partnerOffers: "Receive offers from our partners",
                             news: "Updates about new services",
-                            rideSummaries: "Get summaries after each ride",
+                            rideSummaries: "Get summaries after each trip",
                             systemAlerts: "Important system notifications",
                         };
                         return (

@@ -32,14 +32,14 @@ export default function Bike_Rides() {
         },
         {
             title: "Safety First",
-            desc: "All rides come with complimentary helmets, trained riders, and real-time tracking",
+            desc: "All trips come with complimentary helmets, trained riders, and real-time tracking",
             icon: (
                 <path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-4z" />
             ),
         },
         {
             title: "Affordable & Fast",
-            desc: "Our bike rides are the most cost-effective and quickest way to reach nearby destinations",
+            desc: "Our bike trips are the most cost-effective and quickest way to reach nearby destinations",
             icon: (
                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
             ),
@@ -50,14 +50,14 @@ export default function Bike_Rides() {
     const slides = [
         {
             title: "GreenBike Standard",
-            subtitle: "Reliable and affordable Bike rides for everyday travel",
+            subtitle: "Reliable and affordable Bike trips for everyday travel",
             image: "/images/Auto_rides.png"
 
 
         },
         {
             title: "GreenBike Premium",
-            subtitle: "Comfort with style – premium Bike rides for your urban lifestyle",
+            subtitle: "Comfort with style – premium Bike trips for your urban lifestyle",
             image: "/images/auto2.jpg"
         },
     ];
@@ -110,7 +110,7 @@ export default function Bike_Rides() {
                                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start min-w-[280px] sm:min-w-[320px]">
                                     <Link to="/book" className="w-full sm:w-auto">
                                         <button className="bg-white text-green-600 font-semibold px-4 sm:px-6 py-2 sm:py-3 transition-all duration-300 ease-in-out transform hover:scale-105 rounded-lg shadow-lg w-full whitespace-nowrap text-sm sm:text-base">
-                                            Book a Ride
+                                            Book a Trip
                                         </button>
                                     </Link>
                                     <Link to="/safety" className="w-full sm:w-auto">
@@ -329,13 +329,13 @@ export default function Bike_Rides() {
                             <motion.h2
                                 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight"
                             >
-                                Ready for a Quick Ride?
+                                Ready for a Quick Trip?
                             </motion.h2>
 
                             <motion.p
                                 className="text-base sm:text-lg text-white/90 leading-relaxed"
                             >
-                                Download our app and book your first bike ride with a special discount. Use code FIRSTBIKE for 30% off.
+                                Download our app and book your first bike trip with a special discount. Use code FIRSTBIKE for 30% off.
 
                             </motion.p>
 

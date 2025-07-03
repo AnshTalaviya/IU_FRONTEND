@@ -25,8 +25,8 @@ export default function SubDriverPanel() {
             icon: "fas fa-money-bill-wave"
         },
         {
-            name: "Ride History",
-            navigation: "subridehistory",
+            name: "Trip History",
+            navigation: "subtriphistory",
             icon: "fas fa-history"
         },
         {

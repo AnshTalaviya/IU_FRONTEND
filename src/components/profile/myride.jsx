@@ -58,7 +58,7 @@ const RideCard = ({ ride }) => {
 
             <div className="flex gap-2 mt-4 ml-10">
                 {ride.status === "Upcoming" && (
-                    <button className="px-3 py-1 rounded bg-green-600 text-white text-sm">Track Ride</button>
+                    <button className="px-3 py-1 rounded bg-green-600 text-white text-sm">Track Trip</button>
                 )}
                 <button className="px-3 py-1 rounded border border-gray-400 text-white text-sm">View Details</button>
                 {ride.status === "Completed" && (
@@ -73,9 +73,9 @@ export default function RecentRides() {
     return (
         <div className="p-6 text-white min-h-screen">
             <div className="flex justify-between items-center mb-6">
-                <h2 className="text-xl font-semibold">Your Recent Rides</h2>
+                <h2 className="text-xl font-semibold">Your Recent Trips</h2>
                 <Link to={"/ViewAllRides"}>
-                    <button className="text-sm border border-gray-600 px-3 py-1 rounded text-white">View All Rides</button>
+                    <button className="text-sm border border-gray-600 px-3 py-1 rounded text-white">View All Trips</button>
                 </Link>
             </div>
 
@@ -87,7 +87,7 @@ export default function RecentRides() {
 
             <div className="mt-8 text-center">
                 <button className="bg-green-600 text-white px-6 py-2 rounded text-sm">
-                    Book a New Ride
+                    Book a New Trip
                 </button>
             </div>
         </div>

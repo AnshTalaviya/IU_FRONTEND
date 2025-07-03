@@ -2,16 +2,16 @@ import { useState } from "react";
 
 const notifications = [
   {
-    title: "Ride Completed",
-    description: "Your ride with Rahul has been completed. Rate your experience!",
+    title: "Trip Completed",
+    description: "Your trip with Rahul has been completed. Rate your experience!",
     time: "5 minutes ago",
-    type: "Rides",
+    type: "Trips",
     icon: "🚗",
     unread: true,
   },
   {
     title: "Weekend Offer",
-    description: "Enjoy 20% off on all rides this weekend using code WEEKEND20",
+    description: "Enjoy 20% off on all trips this weekend using code WEEKEND20",
     time: "2 hours ago",
     type: "Promotions",
     icon: "🎁",
@@ -19,7 +19,7 @@ const notifications = [
   },
   {
     title: "Payment Successful",
-    description: "Your payment of ₹249 for the last ride has been processed successfully",
+    description: "Your payment of ₹249 for the last trip has been processed successfully",
     time: "3 hours ago",
     type: "Payments",
     icon: "💳",
@@ -35,7 +35,7 @@ const notifications = [
   },
   {
     title: "New Feature",
-    description: "You can now schedule rides up to 7 days in advance",
+    description: "You can now schedule trips up to 7 days in advance",
     time: "3 days ago",
     type: "System",
     icon: "🆕",
@@ -71,7 +71,7 @@ export default function Notifications() {
       {/* Filter Tabs with Horizontal Scroll */}
       <div className="overflow-x-auto no-scrollbar">
         <div className="flex gap-2 mb-4 w-max">
-          {["All", "Rides", "Promotions", "Payments", "System"].map((tab) => (
+          {["All", "Trips", "Promotions", "Payments", "System"].map((tab) => (
             <button
               key={tab}
               onClick={() => setFilter(tab)}

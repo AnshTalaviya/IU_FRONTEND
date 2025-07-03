@@ -21,7 +21,7 @@ const Footer = () => {
               <Logo className="ml-2 text-green-500" />
             </div>
             <p className="mt-4 mb-6">
-              Your premium eco-friendly ride-sharing service. Available 24/7 in over 500+ cities nationwide.
+              Your premium eco-friendly trip-sharing service. Available 24/7 in over 500+ cities nationwide.
             </p>
             <div className="flex gap-4">
               <a href="https://www.facebook.com/" className="hover:text-green-500 transition-colors" aria-label="Facebook"><Facebook size={20} /></a>
@@ -39,7 +39,7 @@ const Footer = () => {
               {[
                 { href: '/', label: 'Home' },
                 { href: '/about', label: 'About Us' },
-                { href: '/Services/carrides', label: 'Services' },
+                { href: '/services', label: 'Services' },
                 { href: '/Safety', label: 'Safety' },
                 { href: '/signup', label: 'Become a Driver' },
                 { href: '/faqs', label: 'FAQs' },
@@ -98,16 +98,12 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-sm">
+        <div className="border-t border-gray-800 py-8 flex justify-center items-center">
+          <div className="flex flex-col md:flex-row items-center gap-4 text-sm text-center">
             <p>&copy; {new Date().getFullYear()} IdharUdhar. All rights reserved.</p>
-            <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-2 sm:space-y-0">
-              <Link to="" className="hover:text-white transition-colors">Terms of Service</Link>
-              <Link to="" className="hover:text-white transition-colors">Privacy Policy</Link>
-              <Link to="" className="hover:text-white transition-colors">Cookie Policy</Link>
-            </div>
           </div>
         </div>
+
       </div>
     </footer>
   );

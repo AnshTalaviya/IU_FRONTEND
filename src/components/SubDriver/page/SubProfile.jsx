@@ -46,7 +46,7 @@ const SubProfile = () => {
   ];
 
   const stats = [
-    { label: 'Total Rides', value: '845', icon: 'route', className: 'dark:text-white text-gray-800' },
+    { label: 'Total Trips', value: '845', icon: 'route', className: 'dark:text-white text-gray-800' },
     { label: 'Acceptance Rate', value: '94%', icon: 'check-circle', className: 'text-green-400' },
     { label: 'Cancellation Rate', value: '1.2%', icon: 'times-circle', className: 'text-red-400' },
     { label: 'On-time Arrival', value: '97%', icon: 'clock', className: 'text-green-400' },
@@ -133,7 +133,7 @@ const SubProfile = () => {
                   ></i>
                 ))}
                 <span className="ml-2 font-medium dark:text-gray-300 text-gray-700">
-                  {profileData.rating} ({profileData.rides} rides)
+                  {profileData.rating} ({profileData.rides} trips)
                 </span>
               </div>
             </div>
@@ -158,7 +158,7 @@ const SubProfile = () => {
                 </div>
               </div>
               <p className="text-sm dark:text-gray-400 text-gray-600 mb-5 text-center">
-                You're a {profileData.level} level driver! Complete 20 more rides this month to reach Platinum.
+                You're a {profileData.level} level driver! Complete 20 more trips this month to reach Platinum.
               </p>
               <div className="w-full">
                 <div className="flex justify-between dark:text-gray-400 text-gray-600 text-xs mb-1">
@@ -201,7 +201,7 @@ const SubProfile = () => {
                   </div>
                 </div>
                 <div className="mt-4 text-sm space-y-1">
-                  <p className="flex justify-between dark:text-gray-300 text-gray-700"><span>Rides</span> <span>{sd.rides}</span></p>
+                  <p className="flex justify-between dark:text-gray-300 text-gray-700"><span>Trips</span> <span>{sd.rides}</span></p>
                   <p className="flex justify-between dark:text-gray-300 text-gray-700"><span>Rating</span> <span>{sd.rating} ⭐</span></p>
                   <p className="flex justify-between dark:text-gray-300 text-gray-700"><span>Level</span> <span className={`text-${getLevelColor(sd.level)} font-medium`}>{sd.level} (Lv {sd.levelNumber})</span></p>
                 </div>
@@ -342,7 +342,7 @@ const SubdriverModal = ({ subdriver, onClose }) => (
       </h3>
       <div className="space-y-3 text-sm">
         <p className="text-gray-700 dark:text-gray-300"><strong>Phone:</strong> {subdriver.phone}</p>
-        <p className="text-gray-700 dark:text-gray-300"><strong>Rides:</strong> {subdriver.rides}</p>
+        <p className="text-gray-700 dark:text-gray-300"><strong>Trips:</strong> {subdriver.rides}</p>
         <p className="text-gray-700 dark:text-gray-300"><strong>Rating:</strong> {subdriver.rating}</p>
         <p className="text-gray-700 dark:text-gray-300"><strong>Level:</strong> {subdriver.level} (Lv {subdriver.levelNumber})</p>
       </div>

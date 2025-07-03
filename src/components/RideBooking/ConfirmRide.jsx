@@ -45,7 +45,7 @@ const ConfirmRide = ({
       }`}
     >
       <div className="bg-[#1C2431] w-full max-w-2xl rounded-xl p-8 shadow-2xl">
-        <h2 className="text-2xl font-semibold mb-1">Book Your Ride</h2>
+        <h2 className="text-2xl font-semibold mb-1">Book Your Trip</h2>
         <p className="text-sm text-gray-400 mb-4">
           {pickupLocation} to {dropLocation}{" "}
           <Link to={"/book"}>

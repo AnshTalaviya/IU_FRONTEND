@@ -41,7 +41,7 @@ const Footer = () => {
                 { href: '/about', label: 'About Us' },
                 { href: '/services', label: 'Services' },
                 { href: '/Safety', label: 'Safety' },
-                { href: '/signup', label: 'Become a Driver' },
+  { href: '/signup', label: 'Become a Driver' },
                 { href: '/faqs', label: 'FAQs' },
               ].map(link => (
                 <li key={link.href}>

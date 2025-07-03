@@ -17,7 +17,7 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className='justify-center flex'>
-              <img src="./images/logo.png" width={"40px"} alt="" />
+              <img src="/images/Idhar Udhar Logo.png" width={"40px"} alt="" />
               <Logo className="ml-2 text-green-500" />
             </div>
             <p className="mt-4 mb-6">

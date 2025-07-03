@@ -60,7 +60,7 @@ export default function SubRideHistory() {
 
   return (
     <div className="p-6 min-h-screen mt-14 bg-gray-50 dark:bg-gray-950 text-gray-800 dark:text-white">
-      <h2 className="text-3xl font-bold mb-6">Trip History</h2>
+      <h2 className="text-3xl font-bold mb-6">Trips History</h2>
 
       {/* Top Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
@@ -131,7 +131,7 @@ export default function SubRideHistory() {
                     {renderStars(ride.rating)}
                   </div>
                 ) : ride.cancelled ? (
-                  <p className="text-red-500 pt-2">❌Trip  was cancelled</p>
+                  <p className="text-red-500 pt-2">❌ Trips was cancelled</p>
                 ) : (
                   <p className="text-gray-400 pt-2">No rating provided</p>
                 )}

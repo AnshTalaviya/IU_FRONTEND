@@ -34,11 +34,11 @@ export default function SubDashboard() {
         vehicleNumber: 'GJ01BK0001',
         vehicleType: 'Bike',
         earnings: 46.25,
-        trips: 5,
+        rides: 5,
         rating: 4.7,
         acceptance: '92%',
         onlineHours: '3.5',
-        recentTripss: [
+        recentRides: [
           { earning: 10.25, time: '8 mins ago', status: 'completed' },
           { time: '25 mins ago', status: 'cancelled' },
           { earning: 18.00, time: '1 hour ago', status: 'completed' },
@@ -49,11 +49,11 @@ export default function SubDashboard() {
         vehicleNumber: 'GJ01BK0002',
         vehicleType: 'Bike',
         earnings: 39.75,
-        trips: 3,
+        rides: 3,
         rating: 4.3,
         acceptance: '88%',
         onlineHours: '2.8',
-        recentTrips: [
+        recentRides: [
           { earning: 12.00, time: '12 mins ago', status: 'completed' },
           { earning: 15.00, time: '40 mins ago', status: 'completed' },
           { time: '1 hour ago', status: 'cancelled' },
@@ -64,11 +64,11 @@ export default function SubDashboard() {
         vehicleNumber: 'GJ01BK4951',
         vehicleType: 'Bike',
         earnings: 79.75,
-        trips: 7,
+        rides: 7,
         rating: 4.9,
         acceptance: '88%',
         onlineHours: '2.8',
-        recentTrips: [
+        recentRides: [
           { earning: 12.00, time: '12 mins ago', status: 'completed' },
           { earning: 15.00, time: '40 mins ago', status: 'completed' },
           { time: '1 hour ago', status: 'cancelled' },
@@ -83,7 +83,7 @@ export default function SubDashboard() {
         license: `BIKE-LIC-00${i + 1}`,
         vehicleNumber: `GJ01BK${1000 + i}`,
         earnings: (40 + Math.random() * 60).toFixed(2) * 1,
-        trips: 3 + Math.floor(Math.random() * 7),
+        rides: 3 + Math.floor(Math.random() * 7),
         rating: (4 + Math.random()).toFixed(1) * 1,
         acceptance: `${85 + Math.floor(Math.random() * 15)}%`,
         onlineHours: (2 + Math.random() * 3).toFixed(1),
@@ -100,7 +100,7 @@ export default function SubDashboard() {
       icon: 'fas fa-dollar-sign',
       color: 'text-green-500',
       value: `₹${details.earnings}`,
-      sub: `${details.trips} trips`,
+      sub: `${details.rides} trips`,
     },
     {
       title: 'Ratings',
@@ -146,13 +146,13 @@ export default function SubDashboard() {
 
   // Combine all recent rides from all drivers
   const allRecentRides = usedDetails.flatMap((d, idx) =>
-    d.recentTrips.map(ride => ({
+    d.recentRides.map(ride => ({
       ...ride,
       driver: sortedSubdrivers[idx]?.fullName || `Driver ${idx + 1}`,
     }))
   );
   // Total rides
-  const totalRides = usedDetails.reduce((sum, d) => sum + d.trips, 0);
+  const totalRides = usedDetails.reduce((sum, d) => sum + d.rides, 0);
 
   return (
     <div className="bg-gray-100 dark:bg-gray-900 min-h-screen px-4 sm:px-6 py-6 space-y-16 transition-all">
@@ -193,7 +193,7 @@ export default function SubDashboard() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
           {/* Combined Recent Rides */}
           <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-xl shadow">
-            <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">All Drivers - Recent Rides</h2>
+            <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">All Drivers - Recent Trips</h2>
             <div className="space-y-3 max-h-64 overflow-y-auto pr-2">
               {allRecentRides.map((ride, idx) => (
                 <div
@@ -210,7 +210,7 @@ export default function SubDashboard() {
                     </div>
                     <div>
                       <p className="text-gray-800 dark:text-white font-medium capitalize">
-                        {ride.driver} - Ride {ride.status}
+                        {ride.driver} - Trip {ride.status}
                       </p>
                       <p className="text-xs text-gray-500 dark:text-gray-400">{ride.time}</p>
                     </div>
@@ -302,7 +302,7 @@ export default function SubDashboard() {
                       Today's Earnings: ₹{details.earnings}
                     </p>
                     <p className="text-xs text-gray-500 dark:text-gray-400">
-                      {details.trips} trips • {details.onlineHours}h online
+                      {details.rides} trips • {details.onlineHours}h online
                     </p>
                   </div>
                   <i className={`fas fa-chevron-${isExpanded ? 'up' : 'down'} text-gray-400`}></i>
@@ -345,7 +345,7 @@ export default function SubDashboard() {
                       <div className="md:col-span-2 bg-white dark:bg-gray-800 p-4 rounded-xl shadow">
                         <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">Recent Trips</h2>
                         <div className="space-y-3">
-                          {details.recentTrips.map((ride, idx) => (
+                          {details.recentRides.map((ride, idx) => (
                             <div
                               key={idx}
                               className="flex items-center justify-between border border-gray-200 dark:border-gray-700 rounded-lg px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700 transition"

@@ -452,7 +452,7 @@ export default function RideHistory() {
                                         <div className="flex items-center gap-4">
                                             <div className="text-center">
                                                 <p className='dark:text-gray-400 text-gray-600 text-sm'>Fare</p>
-                                                <p className='text-green-500 font-medium'>${ride.fare.toFixed(2)}</p>
+                                                <p className='text-green-500 font-medium'>₹{ride.fare.toFixed(2)}</p>
                                             </div>
                                             <div className="text-center">
                                                 <p className='dark:text-gray-400 text-gray-600 text-sm'>Distance</p>

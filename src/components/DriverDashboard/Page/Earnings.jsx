@@ -210,7 +210,7 @@ const Earnings = () => {
                 <div className="mb-4">
                   <label className="block text-sm font-medium mb-2 dark:text-gray-300 text-gray-700">Amount</label>
                   <div className="relative">
-                    <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">$</span>
+                    <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">₹</span>
                     <input
                       type="number"
                       value={cashOutAmount}
@@ -219,7 +219,7 @@ const Earnings = () => {
                     />
                   </div>
                   <p className="text-xs mt-1 dark:text-gray-400 text-gray-500">
-                    Available: ${availableForCashOut.toFixed(2)}
+                    Available: ₹{availableForCashOut.toFixed(2)}
                   </p>
                 </div>
                 
@@ -343,7 +343,7 @@ const Earnings = () => {
             </div>
             <span className="text-sm dark:text-gray-400 text-gray-600">Total Earnings</span>
           </div>
-          <div className="text-xl sm:text-2xl font-bold mb-1">${totalEarnings.toFixed(2)}</div>
+          <div className="text-xl sm:text-2xl font-bold mb-1">₹{totalEarnings.toFixed(2)}</div>
           <div className="text-xs dark:text-gray-500 text-gray-400">From {totalRides} trips</div>
         </div>
 
@@ -354,7 +354,7 @@ const Earnings = () => {
             </div>
             <span className="text-sm dark:text-gray-400 text-gray-600">Available for Cashout</span>
           </div>
-          <div className="text-xl sm:text-2xl font-bold mb-1">${availableForCashOut.toFixed(2)}</div>
+          <div className="text-xl sm:text-2xl font-bold mb-1">₹{availableForCashOut.toFixed(2)}</div>
           <div className="text-xs text-green-400 flex items-center gap-1">
             <i className="fas fa-bolt"></i>
             Instant transfer available
@@ -368,7 +368,7 @@ const Earnings = () => {
             </div>
             <span className="text-sm dark:text-gray-400 text-gray-600">Avg Per Trip</span>
           </div>
-          <div className="text-xl sm:text-2xl font-bold mb-1">${avgPerRide.toFixed(2)}</div>
+          <div className="text-xl sm:text-2xl font-bold mb-1">₹{avgPerRide.toFixed(2)}</div>
           <div className="text-xs dark:text-gray-500 text-gray-400 flex items-center gap-1">
             <i className="fas fa-arrow-up text-green-400"></i>
             +5% from last {timeFrame}
@@ -412,7 +412,7 @@ const Earnings = () => {
               />
               <YAxis 
                 stroke={window.matchMedia('(prefers-color-scheme: dark)').matches ? '#aaa' : '#6b7280'} 
-                tickFormatter={(value) => `$${value}`}
+                tickFormatter={(value) => `₹${value}`}
                 tickMargin={10}
               />
               <Tooltip
@@ -430,7 +430,7 @@ const Earnings = () => {
                   color: window.matchMedia('(prefers-color-scheme: dark)').matches ? '#fff' : '#111827'
                 }}
                 formatter={(value, name) => {
-                  if (name === 'earnings') return [`$${value}`, 'Earnings']
+                  if (name === 'earnings') return [`₹${value}`, 'Earnings']
                   if (name === 'rides') return [`${value} rides`, 'Trips']
                   return [value, name]
                 }}
@@ -467,7 +467,7 @@ const Earnings = () => {
                   className="border-b dark:border-gray-800 border-gray-200 hover:dark:bg-gray-800/50 hover:bg-gray-50 transition-colors"
                 >
                   <td className="py-3 sm:py-4">{row.date}</td>
-                  <td className="py-3 sm:py-4 font-medium">${row.amount.toFixed(2)}</td>
+                  <td className="py-3 sm:py-4 font-medium">₹{row.amount.toFixed(2)}</td>
                   <td className="py-3 sm:py-4">{row.method}</td>
                   <td className="py-3 sm:py-4">
                     {getStatusBadge(row.status)}

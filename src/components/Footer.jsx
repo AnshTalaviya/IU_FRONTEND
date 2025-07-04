@@ -16,10 +16,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 py-14">
           {/* Company Info */}
           <div>
+              <Link to="/">
             <div className='justify-center flex'>
+              
               <img src="/images/Idhar Udhar Logo.png" width={"40px"} alt="" />
               <Logo className="ml-2 text-green-500" />
             </div>
+              </Link>
             <p className="mt-4 mb-6">
               Your premium eco-friendly trip-sharing service. Available 24/7 in over 500+ cities nationwide.
             </p>

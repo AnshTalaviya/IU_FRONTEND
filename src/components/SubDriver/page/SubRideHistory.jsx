@@ -66,7 +66,7 @@ export default function SubRideHistory() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
         <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
           <p className="text-sm text-gray-600 dark:text-gray-400">Today's Earnings</p>
-          <h3 className="text-2xl font-bold text-green-500">${stats.todayEarnings.toFixed(2)}</h3>
+          <h3 className="text-2xl font-bold text-green-500">₹{stats.todayEarnings.toFixed(2)}</h3>
         </div>
         <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
           <p className="text-sm text-gray-600 dark:text-gray-400">Acceptance Rate</p>
@@ -115,7 +115,7 @@ export default function SubRideHistory() {
                 <p className="text-sm text-gray-500 dark:text-gray-400">{ride.time} — Driver: {ride.driver}</p>
               </div>
               <div className="flex items-center gap-4">
-                <p className={`${ride.cancelled ? "text-red-500" : "text-green-500"} font-bold`}>${ride.fare.toFixed(2)}</p>
+                <p className={`${ride.cancelled ? "text-red-500" : "text-green-500"} font-bold`}>₹{ride.fare.toFixed(2)}</p>
                 {expandedRide === ride.id ? <FaChevronUp className="text-green-500" /> : <FaChevronDown className="text-green-500" />}
               </div>
             </div>

@@ -97,7 +97,7 @@ export default function SubDashboard() {
   const getCards = (details) => ([
     {
       title: "Today's Earnings",
-      icon: 'fas fa-dollar-sign',
+      icon: 'fa-solid fa-indian-rupee-sign',
       color: 'text-green-500',
       value: `₹${details.earnings}`,
       sub: `${details.rides} trips`,
@@ -161,7 +161,7 @@ export default function SubDashboard() {
         <h1 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Summary</h1>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 flex items-center space-x-3">
-            <i className="fas fa-dollar-sign text-green-500 text-xl"></i>
+            <i className="fa-solid fa-indian-rupee-sign text-green-500 text-xl"></i>
             <div>
               <p className="text-sm text-gray-600 dark:text-gray-400">Today's Earnings (Total)</p>
               <h3 className="text-lg font-semibold text-gray-800 dark:text-white">₹{totalEarnings}</h3>

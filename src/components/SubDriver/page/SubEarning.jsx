@@ -89,7 +89,7 @@ const SubEarning = () => {
             </div>
             <span className="text-sm text-gray-600 dark:text-gray-400">Total Earnings</span>
           </div>
-          <div className="text-2xl font-bold">${totalEarnings.toFixed(2)}</div>
+          <div className="text-2xl text-green-500 font-bold">₹{totalEarnings.toFixed(2)}</div>
           <div className="text-xs text-gray-400 dark:text-gray-500">{totalRides} trips</div>
         </div>
 
@@ -101,7 +101,7 @@ const SubEarning = () => {
             </div>
             <span className="text-sm text-gray-600 dark:text-gray-400">Available for Cashout</span>
           </div>
-          <div className="text-2xl font-bold">${availableForCashOut.toFixed(2)}</div>
+          <div className="text-2xl text-green-500 font-bold">₹{availableForCashOut.toFixed(2)}</div>
           <div className="text-xs text-green-400 flex items-center gap-1">
             <i className="fas fa-bolt" /> Instant Transfer Available
           </div>
@@ -115,7 +115,7 @@ const SubEarning = () => {
             </div>
             <span className="text-sm text-gray-600 dark:text-gray-400">Avg Per Trip</span>
           </div>
-          <div className="text-2xl font-bold">${avgPerRide.toFixed(2)}</div>
+          <div className="text-2xl text-green-500 font-bold">₹{avgPerRide.toFixed(2)}</div>
           <div className="text-xs text-gray-400 dark:text-gray-500">
             Based on {timeFrame} data
           </div>
@@ -153,7 +153,7 @@ const SubEarning = () => {
           {subdriverEarningsData[timeFrame].map((driver, idx) => (
             <div key={idx} className="p-4 rounded-lg bg-gray-100 dark:bg-gray-800 hover:shadow transition-all">
               <div className="font-semibold text-lg">{driver.name}</div>
-              <div className="text-green-500 font-bold mt-1 text-xl">${driver.earnings.toFixed(2)}</div>
+              <div className="text-green-500 font-bold mt-1 text-xl">₹{driver.earnings.toFixed(2)}</div>
               <div className="text-sm text-gray-500 dark:text-gray-400">Subdriver Earnings</div>
             </div>
           ))}

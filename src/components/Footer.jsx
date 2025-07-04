@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail, ChevronRight,
 } from 'lucide-react';
-import Logo from './Logo';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -19,8 +18,8 @@ const Footer = () => {
               <Link to="/">
             <div className='justify-center flex'>
               
-              <img src="/images/Idhar Udhar Logo.png" width={"40px"} alt="" />
-              <Logo className="ml-2 text-green-500" />
+              <img src="/images/Idhar Udhar Logo.png" width={"60px"} alt="" />
+              
             </div>
               </Link>
             <p className="mt-4 mb-6">

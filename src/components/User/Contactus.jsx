@@ -18,19 +18,49 @@ const ContactPage = () => {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData({ ...formData, [name]: type === 'checkbox' ? checked : value });
+    
+    // Special handling for name field to only allow letters and spaces
+    if (name === 'name') {
+      const filteredValue = value.replace(/[^a-zA-Z\s]/g, '');
+      setFormData({ ...formData, [name]: filteredValue });
+    } 
+    // Special handling for phone field to only allow numbers
+    else if (name === 'phone') {
+      const filteredValue = value.replace(/\D/g, '').slice(0, 10);
+      setFormData({ ...formData, [name]: filteredValue });
+    }
+    else {
+      setFormData({ ...formData, [name]: type === 'checkbox' ? checked : value });
+    }
   };
 
   const validate = () => {
     const newErrors = {};
     const phoneRegex = /^[0-9]{10}$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const nameRegex = /^[a-zA-Z\s]+$/;
 
-    if (!formData.name.trim()) newErrors.name = 'Name is required';
-    if (!phoneRegex.test(formData.phone)) newErrors.phone = 'Enter a valid 10-digit phone number';
-    if (!emailRegex.test(formData.email)) newErrors.email = 'Enter a valid email address';
-    if (!formData.message.trim()) newErrors.message = 'Message is required';
-    if (!formData.terms) newErrors.terms = 'You must agree to the terms';
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    } else if (!nameRegex.test(formData.name)) {
+      newErrors.name = 'Name should only contain letters and spaces';
+    }
+    
+    if (!phoneRegex.test(formData.phone)) {
+      newErrors.phone = 'Enter a valid 10-digit phone number';
+    }
+    
+    if (!emailRegex.test(formData.email)) {
+      newErrors.email = 'Enter a valid email address';
+    }
+    
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    }
+    
+    if (!formData.terms) {
+      newErrors.terms = 'You must agree to the terms';
+    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -42,23 +72,28 @@ const ContactPage = () => {
 
     setIsSending(true);
     setSuccessMsg('');
+
+    const templateParams = {
+      name: formData.name,
+      phone: formData.phone,
+      email: formData.email,
+      message: formData.message,
+    };
+
     emailjs.send(
       'service_qwwxk59',
       'template_ndmj5wv',
-      {
-        from_name: formData.name,
-        phone: formData.phone,
-        message: formData.message,
-        reply_to: formData.email,
-      },
+      templateParams,
       'q7h1BahWUznHytYWE'
     )
-      .then(() => {
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
         setSuccessMsg('Message sent successfully!');
         setFormData({ name: '', phone: '', email: '', message: '', terms: false });
         setErrors({});
       })
-      .catch(() => {
+      .catch((err) => {
+        console.error('FAILED...', err);
         setSuccessMsg('Failed to send message. Please try again.');
       })
       .finally(() => setIsSending(false));
@@ -113,7 +148,7 @@ const ContactPage = () => {
           </div>
 
           {/* Form */}
-          <div className= "text-gray-200 p-8 lg:w-2/3">
+          <div className="text-gray-200 p-8 lg:w-2/3">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -123,24 +158,22 @@ const ContactPage = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border rounded-md focus:outline-none"
+                    className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-green-400"
                     placeholder="Enter your name"
                   />
-                  {errors.name && <p className="text-red-600 text-sm">{errors.name}</p>}
+                  {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
                 </div>
                 <div>
                   <label className="block text-sm mb-1">Phone Number</label>
                   <input
                     type="tel"
                     name="phone"
-                    pattern="[0-9]{10}"
-                    maxLength="10"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border rounded-md focus:outline-none"
-                    placeholder="Enter your phone number"
+                    className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-green-400"
+                    placeholder="Enter your 10-digit phone number"
                   />
-                  {errors.phone && <p className="text-red-600 text-sm">{errors.phone}</p>}
+                  {errors.phone && <p className="text-red-400 text-sm mt-1">{errors.phone}</p>}
                 </div>
               </div>
 
@@ -151,10 +184,10 @@ const ContactPage = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border rounded-md focus:outline-none"
+                  className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-green-400"
                   placeholder="Enter your email"
                 />
-                {errors.email && <p className="text-red-600 text-sm">{errors.email}</p>}
+                {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
               </div>
 
               <div>
@@ -163,31 +196,47 @@ const ContactPage = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border rounded-md focus:outline-none h-28 resize-none"
+                  className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-green-400 h-28 resize-none"
                   placeholder="Write your message here"
                 />
-                {errors.message && <p className="text-red-600 text-sm">{errors.message}</p>}
+                {errors.message && <p className="text-red-400 text-sm mt-1">{errors.message}</p>}
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-start gap-2">
                 <input
                   type="checkbox"
                   name="terms"
+                  id="terms"
                   checked={formData.terms}
                   onChange={handleChange}
+                  className="mt-1"
                 />
-                <label className="text-sm">I agree to the terms and conditions</label>
+                <label htmlFor="terms" className="text-sm">
+                  I agree to the terms and conditions
+                </label>
               </div>
-              {errors.terms && <p className="text-red-600 text-sm">{errors.terms}</p>}
+              {errors.terms && <p className="text-red-400 text-sm">{errors.terms}</p>}
 
-              {successMsg && <p className="text-green-600 font-medium">{successMsg}</p>}
+              {successMsg && (
+                <p className={`text-sm font-medium ${successMsg.includes('successfully') ? 'text-green-400' : 'text-red-400'}`}>
+                  {successMsg}
+                </p>
+              )}
 
               <button
                 type="submit"
                 disabled={isSending}
-                className="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition"
+                className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-md transition disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                {isSending ? 'Sending...' : 'Send Message'}
+                {isSending ? (
+                  <span className="flex items-center justify-center">
+                    <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Sending...
+                  </span>
+                ) : 'Send Message'}
               </button>
             </form>
           </div>
@@ -217,7 +266,7 @@ const ContactPage = () => {
         </div>
 
         {/* Map */}
-        <div className="w-full h-60 sm:h-80 md:h-96 mt-16">
+        <div className="w-full h-60 sm:h-80 md:h-96 mt-16 rounded-xl overflow-hidden">
           <iframe
             title="Google Maps Location"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.7720720870757!2d72.52421197504878!3d23.032351779164598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e856f5fbe2e01%3A0x98e43e3e62ed273b!2sJivraj%20Park%20Sub%20Post%20Office!5e0!3m2!1sen!2sin!4v1686240166123!5m2!1sen!2sin"
@@ -225,7 +274,7 @@ const ContactPage = () => {
             height="100%"
             allowFullScreen=""
             loading="lazy"
-            className="rounded-xl border"
+            className="border-0"
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>

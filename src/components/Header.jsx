@@ -209,9 +209,9 @@ const Header = () => {
           <Link to="/contact" className="block py-2 hover:text-green-500">Contact Us</Link>
 
           <div className="items-center justify-around flex mt-3 flex-wrap">
-            <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-green-200 dark:hover:bg-gray-700">
+            {/* <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-green-200 dark:hover:bg-gray-700">
               {isDarkMode ? <Sun size={30} /> : <Moon size={30} />}
-            </button>
+            </button> */}
             {isAuthenticated ? (
               <div className="relative">
                 <button onClick={() => setIsProfileDropdownOpen(!isProfileDropdownOpen)} className="w-10 h-10 rounded-full bg-green-700 text-white font-semibold hover:bg-green-800">

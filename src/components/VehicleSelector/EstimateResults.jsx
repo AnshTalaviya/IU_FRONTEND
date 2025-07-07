@@ -28,14 +28,14 @@ export default function EstimateResults() {
   ];
 
   const iconMap = {
-    FaMotorcycle: <FaMotorcycle className="text-4xl text-green-400" />,
-    FaTruckPickup: <FaTruckPickup className="text-4xl text-yellow-400" />,
-    MdLocalShipping: <MdLocalShipping className="text-4xl text-blue-400" />,
-    FaTruckMoving: <FaTruckMoving className="text-4xl text-red-400" />,
+    FaMotorcycle: <FaMotorcycle className="text-4xl text-orange-600" />,
+    FaTruckPickup: <FaTruckPickup className="text-4xl text-orange-600" />,
+    MdLocalShipping: <MdLocalShipping className="text-4xl text-orange-600" />,
+    FaTruckMoving: <FaTruckMoving className="text-4xl text-orange-600" />,
   };
 
   return (
-    <div className="min-h-screen px-4 py-12 text-white bg-gradient-to-br from-black via-gray-900 to-black">
+    <div className="min-h-screen px-4 py-12 text-white bg-black">
       <motion.h1
         initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}
@@ -57,17 +57,17 @@ export default function EstimateResults() {
             <motion.div
               key={i}
               whileHover={{ scale: 1.03 }}
-              className="mb-4 last:mb-0 flex justify-between items-center p-5 bg-black/50 rounded-xl shadow-xl border border-green-800 transition duration-300"
+              className="mb-4 last:mb-0 flex justify-between items-center p-5 bg-black/50 border border-white-300 rounded-xl shadow-xl transition duration-300"
             >
               <div className="flex items-center gap-4">
                 <div>{iconMap[item.iconName]}</div>
                 <div>
                   <h2 className="font-semibold text-white text-xl">{item.title}</h2>
-                  <p className="text-green-400 text-lg font-bold">{item.price}</p>
+                  <p className="text-white text-lg font-bold">{item.price}</p>
                 </div>
               </div>
-              <div className="bg-green-900/60 px-4 py-2 rounded-full text-sm font-medium text-white shadow">
-                🏋️‍♂️ {item.weight}
+              <div className="bg-orange-600/60 px-4 py-2 rounded-full text-sm font-medium text-white shadow">
+                 {item.weight}
               </div>
             </motion.div>
           ))}
@@ -80,14 +80,14 @@ export default function EstimateResults() {
           transition={{ delay: 0.2 }}
           className="space-y-6"
         >
-          <div className="flex items-center gap-4 p-4 rounded-lg border border-green-700">
-            <FaLocationArrow className="text-green-400 text-xl" />
+          <div className="flex items-center gap-4 p-4 rounded-lg border border-orange-600">
+            <FaLocationArrow className="text-xl" />
             <p className="text-white text-sm md:text-base font-medium">{state?.pickup}</p>
             <Pencil className="ml-auto text-gray-300 cursor-pointer" size={18} />
           </div>
 
-          <div className="flex items-center gap-4 p-4 rounded-lg border border-red-700">
-            <FaMapMarkerAlt className="text-red-400 text-xl" />
+          <div className="flex items-center gap-4 p-4 rounded-lg border border-orange-600">
+            <FaMapMarkerAlt className=" text-xl" />
             <p className="text-white text-sm md:text-base font-medium">{state?.drop}</p>
             <Pencil className="ml-auto text-gray-300 cursor-pointer" size={18} />
           </div>
@@ -102,6 +102,17 @@ export default function EstimateResults() {
             <p className="text-sm text-gray-300 mt-2">Scan to download our app!</p>
           </div>
         </motion.div>
+
+          {/* Book Now Button */}
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="w-full py-3 px-6 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-lg shadow-lg transition duration-300"
+          >
+            Book Now
+          </motion.button>
+        
+
       </div>
     </div>
   );

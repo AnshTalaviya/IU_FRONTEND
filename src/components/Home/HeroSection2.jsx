@@ -24,7 +24,7 @@ const HeroSection2 = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <span className="text-green-400">Powered by Delivery</span> <br />
+            <span className="text-orange-600">Powered by Delivery</span> <br />
             <span className="text-white">India's Largest Logistics Network</span>
           </motion.h1>
 
@@ -45,11 +45,11 @@ const HeroSection2 = () => {
             transition={{ delay: 0.4 }}
           >
             <div className="flex items-center gap-2 text-sm bg-white/10 p-3 rounded-lg">
-              <FaShippingFast className="text-green-300" />
+              <FaShippingFast className="text-orange-300" />
               <span>18,000+ Pin Codes</span>
             </div>
             <div className="flex items-center gap-2 text-sm bg-white/10 p-3 rounded-lg">
-              <FaShieldAlt className="text-green-300" />
+              <FaShieldAlt className="text-orange-300" />
               <span>Secure Handling</span>
             </div>
           </motion.div>
@@ -65,7 +65,7 @@ const HeroSection2 = () => {
               onClick={handleVehicleSelection}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full py-3 rounded-md font-semibold flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 transition-all duration-300"
+              className="w-full py-3 rounded-md font-semibold flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-7  00 transition-all duration-300"
             >
               <FaTruck />
               Select Vehicle Type
@@ -90,7 +90,7 @@ const HeroSection2 = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-1 flex flex-col bg-black/50 backdrop-blur-md rounded-b-3xl">
               <h3 className="text-xl font-semibold">Delivery Network Advantages</h3>
-              <ul className="mt-2 space-y-1 text-sm text-green-200">
+              <ul className="mt-2 space-y-1 text-sm text-orange-200">
                 <li>• 24x7 Operations</li>
                 <li>• Automated Sorting Centers</li>
                 <li>• Temperature Controlled Transport</li>

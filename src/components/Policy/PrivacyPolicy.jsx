@@ -3,7 +3,7 @@ import { ShieldCheck, Lock, EyeOff, ClipboardList, Mail, Phone, AlertCircle, Coo
 
 const PrivacyPolicy = () => {
     return (
-        <div className="bg-gray-800 text-white py-12 mt-10 px-4 sm:px-6 min-h-screen font-sans">
+        <div className="bg-black text-white py-12 mt-10 px-4 sm:px-6 min-h-screen font-sans">
             {/* Header Section */}
             <section className="max-w-6xl mx-auto text-center mb-12">
                 <h1 className="text-3xl md:text-4xl font-bold mb-4">

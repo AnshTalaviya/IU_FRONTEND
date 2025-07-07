@@ -75,7 +75,7 @@ const HeroSafety = () => {
           viewport={{ once: true }}
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Our <span className="text-green-400">Commitment</span> to Safety
+            Our <span className="text-orange-600">Commitment</span> to Safety
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-12">
             At IdharUdhar, safety is not just a feature — it's the foundation of every trip.
@@ -93,7 +93,7 @@ const HeroSafety = () => {
               viewport={{ once: true }}
               className="bg-white/10 p-6 rounded-2xl backdrop-blur-xl border border-white/10 shadow-md text-left"
             >
-              <div className="text-green-400 mb-4">{step.icon}</div>
+              <div className="text-orange-600 mb-4">{step.icon}</div>
               <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
               <p className="text-gray-300">{step.desc}</p>
             </motion.div>
@@ -110,7 +110,7 @@ const HeroSafety = () => {
           viewport={{ once: true }}
           className="text-3xl font-bold mb-12"
         >
-          Your Role in <span className="text-green-400">Safety</span>
+          Your Role in <span className="text-orange-600">Safety</span>
         </motion.h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {userSafetyTips.map((tip, i) => (
@@ -122,7 +122,7 @@ const HeroSafety = () => {
               viewport={{ once: true }}
               className="bg-white/10 p-6 rounded-2xl backdrop-blur-xl border border-white/10 shadow-md text-left"
             >
-              <div className="text-green-400 mb-4">{tip.icon}</div>
+              <div className="text-orange-600 mb-4">{tip.icon}</div>
               <h3 className="text-xl font-semibold mb-2">{tip.title}</h3>
               <p className="text-gray-300">{tip.desc}</p>
             </motion.div>
@@ -139,7 +139,7 @@ const HeroSafety = () => {
           viewport={{ once: true }}
           className="text-3xl font-bold mb-12"
         >
-          Real <span className="text-green-400">Stories</span> from Our Users
+          Real <span className="text-orange-600">Stories</span> from Our Users
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -166,7 +166,7 @@ const HeroSafety = () => {
               className="bg-white/10 p-6 rounded-2xl backdrop-blur-xl border border-white/10 shadow-md text-left"
             >
               <p className="text-gray-300 text-lg mb-4 italic">"{story.feedback}"</p>
-              <div className="text-green-400 font-semibold">{story.name}</div>
+              <div className="text-orange-600 font-semibold">{story.name}</div>
               <div className="text-gray-400 text-sm">{story.role}</div>
             </motion.div>
           ))}

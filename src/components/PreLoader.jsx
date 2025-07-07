@@ -72,7 +72,7 @@ export default function Preloader({ onComplete }) {
                   fontSize: "clamp(26px, 6vw, 60px)",
                 }}
               >
-                Idhar<span className="text-green-400 font-mono">Udhar</span>
+                Idhar<span className="text-orange-600 font-mono">Udhar</span>
               </h1>
             </div>
           </div>

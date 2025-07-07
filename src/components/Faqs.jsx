@@ -178,23 +178,9 @@ const Faqs = () => {
     ];
 
     return (
-        <div className="bg-white dark:bg-gray-900 dark:text-gray-300  text-gray-800 py-10">
+        <div className="bg-black text-white py-10">
 
-            {/* Hero Section */}
-            <section className="relative bg-[#166534] text-white min-h-[300px]">
-                <div
-                    className="absolute inset-0 bg-center bg-cover opacity-20"
-                    style={{ backgroundImage: "url('https://www.shreecabs.com/img2/cabs2.jpg')" }}
-                />
-                <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-20 flex flex-col items-start justify-center gap-4">
-                    <h1 className="text-2xl sm:text-4xl font-bold leading-tight">
-                        Frequently Asked Questions!
-                    </h1>
-                    <p className="text-sm sm:text-lg text-gray-200">
-                        Everything your taxi business needs is already here!
-                    </p>
-                </div>
-            </section>
+    
 
             {/* Ride Type Buttons */}
             <div className="max-w-4xl mx-auto px-4 py-6 flex flex-wrap justify-center gap-4">
@@ -206,9 +192,9 @@ const Faqs = () => {
                             setOpenIndex(null); // Reset open FAQ on switch
                         }}
                         className={`px-4 py-2 rounded-md border ${selectedRide === key
-                            ? 'bg-[#166534] text-white border-[#166534]'
+                            ? 'bg-orange-600 text-white border-[#166534]'
                             : 'bg-white text-[#166534] border-[#166534]'
-                            } hover:bg-[#166534] hover:text-white transition`}
+                            } hover:bg-orange-700 hover:text-white transition`}
                     >
                         {label}
                     </button>
@@ -229,12 +215,12 @@ const Faqs = () => {
                                 aria-expanded={openIndex === index}
                             >
                                 <span className="text-left">{item.question}</span>
-                                <span className="text-2xl text-[#166534]">
+                                <span className="text-2xl text-orange-600">
                                     {openIndex === index ? '−' : '+'}
                                 </span>
                             </button>
                             <div
-                                className={`px-4 text-gray-600 transition-all duration-300 ease-in-out overflow-hidden ${openIndex === index ? 'max-h-40 py-4' : 'max-h-0 py-0'
+                                className={`px-4 text-white transition-all duration-300 ease-in-out overflow-hidden ${openIndex === index ? 'max-h-40 py-4' : 'max-h-0 py-0'
                                     }`}
                             >
                                 {item.answer}
@@ -245,7 +231,7 @@ const Faqs = () => {
             </section>
 
             {/* Features Section */}
-            <section className="relative bg-[#166534] text-white">
+            <section className="relative bg-orange-600 text-white">
                 <div
                     className="absolute inset-0 bg-cover bg-center opacity-10"
                     style={{
@@ -277,16 +263,16 @@ const Faqs = () => {
             </section>
 
             {/* Call To Action */}
-            <section className="text-[#166534] py-10 text-center px-4">
+            <section className="text-white py-10 text-center px-4">
                 <h2 className="text-2xl sm:text-3xl font-bold mb-4">Ready to book your next trip?</h2>
                 <p className="text-base sm:text-lg mb-6">
                     Download the IdharUdhar Taxi App and trip smarter, safer, and faster.
                 </p>
                 <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-                    <Link to="#" className="bg-black text-white px-5 py-3 rounded-md hover:bg-gray-800 transition text-sm">
+                    <Link to="#" className="bg-black text-white px-5 py-3 rounded-md hover:bg-orange-600 transition text-sm">
                         Download on App Store
                     </Link>
-                    <Link to="#" className="bg-black text-white px-5 py-3 rounded-md hover:bg-gray-800 transition text-sm">
+                    <Link to="#" className="bg-black text-white px-5 py-3 rounded-md hover:bg-orange-600 transition text-sm">
                         Get it on Google Play
                     </Link>
                 </div>

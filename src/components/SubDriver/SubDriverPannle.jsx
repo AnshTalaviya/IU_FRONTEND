@@ -29,11 +29,11 @@ export default function SubDriverPanel() {
             navigation: "subridehistory",
             icon: "fas fa-history"
         },
-        {
-            name: "Games",
-            navigation: "games",
-            icon: "fas fa-gamepad"
-        },
+        // {
+        //     name: "Games",
+        //     navigation: "games",
+        //     icon: "fas fa-gamepad"
+        // },
         {
             name: "Settings",
             navigation: "settings",
@@ -56,9 +56,9 @@ export default function SubDriverPanel() {
     };
 
     return (
-        <div className={`h-[100vh] w-full dark:bg-gray-950 bg-gray-50 flex items-start ${darkMode ? 'dark' : ''}`}>
+        <div className={`h-[100vh] w-full bg-black flex items-start ${darkMode ? 'dark' : ''}`}>
             {/* Sidebar */}
-            <div className={`dark:lg:bg-gray-200/10 lg:bg-white bg-gray-900 h-full z-20 transition-all duration-300
+            <div className={`h-full z-20 transition-all duration-300
                 ${Issidebar ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'} 
                 fixed lg:relative
                 w-[240px] p-2 border-r dark:border-gray-800 border-gray-200`}>
@@ -71,7 +71,7 @@ export default function SubDriverPanel() {
                 </button>
 
                 <h3 className='text-2xl dark:text-white text-gray-900 font-medium pt-1'>
-                    <span className='text-green-500'>Idhar</span> Udhar
+                    <span className='text-orange-600'>Idhar</span> Udhar
                 </h3>
                 <h5 className='text-xs dark:text-gray-600 text-gray-500 text-start font-bold mt-4'>
                     MAIN MENU
@@ -82,7 +82,7 @@ export default function SubDriverPanel() {
                         <Link to={`${button.navigation}`} key={i}>
                             <button 
                                 className={`h-12 w-full ${isActive(button.navigation) 
-                                    ? 'bg-green-600 text-white' 
+                                    ? 'bg-orange-600 text-white' 
                                     : 'bg-transparent dark:text-gray-300 text-gray-700 hover:dark:bg-gray-800 hover:bg-gray-100'} 
                                     flex items-center justify-start ps-2 gap-2 rounded-lg mt-2 transition-colors`}
                                 onClick={ToggleSidebar}

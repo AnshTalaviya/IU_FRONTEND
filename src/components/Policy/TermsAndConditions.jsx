@@ -2,7 +2,7 @@ import React from 'react';
 
 const TermsAndConditions = () => {
   return (
-    <div className="bg-gray-800 text-white min-h-screen mt-10 p-4 md:p-8 font-sans">
+    <div className="bg-black text-white min-h-screen mt-10 p-4 md:p-8 font-sans">
       <div className="max-w-5xl mx-auto">
         <header className="mb-8 border-b border-gray-700 pb-6">
           <h1 className="text-3xl md:text-4xl font-bold mb-2">IDHAR UDHAR CUSTOMER TERMS AND CONDITIONS</h1>

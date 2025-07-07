@@ -2,7 +2,7 @@ import React from 'react';
 
 const ServicesAgreement = () => {
   return (
-    <div className="bg-gray-800 text-white min-h-screen p-4 md:p-8 font-sans">
+    <div className="bg-black text-white min-h-screen p-4 md:p-8 font-sans">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="p-6 text-center border-b border-gray-700">

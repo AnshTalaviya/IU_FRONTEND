@@ -121,10 +121,10 @@ export default function Service() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white px-4 py-16">
+    <div className="min-h-screen bg-black text-white px-4 py-16">
       <h1 className="text-4xl font-bold text-center mb-2">
         Our Services
-        <span className="block w-20 h-1 bg-green-500 mt-2 mx-auto rounded"></span>
+        <span className="block w-20 h-1 bg-orange-600 mt-2 mx-auto rounded"></span>
       </h1>
 
       <motion.p
@@ -171,9 +171,9 @@ export default function Service() {
               initial={{ y: 40 }}
               animate={{ y: 0 }}
               exit={{ y: 40 }}
-              className="bg-gradient-to-b from-gray-800 to-gray-900 p-8 rounded-2xl shadow-xl border border-green-500/30 max-w-md text-center"
+              className="bg-gradient-to-b from-gray-800 to-gray-900 p-8 rounded-2xl shadow-xl border border-orange-500/30 max-w-md text-center"
             >
-              <h2 className="text-3xl font-bold text-green-400 mb-4">🚧 Coming Soon!</h2>
+              <h2 className="text-3xl font-bold text-white-400 mb-4">🚧 Coming Soon!</h2>
               <p className="text-gray-300 mb-4">
                 Intercity trips are launching soon with exciting features for long-distance travel.
               </p>
@@ -192,13 +192,13 @@ export default function Service() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="max-w-6xl mx-auto mt-12 bg-white/5 border border-green-500/20 rounded-3xl p-8 shadow-2xl backdrop-blur-sm"
+        className="max-w-6xl mx-auto mt-12 bg-white/5 border border-orange-500/20 rounded-3xl p-8 shadow-2xl backdrop-blur-sm"
       >
         <div className="flex items-center gap-4 mb-4">
-          <div className="text-green-400 text-5xl">{selected?.icon}</div>
+          <div className="text-orange-600 text-5xl">{selected?.icon}</div>
           <div>
             <h2 className="text-3xl font-bold">{selected?.title}</h2>
-            <p className="text-green-400 italic text-sm">{selected?.subtitle}</p>
+            <p className="text-white italic text-sm">{selected?.subtitle}</p>
             <p className="text-sm mt-1 text-gray-400 italic">
               {selected?.title === 'Bike Trips'
                 ? 'Zoom through traffic like a pro!'
@@ -217,7 +217,7 @@ export default function Service() {
           {selected?.tags?.map((tag, i) => (
             <span
               key={i}
-              className="bg-green-600/90 text-xs px-3 py-1 rounded-full font-medium"
+              className="bg-orange-600/90 text-xs px-3 py-1 rounded-full font-medium"
             >
               {tag}
             </span>
@@ -226,11 +226,11 @@ export default function Service() {
 
         <div className="grid md:grid-cols-2 gap-10">
           <div>
-            <h4 className="text-green-400 font-semibold mb-2">Overview</h4>
+            <h4 className="text-orange-600 font-semibold mb-2">Overview</h4>
             <p className="text-sm text-gray-300 mb-4">{selected?.description}</p>
 
             <div className="bg-black/40 border border-green-500/10 p-4 rounded-lg mb-4">
-              <h4 className="text-green-400 font-semibold mb-2">
+              <h4 className="text-orange-600 font-semibold mb-2">
                 {selected?.title === 'Parcel Service' ? 'Ideal For' : 'When to Use This'}
               </h4>
               <ul className="list-disc list-inside text-sm text-gray-300 space-y-1">
@@ -270,7 +270,7 @@ export default function Service() {
             </div>
 
             <div className="bg-white/10 border border-green-500/10 p-4 rounded-lg">
-              <h4 className="text-green-400 font-semibold mb-2">How It Works</h4>
+              <h4 className="text-orange-600 font-semibold mb-2">How It Works</h4>
               <ol className="list-decimal list-inside text-sm text-gray-300 space-y-1">
                 {selected?.title === 'Parcel Service' ? (
                   <>
@@ -293,7 +293,7 @@ export default function Service() {
           </div>
 
           <div>
-            <h4 className="text-green-400 font-semibold mb-2">Top Features</h4>
+            <h4 className="text-orange-600 font-semibold mb-2">Top Features</h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
               {selected?.features.map((feature, idx) => (
                 <div
@@ -305,8 +305,8 @@ export default function Service() {
               ))}
             </div>
 
-            <div className="bg-green-500/10 p-4 rounded-lg border border-green-500/20">
-              <h4 className="text-green-400 font-semibold mb-2">Why Choose Us?</h4>
+            <div className="bg-orange-500/10 p-4 rounded-lg border border-green-500/20">
+              <h4 className="text-orange-600 font-semibold mb-2">Why Choose Us?</h4>
               <ul className="list-disc list-inside text-sm text-gray-300 space-y-1">
                 <li>24/7 support & helpdesk</li>
                 <li>Top-rated, trusted {selected?.title === 'Parcel Service' ? 'handlers' : 'drivers'}</li>

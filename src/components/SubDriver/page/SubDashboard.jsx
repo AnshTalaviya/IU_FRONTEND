@@ -155,9 +155,9 @@ export default function SubDashboard() {
   const totalRides = usedDetails.reduce((sum, d) => sum + d.rides, 0);
 
   return (
-    <div className="bg-gray-100 dark:bg-gray-900 min-h-screen px-4 sm:px-6 py-6 space-y-16 transition-all">
+    <div className="min-h-screen px-4 sm:px-6 py-6 space-y-16 transition-all">
       {/* Main summary section with averages and total earnings */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow p-6 mb-10">
+      <div className="rounded-xl shadow p-6 mb-10">
         <h1 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Summary</h1>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 flex items-center space-x-3">

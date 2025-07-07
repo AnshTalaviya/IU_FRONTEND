@@ -2,7 +2,7 @@ import React from 'react';
 
 const ZeroTolerancePolicy = () => {
   return (
-    <div className="bg-gray-800 text-white py-12 mt-10 px-4 sm:px-6 min-h-screen font-sans">
+    <div className="bg-black text-white py-12 mt-10 px-4 sm:px-6 min-h-screen font-sans">
       <h1 className="text-2xl font-bold text-white mb-4">ZERO TOLERANCE POLICY</h1>
       
       <p className="mb-4 text-white">

@@ -8,7 +8,7 @@ const Footer = () => {
   console.log('Footer rendered at:', window.location.pathname);
 
   return (
-    <footer className="bg-white dark:bg-gray-900 text-gray-500 dark:text-gray-400 text-sm relative">
+    <footer className="bg-black text-white text-sm relative">
 
       <div className="container mx-auto px-4">
         {/* Main Footer Content */}
@@ -26,17 +26,17 @@ const Footer = () => {
               Your premium eco-friendly trip-sharing service. Available 24/7 in over 500+ cities nationwide.
             </p>
             <div className="flex gap-4">
-              <a href="https://www.facebook.com/" className="hover:text-green-500 transition-colors" aria-label="Facebook"><Facebook size={20} /></a>
-              <a href="https://www.twitter.com/" className="hover:text-green-500 transition-colors" aria-label="Twitter"><Twitter size={20} /></a>
-              <a href="https://www.instagram.com/" className="hover:text-green-500 transition-colors" aria-label="Instagram"><Instagram size={20} /></a>
-              <a href="https://www.youtube.com/" className="hover:text-green-500 transition-colors" aria-label="YouTube"><Youtube size={22} /></a>
+              <a href="https://www.facebook.com/" className="hover:text-orange-600 transition-colors" aria-label="Facebook"><Facebook size={20} /></a>
+              <a href="https://www.twitter.com/" className="hover:text-orange-600 transition-colors" aria-label="Twitter"><Twitter size={20} /></a>
+              <a href="https://www.instagram.com/" className="hover:text-orange-600 transition-colors" aria-label="Instagram"><Instagram size={20} /></a>
+              <a href="https://www.youtube.com/" className="hover:text-orange-600 transition-colors" aria-label="YouTube"><Youtube size={22} /></a>
 
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-green-500 text-base font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-orange-600 text-base font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-3">
               {[
                 { href: '/', label: 'Home' },
@@ -47,7 +47,7 @@ const Footer = () => {
                 { href: '/faqs', label: 'FAQs' },
               ].map(link => (
                 <li key={link.href}>
-                  <Link to={link.href} className="flex items-center hover:text-green-500 transition-colors">
+                  <Link to={link.href} className="flex items-center hover:text-orange-600 transition-colors">
                     <ChevronRight className="mr-2 h-4 w-4" />{link.label}
                   </Link>
                 </li>
@@ -57,7 +57,7 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h3 className="text-green-500 text-base font-semibold mb-4">Policy</h3>
+            <h3 className="text-orange-600 text-base font-semibold mb-4">Policy</h3>
             <ul className="space-y-3">
               {[
                 { href: '/privacypolicy', label: 'Privacy Policy IU' },
@@ -67,7 +67,7 @@ const Footer = () => {
                 { href: '/customertc', label: 'IU Customer Terms And Condition' },
               ].map(service => (
                 <li key={service.label}>
-                  <Link to={service.href} className="flex items-center hover:text-green-500 transition-colors">
+                  <Link to={service.href} className="flex items-center hover:text-orange-600 transition-colors">
                     <ChevronRight className="mr-2 h-4 w-4" />{service.label}
                   </Link>
                 </li>
@@ -77,10 +77,10 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-green-500 text-base font-semibold mb-4">Contact Us</h3>
+            <h3 className="text-orange-600 text-base font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-4">
               <li className="flex items-start">
-                <MapPin className="mr-3 h-5 w-5 text-green-500 shrink-0" />
+                <MapPin className="mr-3 h-5 w-5 text-orange-600 shrink-0" />
                 <span>
                   IdharUdhar Headquarters,<br />
                   123 Eco Street, Green Tower,<br />
@@ -88,11 +88,11 @@ const Footer = () => {
                 </span>
               </li>
               <li className="flex items-center">
-                <Phone className="mr-3 h-5 w-5 text-green-500" />
+                <Phone className="mr-3 h-5 w-5 text-orange-600" />
                 <Link to="tel:+911800123456" className="hover:text-white transition-colors">+91 1800 123 4567</Link>
               </li>
               <li className="flex items-center">
-                <Mail className="mr-3 h-5 w-5 text-green-500" />
+                <Mail className="mr-3 h-5 w-5 text-orange-600" />
                 <Link to="mailto:support@idharudhar.com" className="hover:text-white transition-colors">support@idharudhar.com</Link>
               </li>
             </ul>

@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-grow bg-gray-900 pt-16">{children}</main>
+      <main className="flex-grow bg-black pt-16">{children}</main>
 
       {/* Render footer only if not in hideFooterOnPaths */}
       {!hideFooterOnPaths.includes(location.pathname) && <Footer />}

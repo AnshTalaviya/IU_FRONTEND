@@ -73,7 +73,7 @@ function Login() {
         className="bg-[#161b22] w-full max-w-md p-8 rounded-2xl shadow-2xl backdrop-blur-md border border-gray-700"
       >
         <h2 className="text-3xl font-bold text-center text-white mb-6">
-          Sign in to <span className="text-green-400">Idhar Udhar</span>
+          Sign in to <span className="text-orange-600">Idhar Udhar</span>
         </h2>
 
         {step === 1 ? (
@@ -84,7 +84,7 @@ function Login() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-3 mb-4 bg-[#0d1117] text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full p-3 mb-4 bg-[#0d1117] text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-white"
               placeholder="Enter Your Email"
             />
             <motion.button
@@ -94,7 +94,7 @@ function Login() {
               className={`w-full ${
                 loading
                   ? 'bg-gray-600 cursor-not-allowed'
-                  : 'bg-green-500 hover:bg-green-600'
+                  : 'bg-orange-600 hover:bg-orange-700'
               } text-black font-bold py-3 rounded-lg transition`}
             >
               {loading ? 'Sending OTP...' : 'Send OTP'}
@@ -108,12 +108,12 @@ function Login() {
               value={otp}
               onChange={(e) => setOtp(e.target.value)}
               placeholder="Enter OTP"
-              className="w-full p-3 mb-4 bg-[#0d1117] text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full p-3 mb-4 bg-orange-600 text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
             />
             <motion.button
               onClick={handleVerifyOtp}
               whileTap={{ scale: 0.95 }}
-              className="w-full bg-green-500 hover:bg-green-600 text-black font-bold py-3 rounded-lg transition"
+              className="w-full bg-orange-600 hover:bg-orange-700 text-black font-bold py-3 rounded-lg transition"
             >
               Verify OTP
             </motion.button>

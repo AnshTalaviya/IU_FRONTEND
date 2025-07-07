@@ -11,11 +11,11 @@ const FeatureCard = ({ icon, title, description }) => {
       initial={{ opacity: 0, y: 30 }}
       className="rounded-2xl bg-white/10 dark:bg-gray-800/40 backdrop-blur-xl p-6 border border-white/10 shadow-xl transition-all duration-300"
     >
-      <div className="text-green-500 text-2xl mb-4">
+      <div className="text-orange-600 text-2xl mb-4">
         {icon}
       </div>
       <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
-      <p className="text-gray-300">{description}</p>
+      <p className="text-white">{description}</p>
     </motion.div>
   );
 };
@@ -63,7 +63,7 @@ const FeaturesSection = () => {
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Why Choose <span className="text-green-400">Idhar-Udhar</span>
+            Why Choose <span className="text-orange-600">Idhar-Udhar</span>
           </h2>
           <p className="text-gray-300 max-w-xl mx-auto">
             The safest, most reliable, and eco-conscious trip-sharing experience tailored for you.

@@ -349,7 +349,8 @@ const ContactPage = () => {
         </p>
 
         <div className="flex flex-col lg:flex-row bg-white/5 backdrop-blur-lg rounded-3xl overflow-hidden shadow-lg">
-          <div className="bg-green-700 p-8 lg:w-1/3 text-white flex flex-col justify-center">
+          {/* Contact Info */}
+          <div className="bg-orange-600 p-8 lg:w-1/3 text-white flex flex-col justify-center">
             <div className="space-y-6">
               <h3 className="text-2xl font-semibold">Let's Connect</h3>
               <p className="text-white/80 text-sm leading-relaxed">
@@ -397,7 +398,7 @@ const ContactPage = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-green-400"
+                    className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white"
                     placeholder="Enter your name"
                   />
                   {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
@@ -409,7 +410,7 @@ const ContactPage = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-green-400"
+                    className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white"
                     placeholder="Enter your 10-digit phone number"
                   />
                   {errors.phone && <p className="text-red-400 text-sm mt-1">{errors.phone}</p>}
@@ -423,7 +424,7 @@ const ContactPage = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-green-400"
+                  className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white"
                   placeholder="Enter your email"
                 />
                 {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
@@ -435,7 +436,7 @@ const ContactPage = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-green-400 h-28 resize-none"
+                  className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white h-28 resize-none"
                   placeholder="Write your message here"
                 />
                 {errors.message && <p className="text-red-400 text-sm mt-1">{errors.message}</p>}
@@ -465,7 +466,7 @@ const ContactPage = () => {
               <button
                 type="submit"
                 disabled={isSending}
-                className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-md transition disabled:opacity-70 disabled:cursor-not-allowed"
+                className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-md transition disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {isSending ? (
                   <span className="flex items-center justify-center">
@@ -496,7 +497,7 @@ const ContactPage = () => {
             desc: "Plan your trip effortlessly."
           }].map(({ Icon, title, desc }, i) => (
             <div key={i} className="bg-white/10 p-6 rounded-xl hover:scale-102 transition-transform">
-              <Icon className="w-10 h-10 mx-auto mb-3 text-green-400" />
+              <Icon className="w-10 h-10 mx-auto mb-3 text-orange-600" />
               <h3 className="text-lg font-semibold mb-1">{title}</h3>
               <p className="text-sm text-white/80">{desc}</p>
             </div>

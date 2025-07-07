@@ -18,10 +18,10 @@ export default function SelectParcel() {
   const [weight, setWeight] = useState("");
 
   const iconMap = {
-    FaMotorcycle: <FaMotorcycle className="text-6xl text-green-400" />,
-    FaTruckPickup: <FaTruckPickup className="text-6xl text-yellow-400" />,
-    MdLocalShipping: <MdLocalShipping className="text-6xl text-blue-400" />,
-    FaTruckMoving: <FaTruckMoving className="text-6xl text-red-400" />,
+    FaMotorcycle: <FaMotorcycle className="text-6xl text-orange-600" />,
+    FaTruckPickup: <FaTruckPickup className="text-6xl text-orange-600" />,
+    MdLocalShipping: <MdLocalShipping className="text-6xl text-orange-600" />,
+    FaTruckMoving: <FaTruckMoving className="text-6xl text-orange-600" />,
   };
 
   const parcelTypes = [
@@ -60,7 +60,7 @@ export default function SelectParcel() {
   };
 
   return (
-    <div className="min-h-screen mt-10 flex flex-col items-center text-white bg-gradient-to-br from-black via-gray-900 to-black">
+    <div className="min-h-screen mt-4 flex flex-col items-center text-white bg-black">
       <div className="w-full max-w-2xl rounded-xl shadow-lg text-center p-4 sm:p-8">
 
         {/* Centered icon */}
@@ -94,7 +94,7 @@ export default function SelectParcel() {
                   if (type !== "Others") setCustomName("");
                 }}
                 className={`w-full py-2 px-4 rounded-md text-sm font-medium ${selectedType === type
-                    ? "bg-green-500 text-white"
+                    ? "bg-orange-600 text-white"
                     : "bg-gray-700/60 hover:bg-gray-600"
                   }`}
               >
@@ -120,7 +120,7 @@ export default function SelectParcel() {
                     value={customName}
                     onChange={(e) => setCustomName(e.target.value)}
                     placeholder="Enter custom parcel type..."
-                    className="w-full py-2 px-4 rounded-md bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full py-2 px-4 rounded-md bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-orange-600"
                   />
                 )}
                 <div className="relative flex items-center">
@@ -134,7 +134,7 @@ export default function SelectParcel() {
                       if (/^\d*$/.test(value)) setWeight(value);
                     }}
                     placeholder="Enter parcel weight"
-                    className="w-full py-2 px-4 pr-14 rounded-md bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full py-2 px-4 pr-14 rounded-md bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-orange-600"
                   />
                   <span className="absolute right-4 text-white text-sm">kg</span>
                 </div>
@@ -146,7 +146,7 @@ export default function SelectParcel() {
         {/* Action Buttons */}
         <button
           onClick={handleContinue}
-          className="mt-5 w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 rounded-md transition"
+          className="mt-5 w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 rounded-md transition"
         >
           Continue
         </button>

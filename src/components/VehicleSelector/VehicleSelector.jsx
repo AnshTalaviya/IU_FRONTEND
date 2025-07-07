@@ -14,28 +14,28 @@ const vehicleOptions = [
     description: "Ideal for small parcels, documents, or lightweight items.",
     iconName: "FaMotorcycle",
     weight: "Max 10 KG",
-    bg: "bg-green-700/50",
+    bg: "bg-orange-600",
   },
   {
     title: "Medium & Safe",
     description: "Perfect for electronics, boxes, and mid-size deliveries.",
     iconName: "FaTruckPickup",
     weight: "Max 50 KG",
-    bg: "bg-green-700/50",
+    bg: "bg-orange-600",
   },
   {
     title: "Spacious & Strong",
     description: "Best for furniture, heavier goods, or stacked parcels.",
     iconName: "MdLocalShipping",
     weight: "Max 80 KG",
-    bg: "bg-green-700/50",
+    bg: "bg-orange-600",
   },
   {
     title: "Heavy Duty",
     description: "For bulk deliveries, industrial items, or extra-large loads.",
     iconName: "FaTruckMoving",
     weight: "Max 1000 KG",
-    bg: "bg-green-700/50",
+    bg: "bg-orange-600",
   },
 ];
 
@@ -58,14 +58,14 @@ export default function VehicleSelector() {
   };
 
   const iconMap = {
-    FaMotorcycle: <FaMotorcycle className="text-4xl text-green-400" />,
-    FaTruckPickup: <FaTruckPickup className="text-4xl text-yellow-400" />,
-    MdLocalShipping: <MdLocalShipping className="text-4xl text-blue-400" />,
-    FaTruckMoving: <FaTruckMoving className="text-4xl text-red-400" />,
+    FaMotorcycle: <FaMotorcycle className="text-4xl text-white" />,
+    FaTruckPickup: <FaTruckPickup className="text-4xl text-white" />,
+    MdLocalShipping: <MdLocalShipping className="text-4xl text-white" />,
+    FaTruckMoving: <FaTruckMoving className="text-4xl text-white" />,
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white flex flex-col items-center justify-center px-4">
+    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-4">
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}

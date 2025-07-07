@@ -102,7 +102,7 @@ function Signup() {
         className="bg-[#161b22] w-full max-w-md p-8 rounded-2xl shadow-2xl backdrop-blur-md border border-gray-700"
       >
         <h2 className="text-3xl font-bold text-center text-white mb-6">
-          Sign up for <span className="text-green-400">Idhar Udhar</span>
+          Sign up for <span className="text-orange-600">Idhar Udhar</span>
         </h2>
         <div className="mb-4">
           <label className="block text-sm font-semibold text-left text-white mb-1">Full Name</label>
@@ -291,7 +291,7 @@ function Signup() {
             onClick={handleSendOtp}
             disabled={loading}
             whileTap={{ scale: 0.95 }}
-            className={`w-full ${loading ? 'bg-gray-600 cursor-not-allowed' : 'bg-green-500 hover:bg-green-600'} text-black font-bold py-3 rounded-lg transition`}
+            className={`w-full ${loading ? 'bg-gray-600 cursor-not-allowed' : 'bg-orange-600 hover:bg-orange-700'} text-black font-bold py-3 rounded-lg transition`}
           >
             {loading ? 'Sending OTP...' : 'Send OTP'}
           </motion.button>

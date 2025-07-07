@@ -17,7 +17,6 @@ const vehicleOptions = [
     description: "Ideal for small parcels, documents, or lightweight items.",
     iconName: "FaMotorcycle",
     weight: "Max 10 KG",
-    bg: "bg-gradient-to-br from-gray-900 via-gray-800 to-black",
     aos: "fade-up"
   },
   {
@@ -26,7 +25,6 @@ const vehicleOptions = [
     description: "Perfect for electronics, boxes, and mid-size deliveries.",
     iconName: "FaTruckPickup",
     weight: "Max 50 KG",
-    bg: "bg-gradient-to-br from-gray-900 via-gray-800 to-black",
     aos: "fade-down"
   },
   {
@@ -35,7 +33,6 @@ const vehicleOptions = [
     description: "Best for furniture, heavier goods, or stacked parcels.",
     iconName: "MdLocalShipping",
     weight: "Max 80 KG",
-    bg: "bg-gradient-to-br from-gray-900 via-gray-800 to-black",
     aos: "zoom-in"
   },
   {
@@ -44,7 +41,6 @@ const vehicleOptions = [
     description: "For bulk deliveries, industrial items, or extra-large loads.",
     iconName: "FaTruckMoving",
     weight: "Max 1000 KG",
-    bg: "bg-gradient-to-br from-gray-900 via-gray-800 to-black",
     aos: "flip-left"
   },
 ];
@@ -68,15 +64,15 @@ const VehicleCard = ({ vehicle, onClick }) => {
       onClick={onClick}
       className={`group relative w-full max-w-[280px] h-[180px] rounded-xl overflow-hidden 
         ${vehicle.bg} text-white shadow-2xl cursor-pointer 
-        transition-all duration-700 ease-in-out border border-green-500/40 hover:scale-[1.02]`}
+        transition-all duration-700 ease-in-out border border-orange-500/40 hover:scale-[1.02]`}
     >
       {/* Watermark Icon */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-10 text-green-400 scale-150">
+      <div className="absolute inset-0 flex items-center justify-center opacity-40 text-orange-400 scale-150">
         <VehicleIcon iconName={vehicle.iconName} />
       </div>
 
       {/* Top Icon */}
-      <div className="absolute top-4 left-4 z-10 w-14 h-14 bg-black/70 rounded-full flex items-center justify-center text-green-400 animate-icon-bounce">
+      <div className="absolute top-4 left-4 z-10 w-14 h-14 bg-black/70 rounded-full flex items-center justify-center text-orange-600 animate-icon-bounce">
         <VehicleIcon iconName={vehicle.iconName} />
       </div>
 
@@ -84,7 +80,7 @@ const VehicleCard = ({ vehicle, onClick }) => {
       <div className="absolute bottom-4 left-4 right-4 z-20">
         <h3 className="text-lg font-semibold">{vehicle.title}</h3>
         <p className="text-sm text-gray-300">{vehicle.description}</p>
-        <span className="text-xs font-semibold text-green-400 mt-1">
+        <span className="text-xs font-semibold mt-1">
           {vehicle.weight}
         </span>
       </div>
@@ -123,7 +119,7 @@ export default function VehicleSelector2() {
   };
 
   return (
-    <section className="min-h-[70px] py-8 mt-14  relative bg-gradient-to-b from-gray-900 to-black">
+    <section className="min-h-[70px] py-8 mt-14  relative">
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-8">
           <motion.h1
@@ -132,7 +128,7 @@ export default function VehicleSelector2() {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl font-bold text-white mb-4"
           >
-            Select a vehicle based on your <span className="text-green-400"> Parcel's Size </span>  and weight.
+            Select a vehicle based on your <span className="text-orange-600"> Parcel's Size </span>  and weight.
           </motion.h1>
           <p className="text-gray-400 text-sm max-w-xl mx-auto">
             Choose the best option for your delivery needs

@@ -147,7 +147,7 @@ export default function DriverDashboard() {
   }, []);
 
   return (
-    <div className="bg-gray-100 dark:bg-gray-900 min-h-screen px-4 sm:px-6 py-6 space-y-6 transition-all">
+    <div className="bg-black min-h-screen px-4 sm:px-6 py-6 space-y-6 transition-all">
       {/* Header */}
       <div className="text-left">
         <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Welcome back, {fullName} 👋</h1>

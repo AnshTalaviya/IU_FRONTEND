@@ -91,7 +91,7 @@ export default function DashboardNav() {
   };
 
   return (
-    <div className='w-full h-[8%] p-1 bg-gray-200/10 flex justify-between items-center px-2 py-2 rounded-lg md:rounded-none relative'>
+    <div className='w-full h-[8%] p-1 flex justify-between items-center px-2 py-2 rounded-lg md:rounded-none relative'>
       <h3 className='text-3xl dark:text-white flex items-center gap-3 ps-1'>
         <div className="icon text-xl cursor-pointer lg:hidden" onClick={ToggleSidebar}>
           <i className="fas fa-bars"></i>
@@ -126,7 +126,7 @@ export default function DashboardNav() {
           onClick={toggleNotifications}
         >
           <i className="fas fa-bell"></i>
-          {hasUnread && <span className="absolute top-0 right-0 h-2 w-2 bg-green-500 rounded-full"></span>}
+          {hasUnread && <span className="absolute top-0 right-0 h-2 w-2 bg-orange-600 rounded-full"></span>}
         </div>
 
         {/* Notification Dropdown */}

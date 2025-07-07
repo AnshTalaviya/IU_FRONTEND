@@ -21,7 +21,7 @@ const Aboutpage = () => {
           viewport={{ once: true }}
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            About <span className="text-green-400">IdharUdhar</span>
+            About <span className="text-orange-600">IdharUdhar</span>
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-12">
             IdharUdhar is your trusted partner for secure and convenient parcel pickup and drop services.
@@ -70,7 +70,7 @@ const Aboutpage = () => {
               viewport={{ once: true }}
               className="bg-white/10 p-6 rounded-2xl backdrop-blur-xl border border-white/10 shadow-md text-left"
             >
-              <div className="text-green-400 mb-4">{feature.icon}</div>
+              <div className="text-orange-600 mb-4">{feature.icon}</div>
               <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
               <p className="text-gray-300">{feature.desc}</p>
             </motion.div>
@@ -87,7 +87,7 @@ const Aboutpage = () => {
           viewport={{ once: true }}
           className="text-3xl font-bold text-center mb-12"
         >
-          How <span className="text-green-400">It Works</span>
+          How <span className="text-orange-600">It Works</span>
         </motion.h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {[
@@ -124,7 +124,7 @@ const Aboutpage = () => {
               viewport={{ once: true }}
               className="bg-white/10 p-6 rounded-2xl backdrop-blur-xl border border-white/10 shadow-md text-left"
             >
-              <h3 className="text-xl font-semibold mb-2 text-green-400">{step.title}</h3>
+              <h3 className="text-xl font-semibold mb-2 text-orange-600">{step.title}</h3>
               <p className="text-gray-300">{step.desc}</p>
             </motion.div>
           ))}
@@ -140,7 +140,7 @@ const Aboutpage = () => {
           viewport={{ once: true }}
           className="text-3xl font-bold mb-6"
         >
-          Our <span className="text-green-400">Core Values</span>
+          Our <span className="text-orange-600">Core Values</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}
@@ -150,7 +150,7 @@ const Aboutpage = () => {
           className="text-gray-300 text-lg"
         >
           At IdharUdhar, we stand by integrity, innovation, and impact. Our platform empowers every user to send, track, and receive with trust.
-          We’re not just about delivery — we’re about delivering <span className="text-green-400 font-medium">peace of mind</span>.
+          We’re not just about delivery — we’re about delivering <span className="text-orange-600 font-medium">peace of mind</span>.
         </motion.p>
       </section>
 
@@ -163,7 +163,7 @@ const Aboutpage = () => {
           viewport={{ once: true }}
           className="text-3xl font-bold mb-12"
         >
-          Why People <span className="text-green-400">Trust Us</span>
+          Why People <span className="text-orange-600">Trust Us</span>
         </motion.h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -192,7 +192,7 @@ const Aboutpage = () => {
               viewport={{ once: true }}
               className="bg-white/10 p-6 rounded-2xl backdrop-blur-xl border border-white/10 shadow-md text-left"
             >
-              <div className="text-green-400 mb-4">{trust.icon}</div>
+              <div className="text-orange-600 mb-4">{trust.icon}</div>
               <h3 className="text-xl font-semibold mb-2">{trust.title}</h3>
               <p className="text-gray-300">{trust.desc}</p>
             </motion.div>

@@ -10,8 +10,8 @@ const TestimonialCard = ({ image, name, role, rating, quote }) => {
       className="relative bg-white dark:bg-[#1F2937] rounded-xl p-6 shadow-md border dark:border-gray-700 transition duration-300 hover:shadow-2xl"
     >
       {/* Decorative Quote Icon */}
-      <div className="absolute top-4 right-4 bg-green-100 dark:bg-green-900 p-2 rounded-full">
-        <Quote className="text-green-600 dark:text-green-300 w-5 h-5" />
+      <div className="absolute top-4 right-4 bg-orange-600 p-2 rounded-full">
+        <Quote className="text-white w-5 h-5" />
       </div>
 
       {/* Profile Info */}
@@ -19,7 +19,7 @@ const TestimonialCard = ({ image, name, role, rating, quote }) => {
         <img
           src={image}
           alt={name}
-          className="w-14 h-14 rounded-full object-cover border-2 border-green-500"
+          className="w-14 h-14 rounded-full object-cover border-2 border-orange-600"
         />
         <div className="ml-4">
           <h4 className="text-lg font-semibold text-black dark:text-white">{name}</h4>
@@ -85,7 +85,7 @@ const TestimonialsSection = () => {
         {/* Heading */}
         <div className="text-center mb-14">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">What Our Riders Say</h2>
-          <div className="w-20 h-1 bg-green-500 mx-auto mb-4 rounded" />
+          <div className="w-20 h-1 bg-orange-700 mx-auto mb-4 rounded" />
           <p className="text-gray-600 dark:text-gray-400 max-w-xl mx-auto text-sm sm:text-base">
             Real voices from real riders who trust IdharUdhar for safe, reliable, and green transportation.
           </p>

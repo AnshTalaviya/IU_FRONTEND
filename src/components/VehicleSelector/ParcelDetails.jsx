@@ -50,8 +50,8 @@ export default function ParcelDetails() {
 
   const getInputClass = (hasError, value) => {
     if (hasError) return `${inputBaseClass} border-red-500 ring-2 ring-red-500`;
-    if (value) return `${inputBaseClass} border-green-500 ring-2 ring-green-500`;
-    return `${inputBaseClass} border-gray-600 focus:ring-2 focus:ring-green-500`;
+    if (value) return `${inputBaseClass} border-green-500 ring-2 ring-green-600`;
+    return `${inputBaseClass} border-gray-600 focus:ring-2 focus:ring-orange-600`;
   };
 
   const containerClass = "relative flex flex-col text-gray-400";

@@ -14,7 +14,7 @@ function Signup() {
     licenseNumber: "",
     otp: "",
     agreed: false,
-    ride: "primary",  
+    ride: "primary",
   });
   const removeSubDriver = (indexToRemove) => {
   const updated = subDrivers.filter((_, idx) => idx !== indexToRemove);

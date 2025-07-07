@@ -6,7 +6,7 @@ export default function SubDashboardNav() {
   const { Isonline, ToggleOnline, ToggleSidebar } = useGlobalContext();
   const [showNotifications, setShowNotifications] = useState(false);
   const [notifications, setNotifications] = useState([
-    { id: 1, message: "You received a new ride request", time: "5 mins ago", read: false },
+    { id: 1, message: "You received a new trip request", time: "5 mins ago", read: false },
     { id: 2, message: "Payout processed successfully", time: "1 hour ago", read: false },
     { id: 3, message: "Rating updated to 4.8", time: "2 hours ago", read: true }
   ]);

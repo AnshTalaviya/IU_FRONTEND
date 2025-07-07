@@ -34,7 +34,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <span className="text-green-400">Eco Rides</span> That<br />
+            <span className="text-green-400">Eco Trips</span> That<br />
             <span className="text-green-300">Move You Forward</span>
           </motion.h1>
 
@@ -44,7 +44,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            Book green rides with IdharUdhar. 🚗 Clean, fast, and reliable rides across 500+ cities. Zero hassle, max comfort.
+            Book green trips with IdharUdhar. 🚗 Clean, fast, and reliable trips across 500+ cities. Zero hassle, max comfort.
           </motion.p>
 
           {/* Input Box */}
@@ -90,7 +90,7 @@ const HeroSection = () => {
               }`}
             >
               <FaSearch />
-              Find Rides
+              Find Trips
             </motion.button>
           </motion.div>
         </div>
@@ -105,7 +105,7 @@ const HeroSection = () => {
           <div className="relative rounded-3xl overflow-hidden shadow-xl hover:scale-102 transition-transform duration-500 group">
             <img
               src="/images/Idhar Udhar Car 1.png"
-              alt="Premium Ride"
+              alt="Premium Trip"
               className="w-full h-[400px] object-cover rounded-3xl"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />

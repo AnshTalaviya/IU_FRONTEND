@@ -152,7 +152,11 @@ const Header = () => {
         {/* Main Nav */}
         <div className={`bg-white text-black dark:bg-gray-800 dark:text-white py-4 px-4 fixed ${isMobile ? "top-0" : "top-9"} left-0 w-full z-40 transition-shadow duration-300 ${scrolled ? "shadow-lg" : ""}`}>
           <div className="container mx-auto flex justify-between items-center">
-            <div><img src="/images/logo.png" className="ml-4" width={"40px"} alt="" /></div>
+
+            <Link to="/">
+            
+            <div><img src="/images/Idhar Udhar Logo.png" className="ml-4" width={"50px"} alt="" /></div>
+            </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex justify-center space-x-6">
@@ -205,9 +209,9 @@ const Header = () => {
           <Link to="/contact" className="block py-2 hover:text-green-500">Contact Us</Link>
 
           <div className="items-center justify-around flex mt-3 flex-wrap">
-            <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-green-200 dark:hover:bg-gray-700">
+            {/* <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-green-200 dark:hover:bg-gray-700">
               {isDarkMode ? <Sun size={30} /> : <Moon size={30} />}
-            </button>
+            </button> */}
             {isAuthenticated ? (
               <div className="relative">
                 <button onClick={() => setIsProfileDropdownOpen(!isProfileDropdownOpen)} className="w-10 h-10 rounded-full bg-green-700 text-white font-semibold hover:bg-green-800">

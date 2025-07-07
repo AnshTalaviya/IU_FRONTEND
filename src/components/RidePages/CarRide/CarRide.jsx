@@ -59,7 +59,7 @@ export default function CarRide() {
       amount,
       currency: "INR",
       name: "GreenCar",
-      description: "Car Ride Payment",
+      description: "Car Trip Payment",
       image: "/icons/car.png",
       handler: function (response) {
         alert("Payment successful. Payment ID: " + response.razorpay_payment_id);
@@ -81,11 +81,11 @@ export default function CarRide() {
   return (
     <div className="min-h-[85vh] bg-white dark:bg-[#1F2937] text-white flex items-center justify-center px-4 py-10">
       <div className="bg-[#1f2a3b] rounded-2xl w-full max-w-3xl p-6 sm:p-8 shadow-xl">
-        <h1 className="text-2xl font-bold mb-4">Book Your Ride</h1>
+        <h1 className="text-2xl font-bold mb-4">Book Your Trip</h1>
 
         <div className="flex justify-between items-center mb-6">
           <div>
-            <h2 className="text-lg font-semibold">Available Rides</h2>
+            <h2 className="text-lg font-semibold">Available Trips</h2>
             <p className="text-sm text-gray-400">For immediate pickup</p>
           </div>
           <Link to="/book-ride">

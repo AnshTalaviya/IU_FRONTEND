@@ -56,10 +56,10 @@ const Invoice = () => {
         {/* Header */}
         <div className="flex justify-between items-start mb-6">
           <div className="flex items-center gap-4">
-            <img src="/images/logo.png" alt="Logo" className="h-20" />
+            <img src="/images/Idhar Udhar Logo.png" alt="Logo" className="h-20" />
             <div>
               <h1 className="text-2xl font-bold text-sky-700">IDHAR UDHAR</h1>
-              <p className="text-sm text-gray-600">Rides Ho Ya Parcels, Ab Sab Kuch Jayega Idhar Se Udhar!</p>
+              <p className="text-sm text-gray-600">Trips Ho Ya Parcels, Ab Sab Kuch Jayega Idhar Se Udhar!</p>
             </div>
           </div>
           <div className="text-sm text-right text-slate-700 space-y-1">

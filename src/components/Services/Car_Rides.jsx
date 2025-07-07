@@ -25,7 +25,7 @@ const Car_Rides = () => {
   const slides = [
     {
       image: "/images/Idhar Udhar Car 1.png",
-      title: "Premium Rides",
+      title: "Premium Trips",
       subtitle: "Experience luxury on wheels",
       bgColor: "from-green-600/80 to-green-800/80"
     },
@@ -38,7 +38,7 @@ const Car_Rides = () => {
     {
       image: "/images/Idhar Udhar Car 6.png",
       title: "24/7 Service",
-      subtitle: "Your trusted ride partner anytime, anywhere",
+      subtitle: "Your trusted trip partner anytime, anywhere",
       bgColor: "from-purple-600/80 to-purple-800/80"
     }
   ];
@@ -81,7 +81,7 @@ const Car_Rides = () => {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start transition duration-1000 delay-400 min-w-[280px] sm:min-w-[320px]">
                   <Link to="/book" className="w-full sm:w-auto">
                     <button className="bg-white text-green-600 font-semibold px-6 py-3 rounded-lg shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-100 hover:shadow-xl whitespace-nowrap w-full">
-                      Book a Ride
+                      Book a Trip
                     </button>
                   </Link>
                   <Link to="/safety" className="w-full sm:w-auto">
@@ -243,7 +243,7 @@ const Car_Rides = () => {
 
           {/* Subtext */}
           <motion.p className="text-gray-600 dark:text-gray-300 mt-2 text-base">
-            Affordable auto rides with no hidden charges, clear pricing for every journey
+            Affordable auto trips with no hidden charges, clear pricing for every journey
           </motion.p>
 
           {/* Cards */}
@@ -353,14 +353,14 @@ const Car_Rides = () => {
             className="text-gray-600 dark:text-gray-300 max-w-xl mx-auto mb-10"
             data-aos-easing="ease-in-out"
           >
-            We provide the best car ride experience with comfort, safety, and affordability in mind
+            We provide the best car trip experience with comfort, safety, and affordability in mind
           </motion.p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Card Template */}
             {[
               {
-                title: "Comfortable Rides",
+                title: "Comfortable Trips",
                 desc: "Enjoy spacious, air-conditioned cars with professional drivers for a smooth journey",
                 iconPath: (
                   <>
@@ -373,7 +373,7 @@ const Car_Rides = () => {
               },
               {
                 title: "Safe & Secure",
-                desc: "All rides are monitored with real-time tracking, emergency assistance, and verified drivers",
+                desc: "All trips are monitored with real-time tracking, emergency assistance, and verified drivers",
                 iconPath: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />,
               },
               {
@@ -430,10 +430,10 @@ const Car_Rides = () => {
                   transition: { duration: 0.3, ease: "easeInOut" }
                 }}
               >
-                Download our app and get your first ride with a special discount.
+                Download our app and get your first trip with a special discount.
                 Use code{" "}
                 <strong className="inline-block transition-all duration-700 ease-in-out">
-                  FIRSTRIDE
+                  FIRSTTRIP
                 </strong>{" "}
                 for 50% off.
               </motion.p>
@@ -552,7 +552,7 @@ const Car_Rides = () => {
                 </div>
               </div>
               <p className="text-gray-600 dark:text-gray-300">
-                "Perfect for family trips! Spacious cars, safe drivers, and great service. My kids love the comfortable rides."
+                "Perfect for family trips! Spacious cars, safe drivers, and great service. My kids love the comfortable trips."
               </p>
               <div className="mt-4 flex text-yellow-400">
                 {[...Array(5)].map((_, i) => (
@@ -597,7 +597,7 @@ const Car_Rides = () => {
               data-aos-delay="600"
             >
               <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">50K+</div>
-              <div className="text-gray-600 dark:text-gray-400">Rides Completed</div>
+              <div className="text-gray-600 dark:text-gray-400">Trips Completed</div>
             </motion.div>
 
             {/* Average Rating */}

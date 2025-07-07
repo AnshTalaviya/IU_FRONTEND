@@ -331,8 +331,8 @@ export default function RideHistory() {
             <div className="max-w-6xl mx-auto">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
                     <div>   
-                        <h3 className='text-3xl dark:text-white text-gray-800 font-medium'>Ride History</h3>
-                        <p className='dark:text-gray-400 text-gray-600 mt-1'>View your past rides and performance</p>
+                        <h3 className='text-3xl dark:text-white text-gray-800 font-medium'>Trip History</h3>
+                        <p className='dark:text-gray-400 text-gray-600 mt-1'>View your past trips and performance</p>
                     </div>
                 </div>
 
@@ -343,7 +343,7 @@ export default function RideHistory() {
                                 <i className="fas fa-list text-indigo-500 text-xl"></i>
                             </div>
                             <div>
-                                <h6 className='text-sm dark:text-gray-400 text-gray-600'>Total Rides</h6>
+                                <h6 className='text-sm dark:text-gray-400 text-gray-600'>Total Trips</h6>
                                 <h3 className='text-2xl font-medium text-indigo-500'>{stats.totalRides}</h3>
                             </div>
                         </div>
@@ -354,7 +354,7 @@ export default function RideHistory() {
                                 <i className="fas fa-check text-blue-500 text-xl"></i>
                             </div>
                             <div>
-                                <h6 className='text-sm dark:text-gray-400 text-gray-600'>Accepted Rides</h6>
+                                <h6 className='text-sm dark:text-gray-400 text-gray-600'>Accepted Trips</h6>
                                 <h3 className='text-2xl font-medium text-blue-500'>{stats.acceptedRides}%</h3>
                             </div>
                         </div>
@@ -419,7 +419,7 @@ export default function RideHistory() {
                                     value={statusFilter}
                                     className='text-sm dark:text-white text-gray-700 bg-transparent focus:outline-none'
                                 >
-                                    <option className='dark:bg-gray-950' value="all">All Rides</option>
+                                    <option className='dark:bg-gray-950' value="all">All Trips</option>
                                     <option className='dark:bg-gray-950' value="completed">Completed</option>
                                     <option className='dark:bg-gray-950' value="cancelled">Cancelled</option>
                                 </select>
@@ -452,7 +452,7 @@ export default function RideHistory() {
                                         <div className="flex items-center gap-4">
                                             <div className="text-center">
                                                 <p className='dark:text-gray-400 text-gray-600 text-sm'>Fare</p>
-                                                <p className='text-green-500 font-medium'>${ride.fare.toFixed(2)}</p>
+                                                <p className='text-green-500 font-medium'>₹{ride.fare.toFixed(2)}</p>
                                             </div>
                                             <div className="text-center">
                                                 <p className='dark:text-gray-400 text-gray-600 text-sm'>Distance</p>
@@ -506,7 +506,7 @@ export default function RideHistory() {
                                                         </div>
                                                     </div>
                                                 ) : ride.cancelled ? (
-                                                    <div className="text-red-500">Ride was cancelled</div>
+                                                    <div className="text-red-500">Trip was cancelled</div>
                                                 ) : (
                                                     <div className="text-gray-500 dark:text-gray-400">No rating provided</div>
                                                 )}
@@ -524,7 +524,7 @@ export default function RideHistory() {
                     ) : (
                         <div className="text-center py-10 dark:text-gray-400 text-gray-600">
                             <i className="fas fa-car-alt text-4xl mb-3 text-gray-300 dark:text-gray-600"></i>
-                            <p className="text-lg">No rides found matching your criteria</p>
+                            <p className="text-lg">No trips found matching your criteria</p>
                             <button
                                 onClick={() => {
                                     setTimeFilter('all');

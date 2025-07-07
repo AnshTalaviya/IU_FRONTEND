@@ -155,7 +155,7 @@ function Signup() {
               <label className="inline-flex items-center text-white">
                 <input
                   type="radio"
-                  name="ride"
+                  name="trip"
                   value="primary"
                   checked={form.ride === "primary"}
                   onChange={handleChange}
@@ -166,7 +166,7 @@ function Signup() {
               <label className="inline-flex items-center text-white">
                 <input
                   type="radio"
-                  name="ride"
+                  name="trip"
                   value="sub"
                   checked={form.ride === "sub"}
                   onChange={handleChange}

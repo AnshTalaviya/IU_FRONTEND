@@ -504,9 +504,9 @@ useEffect(() => {
       <div className='flex justify-between items-center mb-6'>
         <div>
           <h1 className='text-3xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent'>
-            Active Ride
+            Active Trip
           </h1>
-          <p className='text-gray-400 mt-1'>Have a safe and green ride!</p>
+          <p className='text-gray-400 mt-1'>Have a safe and green trip!</p>
         </div>
 
       </div>
@@ -643,7 +643,7 @@ useEffect(() => {
                   <div>
                     <div className="font-bold text-lg">Rahul Sharma</div>
                     <div className="flex items-center text-sm text-gray-400">
-                      <FaStar className="text-yellow-400 mr-1" /> {customerRating} • 142 rides
+                      <FaStar className="text-yellow-400 mr-1" /> {customerRating} • 142 trips
                     </div>
                   </div>
                 </div>
@@ -659,11 +659,11 @@ useEffect(() => {
               {showDetails && (
                 <div className='flex-1 space-y-4'>
                   <div className='bg-gray-900/50 p-3 rounded-lg'>
-                    <h4 className='text-sm font-medium text-gray-400 mb-2'>Ride Preferences</h4>
+                    <h4 className='text-sm font-medium text-gray-400 mb-2'>Trip Preferences</h4>
                     <div className='flex flex-wrap gap-2'>
                       <span className="bg-green-900/30 text-green-400 px-2 py-1 rounded-full text-xs">No AC</span>
                       <span className="bg-blue-900/30 text-blue-400 px-2 py-1 rounded-full text-xs">Pet Friendly</span>
-                      <span className="bg-purple-900/30 text-purple-400 px-2 py-1 rounded-full text-xs">Quiet Ride</span>
+                      <span className="bg-purple-900/30 text-purple-400 px-2 py-1 rounded-full text-xs">Quiet Trip</span>
                     </div>
                     <div className='mt-3 text-xs text-gray-400'>
                       "Please drive carefully, I get motion sickness easily."
@@ -679,11 +679,11 @@ useEffect(() => {
         <div className='space-y-6'>
           {/* Ride Status Card */}
           <div className="bg-gray-800/50 rounded-2xl p-5 backdrop-blur-sm border border-gray-700">
-            <h2 className="text-xl font-semibold mb-4">Ride Status</h2>
+            <h2 className="text-xl font-semibold mb-4">Trip Status</h2>
             
             <div className='space-y-4'>
               <div className='flex justify-between items-center'>
-                <div className='text-gray-400'>Ride ID</div>
+                <div className='text-gray-400'>Trip ID</div>
                 <div className='font-mono'>#GRN2023-4587</div>
               </div>
               <div className='flex justify-between items-center'>
@@ -723,7 +723,7 @@ useEffect(() => {
                     onClick={handleCancelRide}
                     className="w-full bg-gray-700 hover:bg-gray-600 py-3 rounded-xl font-medium transition-all"
                   >
-                    Cancel Ride
+                    Cancel Trip
                   </button>
                 </div>
               )}
@@ -734,7 +734,7 @@ useEffect(() => {
                     onClick={handleStartRide}
                     className="w-full bg-green-500 hover:bg-green-600 py-3 rounded-xl font-medium transition-all flex items-center justify-center"
                   >
-                    <FaCar className='mr-2' /> Start Ride
+                    <FaCar className='mr-2' /> Start Trip
                   </button>
                   <button 
                     onClick={() => setShowEmergencyModal(true)}
@@ -751,7 +751,7 @@ useEffect(() => {
                     onClick={handleCompleteRide}
                     className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 py-3 rounded-xl font-medium transition-all flex items-center justify-center"
                   >
-                    <FaCar className='mr-2' /> Complete Ride
+                    <FaCar className='mr-2' /> Complete Trip
                   </button>
                   <button 
                     onClick={() => setShowEmergencyModal(true)}
@@ -764,12 +764,12 @@ useEffect(() => {
               
               {rideStatus === 'completed' ? (
                 <div className="text-center py-3 bg-green-900/20 rounded-xl border border-green-800">
-                  <div className="text-green-400 font-medium">Ride Completed Successfully</div>
+                  <div className="text-green-400 font-medium">Trip Completed Successfully</div>
                   <div className="text-xs text-gray-400 mt-1">₹185 received</div>
                 </div>
               ) : rideStatus === 'cancelled' && (
                 <div className="text-center py-3 bg-red-900/20 rounded-xl border border-red-800">
-                  <div className="text-red-400 font-medium">Ride Cancelled</div>
+                  <div className="text-red-400 font-medium">Trip Cancelled</div>
                   <div className="text-xs text-gray-400 mt-1">No charges applied</div>
                 </div>
               )}
@@ -818,7 +818,7 @@ useEffect(() => {
 
           {/* Ride Summary */}
           <div className="bg-gray-800/50 rounded-2xl p-5 backdrop-blur-sm border border-gray-700">
-            <h2 className="text-xl font-semibold mb-4">Ride Summary</h2>
+            <h2 className="text-xl font-semibold mb-4">Trip Summary</h2>
             <div className='space-y-3'>
               <div className='flex justify-between'>
                 <span className='text-gray-400'>Base Fare</span>
@@ -860,7 +860,7 @@ useEffect(() => {
             </div>
             
             <p className="mb-6 text-gray-300">
-              Emergency services will be notified immediately. Your current location and ride details will be shared with authorities.
+              Emergency services will be notified immediately. Your current location and trip details will be shared with authorities.
             </p>
             
             <div className="flex space-x-3">

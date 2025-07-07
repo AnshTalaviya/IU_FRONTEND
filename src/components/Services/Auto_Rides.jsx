@@ -30,12 +30,12 @@ export default function Auto_Rides() {
     const slides = [
         {
             title: "GreenAuto Standard",
-            subtitle: "Reliable and affordable auto rickshaw rides for everyday travel",
+            subtitle: "Reliable and affordable auto rickshaw trips for everyday travel",
             image: "/images/auto.jpeg",
         },
         {
             title: "GreenAuto Premium",
-            subtitle: "Comfort with style – premium auto rides for your urban lifestyle",
+            subtitle: "Comfort with style – premium auto trips for your urban lifestyle",
             image: "/images/auto2.jpg"
         },
     ];
@@ -78,7 +78,7 @@ export default function Auto_Rides() {
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start transition duration-1000 delay-400 min-w-[280px] sm:min-w-[320px]">
                                     <Link to="/book" className="w-full sm:w-auto">
                                         <button className="bg-white text-green-600 font-semibold px-6 py-3 rounded-lg shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl whitespace-nowrap w-full">
-                                            Book a Ride
+                                            Book a TRip
                                         </button>
                                     </Link>
                                     <Link to="/safety" className="w-full sm:w-auto">
@@ -189,7 +189,7 @@ export default function Auto_Rides() {
                             },
                             {
                                 title: "Safe & Verified",
-                                desc: "All our auto drivers are verified and trained for safe and comfortable rides",
+                                desc: "All our auto drivers are verified and trained for safe and comfortable trips",
                                 iconPath: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />,
                             },
                             {
@@ -240,7 +240,7 @@ export default function Auto_Rides() {
 
                     {/* Subtext */}
                     <motion.p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-2">
-                        Affordable auto rides with no hidden charges, clear pricing for every journey
+                        Affordable auto trips with no hidden charges, clear pricing for every journey
                     </motion.p>
 
                     {/* Cards */}
@@ -336,7 +336,7 @@ export default function Auto_Rides() {
                                     transition: { duration: 0.3, ease: "easeInOut" }
                                 }}
                             >
-                                Ready for an Auto Ride?
+                                Ready for an Auto Trip?
                             </motion.h2>
 
                             <motion.p
@@ -345,7 +345,7 @@ export default function Auto_Rides() {
                                     transition: { duration: 0.3, ease: "easeInOut" }
                                 }}
                             >
-                                Download our app and book your first auto ride with a special discount. Use code FIRSTAUTO for 25% off.
+                                Download our app and book your first auto trip with a special discount. Use code FIRSTAUTO for 25% off.
                             </motion.p>
 
                             <div className="pt-3">

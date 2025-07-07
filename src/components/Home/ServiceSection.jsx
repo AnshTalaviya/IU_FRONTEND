@@ -85,22 +85,22 @@ const ServiceSection = () => {
   const services = [
     {
       icon: <Bike size={32} />,
-      title: "Bike Ride",
-      description: "Quick & affordable bike rides",
+      title: "Bike Trip",
+      description: "Quick & affordable bike trips",
       path: "/book",
       aos: "fade-up"
     },
     {
       icon: <Car size={32} />,
-      title: "Car Ride",
+      title: "Car Trip",
       description: "Comfortable sedans for daily commute",
       path: "/book",
       aos: "fade-down"
     },
     {
       icon: <Truck size={32} />,
-      title: "Auto Ride",
-      description: "Convenient three-wheeler auto rides",
+      title: "Auto Trip",
+      description: "Convenient three-wheeler auto trips",
       path: "/book",
       aos: "zoom-in"
     },

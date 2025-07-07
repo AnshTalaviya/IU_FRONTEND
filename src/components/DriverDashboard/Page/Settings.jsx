@@ -22,7 +22,7 @@ const Settings = () => {
 
   // notifications with backend sync
   const [notifications, setNotifications] = useState({
-    RideRequests: true,
+    TripRequests: true,
     Earnings: true,
     Promotions: true,
     AppUpdates: false
@@ -658,7 +658,7 @@ const Settings = () => {
                 <div className="border-b dark:border-gray-800 border-gray-200 pb-4">
                   <label className="block dark:text-gray-400 text-gray-600 mb-2 text-sm">Payout Threshold</label>
                   <div className="relative">
-                    <span className="absolute left-3 top-3 dark:text-gray-400 text-gray-600">$</span>
+                    <span className="absolute left-3 top-3 dark:text-gray-400 text-gray-600">₹</span>
                     <input
                       type="number"
                       defaultValue="100"
@@ -711,7 +711,7 @@ const Settings = () => {
                             <tr key={txn.id} className="hover:dark:bg-gray-800/50 hover:bg-gray-50">
                               <td className="px-4 py-3 whitespace-nowrap text-sm dark:text-gray-300 text-gray-700">{txn.date}</td>
                               <td className="px-4 py-3 whitespace-nowrap text-sm dark:text-gray-300 text-gray-700">{txn.description}</td>
-                              <td className="px-4 py-3 whitespace-nowrap text-sm font-medium dark:text-green-400 text-green-600">${txn.amount.toFixed(2)}</td>
+                              <td className="px-4 py-3 whitespace-nowrap text-sm font-medium dark:text-green-400 text-green-600">₹{txn.amount.toFixed(2)}</td>
                               <td className="px-4 py-3 whitespace-nowrap text-sm">
                                 <span className={`px-2 py-1 rounded-full text-xs ${txn.status === 'completed'
                                   ? 'bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200'
@@ -774,7 +774,7 @@ const Settings = () => {
                       {key.split(/(?=[A-Z])/).join(' ')}
                     </div>
                     <div className="text-sm dark:text-gray-400 text-gray-600">
-                      {key === 'RideRequests' && 'Alerts for new ride requests'}
+                      {key === 'TripRequests' && 'Alerts for new trip requests'}
                       {key === 'Earnings' && 'Updates about your earnings'}
                       {key === 'Promotions' && 'Special offers and incentives'}
                       {key === 'AppUpdates' && 'Notifications about new features'}

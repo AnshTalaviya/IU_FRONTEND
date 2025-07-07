@@ -4,21 +4,21 @@ import { Link } from "react-router-dom";
 const ServiceOptions = () => {
   const services = [
     {
-      title: "Bike Ride",
-      desc: "Quick & affordable bike rides",
+      title: "Bike Trip",
+      desc: "Quick & affordable bike trips",
       icon: "/icons/bike.png",
       img: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80",
       route: "/bike-ride",
     },
     {
-      title: "Car Ride",
+      title: "Car Trip",
       desc: "Comfortable sedans for daily commute",
       icon: "/icons/car.png",
       img: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=800&q=80",
     },
     {
-      title: "Auto Ride",
-      desc: "Convenient three-wheeler auto rides",
+      title: "Auto Trip",
+      desc: "Convenient three-wheeler auto trips",
       icon: "/icons/road.png",
       img: "https://i.pinimg.com/736x/64/eb/ef/64ebefbbd558d77f1a1e0d01a4e050c1.jpg",
     },
@@ -46,7 +46,7 @@ const ServiceOptions = () => {
     <>
       <div className="bg-white dark:bg-[#101826] min-h-screen flex items-center justify-center px-4 py-30 text-black dark:text-white">
         <div className="bg-white dark:bg-[#1C2838] p-6 sm:p-8 rounded-2xl shadow-2xl w-full max-w-2xl">
-          <h2 className="text-3xl font-bold mb-1 text-start">Book Your Ride</h2>
+          <h2 className="text-3xl font-bold mb-1 text-start">Book Your Trip</h2>
           <p className="text-lg font-semibold text-start">Select Service Type</p>
           <p className="text-sm text-gray-400 dark:text-gray-300 mb-6 text-start">
             Choose what kind of service you need

@@ -29,12 +29,12 @@ const FeaturesSection = () => {
     {
       icon: <Shield size={28} />,
       title: 'Prioritized Safety',
-      description: 'Real-time ride tracking, verified drivers, and 24/7 emergency support.',
+      description: 'Real-time trip tracking, verified drivers, and 24/7 emergency support.',
     },
     {
       icon: <Clock size={28} />,
       title: 'On-Time Guarantee',
-      description: 'Schedule rides in advance with our punctuality promise.',
+      description: 'Schedule trips in advance with our punctuality promise.',
     },
     {
       icon: <MapPin size={28} />,
@@ -66,7 +66,7 @@ const FeaturesSection = () => {
             Why Choose <span className="text-green-400">Idhar-Udhar</span>
           </h2>
           <p className="text-gray-300 max-w-xl mx-auto">
-            The safest, most reliable, and eco-conscious ride-sharing experience tailored for you.
+            The safest, most reliable, and eco-conscious trip-sharing experience tailored for you.
           </p>
         </div>
 

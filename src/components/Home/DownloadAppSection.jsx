@@ -10,9 +10,9 @@ const DownloadAppSection = () => {
   }, []);
 
   const features = [
-    "Book rides in just a few taps",
+    "Book trips in just a few taps",
     "Track your driver in real-time",
-    "Schedule rides in advance",
+    "Schedule trips in advance",
     "Save favorite destinations",
     "Earn and redeem rewards",
     "Access 24/7 in-app support",
@@ -56,7 +56,7 @@ const DownloadAppSection = () => {
           </h2>
 
           <p className="text-gray-600 dark:text-gray-400 text-lg mb-8 leading-relaxed">
-            Ride smarter with our mobile app. Book with ease, track live, pay flexibly, and unlock exclusive rewards – all in one tap.
+            Trip smarter with our mobile app. Book with ease, track live, pay flexibly, and unlock exclusive rewards – all in one tap.
           </p>
 
           <div className="space-y-3 mb-10">

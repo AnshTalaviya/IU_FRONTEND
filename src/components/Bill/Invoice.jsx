@@ -59,7 +59,7 @@ const Invoice = () => {
             <img src="/Images/logo.jpg" alt="Logo" className="h-20" />
             <div>
               <h1 className="text-2xl font-bold text-sky-700">IDHAR UDHAR</h1>
-              <p className="text-sm text-gray-600">Rides Ho Ya Parcels, Ab Sab Kuch Jayega Idhar Se Udhar!</p>
+              <p className="text-sm text-gray-600">Trips Ho Ya Parcels, Ab Sab Kuch Jayega Idhar Se Udhar!</p>
             </div>
           </div>
           <div className="text-sm text-right text-slate-700 space-y-1">

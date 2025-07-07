@@ -97,10 +97,10 @@ export default function SubDashboard() {
   const getCards = (details) => ([
     {
       title: "Today's Earnings",
-      icon: 'fas fa-dollar-sign',
+      icon: 'fa-solid fa-indian-rupee-sign',
       color: 'text-green-500',
       value: `₹${details.earnings}`,
-      sub: `${details.rides} rides`,
+      sub: `${details.rides} trips`,
     },
     {
       title: 'Ratings',
@@ -161,7 +161,7 @@ export default function SubDashboard() {
         <h1 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Summary</h1>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 flex items-center space-x-3">
-            <i className="fas fa-dollar-sign text-green-500 text-xl"></i>
+            <i className="fa-solid fa-indian-rupee-sign text-green-500 text-xl"></i>
             <div>
               <p className="text-sm text-gray-600 dark:text-gray-400">Today's Earnings (Total)</p>
               <h3 className="text-lg font-semibold text-gray-800 dark:text-white">₹{totalEarnings}</h3>
@@ -193,7 +193,7 @@ export default function SubDashboard() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
           {/* Combined Recent Rides */}
           <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-xl shadow">
-            <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">All Drivers - Recent Rides</h2>
+            <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">All Drivers - Recent Trips</h2>
             <div className="space-y-3 max-h-64 overflow-y-auto pr-2">
               {allRecentRides.map((ride, idx) => (
                 <div
@@ -210,7 +210,7 @@ export default function SubDashboard() {
                     </div>
                     <div>
                       <p className="text-gray-800 dark:text-white font-medium capitalize">
-                        {ride.driver} - Ride {ride.status}
+                        {ride.driver} - Trip {ride.status}
                       </p>
                       <p className="text-xs text-gray-500 dark:text-gray-400">{ride.time}</p>
                     </div>
@@ -302,7 +302,7 @@ export default function SubDashboard() {
                       Today's Earnings: ₹{details.earnings}
                     </p>
                     <p className="text-xs text-gray-500 dark:text-gray-400">
-                      {details.rides} rides • {details.onlineHours}h online
+                      {details.rides} trips • {details.onlineHours}h online
                     </p>
                   </div>
                   <i className={`fas fa-chevron-${isExpanded ? 'up' : 'down'} text-gray-400`}></i>
@@ -343,7 +343,7 @@ export default function SubDashboard() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                       {/* Recent Rides */}
                       <div className="md:col-span-2 bg-white dark:bg-gray-800 p-4 rounded-xl shadow">
-                        <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">Recent Rides</h2>
+                        <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">Recent Trips</h2>
                         <div className="space-y-3">
                           {details.recentRides.map((ride, idx) => (
                             <div
@@ -360,7 +360,7 @@ export default function SubDashboard() {
                                 </div>
                                 <div>
                                   <p className="text-gray-800 dark:text-white font-medium capitalize">
-                                    Ride {ride.status}
+                                    Trip {ride.status}
                                   </p>
                                   <p className="text-xs text-gray-500 dark:text-gray-400">{ride.time}</p>
                                 </div>

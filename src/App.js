@@ -130,16 +130,12 @@ function App() {
             element={
               <Layout>
                 <Routes>
-                  {/* <Route path="/" element={<Invoice />} /> */}
+                  
                   <Route path="/" element={<HomePage />} />
                   <Route path="/select-vehicle" element={<VehicleSelector />} />
-                  {/* <Route path="/" element={<Profile2 />} /> */}
+                 
 
-                  {/* <Route path="/Services/carrides" element={<Car_Rides />} />
-                  <Route path="/Services/rentals" element={<Rentals />} />
-                  <Route path="/Services/Auto_rides" element={<Auto_Rides />} />
-                  <Route path="/Services/Bike_rides" element={<Bike_Rides />} />
-                  <Route path="/Services/Intercity" element={<Intercity />} /> */}
+                 
                   <Route path="/services" element={<Service />} />
                   <Route path="/Book_ride" element={<Book_Ride />} />
                   <Route path="/about" element={<Aboutpage />} />

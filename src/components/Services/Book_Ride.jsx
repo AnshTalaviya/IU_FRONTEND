@@ -23,13 +23,13 @@ export default function Car_Rides() {
         <div data-aos="fade-up" className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-12">
           {/* Left */}
           <div className="w-full md:w-1/2 md:pl-4">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">GreenCar Rides</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">GreenCar Trips</h1>
             <p className="text-lg md:text-xl mb-8">
-              Comfortable, affordable, and eco-friendly car rides for your daily commute
+              Comfortable, affordable, and eco-friendly car trips for your daily commute
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <button className="bg-white hover:bg-white/80 text-green-600 font-semibold px-6 py-3 rounded-md hover:bg-gray-100 transition">
-                <Link to="/book">   Book a Ride </Link>
+                <Link to="/book">   Book a TRip </Link>
               </button>
               <button className="bg-green-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-green-700 transition">
               <Link to="/safety">    Learn About Safety</Link>
@@ -108,7 +108,7 @@ export default function Car_Rides() {
             Why Choose GreenCar?
           </h1>
           <p className="text-gray-600 dark:text-gray-300 max-w-xl mx-auto mb-10">
-            We provide the best car ride experience with comfort, safety, and affordability in mind
+            We provide the best car trip experience with comfort, safety, and affordability in mind
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -122,7 +122,7 @@ export default function Car_Rides() {
                   <circle cx="17" cy="17" r="2" />
                 </svg>
               </div>
-              <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Comfortable Rides</h2>
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Comfortable Trips</h2>
               <p className="text-gray-600 dark:text-gray-300">
                 Enjoy spacious, air-conditioned cars with professional drivers for a smooth journey
               </p>
@@ -137,7 +137,7 @@ export default function Car_Rides() {
               </div>
               <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Safe & Secure</h2>
               <p className="text-gray-600 dark:text-gray-300">
-                All rides are monitored with real-time tracking, emergency assistance, and verified drivers
+                All Trips are monitored with real-time tracking, emergency assistance, and verified drivers
               </p>
             </div>
 
@@ -164,7 +164,7 @@ export default function Car_Rides() {
             Simple & Transparent Pricing
           </h1>
           <p className="text-gray-600 dark:text-gray-300 mt-2 text-base">
-            Affordable auto rides with no hidden charges, clear pricing for every journey
+            Affordable auto Trips with no hidden charges, clear pricing for every journey
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-12 px-2 sm:px-2 lg:px-0 mx-auto">
@@ -266,8 +266,8 @@ export default function Car_Rides() {
             <div data-aos="zoom-in" className="space-y-4 m-6">
               <h2 className="text-3xl md:text-4xl font-bold text-start">Ready to Experience GreenCar?</h2>
               <p className="text-lg opacity-90 text-start">
-                Download our app and get your first ride with a special discount.
-                Use code <strong>FIRSTRIDE</strong> for 50% off.
+                Download our app and get your first trip with a special discount.
+                Use code <strong>FIRSTTRIP</strong> for 50% off.
               </p>
               <div className="pt-4 text-start">
                 <Link

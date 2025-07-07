@@ -25,7 +25,7 @@ export default function DriverPanel() {
             icon: "fas fa-money-bill-wave"
         },
         {
-            name: "Ride History",
+            name: "Trip History",
             navigation: "ridehistory",
             icon: "fas fa-history"
         },

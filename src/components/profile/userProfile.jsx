@@ -242,7 +242,7 @@ export default function UserProfile() {
                   {[
                     "Saved Locations",
                     "Payment Methods",
-                    "My Rides"
+                    "My Trips"
                   ].map((tab) => (
 
                     <button
@@ -320,7 +320,7 @@ export default function UserProfile() {
                   </div>
                 )}
                 {activeTab === "Payment Methods" && <PaymentPage />}
-                {activeTab === "My Rides" && <RecentRides />}
+                {activeTab === "My Trips" && <RecentRides />}
               </div>
             )}
           </div>

@@ -330,7 +330,7 @@ export default function RideHistory() {
         <div className='p-5 dark:bg-gray-950 bg-gray-50 min-h-screen'>
             <div className="max-w-6xl mx-auto">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
-                    <div>   
+                    <div>
                         <h3 className='text-3xl dark:text-white text-gray-800 font-medium'>Trip History</h3>
                         <p className='dark:text-gray-400 text-gray-600 mt-1'>View your past trips and performance</p>
                     </div>
@@ -388,25 +388,25 @@ export default function RideHistory() {
                         <div className="flex-1 flex flex-wrap gap-2">
                             <button
                                 onClick={() => handleTimeFilterChange('today')}
-                                className={`px-4 py-2 rounded-lg ${timeFilter === 'today' ? 'bg-green-500 text-white' : 'bg-gray-100 dark:bg-gray-800 dark:text-gray-300 text-gray-700'}`}
+                                className={`px-4 py-2 rounded-lg ${timeFilter === 'today' ? 'bg-orange-600 text-white' : 'bg-gray-100 dark:bg-gray-800 dark:text-gray-300 text-gray-700'}`}
                             >
                                 Today
                             </button>
                             <button
                                 onClick={() => handleTimeFilterChange('week')}
-                                className={`px-4 py-2 rounded-lg ${timeFilter === 'week' ? 'bg-green-500 text-white' : 'bg-gray-100 dark:bg-gray-800 dark:text-gray-300 text-gray-700'}`}
+                                className={`px-4 py-2 rounded-lg ${timeFilter === 'week' ? 'bg-orange-600 text-white' : 'bg-gray-100 dark:bg-gray-800 dark:text-gray-300 text-gray-700'}`}
                             >
                                 This Week
                             </button>
                             <button
                                 onClick={() => handleTimeFilterChange('month')}
-                                className={`px-4 py-2 rounded-lg ${timeFilter === 'month' ? 'bg-green-500 text-white' : 'bg-gray-100 dark:bg-gray-800 dark:text-gray-300 text-gray-700'}`}
+                                className={`px-4 py-2 rounded-lg ${timeFilter === 'month' ? 'bg-orange-600 text-white' : 'bg-gray-100 dark:bg-gray-800 dark:text-gray-300 text-gray-700'}`}
                             >
                                 This Month
                             </button>
                             <button
                                 onClick={() => handleTimeFilterChange('all')}
-                                className={`px-4 py-2 rounded-lg ${timeFilter === 'all' ? 'bg-green-500 text-white' : 'bg-gray-100 dark:bg-gray-800 dark:text-gray-300 text-gray-700'}`}
+                                className={`px-4 py-2 rounded-lg ${timeFilter === 'all' ? 'bg-orange-600 text-white' : 'bg-gray-100 dark:bg-gray-800 dark:text-gray-300 text-gray-700'}`}
                             >
                                 All Time
                             </button>
@@ -433,7 +433,7 @@ export default function RideHistory() {
                         rides.map((ride) => (
                             <div
                                 key={ride.id}
-                                className={`ride bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-sm dark:shadow-none transition-all duration-200 ${expandedRide === ride.id ? 'ring-2 ring-green-400' : 'hover:shadow-md'}`}
+                                className={`ride bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-sm dark:shadow-none transition-all duration-200 ${expandedRide === ride.id ? 'ring-2 ring-white' : 'hover:shadow-md'}`}
                             >
                                 <div
                                     className="p-4 cursor-pointer"
@@ -462,7 +462,7 @@ export default function RideHistory() {
                                                 <p className='dark:text-gray-400 text-gray-600 text-sm'>Duration</p>
                                                 <p className='dark:text-white text-gray-800 font-medium'>{ride.duration}</p>
                                             </div>
-                                            <button className="text-green-500 hover:text-green-600">
+                                            <button className="text-orange-600 hover:text-green-600">
                                                 <i className={`fas fa-chevron-${expandedRide === ride.id ? 'up' : 'down'}`}></i>
                                             </button>
                                         </div>
@@ -470,7 +470,7 @@ export default function RideHistory() {
                                 </div>
 
                                 {expandedRide === ride.id && (
-                                    <div className="border-t border-gray-200 dark:border-gray-700 p-4 bg-gray-50 dark:bg-gray-800">
+                                    <div className=" dark:border-white p-4 bg-gray-50 dark:bg-gray-800">
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                             <div>
                                                 <h5 className="dark:text-gray-300 text-gray-700 font-medium mb-2">Trip Details</h5>

@@ -409,7 +409,7 @@ const Settings = () => {
           {/* Payment Section */}
           <div className="dark:bg-gray-200/10 bg-white rounded-xl dark:border-gray-800 border-gray-200 mb-6 p-6 transition-all hover:shadow-lg">
             <h2 className="text-xl font-semibold mb-4 flex items-center">
-              <i className="fas fa-credit-card text-green-400 mr-3" />
+              <i className="fas fa-credit-card text-orange-600 mr-3" />
               <span>Payment</span>
             </h2>
 
@@ -419,7 +419,7 @@ const Settings = () => {
                 <button
                   onClick={() => setActivePaymentTab('methods')}
                   className={`py-3 px-1 border-b-2 font-medium text-sm ${activePaymentTab === 'methods'
-                    ? 'border-green-500 text-green-600 dark:text-green-400'
+                    ? 'border-orange-600 text-orange-600'
                     : 'border-transparent dark:text-gray-400 text-gray-500 hover:dark:text-gray-300 hover:text-gray-700'}`}
                 >
                   Payment Methods
@@ -427,7 +427,7 @@ const Settings = () => {
                 <button
                   onClick={() => setActivePaymentTab('payouts')}
                   className={`py-3 px-1 border-b-2 font-medium text-sm ${activePaymentTab === 'payouts'
-                    ? 'border-green-500 text-green-600 dark:text-green-400'
+                    ? 'border-orange-600 text-orange-600'
                     : 'border-transparent dark:text-gray-400 text-gray-500 hover:dark:text-gray-300 hover:text-gray-700'}`}
                 >
                   Payout Settings
@@ -435,7 +435,7 @@ const Settings = () => {
                 <button
                   onClick={() => setActivePaymentTab('history')}
                   className={`py-3 px-1 border-b-2 font-medium text-sm ${activePaymentTab === 'history'
-                    ? 'border-green-500 text-green-600 dark:text-green-400'
+                    ? 'border-orange-600 text-orange-600 '
                     : 'border-transparent dark:text-gray-400 text-gray-500 hover:dark:text-gray-300 hover:text-gray-700'}`}
                 >
                   Payment History
@@ -451,7 +451,7 @@ const Settings = () => {
                     <div key={method.id} className="dark:bg-gray-900/50 bg-gray-50 rounded-lg p-4 border dark:border-gray-800 border-gray-200">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center">
-                          <i className={`${getPaymentMethodIcon(method.type, method.brand)} text-2xl mr-3 ${method.isDefault ? 'text-green-400' : 'dark:text-gray-400 text-gray-600'}`} />
+                          <i className={`${getPaymentMethodIcon(method.type, method.brand)} text-2xl mr-3 ${method.isDefault ? 'text-white' : 'dark:text-gray-400 text-gray-600'}`} />
                           <div>
                             <div className="font-medium">
                               {method.type === 'card'
@@ -467,7 +467,7 @@ const Settings = () => {
                         </div>
                         <div className="flex items-center space-x-3">
                           {method.isDefault ? (
-                            <span className="text-xs bg-green-500/20 text-green-600 dark:text-green-400 px-2 py-1 rounded">
+                            <span className="text-xs bg-orange-600 text-white px-2 py-1 rounded">
                               Default
                             </span>
                           ) : (
@@ -510,7 +510,7 @@ const Settings = () => {
                             value={newPaymentMethod.cardNumber}
                             onChange={(e) => setNewPaymentMethod({ ...newPaymentMethod, cardNumber: e.target.value.replace(/\s/g, '') })}
                             className={`w-full dark:bg-gray-800 bg-white border ${errors.cardNumber ? 'border-red-500' : 'dark:border-gray-700 border-gray-300'
-                              } rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500/50`}
+                              } rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-white`}
                           />
                           {errors.cardNumber && <p className="mt-1 text-sm text-red-500">{errors.cardNumber}</p>}
                         </div>
@@ -530,7 +530,7 @@ const Settings = () => {
                                 setNewPaymentMethod({ ...newPaymentMethod, expiry: value })
                               }}
                               className={`w-full dark:bg-gray-800 bg-white border ${errors.expiry ? 'border-red-500' : 'dark:border-gray-700 border-gray-300'
-                                } rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500/50`}
+                                } rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-white`}
                             />
                             {errors.expiry && <p className="mt-1 text-sm text-red-500">{errors.expiry}</p>}
                           </div>
@@ -542,7 +542,7 @@ const Settings = () => {
                               value={newPaymentMethod.cvc}
                               onChange={(e) => setNewPaymentMethod({ ...newPaymentMethod, cvc: e.target.value })}
                               className={`w-full dark:bg-gray-800 bg-white border ${errors.cvc ? 'border-red-500' : 'dark:border-gray-700 border-gray-300'
-                                } rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500/50`}
+                                } rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-white`}
                             />
                             {errors.cvc && <p className="mt-1 text-sm text-red-500">{errors.cvc}</p>}
                           </div>
@@ -556,7 +556,7 @@ const Settings = () => {
                             value={newPaymentMethod.name}
                             onChange={(e) => setNewPaymentMethod({ ...newPaymentMethod, name: e.target.value })}
                             className={`w-full dark:bg-gray-800 bg-white border ${errors.name ? 'border-red-500' : 'dark:border-gray-700 border-gray-300'
-                              } rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500/50`}
+                              } rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-white`}
                           />
                           {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name}</p>}
                         </div>
@@ -567,7 +567,7 @@ const Settings = () => {
                             id="defaultMethod"
                             checked={newPaymentMethod.isDefault}
                             onChange={(e) => setNewPaymentMethod({ ...newPaymentMethod, isDefault: e.target.checked })}
-                            className="h-4 w-4 dark:bg-gray-800 bg-white border dark:border-gray-700 border-gray-300 rounded focus:ring-green-500 focus:border-green-500"
+                            className="h-4 w-4 dark:bg-gray-800 bg-white border dark:border-gray-700 border-gray-300 rounded focus:ring-white"
                           />
                           <label htmlFor="defaultMethod" className="ml-2 block text-sm dark:text-gray-400 text-gray-600">
                             Set as default payment method
@@ -577,7 +577,7 @@ const Settings = () => {
                         <div className="flex space-x-3 pt-2">
                           <button
                             type="submit"
-                            className="bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded-lg transition-colors font-medium flex items-center justify-center flex-1"
+                            className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-3 rounded-lg transition-colors font-medium flex items-center justify-center flex-1"
                             disabled={isSaving}
                           >
                             {isSaving ? (
@@ -638,14 +638,14 @@ const Settings = () => {
                         checked={true}
                         onChange={() => { }}
                       />
-                      <div className="w-11 h-6 dark:bg-gray-700 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600"></div>
+                      <div className="w-11 h-6 dark:bg-gray-700 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-[55%] peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[0px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-orange-600"></div>
                     </label>
                   </div>
                 </div>
 
                 <div className="border-b dark:border-gray-800 border-gray-200 pb-4">
                   <label className="block dark:text-gray-400 text-gray-600 mb-2 text-sm">Payout Method</label>
-                  <select className="w-full dark:bg-gray-900 bg-gray-50 border dark:border-gray-800 border-gray-300 rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500/50">
+                  <select className="w-full dark:bg-gray-900 bg-gray-50 border dark:border-gray-800 border-gray-300 rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-white">
                     {paymentMethods.filter(m => m.type === 'bank').map(method => (
                       <option key={method.id} value={method.id}>
                         {method.bankName} •••• {method.last4}
@@ -662,7 +662,7 @@ const Settings = () => {
                     <input
                       type="number"
                       defaultValue="100"
-                      className="w-full dark:bg-gray-900 bg-gray-50 border dark:border-gray-800 border-gray-300 rounded-lg pl-8 pr-4 py-3 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500/50"
+                      className="w-full dark:bg-gray-900 bg-gray-50 border dark:border-gray-800 border-gray-300 rounded-lg pl-8 pr-4 py-3 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-white"
                     />
                   </div>
                   <div className="text-sm dark:text-gray-400 text-gray-600 mt-1">
@@ -670,7 +670,7 @@ const Settings = () => {
                   </div>
                 </div>
 
-                <button className="w-full bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded-lg transition-colors font-medium flex items-center justify-center">
+                <button className="w-full bg-orange-600 hover:bg-orange-700 text-white px-4 py-3 rounded-lg transition-colors font-medium flex items-center justify-center">
                   <FaCheck className="mr-2" />
                   Save Payout Settings
                 </button>
@@ -683,7 +683,7 @@ const Settings = () => {
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-medium">Recent Transactions</h3>
                   <select
-                    className="dark:bg-gray-900 bg-gray-50 border dark:border-gray-800 border-gray-300 rounded-lg px-3 py-1 text-sm focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500/50"
+                    className="dark:bg-gray-900 bg-gray-50 border dark:border-gray-800 border-gray-300 rounded-lg px-3 py-1 text-sm focus:border-white focus:outline-none focus:ring-1 focus:ring-white"
                     onChange={handleFilterChange}
                     value={filterDays}
                   >
@@ -762,7 +762,7 @@ const Settings = () => {
           {/* Notifications Section */}
           <div className="dark:bg-gray-200/10 bg-white rounded-xl dark:border-gray-800 border-gray-200 mb-6 p-6 transition-all hover:shadow-lg">
             <h2 className="text-xl font-semibold mb-4 flex items-center">
-              <i className="fas fa-bell text-green-400 mr-3" />
+              <i className="fas fa-bell text-orange-600 mr-3" />
               <span>Notifications</span>
             </h2>
 
@@ -787,7 +787,7 @@ const Settings = () => {
                       checked={value}
                       onChange={() => toggleNotification(key)}
                     />
-                    <div className="w-11 h-6 dark:bg-gray-700 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-[55%] peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[0px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600"></div>
+                    <div className="w-11 h-6 dark:bg-gray-700 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-[55%] peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[0px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-orange-600"></div>
                   </label>
                 </div>
               ))}
@@ -797,7 +797,7 @@ const Settings = () => {
           {/* Vehicle Section */}
           <div className="dark:bg-gray-200/10 bg-white rounded-xl dark:border-gray-800 border-gray-200 mb-6 p-6 transition-all hover:shadow-lg">
             <h2 className="text-xl font-semibold mb-4 flex items-center">
-              <i className="fas fa-car text-green-400 mr-3" />
+              <i className="fas fa-car text-orange-600 mr-3" />
               <span>Vehicle</span>
             </h2>
 
@@ -812,7 +812,7 @@ const Settings = () => {
                         value={formData.vehicleMake}
                         onChange={handleInputChange}
                         className={`w-full dark:bg-gray-900 bg-gray-50 border ${errors.vehicleMake ? 'border-red-500' : 'dark:border-gray-800 border-gray-300'
-                          } rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500/50`}
+                          } rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-white`}
                       />
                       {errors.vehicleMake && <p className="mt-1 text-sm text-red-500 animate-fadeIn">{errors.vehicleMake}</p>}
                     </div>
@@ -823,7 +823,7 @@ const Settings = () => {
                         value={formData.vehicleModel}
                         onChange={handleInputChange}
                         className={`w-full dark:bg-gray-900 bg-gray-50 border ${errors.vehicleModel ? 'border-red-500' : 'dark:border-gray-800 border-gray-300'
-                          } rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500/50`}
+                          } rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-white`}
                       />
                       {errors.vehicleModel && <p className="mt-1 text-sm text-red-500 animate-fadeIn">{errors.vehicleModel}</p>}
                     </div>
@@ -835,7 +835,7 @@ const Settings = () => {
                         value={formData.vehicleYear}
                         onChange={handleInputChange}
                         className={`w-full dark:bg-gray-900 bg-gray-50 border ${errors.vehicleYear ? 'border-red-500' : 'dark:border-gray-800 border-gray-300'
-                          } rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500/50`}
+                          } rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-white`}
                       />
                       {errors.vehicleYear && <p className="mt-1 text-sm text-red-500 animate-fadeIn">{errors.vehicleYear}</p>}
                     </div>
@@ -846,7 +846,7 @@ const Settings = () => {
                         value={formData.vehicleColor}
                         onChange={handleInputChange}
                         className={`w-full dark:bg-gray-900 bg-gray-50 border ${errors.vehicleColor ? 'border-red-500' : 'dark:border-gray-800 border-gray-300'
-                          } rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500/50`}
+                          } rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-white`}
                       />
                       {errors.vehicleColor && <p className="mt-1 text-sm text-red-500 animate-fadeIn">{errors.vehicleColor}</p>}
                     </div>
@@ -858,14 +858,14 @@ const Settings = () => {
                       value={formData.licensePlate}
                       onChange={handleInputChange}
                       className={`w-full dark:bg-gray-900 bg-gray-50 border ${errors.licensePlate ? 'border-red-500' : 'dark:border-gray-800 border-gray-300'
-                        } rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500/50`}
+                        } rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-white`}
                     />
                     {errors.licensePlate && <p className="mt-1 text-sm text-red-500 animate-fadeIn">{errors.licensePlate}</p>}
                   </div>
                   <div className="flex space-x-3 pt-2">
                     <button
                       onClick={handleVehicleSave}
-                      className="bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded-lg transition-colors font-medium flex items-center justify-center flex-1"
+                      className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-3 rounded-lg transition-colors font-medium flex items-center justify-center flex-1"
                       disabled={isSaving}
                     >
                       {isSaving ? (
@@ -899,7 +899,7 @@ const Settings = () => {
                       </div>
                       <button
                         onClick={() => setEditMode({ ...editMode, vehicle: true })}
-                        className="text-green-400 hover:text-green-300 text-sm font-medium flex items-center"
+                        className="text-orange-600 hover:text-orange-700 text-sm font-medium flex items-center"
                       >
                         <i className="fas fa-pencil-alt mr-1" />
                         Edit
@@ -913,7 +913,7 @@ const Settings = () => {
                       <div>{formData.licensePlate}</div>
                       <button
                         onClick={() => setEditMode({ ...editMode, vehicle: true })}
-                        className="text-green-400 hover:text-green-300 text-sm font-medium flex items-center"
+                        className="text-orange-600 hover:text-orange-700 text-sm font-medium flex items-center"
                       >
                         <i className="fas fa-pencil-alt mr-1" />
                         Edit
@@ -930,43 +930,12 @@ const Settings = () => {
             </div>
           </div>
 
-          {/* Appearance Section */}
-          <div className="dark:bg-gray-200/10 bg-white rounded-xl dark:border-gray-800 border-gray-200 mb-6 p-6 transition-all hover:shadow-lg">
-            <h2 className="text-xl font-semibold mb-4 flex items-center">
-              {isDarkMode ? (
-                <FaMoon className="text-green-400 mr-3" />
-              ) : (
-                <FaSun className="text-green-400 mr-3" />
-              )}
-              <span>Appearance</span>
-            </h2>
-
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <div className="font-medium mb-1 text-start">Dark Mode</div>
-                  <div className="text-sm dark:text-gray-400 text-gray-600">
-                    {isDarkMode ? 'Dark theme is enabled' : 'Light theme is enabled'}
-                  </div>
-                </div>
-                <button
-                  onClick={toggleTheme}
-                  className={`relative inline-flex items-center h-6 rounded-full w-11 transition-colors focus:outline-none ${isDarkMode ? 'bg-green-600' : 'dark:bg-gray-700 bg-gray-300'
-                    }`}
-                >
-                  <span
-                    className={`inline-block w-4 h-4 transform transition-transform rounded-full bg-white ${isDarkMode ? 'translate-x-3' : 'translate-x-1'
-                      }`}
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
+         
 
           {/* About Section */}
           <div className="dark:bg-gray-200/10 bg-white rounded-xl dark:border-gray-800 border-gray-200 mb-6 p-6 transition-all hover:shadow-lg">
             <h2 className="text-xl font-semibold mb-4 flex items-center">
-              <i className="fas fa-info-circle text-green-400 mr-3" />
+              <i className="fas fa-info-circle text-orange-600 mr-3" />
               <span>About</span>
             </h2>
 
@@ -984,7 +953,7 @@ const Settings = () => {
                   <div className="font-medium text-start">Terms of Service</div>
                   <div className="text-sm dark:text-gray-400 text-gray-600">Legal terms and conditions</div>
                 </div>
-                <Link to="#" className="text-green-400 hover:text-green-300 font-medium flex items-center">
+                <Link to="#" className="text-orange-600 hover:text-orange-700 font-medium flex items-center">
                   View <i className="fas fa-external-link-alt ml-1 text-xs" />
                 </Link>
               </div>
@@ -994,7 +963,7 @@ const Settings = () => {
                   <div className="font-medium text-start">Privacy Policy</div>
                   <div className="text-sm dark:text-gray-400 text-gray-600">How we handle your data</div>
                 </div>
-                <Link to="#" className="text-green-400 hover:text-green-300 font-medium flex items-center">
+                <Link to="#" className="text-orange-600 hover:text-orange-700 font-medium flex items-center">
                   View <i className="fas fa-external-link-alt ml-1 text-xs" />
                 </Link>
               </div>

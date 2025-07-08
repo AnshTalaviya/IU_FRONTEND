@@ -66,11 +66,11 @@ export default function SubRideHistory() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
         <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
           <p className="text-sm text-gray-600 dark:text-gray-400">Today's Earnings</p>
-          <h3 className="text-2xl font-bold text-green-500">₹{stats.todayEarnings.toFixed(2)}</h3>
+          <h3 className="text-2xl font-bold text-white">₹{stats.todayEarnings.toFixed(2)}</h3>
         </div>
         <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
           <p className="text-sm text-gray-600 dark:text-gray-400">Acceptance Rate</p>
-          <h3 className={`text-2xl font-bold ${stats.acceptanceRate > 90 ? 'text-green-500' : stats.acceptanceRate > 70 ? 'text-yellow-400' : 'text-red-500'}`}>{stats.acceptanceRate}%</h3>
+          <h3 className={`text-2xl font-bold ${stats.acceptanceRate > 90 ? 'text-white' : stats.acceptanceRate > 70 ? 'text-yellow-400' : 'text-red-500'}`}>{stats.acceptanceRate}%</h3>
         </div>
         <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
           <p className="text-sm text-gray-600 dark:text-gray-400">Average Rating</p>

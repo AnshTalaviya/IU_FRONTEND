@@ -70,9 +70,18 @@ export default function DriverPanel() {
                     <i className="fas fa-times"></i>
                 </button>
 
-                <h3 className='text-2xl dark:text-white text-gray-900 font-medium pt-1'>
+                {/* <h3 className='text-2xl dark:text-white text-gray-900 font-medium pt-1'>
                     <span className='text-orange-600'>Idhar</span> Udhar
+                </h3> */}
+
+                <h3 className='flex  text-xl dark:text-white text-gray-900 font-medium pt-1'>
+                    <img
+                        src="/images/Idhar Udhar Logo.png"
+                        alt="Idhar Udhar Logo"
+                        className="w-15 h-auto"  
+                    />
                 </h3>
+
                 <h5 className='text-xs dark:text-gray-600 text-gray-500 text-start font-bold mt-4'>
                     MAIN MENU
                 </h5>

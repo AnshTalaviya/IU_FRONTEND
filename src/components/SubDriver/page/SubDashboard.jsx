@@ -98,7 +98,7 @@ export default function SubDashboard() {
     {
       title: "Today's Earnings",
       icon: 'fa-solid fa-indian-rupee-sign',
-      color: 'text-green-500',
+      color: 'text-orange-600',
       value: `₹${details.earnings}`,
       sub: `${details.rides} trips`,
     },
@@ -112,7 +112,7 @@ export default function SubDashboard() {
     {
       title: 'Acceptance Rate',
       icon: 'fas fa-check-circle',
-      color: 'text-green-500',
+      color: 'text-orange-500',
       value: details.acceptance,
       sub: 'Good standing',
     },
@@ -161,7 +161,7 @@ export default function SubDashboard() {
         <h1 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Summary</h1>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 flex items-center space-x-3">
-            <i className="fa-solid fa-indian-rupee-sign text-green-500 text-xl"></i>
+            <i className="fa-solid fa-indian-rupee-sign text-orange-600 text-xl"></i>
             <div>
               <p className="text-sm text-gray-600 dark:text-gray-400">Today's Earnings (Total)</p>
               <h3 className="text-lg font-semibold text-gray-800 dark:text-white">₹{totalEarnings}</h3>
@@ -175,7 +175,7 @@ export default function SubDashboard() {
             </div>
           </div>
           <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 flex items-center space-x-3">
-            <i className="fas fa-check-circle text-green-500 text-xl"></i>
+            <i className="fas fa-check-circle text-orange-600 text-xl"></i>
             <div>
               <p className="text-sm text-gray-600 dark:text-gray-400">Acceptance Rate (Avg)</p>
               <h3 className="text-lg font-semibold text-gray-800 dark:text-white">{avgAcceptance}%</h3>
@@ -235,7 +235,7 @@ export default function SubDashboard() {
                 <span>₹{(100 * totalDrivers).toFixed(2)}</span>
               </div>
               <div className="w-full bg-gray-200 dark:bg-gray-700 h-2 rounded-full mt-2">
-                <div className="bg-green-500 h-full rounded-full" style={{ width: `${Math.round((totalEarnings / (100 * totalDrivers)) * 100)}%` }}></div>
+                <div className="bg-orange-600 h-full rounded-full" style={{ width: `${Math.round((totalEarnings / (100 * totalDrivers)) * 100)}%` }}></div>
               </div>
               <div className="flex justify-between text-sm text-gray-600 dark:text-gray-300 mt-1">
                 <span>₹{totalEarnings}</span>
@@ -254,12 +254,12 @@ export default function SubDashboard() {
               </div>
               <div className="flex justify-between text-sm">
                 <span className="text-gray-600 dark:text-gray-300">Utilization</span>
-                <span className="text-green-500">{Math.round((totalEarnings / (100 * totalDrivers)) * 100)}%</span>
+                <span className="text-white">{Math.round((totalEarnings / (100 * totalDrivers)) * 100)}%</span>
               </div>
             </div>
             <div className="pt-4 border-t border-gray-200 dark:border-gray-600">
               <h3 className="text-sm text-gray-500 dark:text-gray-400">Expected Payout</h3>
-              <h2 className="text-green-600 dark:text-green-400 text-xl font-semibold mt-1">₹{totalEarnings}</h2>
+              <h2 className="text-white text-xl font-semibold mt-1">₹{totalEarnings}</h2>
               <p className="text-xs text-gray-500 dark:text-gray-400">Will be transferred on Monday</p>
             </div>
           </div>
@@ -386,7 +386,7 @@ export default function SubDashboard() {
                             <span>₹100.00</span>
                           </div>
                           <div className="w-full bg-gray-200 dark:bg-gray-700 h-2 rounded-full mt-2">
-                            <div className="bg-green-500 h-full rounded-full" style={{ width: `${Math.round((details.earnings / 100) * 100)}%` }}></div>
+                            <div className="bg-orange-600 h-full rounded-full" style={{ width: `${Math.round((details.earnings / 100) * 100)}%` }}></div>
                           </div>
                           <div className="flex justify-between text-sm text-gray-600 dark:text-gray-300 mt-1">
                             <span>₹{details.earnings}</span>
@@ -405,12 +405,12 @@ export default function SubDashboard() {
                           </div>
                           <div className="flex justify-between text-sm">
                             <span className="text-gray-600 dark:text-gray-300">Utilization</span>
-                            <span className="text-green-500">{Math.round((details.earnings / 100) * 100)}%</span>
+                            <span className="text-white">{Math.round((details.earnings / 100) * 100)}%</span>
                           </div>
                         </div>
                         <div className="pt-4 border-t border-gray-200 dark:border-gray-600">
                           <h3 className="text-sm text-gray-500 dark:text-gray-400">Expected Payout</h3>
-                          <h2 className="text-green-600 dark:text-green-400 text-xl font-semibold mt-1">₹{details.earnings}</h2>
+                          <h2 className="text-white text-xl font-semibold mt-1">₹{details.earnings}</h2>
                           <p className="text-xs text-gray-500 dark:text-gray-400">Will be transferred on Monday</p>
                         </div>
                       </div>

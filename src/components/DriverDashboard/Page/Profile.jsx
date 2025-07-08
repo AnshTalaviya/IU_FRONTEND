@@ -55,11 +55,11 @@ const Profile = () => {
 
   const [stats] = useState([
     { label: 'Total Trips', value: '845', icon: 'route', className: 'dark:text-white text-gray-800' },
-    { label: 'Acceptance Rate', value: '94%', icon: 'check-circle', className: 'text-green-400' },
+    { label: 'Acceptance Rate', value: '94%', icon: 'check-circle', className: 'text-white' },
     { label: 'Cancellation Rate', value: '1.2%', icon: 'times-circle', className: 'text-red-400' },
-    { label: 'On-time Arrival', value: '97%', icon: 'clock', className: 'text-green-400' },
+    { label: 'On-time Arrival', value: '97%', icon: 'clock', className: 'text-white' },
     { label: 'Average Trip Time', value: '18 min', icon: 'hourglass-half', className: 'dark:text-white text-gray-800' },
-    { label: 'Weekly Earnings', value: '$1,245.50', icon: 'dollar-sign', className: 'text-green-400' },
+    { label: 'Weekly Earnings', value: '$1,245.50', icon: 'dollar-sign', className: 'text-orange-600' },
   ]);
 
   // Modal state
@@ -337,7 +337,7 @@ const Profile = () => {
                 </button>
                 <button
                   type="submit"
-                  className={`px-4 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700 transition-colors flex items-center ${isSubmitting ? 'opacity-70' : ''
+                  className={`px-4 py-2 rounded-lg bg-orange-600 text-white hover:bg-orange-700 transition-colors flex items-center ${isSubmitting ? 'opacity-70' : ''
                     }`}
                   disabled={isSubmitting}
                 >
@@ -374,7 +374,7 @@ const Profile = () => {
           {/* Profile Card */}
           <div className="dark:bg-gray-200/10 bg-white rounded-xl p-6 shadow-sm dark:border-gray-700 border-gray-200 hover:shadow-lg transition-all">
             <div className="flex flex-col items-center">
-              <div className="w-24 h-24 md:w-28 md:h-28 bg-green-600 rounded-full flex items-center justify-center mb-4 shadow-md">
+              <div className="w-24 h-24 md:w-28 md:h-28 bg-orange-600 rounded-full flex items-center justify-center mb-4 shadow-md">
                 <i className="fas fa-user text-white text-4xl md:text-5xl"></i>
               </div>
 
@@ -401,7 +401,7 @@ const Profile = () => {
               </div>
 
               <button
-                className="bg-green-600 text-white px-6 py-3 rounded-lg w-full hover:opacity-90 transition-opacity shadow-sm font-medium"
+                className="bg-orange-600 text-white px-6 py-3 rounded-lg w-full hover:opacity-90 transition-opacity shadow-sm font-medium"
                 onClick={() => openEditModal('personal', personalInfo)}
               >
                 Edit Profile
@@ -527,12 +527,12 @@ const InfoSection = ({ title, data, icon, onEdit }) => (
   <div className="dark:bg-gray-200/10 bg-white rounded-xl p-6 shadow-sm dark:border-gray-700 border-gray-200 hover:shadow-lg transition-all hover:scale-[1.01]">
     <div className="flex justify-between items-center mb-6">
       <h3 className="text-xl font-semibold dark:text-gray-200 text-gray-800 flex items-center">
-        {icon && <i className={`fas fa-${icon} text-green-400 mr-3 text-lg`}></i>}
+        {icon && <i className={`fas fa-${icon} text-orange-600 mr-3 text-lg`}></i>}
         {title}
       </h3>
       <button
         onClick={onEdit}
-        className="text-green-400 hover:text-green-300 text-sm font-medium flex items-center"
+        className="text-orange-600 hover:text-orange-700 text-sm font-medium flex items-center"
       >
         <i className="fas fa-pencil-alt mr-2"></i> Edit
       </button>
@@ -548,7 +548,7 @@ const InfoSection = ({ title, data, icon, onEdit }) => (
 // Info component (No changes needed here)
 const Info = ({ label, value, icon }) => (
   <div className="flex items-start gap-3 md:gap-4">
-    <div className="p-2 rounded-lg dark:bg-gray-800 bg-gray-100 text-green-500">
+    <div className="p-2 rounded-lg dark:bg-gray-800 bg-gray-100 text-orange-600">
       <i className={`fas fa-${icon} text-sm`}></i>
     </div>
     <div className="flex flex-col">

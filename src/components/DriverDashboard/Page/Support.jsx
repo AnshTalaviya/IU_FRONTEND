@@ -83,7 +83,7 @@ const Support = () => {
   const helpCategories = [
     {
       id: 'general',
-      icon: <i className="fas fa-question-circle text-2xl text-green-400" />,
+      icon: <i className="fas fa-question-circle text-2xl text-orange-600" />,
       title: "General Questions",
       description: "Answers to common driver questions",
       content: (
@@ -96,7 +96,7 @@ const Support = () => {
             <li>How do I change my availability schedule?</li>
           </ul>
           <button
-            className="mt-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"
+            className="mt-4 bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"
             onClick={() => setActiveTab('chat')}
           >
             Ask a Question
@@ -151,7 +151,7 @@ const Support = () => {
               <span className="font-medium">•••• 4567</span>
             </div>
           </div>
-          <button className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg transition-colors">
+          <button className="w-full bg-orange-600 hover:bg-orange-700 text-white py-2 rounded-lg transition-colors">
             View Payment History
           </button>
         </div>
@@ -172,11 +172,11 @@ const Support = () => {
             </div>
             <p className="text-sm mb-3 dark:text-gray-300 text-gray-600">Complete 20 trips between Fri-Sun to earn $100 bonus</p>
             <div className="w-full dark:bg-gray-700 bg-gray-200 rounded-full h-2">
-              <div className="bg-green-500 h-2 rounded-full" style={{ width: '45%' }}></div>
+              <div className="bg-orange-600 h-2 rounded-full" style={{ width: '45%' }}></div>
             </div>
             <p className="text-xs text-right mt-1 dark:text-gray-400 text-gray-500">9/20 trips completed</p>
           </div>
-          <button className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg transition-colors">
+          <button className="w-full bg-orange-600 hover:bg-orange-700 text-white py-2 rounded-lg transition-colors">
             View All Promotions
           </button>
         </div>
@@ -194,7 +194,7 @@ const Support = () => {
       <div className="flex border-b dark:border-gray-800 border-gray-300 mb-8 overflow-x-auto">
         <button
           className={`pb-4 px-6 font-medium transition-colors whitespace-nowrap ${activeTab === 'help'
-              ? 'text-green-400 border-b-2 border-green-400'
+              ? 'text-orange-600 border-b-2 border-orange-600'
               : 'dark:text-gray-400 text-gray-600 hover:dark:text-gray-300 hover:text-gray-800'
             }`}
           onClick={() => {
@@ -206,7 +206,7 @@ const Support = () => {
         </button>
         <button
           className={`pb-4 px-6 font-medium transition-colors whitespace-nowrap ${activeTab === 'chat'
-              ? 'text-green-400 border-b-2 border-green-400'
+              ? 'text-orange-600 border-b-2 border-orange-600'
               : 'dark:text-gray-400 text-gray-600 hover:dark:text-gray-300 hover:text-gray-800'
             }`}
           onClick={() => setActiveTab('chat')}
@@ -215,7 +215,7 @@ const Support = () => {
         </button>
         <button
           className={`pb-4 px-6 font-medium transition-colors whitespace-nowrap ${activeTab === 'faq'
-              ? 'text-green-400 border-b-2 border-green-400'
+              ? 'text-orange-600 border-b-2 border-orange-600'
               : 'dark:text-gray-400 text-gray-600 hover:dark:text-gray-300 hover:text-gray-800'
             }`}
           onClick={() => setActiveTab('faq')}
@@ -232,7 +232,7 @@ const Support = () => {
                 {helpCategories.map((category) => (
                   <div
                     key={category.id}
-                    className="dark:bg-gray-200/10 bg-white rounded-xl p-6 flex items-start space-x-4 dark:hover:bg-gray-200/15 hover:bg-gray-50 transition-all cursor-pointer dark:border-gray-800 border-gray-200 hover:border-green-800/50 hover:shadow-lg hover:shadow-green-900/10"
+                    className="dark:bg-gray-200/10 bg-white rounded-xl p-6 flex items-start space-x-4 dark:hover:bg-gray-200/15 hover:bg-gray-50 transition-all cursor-pointer dark:border-gray-800 border-gray-200 hover:border-orange-800/50 hover:shadow-lg hover:shadow-orange-900/10"
                     onClick={() => setSelectedCategory(category.id)}
                   >
                     <div className="mt-1">
@@ -254,13 +254,13 @@ const Support = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="flex items-center space-x-4 p-5 dark:bg-gray-900 bg-gray-100 rounded-lg dark:border-gray-800 border-gray-200 hover:border-green-800 transition-colors">
-                    <div className="bg-green-900/50 p-3 rounded-full">
-                      <i className="fas fa-headset text-xl text-green-400" />
+                    <div className="bg-orange-600 p-3 rounded-full">
+                      <i className="fas fa-headset text-xl text-white" />
                     </div>
                     <div>
                       <h3 className="font-medium text-lg text-start dark:text-gray-200 text-gray-800">Phone Support</h3>
                       <p className="text-sm dark:text-gray-400 text-gray-600 mb-2 text-start">Available 24/7</p>
-                      <p className="text-green-400 font-mono">+1 (888) 555-1234</p>
+                      <p className="text-orange-600 font-mono">+1 (888) 555-1234</p>
                     </div>
                   </div>
 
@@ -275,7 +275,7 @@ const Support = () => {
                       <p className="text-sm text-start text-gray-600 dark:text-gray-400">
                         Response within 24 hours
                       </p>
-                      <p className="text-green-500 font-mono break-all">
+                      <p className="text-white font-mono break-all">
                         support@trip.com
                       </p>
                     </div>
@@ -307,8 +307,8 @@ const Support = () => {
       {activeTab === 'chat' && (
         <div className="dark:bg-gray-200/10 bg-white rounded-xl dark:border-gray-800 border-gray-200 flex flex-col h-[70vh]">
           <div className="p-4 dark:border-b dark:border-gray-800 border-b-gray-300 flex items-center dark:bg-gray-900 bg-gray-100 rounded-t-xl">
-            <div className="bg-green-900/50 p-2 rounded-full mr-3">
-              <i className="fas fa-headset text-green-400" />
+            <div className="bg-orange-600 p-2 rounded-full mr-3">
+              <i className="fas fa-headset text-white" />
             </div>
             <div>
               <h3 className="font-medium dark:text-gray-200 text-gray-800">Support Agent</h3>
@@ -327,7 +327,7 @@ const Support = () => {
                 <div className={`max-w-[75%] ${msg.sender === 'user' ? 'text-right' : 'text-left'}`}>
                   <div className={`
                     ${msg.sender === 'user'
-                      ? 'dark:bg-green-900/50 bg-green-100 dark:text-green-100 text-green-900 rounded-2xl rounded-tr-none'
+                      ? ' bg-orange-600 text-white-900 rounded-2xl rounded-tr-none'
                       : 'dark:bg-gray-800 bg-gray-200 rounded-2xl rounded-tl-none'
                     } p-4
                   `}>
@@ -362,12 +362,12 @@ const Support = () => {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Type your message..."
-                className="flex-1 dark:bg-gray-800 bg-white dark:border-gray-700 border-gray-300 rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-900/50"
+                className="flex-1 dark:bg-gray-800 bg-white dark:border-gray-700 border-gray-300 rounded-lg px-4 py-3 focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-900/50"
               />
               <button
                 type="submit"
                 disabled={!message.trim()}
-                className="bg-green-600 hover:bg-green-700 text-white px-5 rounded-lg transition-colors flex items-center justify-center disabled:dark:bg-gray-700 disabled:bg-gray-300 disabled:cursor-not-allowed"
+                className="bg-orange-600 hover:bg-orange-700 text-white px-5 rounded-lg transition-colors flex items-center justify-center disabled:dark:bg-gray-700 disabled:bg-gray-300 disabled:cursor-not-allowed"
               >
                 <i className="fas fa-paper-plane" />
               </button>
@@ -384,7 +384,7 @@ const Support = () => {
               <input
                 type="text"
                 placeholder="Search FAQs..."
-                className="dark:bg-gray-900 bg-gray-100 dark:border-gray-800 border-gray-300 rounded-lg pl-10 pr-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-green-900/50 focus:border-green-500 w-full"
+                className="dark:bg-gray-900 bg-gray-100 dark:border-gray-800 border-gray-300 rounded-lg pl-10 pr-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-orange-900/50 focus:border-orange-500 w-full"    
               />
               <i className="fas fa-search absolute left-3 top-3 dark:text-gray-400 text-gray-500" />
             </div>
@@ -405,7 +405,7 @@ const Support = () => {
                 >
                   <h3 className="font-medium text-lg dark:text-gray-200 text-gray-800">{faq.question}</h3>
                   {expandedFaq === index ? (
-                    <i className="fas fa-chevron-up text-green-400 transition-transform" />
+                    <i className="fas fa-chevron-up text-orange-600 transition-transform" />
                   ) : (
                     <i className="fas fa-chevron-down dark:text-gray-400 text-gray-500 transition-transform" />
                   )}
@@ -415,7 +415,7 @@ const Support = () => {
                   <div className="p-5 pt-0 animate-fadeIn">
                     <p className="dark:text-gray-300 text-gray-600 pl-1">{faq.answer}</p>
                     <button
-                      className="mt-4 text-green-400 text-sm font-medium flex items-center"
+                      className="mt-4 text-orange-600 text-sm font-medium flex items-center"
                       onClick={() => {
                         setActiveTab('chat')
                         setMessage(`I have a question about: ${faq.question}`)
@@ -430,9 +430,9 @@ const Support = () => {
             ))}
           </div>
 
-          <div className="mt-8 p-5 dark:bg-green-900/20 bg-green-100 dark:border-green-800/50 border-green-200 rounded-lg dark:hover:bg-green-900/30 hover:bg-green-50 transition-colors">
+          <div className="mt-8 p-5   border-orange-200 rounded-lg transition-colors">
             <div className="flex items-start space-x-4">
-              <i className="fas fa-question-circle text-green-400 text-xl mt-1" />
+              <i className="fas fa-question-circle text-orange-600 text-xl mt-1" />
               <div>
                 <h3 className="font-medium text-lg mb-2 dark:text-gray-200 text-gray-800">Can't find what you're looking for?</h3>
                 <p className="dark:text-gray-400 text-gray-600 mb-4">
@@ -440,7 +440,7 @@ const Support = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
                   <button
-                    className="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg transition-colors text-sm font-medium"
+                    className="bg-orange-600 hover:bg-orange-700 text-white px-5 py-2 rounded-lg transition-colors text-sm font-medium"
                     onClick={() => setActiveTab('chat')}
                   >
                     <i className="fas fa-comment-alt mr-2" />

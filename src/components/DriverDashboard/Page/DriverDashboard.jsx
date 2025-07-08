@@ -43,7 +43,7 @@ function SummaryCard1({
     >
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-semibold text-white flex items-center gap-2">
-          <i className="fas fa-chart-line text-green-400" />
+          <i className="fas fa-chart-line text-orange-600" />
           {title}
         </h2>
         {goal > 0 && (
@@ -69,9 +69,9 @@ function SummaryCard1({
 
       {/* Ride Stats */}
       <div className="grid grid-cols-2 gap-4 text-sm text-gray-200 mt-2">
-        <div className="flex justify-between">
-          <span>Trips Completed</span>
-          <span className="font-semibold text-white">{rides}</span>
+        <div className="flex justify-between gap-2">
+          <span>Trips Completed </span>
+          <span className="font-semibold text-white"> {rides}</span>
         </div>
         <div className="flex justify-between">
           <span>Cancellations</span>
@@ -93,7 +93,7 @@ function SummaryCard1({
           </div>
           <div className="flex justify-between">
             <span className="text-gray-300">Utilization</span>
-            <span className="text-green-400 font-medium">{utilization}</span>
+            <span className="text-white font-medium">{utilization}</span>
           </div>
         </div>
       </div>
@@ -101,13 +101,13 @@ function SummaryCard1({
       {/* Expected Payout */}
       <div className="pt-4 border-t border-gray-600">
         <h3 className="text-sm text-gray-400">Expected Payout</h3>
-        <h2 className="text-green-400 text-2xl font-bold mt-1">{payout}</h2>
+        <h2 className="text-white text-2xl font-bold mt-1">{payout}</h2>
         <p className="text-xs text-gray-400">Will be transferred on Monday</p>
       </div>
 
       {/* View Details Link */}
       <div className="pt-2 text-right">
-        <button className="text-sm text-green-300 hover:underline">View full earnings</button>
+        <button className="text-sm text-white hover:underline">View full earnings</button>
       </div>
     </div>
   );
@@ -179,7 +179,7 @@ export default function DriverDashboard() {
           {
             title: "Today's Earnings",
             icon: 'fa-solid fa-indian-rupee-sign',
-            color: 'text-green-500',
+            color: 'text-orange-600',
             value: '₹86.50',
             sub: '7 trips',
           },
@@ -194,7 +194,7 @@ export default function DriverDashboard() {
           {
             title: 'Acceptance Rate',
             icon: 'fas fa-check-circle',
-            color: 'text-green-500',
+            color: 'text-orange-600',
             value: '95%',
             sub: 'Good standing',
           },
@@ -290,7 +290,7 @@ export default function DriverDashboard() {
                 </div>
                 <div className="text-sm font-medium">
                   {ride.status === 'completed' ? (
-                    <span className="text-green-600 dark:text-green-400">+ ₹{ride.earning}</span>
+                    <span className="text-green-600 dark:text-white">+ ₹{ride.earning}</span>
                   ) : (
                     <span className="text-red-500 dark:text-red-400">Canceled</span>
                   )}

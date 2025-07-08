@@ -52,7 +52,7 @@ const Profile2 = () => {
     { label: 'Cancellation Rate', value: '1.2%', icon: 'times-circle', className: 'text-red-400' },
     { label: 'On-time Arrival', value: '97%', icon: 'clock', className: 'text-green-400' },
     { label: 'Average Trip Time', value: '18 min', icon: 'hourglass-half', className: 'dark:text-white text-gray-800' },
-    { label: 'Weekly Earnings', value: '$1,245.50', icon: 'dollar-sign', className: 'text-green-400' },
+    { label: 'Weekly Earnings', value: '₹1,245.50', icon: 'fa-solid fa-indian-rupee-sign', className: 'text-orange-600' },
   ];
 
   const [subdrivers, setSubdrivers] = useState([
@@ -173,7 +173,7 @@ const Profile2 = () => {
           {/* Profile Card */}
           <div className="dark:bg-gray-200/10 bg-white rounded-xl p-6 shadow-sm dark:border-gray-700 border-gray-200 hover:shadow-lg transition-all">
             <div className="flex flex-col items-center">
-              <div className="w-24 h-24 md:w-28 md:h-28 bg-green-600 rounded-full flex items-center justify-center mb-4 shadow-md">
+              <div className="w-24 h-24 md:w-28 md:h-28 bg-orange-600 rounded-full flex items-center justify-center mb-4 shadow-md">
                 <i className="fas fa-user text-white text-4xl md:text-5xl"></i>
               </div>
               <h2 className="text-xl font-bold mb-1 dark:text-gray-200 text-gray-800">{profileData.name}</h2>
@@ -198,7 +198,7 @@ const Profile2 = () => {
           {/* Stats Card */}
           <div className="dark:bg-gray-200/10 bg-white rounded-xl p-6 shadow-sm dark:border-gray-700 border-gray-200 hover:shadow-lg transition-all">
             <h3 className="text-lg font-semibold mb-4 flex items-center dark:text-gray-200 text-gray-800">
-              <i className="fas fa-chart-line text-green-400 mr-3 text-lg"></i> Quick Stats
+              <i className="fas fa-chart-line text-orange-600 mr-3 text-lg"></i> Quick Stats
             </h3>
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-gray-100 dark:bg-gray-800 p-3 rounded-lg">
@@ -228,7 +228,7 @@ const Profile2 = () => {
           {/* Subdrivers */}
           <div className="space-y-6">
             <h3 className="text-xl font-semibold dark:text-gray-200 text-gray-800 flex items-center">
-              <i className="fas fa-users text-green-400 mr-3 text-lg"></i>
+              <i className="fas fa-users text-orange-600 mr-3 text-lg"></i>
               Subdrivers
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -239,7 +239,7 @@ const Profile2 = () => {
                   className="cursor-pointer dark:bg-gray-200/10 bg-white rounded-xl p-5 shadow-sm dark:border-gray-700 border-gray-200 hover:shadow-md transition-all"
                 >
                   <div className="flex items-center space-x-4">
-                    <div className="bg-green-500 w-12 h-12 rounded-full flex items-center justify-center text-white text-xl font-bold uppercase">
+                    <div className="bg-orange-600 w-12 h-12 rounded-full flex items-center justify-center text-white text-xl font-bold uppercase">
                       {sd.name[0]}
                     </div>
                     <div>
@@ -337,13 +337,13 @@ const InfoSection = ({ title, data, icon, onEdit }) => (
   <div className="dark:bg-gray-200/10 bg-white rounded-xl p-6 shadow-sm dark:border-gray-700 border-gray-200 hover:shadow-lg transition-all hover:scale-[1.01]">
     <div className="flex justify-between items-center mb-6">
       <h3 className="text-xl font-semibold dark:text-gray-200 text-gray-800 flex items-center">
-        {icon && <i className={`fas fa-${icon} text-green-400 mr-3 text-lg`}></i>}
+        {icon && <i className={`fas fa-${icon} text-orange-600 mr-3 text-lg`}></i>}
         {title}
       </h3>
       {onEdit && (
         <button
           onClick={onEdit}
-          className="px-3 py-1 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors"
+          className="px-3 py-1 bg-orange-600 text-white rounded-md hover:bg-orange-700 transition-colors"
         >
           <i className="fas fa-edit mr-1"></i> Edit
         </button>
@@ -359,7 +359,7 @@ const InfoSection = ({ title, data, icon, onEdit }) => (
 
 const Info = ({ label, value, icon }) => (
   <div className="flex items-start gap-3 md:gap-4">
-    <div className="p-2 rounded-lg dark:bg-gray-800 bg-gray-100 text-green-500">
+    <div className="p-2 rounded-lg dark:bg-gray-800 bg-gray-100 text-orange-600">
       <i className={`fas fa-${icon} text-sm`}></i>
     </div>
     <div className="flex flex-col">
@@ -413,7 +413,7 @@ const EditModal = ({ editForm, handleEditChange, handleSave, onClose }) => {
                   name={field}
                   value={editForm[field]}
                   onChange={handleEditChange}
-                  className="p-2 rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  className="p-2 rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-white focus:border-transparent"
                 />
               )}
             </div>
@@ -428,7 +428,7 @@ const EditModal = ({ editForm, handleEditChange, handleSave, onClose }) => {
           </button>
           <button 
             onClick={handleSave} 
-            className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors"
+            className="px-4 py-2 bg-orange-600 text-white rounded hover:bg-orange-700 transition-colors"
           >
             Save Changes
           </button>
@@ -452,7 +452,7 @@ const SubdriverModal = ({ subdriver, onClose, onEdit }) => (
       
       <div className="overflow-y-auto flex-grow pr-2">
         <div className="flex flex-col items-center mb-6">
-          <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center text-white text-3xl font-bold uppercase mb-4">
+          <div className="w-20 h-20 bg-orange-600 rounded-full flex items-center justify-center text-white text-3xl font-bold uppercase mb-4">
             {subdriver.name[0]}
           </div>
           <h4 className="text-2xl font-bold dark:text-white text-gray-800">{subdriver.name}</h4>
@@ -555,7 +555,7 @@ const SubdriverEditModal = ({ editForm, handleChange, handleSave, onClose }) => 
                   name={field}
                   value={editForm[field]}
                   onChange={handleChange}
-                  className="p-2 rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  className="p-2 rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-white focus:border-transparent"
                 />
               </div>
             ))}
@@ -570,7 +570,7 @@ const SubdriverEditModal = ({ editForm, handleChange, handleSave, onClose }) => 
           </button>
           <button 
             onClick={handleSave} 
-            className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors"
+            className="px-4 py-2 bg-orange-600 text-white rounded hover:bg-orange-700 transition-colors"
           >
             Save Changes
           </button>

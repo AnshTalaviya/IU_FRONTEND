@@ -160,7 +160,7 @@ const Earnings = () => {
     switch (status) {
       case 'completed':
         return (
-          <span className="bg-green-900/20 dark:bg-green-900/50 text-green-600 dark:text-green-400 px-2 sm:px-3 py-1 text-xs rounded-full flex items-center gap-1 w-fit">
+          <span className="bg-orange-600  px-2 sm:px-3 py-1 text-xs rounded-full flex items-center gap-1 w-fit">
             <i className="fas fa-check-circle"></i>
             Completed
           </span>
@@ -192,14 +192,14 @@ const Earnings = () => {
           <div className="dark:bg-gray-800 bg-white rounded-lg p-6 w-full max-w-md">
             {cashOutSuccess ? (
               <div className="text-center py-8">
-                <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <i className="fas fa-check text-green-500 text-2xl"></i>
+                <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <i className="fas fa-check text-white text-2xl"></i>
                 </div>
                 <h3 className="text-xl font-bold mb-2">Cash Out Successful!</h3>
                 <p className="dark:text-gray-400 text-gray-600 mb-6">Your payment of ${cashOutAmount} is being processed.</p>
                 <button
                   onClick={() => setCashOutModalOpen(false)}
-                  className="bg-green-600 hover:bg-green-700 transition-all px-6 py-2 rounded-lg text-white"
+                  className="bg-orange-600 hover:bg-orange-700 transition-all px-6 py-2 rounded-lg text-white"
                 >
                   Close
                 </button>
@@ -215,7 +215,7 @@ const Earnings = () => {
                       type="number"
                       value={cashOutAmount}
                       onChange={(e) => setCashOutAmount(e.target.value)}
-                      className="w-full dark:bg-gray-700 bg-gray-100 border dark:border-gray-600 border-gray-300 rounded-lg pl-8 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="w-full dark:bg-gray-700 bg-gray-100 border dark:border-gray-600 border-gray-300 rounded-lg pl-8 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-white"
                     />
                   </div>
                   <p className="text-xs mt-1 dark:text-gray-400 text-gray-500">
@@ -228,14 +228,14 @@ const Earnings = () => {
                   <div className="grid grid-cols-2 gap-3">
                     <button
                       onClick={() => setCashOutMethod('bank')}
-                      className={`p-3 rounded-lg border ${cashOutMethod === 'bank' ? 'border-green-500 bg-green-500/10' : 'dark:border-gray-600 border-gray-300'} flex items-center gap-2`}
+                      className={`p-3 rounded-lg border ${cashOutMethod === 'bank' ? 'border-white bg-orange-600' : 'dark:border-gray-600 border-gray-300'} flex items-center gap-2`}
                     >
                       <i className="fas fa-university text-lg"></i>
                       <span>Bank Transfer</span>
                     </button>
                     <button
                       onClick={() => setCashOutMethod('paypal')}
-                      className={`p-3 rounded-lg border ${cashOutMethod === 'paypal' ? 'border-green-500 bg-green-500/10' : 'dark:border-gray-600 border-gray-300'} flex items-center gap-2`}
+                      className={`p-3 rounded-lg border ${cashOutMethod === 'paypal' ? 'border-white bg-orange-600' : 'dark:border-gray-600 border-gray-300'} flex items-center gap-2`}
                     >
                      <i className="fas fa-wallet text-lg text-blue-500"></i>
                       <span>Razorpay</span>
@@ -253,7 +253,7 @@ const Earnings = () => {
                   <button
                     onClick={submitCashOut}
                     disabled={cashOutLoading || parseFloat(cashOutAmount) > availableForCashOut}
-                    className="bg-green-600 hover:bg-green-700 transition-all px-6 py-2 rounded-lg text-white disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                    className="bg-orange-600 hover:bg-orange-700 transition-all px-6 py-2 rounded-lg text-white disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                   >
                     {cashOutLoading ? (
                       <>
@@ -283,7 +283,7 @@ const Earnings = () => {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8 gap-4">
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full sm:w-auto">
           <div className="flex items-center gap-3 w-full sm:w-auto">
-            <i className="fas fa-calendar-alt text-green-500 text-lg sm:text-xl"></i>
+            <i className="fas fa-calendar-alt text-orange-600 text-lg sm:text-xl"></i>
             <select
               value={timeFrame}
               onChange={(e) => handleTimeFrameChange(e.target.value)}
@@ -327,7 +327,7 @@ const Earnings = () => {
         </div>
         <button 
           onClick={handleCashOut}
-          className="bg-green-600 hover:bg-green-700 transition-all px-4 py-2 rounded-lg text-white text-sm flex items-center gap-2 hover:shadow-lg hover:shadow-green-600/20 w-full sm:w-auto justify-center"
+          className="bg-orange-600 hover:bg-orange-700 transition-all px-4 py-2 rounded-lg text-white text-sm flex items-center gap-2 hover:shadow-lg hover:shadow-green-600/20 w-full sm:w-auto justify-center"
         >
           <i className="fas fa-credit-card"></i>
           Cash Out
@@ -338,8 +338,8 @@ const Earnings = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
         <div className="dark:bg-gray-200/10 bg-white p-4 sm:p-6 rounded-lg hover:dark:bg-gray-200/15 hover:bg-gray-50 transition-all hover:shadow-lg dark:hover:shadow-gray-200/5 hover:shadow-gray-200/20">
           <div className="flex items-center gap-2 mb-2 sm:mb-3">
-            <div className="bg-green-400/20 p-2 rounded-full">
-              <i className="fas fa-money-bill-wave text-green-400 text-lg"></i>
+            <div className="bg-orange-600 p-2 rounded-full">
+              <i className="fas fa-money-bill-wave text-white text-lg"></i>
             </div>
             <span className="text-sm dark:text-gray-400 text-gray-600">Total Earnings</span>
           </div>
@@ -355,7 +355,7 @@ const Earnings = () => {
             <span className="text-sm dark:text-gray-400 text-gray-600">Available for Cashout</span>
           </div>
           <div className="text-xl sm:text-2xl font-bold mb-1">₹{availableForCashOut.toFixed(2)}</div>
-          <div className="text-xs text-green-400 flex items-center gap-1">
+          <div className="text-xs text-orange-600 flex items-center gap-1">
             <i className="fas fa-bolt"></i>
             Instant transfer available
           </div>
@@ -370,7 +370,7 @@ const Earnings = () => {
           </div>
           <div className="text-xl sm:text-2xl font-bold mb-1">₹{avgPerRide.toFixed(2)}</div>
           <div className="text-xs dark:text-gray-500 text-gray-400 flex items-center gap-1">
-            <i className="fas fa-arrow-up text-green-400"></i>
+            <i className="fas fa-arrow-up text-orange-600"></i>
             +5% from last {timeFrame}
           </div>
         </div>
@@ -437,7 +437,7 @@ const Earnings = () => {
               />
               <Bar
                 dataKey="earnings"
-                fill="#22c55e"
+                fill="orange"
                 radius={[4, 4, 0, 0]}
                 onMouseEnter={(_, index) => setHoveredBar(index)}
                 onMouseLeave={() => setHoveredBar(null)}

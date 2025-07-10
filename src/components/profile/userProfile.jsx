@@ -114,12 +114,12 @@ export default function UserProfile() {
 
   return (
     <div className="mt-20 px-4 md:px-12 lg:px-20">
-      <div className="min-h-screen bg-white dark:bg-[#0F172A] text-gray-800 dark:text-white py-10">
+      <div className="min-h-screen text-gray-800 dark:text-white py-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Profile Card */}
           <div className="bg-gray-100 dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
             <div className="flex flex-col items-center">
-              <div className="relative w-24 h-24 rounded-full bg-green-500 flex items-center justify-center text-3xl font-bold text-white mb-4">
+              <div className="relative w-24 h-24 rounded-full bg-orange-600 flex items-center justify-center text-3xl font-bold text-white mb-4">
                 {(profile.fullName?.[0] || "").toUpperCase()}
                 {editMode && (
                   <Pencil className="absolute bottom-0 right-0 w-5 h-5 bg-white text-green-600 rounded-full p-1" />
@@ -158,7 +158,7 @@ export default function UserProfile() {
             {!editMode && (
               <button
                 onClick={() => setEditMode(true)}
-                className="mt-6 w-full bg-green-600 text-white py-2 rounded-md flex items-center justify-center gap-2 hover:bg-green-700"
+                className="mt-6 w-full bg-orange-600 text-white py-2 rounded-md flex items-center justify-center gap-2 hover:bg-orange-700"
               >
                 ✏️ Edit Profile
               </button>
@@ -174,7 +174,7 @@ export default function UserProfile() {
                 </button>
                 <button
                   onClick={handleSave}
-                  className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700"
+                  className="w-full bg-orange-600 text-white py-2 rounded-md hover:bg-orange-700"
                 >
                   ✅ Save
                 </button>
@@ -286,7 +286,7 @@ export default function UserProfile() {
                       />
                       <button
                         onClick={handleAddLocation}
-                        className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md flex items-center gap-2"
+                        className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-md flex items-center gap-2"
                       >
                         <Plus className="w-4 h-4" /> Add
                       </button>

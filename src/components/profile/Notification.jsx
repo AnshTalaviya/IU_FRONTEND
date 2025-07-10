@@ -58,7 +58,7 @@ export default function Notifications() {
         <div className="flex items-center gap-2 text-xl sm:text-2xl font-semibold">
           <span className="text-green-400">🔔</span>
           <span>Notifications</span>
-          <span className="bg-green-500 text-white text-xs rounded-full px-2 py-0.5 ml-1">
+          <span className="bg-orange-600 text-white text-xs rounded-full px-2 py-0.5 ml-1">
             {notifications.filter((n) => n.unread).length}
           </span>
         </div>
@@ -76,7 +76,7 @@ export default function Notifications() {
               key={tab}
               onClick={() => setFilter(tab)}
               className={`px-4 py-1 rounded-full text-sm font-medium whitespace-nowrap transition ${filter === tab
-                  ? "bg-green-600 text-white"
+                  ? "bg-orange-600 text-white"
                   : "bg-gray-700 text-gray-300 hover:bg-gray-600"
                 }`}
             >

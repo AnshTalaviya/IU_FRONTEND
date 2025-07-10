@@ -108,7 +108,7 @@ function Login() {
               value={otp}
               onChange={(e) => setOtp(e.target.value)}
               placeholder="Enter OTP"
-              className="w-full p-3 mb-4 bg-orange-600 text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full p-3 mb-4  text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-white"
             />
             <motion.button
               onClick={handleVerifyOtp}

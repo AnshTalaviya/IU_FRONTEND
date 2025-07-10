@@ -79,7 +79,7 @@ export default function PaymentPage() {
       <div className="bg-gray-800 p-6 w-full">
         <div className="flex justify-center mb-4">
           <button
-            className="bg-green-600 px-4 py-2 rounded-lg flex items-center gap-2"
+            className="bg-orange-600 px-4 py-2 rounded-lg flex items-center gap-2"
             onClick={() => setShowForm(true)}
           >
             <PlusCircle className="w-4 h-4" /> Choose Your Payment Method
@@ -97,7 +97,7 @@ export default function PaymentPage() {
                     onClick={() => setNewMethod({ ...newMethod, type: option })}
                     className={`px-4 py-2 rounded-full border text-sm ${
                       newMethod.type === option
-                        ? "bg-green-600 border-green-600"
+                        ? "bg-orange-600"
                         : "bg-gray-700 border-gray-600"
                     }`}
                   >
@@ -211,7 +211,7 @@ export default function PaymentPage() {
                   Cancel
                 </button>
                 <button
-                  className="bg-green-600 px-4 py-2 rounded"
+                  className="bg-orange-600 px-4 py-2 rounded"
                   onClick={handleAddPaymentMethod}
                 >
                   Add

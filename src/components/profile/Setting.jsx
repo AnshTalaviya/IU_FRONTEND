@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function SettingsPage() {
     const [tab, setTab] = useState("Account");
 
-    const tabs = ["Account", "Notifications", "Privacy & Security", "Preferences"];
+    const tabs = ["Account", "Notifications", "Privacy & Security"];
     const [notifications, setNotifications] = useState({
         promotions: true,
         rideUpdates: true,
@@ -18,7 +18,7 @@ export default function SettingsPage() {
     };
 
     return (
-        <div className="min-h-screen bg-[#0f172a] text-white p-4 md:p-8 mt-4 md:mt-6">
+        <div className="min-h-screen text-white p-4 md:p-8 mt-4 md:mt-6">
             <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Settings</h1>
 
             <div className="flex flex-wrap gap-2 bg-[#1e293b] rounded-lg p-1 mb-6 w-full overflow-x-auto">
@@ -27,7 +27,7 @@ export default function SettingsPage() {
                         key={t}
                         onClick={() => setTab(t)}
                         className={`flex-1 min-w-[150px] py-2 px-4 rounded-md font-medium transition-colors duration-200 whitespace-nowrap ${tab === t
-                            ? "bg-[#0f172a] text-white"
+                            ? "bg-orange-600 text-white"
                             : "text-gray-400 hover:text-white"
                             }`}
                     >
@@ -63,7 +63,7 @@ export default function SettingsPage() {
                                 className="flex justify-between items-center p-4 rounded-md bg-[#0f172a] border border-gray-700 cursor-pointer hover:bg-[#16213a]"
                             >
                                 <div>
-                                    <div className="font-semibold text-green-400">{item.title}</div>
+                                    <div className="font-semibold text-orange-400">{item.title}</div>
                                     <div className="text-gray-400 text-sm">{item.description}</div>
                                 </div>
                                 <span className="text-gray-400">›</span>
@@ -110,7 +110,7 @@ export default function SettingsPage() {
                                 </div>
                                 <button
                                     onClick={() => toggleNotification(key)}
-                                    className={`w-12 h-6 flex items-center rounded-full p-1 duration-300 ease-in-out ${value ? "bg-green-500" : "bg-gray-600"
+                                    className={`w-12 h-6 flex items-center rounded-full p-1 duration-300 ease-in-out ${value ? "bg-orange-500" : "bg-gray-600"
                                         }`}
                                 >
                                     <span
@@ -166,7 +166,7 @@ export default function SettingsPage() {
                                 <div className="text-gray-400 text-sm">{description}</div>
                             </div>
                             <div
-                                className={`w-12 h-6 flex items-center rounded-full p-1 transition-colors duration-300 ${enabled ? "bg-green-500" : "bg-gray-700"
+                                className={`w-12 h-6 flex items-center rounded-full p-1 transition-colors duration-300 ${enabled ? "bg-orange-500" : "bg-gray-700"
                                     }`}
                             >
                                 <span
@@ -177,92 +177,9 @@ export default function SettingsPage() {
                         </div>
                     ))}
 
-                    <button className="w-full border border-gray-700 py-2 rounded-md text-white mt-4 hover:bg-gray-700">
-                        Download my data
-                    </button>
-
-                    <button className="w-full bg-red-700 text-white py-2 mt-4 rounded-md hover:bg-red-800">
-                        Delete my account
-                    </button>
                 </div>
             )}
 
-            {/* Preferences Tab */}
-            {tab === "Preferences" && (
-                <div className="bg-[#0f172a] p-6 rounded-lg shadow-lg">
-                    <h2 className="text-2xl font-semibold text-white mb-2">App Preferences</h2>
-                    <p className="text-gray-400 mb-6">Customize your Idhar Udhar experience</p>
-
-                    {/* Preferences Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {/* App Theme */}
-                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 bg-[#1e293b] p-4 rounded-lg">
-                            <div className="flex items-start gap-3">
-                                <span className="text-green-500 mt-1">
-                                    <i className="fas fa-moon"></i>
-                                </span>
-                                <div>
-                                    <div className="text-white font-medium">App Theme</div>
-                                    <div className="text-gray-400 text-sm">Dark mode is currently active</div>
-                                </div>
-                            </div>
-                            <div className="relative inline-flex items-center h-5 rounded-full w-11 px-1 transition-colors duration-300 bg-green-500">
-                                <span className="inline-block w-4 h-4 transform bg-white rounded-full transition-transform duration-300 translate-x-2.5" />
-                            </div>
-                        </div>
-
-                        {/* Desktop Notifications */}
-                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 bg-[#1e293b] p-4 rounded-lg">
-                            <div className="flex items-start gap-3">
-                                <span className="text-green-500 mt-1">
-                                    <i className="fas fa-desktop"></i>
-                                </span>
-                                <div>
-                                    <div className="text-white font-medium">Desktop Notifications</div>
-                                    <div className="text-gray-400 text-sm">Get notifications when you're using a browser</div>
-                                </div>
-                            </div>
-                            <div className="w-12 h-6 flex items-center rounded-full p-1 bg-gray-700">
-                                <div className="bg-white w-4 h-4 rounded-full shadow-md transform translate-x-0 transition-transform duration-300"></div>
-                            </div>
-                        </div>
-
-                        {/* App Language - full width even in 2-cols */}
-                        <div className="md:col-span-2 bg-[#1e293b] p-4 rounded-lg">
-                            <div className="flex items-start gap-3 mb-3">
-                                <span className="text-green-500 mt-1">
-                                    <i className="fas fa-globe"></i>
-                                </span>
-                                <div>
-                                    <div className="text-white font-medium">App Language</div>
-                                    <div className="text-gray-400 text-sm">Choose your preferred language</div>
-                                </div>
-                            </div>
-
-                            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-                                {[
-                                    { code: "US", label: "English", active: true },
-                                    { code: "IN", label: "Hindi" },
-                                    { code: "ES", label: "Español" },
-                                    { code: "FR", label: "Français" },
-                                    { code: "DE", label: "Deutsch" },
-                                ].map(({ code, label, active }) => (
-                                    <div
-                                        key={code}
-                                        className={`flex items-center justify-center px-4 py-2 rounded-md font-medium text-sm ${active
-                                            ? "bg-green-500 text-black"
-                                            : "border border-gray-700 text-white hover:bg-gray-800"
-                                            }`}
-                                    >
-                                        <span className="mr-2 text-xs font-bold">{code}</span>
-                                        {label}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
 
         </div>
     );

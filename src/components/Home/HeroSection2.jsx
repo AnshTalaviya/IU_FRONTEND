@@ -6,7 +6,7 @@ const HeroSection2 = () => {
   const navigate = useNavigate();
 
   const handleVehicleSelection = () => {
-    navigate("/select-vehicle"); 
+    navigate("/select-vehicle");
   };
 
   const handleExpressDelivery = () => {
@@ -14,7 +14,7 @@ const HeroSection2 = () => {
   };
 
   return (
-    <section className="bg-gradient-to-br from-[#022c22] to-[#001510] sm:mt-20 lg:mt-16 text-white">
+    <section className="bg-gradient-to-br from-[#022c22] to-[#001510] sm:mt-18 lg:mt-12 text-white">
       <div className="w-full max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center py-12">
         {/* LEFT Content */}
         <div className="space-y-6 text-center lg:text-left">
@@ -24,8 +24,11 @@ const HeroSection2 = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <span className="text-orange-600">Powered by Delivery</span> <br />
-            <span className="text-white">India's Largest Logistics Network</span>
+            <span className="text-orange-600">Powered by Idhar Udhar</span> <br />
+            <h3>
+            <span className="text-white">India's Fastest & Most Reliable Parcel Service</span>
+            </h3>
+
           </motion.h1>
 
           <motion.p
@@ -34,11 +37,11 @@ const HeroSection2 = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            Partnering with Delivery to serve 18,000+ pin codes with 99.9% reliability.
+           Partnering with India’s Leading Network to Reach 18,000+ Pin Codes with 99.9% On-Time Reliability.
           </motion.p>
 
           {/* Stats Grid */}
-          <motion.div 
+          <motion.div
             className="grid grid-cols-2 gap-4 max-w-md mx-auto lg:mx-0"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -70,7 +73,7 @@ const HeroSection2 = () => {
               <FaTruck />
               Select Vehicle Type
             </motion.button>
-            
+
           </motion.div>
         </div>
 
@@ -83,14 +86,14 @@ const HeroSection2 = () => {
         >
           <div className="relative rounded-3xl overflow-hidden shadow-xl hover:scale-[1.02] transition-transform duration-500 group">
             <img
-              src="/images/truck 2.jpg"
+              src="/images/truck.png"
               alt="Delhivery Network"
-              className="w-full h-[400px] object-cover rounded-3xl"
+              className="w-full h-[400px] mb-5 object-cover rounded-3xl"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-1 flex flex-col bg-black/50 backdrop-blur-md rounded-b-3xl">
               <h3 className="text-xl font-semibold">Delivery Network Advantages</h3>
-              <ul className="mt-2 space-y-1 text-sm text-orange-200">
+              <ul className="mt-1 space-y-1 text-sm text-orange-200">
                 <li>• 24x7 Operations</li>
                 <li>• Automated Sorting Centers</li>
                 <li>• Temperature Controlled Transport</li>

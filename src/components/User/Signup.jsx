@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { motion } from 'framer-motion';
+
 function Signup() {
   const [form, setForm] = useState({
     fullName: "",
@@ -15,11 +16,10 @@ function Signup() {
     otp: "",
     agreed: false,
     ride: "primary",
+    gender: "",
+    dob: "",
   });
-  const removeSubDriver = (indexToRemove) => {
-  const updated = subDrivers.filter((_, idx) => idx !== indexToRemove);
-  setSubDrivers(updated);
-};
+
   const [subDrivers, setSubDrivers] = useState([
     { name: "", license: "", vehicleNumber: "", vehicleType: "" },
   ]);
@@ -28,6 +28,7 @@ function Signup() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { login } = useAuth();
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setForm((prev) => ({
@@ -35,17 +36,25 @@ function Signup() {
       [name]: type === "checkbox" ? checked : value,
     }));
   };
+
   const handleSubDriverChange = (index, field, value) => {
     const updatedDrivers = [...subDrivers];
     updatedDrivers[index][field] = value;
     setSubDrivers(updatedDrivers);
   };
+
   const addMoreSubDriver = () => {
     setSubDrivers([
       ...subDrivers,
       { name: "", license: "", vehicleNumber: "", vehicleType: "" },
     ]);
   };
+
+  const removeSubDriver = (indexToRemove) => {
+    const updated = subDrivers.filter((_, idx) => idx !== indexToRemove);
+    setSubDrivers(updated);
+  };
+
   const handleSendOtp = async () => {
     if (!form.agreed) return setMessage("Please accept terms and conditions.");
     setLoading(true);
@@ -93,6 +102,7 @@ function Signup() {
       setMessage(err.response?.data?.message || "OTP verification failed");
     }
   };
+
   return (
     <div className="flex mt-13 items-center justify-center min-h-screen px-4">
       <motion.div
@@ -104,6 +114,8 @@ function Signup() {
         <h2 className="text-3xl font-bold text-center text-white mb-6">
           Sign up for <span className="text-orange-600">Idhar Udhar</span>
         </h2>
+
+        {/* Full Name */}
         <div className="mb-4">
           <label className="block text-sm font-semibold text-left text-white mb-1">Full Name</label>
           <input
@@ -115,6 +127,8 @@ function Signup() {
             className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md"
           />
         </div>
+
+        {/* Phone */}
         <div className="mb-4">
           <label className="block text-sm font-semibold text-left text-white mb-1">Phone</label>
           <input
@@ -126,6 +140,8 @@ function Signup() {
             className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md"
           />
         </div>
+
+        {/* Email */}
         <div className="mb-4">
           <label className="block text-sm font-semibold text-left text-white mb-1">Email</label>
           <input
@@ -137,6 +153,59 @@ function Signup() {
             className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md"
           />
         </div>
+
+        {/* Date of Birth */}
+        <div className="mb-4">
+          <label className="block text-sm font-semibold text-left text-white mb-1">Date Of Birth</label>
+          <input
+            name="dob"
+            type="date"
+            value={form.dob}
+            onChange={handleChange}
+            className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md"
+          />
+        </div>
+
+        {/* Gender */}
+        <div className="flex space-x-6 mb-4">
+          <label className="flex items-center space-x-2">
+            <input
+              type="radio"
+              name="gender"
+              value="Male"
+              checked={form.gender === "Male"}
+              onChange={handleChange}
+              className="form-radio text-blue-600"
+            />
+            <span className="text-white">Male</span>
+          </label>
+
+          <label className="flex items-center space-x-2">
+            <input
+              type="radio"
+              name="gender"
+              value="Female"
+              checked={form.gender === "Female"}
+              onChange={handleChange}
+              className="form-radio text-pink-500"
+            />
+            <span className="text-white">Female</span>
+          </label>
+
+          <label className="flex items-center space-x-2">
+            <input
+              type="radio"
+              name="gender"
+              value="Other"
+              checked={form.gender === "Other"}
+              onChange={handleChange}
+              className="form-radio text-purple-600"
+            />
+            <span className="text-white">Other</span>
+          </label>
+        </div>
+
+        {/* Role Selection */}
         <div className="mb-4">
           <label className="block text-sm font-semibold text-left text-white mb-1">Role</label>
           <select
@@ -149,6 +218,8 @@ function Signup() {
             <option>Driver</option>
           </select>
         </div>
+
+        {/* Driver Specific Inputs */}
         {form.role === "Driver" && (
           <>
             <div className="flex pb-3 sm:space-x-10 flex-wrap">
@@ -175,6 +246,7 @@ function Signup() {
                 Sub Driver
               </label>
             </div>
+
             {form.ride === "primary" && (
               <>
                 <div className="mb-4">
@@ -212,12 +284,12 @@ function Signup() {
                 </div>
               </>
             )}
+
             {form.ride === "sub" && (
               <div className="space-y-6">
                 {subDrivers.map((driver, index) => (
                   <div key={index} className="border border-gray-700 p-4 rounded-md space-y-2 bg-[#0d1117] relative">
                     <h4 className="font-semibold text-lg text-white mb-2">Sub Driver {index + 1}</h4>
-                    {/* ❌ Delete Button */}
                     {subDrivers.length > 1 && (
                       <button
                         onClick={() => removeSubDriver(index)}
@@ -231,36 +303,28 @@ function Signup() {
                       type="text"
                       placeholder="Driver Name"
                       value={driver.name}
-                      onChange={(e) =>
-                        handleSubDriverChange(index, "name", e.target.value)
-                      }
+                      onChange={(e) => handleSubDriverChange(index, "name", e.target.value)}
                       className="w-full px-3 py-2 bg-[#161b22] text-white border border-gray-600 rounded-md"
                     />
                     <input
                       type="text"
                       placeholder="License Number"
                       value={driver.license}
-                      onChange={(e) =>
-                        handleSubDriverChange(index, "license", e.target.value)
-                      }
+                      onChange={(e) => handleSubDriverChange(index, "license", e.target.value)}
                       className="w-full px-3 py-2 bg-[#161b22] text-white border border-gray-600 rounded-md"
                     />
                     <input
                       type="text"
                       placeholder="Vehicle Number"
                       value={driver.vehicleNumber}
-                      onChange={(e) =>
-                        handleSubDriverChange(index, "vehicleNumber", e.target.value)
-                      }
+                      onChange={(e) => handleSubDriverChange(index, "vehicleNumber", e.target.value)}
                       className="w-full px-3 py-2 bg-[#161b22] text-white border border-gray-600 rounded-md"
                     />
                     <input
                       type="text"
                       placeholder="Vehicle Type (e.g., Bike, Auto)"
                       value={driver.vehicleType}
-                      onChange={(e) =>
-                        handleSubDriverChange(index, "vehicleType", e.target.value)
-                      }
+                      onChange={(e) => handleSubDriverChange(index, "vehicleType", e.target.value)}
                       className="w-full px-3 py-2 bg-[#161b22] text-white border border-gray-600 rounded-md"
                     />
                   </div>
@@ -276,6 +340,8 @@ function Signup() {
             )}
           </>
         )}
+
+        {/* Terms & Conditions */}
         <div className="mb-4 flex items-center gap-2 mt-4">
           <input
             name="agreed"
@@ -286,6 +352,8 @@ function Signup() {
           />
           <label className="text-sm text-white">I agree to the terms and conditions</label>
         </div>
+
+        {/* OTP Button & Input */}
         {!otpSent ? (
           <motion.button
             onClick={handleSendOtp}
@@ -304,7 +372,7 @@ function Signup() {
                 type="text"
                 value={form.otp}
                 onChange={handleChange}
-                placeholder="6-digit OTP"
+                placeholder="4-digit OTP"
                 className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md"
               />
             </div>
@@ -317,6 +385,7 @@ function Signup() {
             </motion.button>
           </>
         )}
+
         {message && (
           <p className={`text-center text-sm mt-4 ${message.toLowerCase().includes('otp') || message.toLowerCase().includes('success') ? 'text-green-400' : 'text-red-400'}`}>
             {message}
@@ -326,4 +395,5 @@ function Signup() {
     </div>
   );
 }
+
 export default Signup;

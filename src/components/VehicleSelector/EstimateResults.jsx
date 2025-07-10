@@ -15,16 +15,18 @@ export default function EstimateResults() {
   const { state } = useLocation();
 
   const results = [
-    { title: "Quick & Light", price: "₹80 - ₹110", weight: "10 Kg", iconName: "FaMotorcycle" },
-    { title: "Medium & Safe", price: "₹120 - ₹180", weight: "50 Kg", iconName: "FaTruckPickup" },
-    { title: "Spacious & Strong", price: "₹200 - ₹350", weight: "80 Kg", iconName: "MdLocalShipping" },
-    { title: "Heavy Duty", price: "₹700 - ₹1200", weight: "1000 Kg", iconName: "FaTruckMoving" },
-    { title: "Heavy Duty", price: "₹700 - ₹1200", weight: "1000 Kg", iconName: "FaTruckMoving" },
-    { title: "Heavy Duty", price: "₹700 - ₹1200", weight: "1000 Kg", iconName: "FaTruckMoving" },
-    { title: "Heavy Duty", price: "₹700 - ₹1200", weight: "1000 Kg", iconName: "FaTruckMoving" },
-    { title: "Heavy Duty", price: "₹700 - ₹1200", weight: "1000 Kg", iconName: "FaTruckMoving" },
-    { title: "Heavy Duty", price: "₹700 - ₹1200", weight: "1000 Kg", iconName: "FaTruckMoving" },
-    { title: "Heavy Duty", price: "₹700 - ₹1200", weight: "1000 Kg", iconName: "FaTruckMoving" },
+    { title: "2 Wheeler", price: "₹80 - ₹110", weight: "20 Kg", iconName: "FaMotorcycle" },
+    { title: "Mini 3 Wheeler", price: "₹200 - ₹350", weight: "50 Kg", iconName: "FaTruckPickup" },
+    { title: "3 Wheeler", price: "₹700 - ₹1200", weight: "500 Kg", iconName: "FaTruckPickup" },
+    { title: "Tata Ace", price: "₹120 - ₹180", weight: "750 Kg", iconName: "MdLocalShipping" },
+    { title: "Pickup 8 Ft.", price: "₹700 - ₹1200", weight: "1200 Kg", iconName: "FaTruckMoving" },
+    { title: "Pickup 9 Ft.", price: "₹700 - ₹1200", weight: "1700 Kg", iconName: "FaTruckMoving" },
+    { title: "Pickup 14 Ft.", price: "₹700 - ₹1200", weight: "2500 Kg", iconName: "FaTruckMoving" },
+    // { title: "Heavy Duty", price: "₹700 - ₹1200", weight: "1000 Kg", iconName: "FaTruckMoving" },
+    // { title: "Heavy Duty", price: "₹700 - ₹1200", weight: "1000 Kg", iconName: "FaTruckMoving" },
+    // { title: "Heavy Duty", price: "₹700 - ₹1200", weight: "1000 Kg", iconName: "FaTruckMoving" },
+    // { title: "Heavy Duty", price: "₹700 - ₹1200", weight: "1000 Kg", iconName: "FaTruckMoving" },
+    // { title: "Heavy Duty", price: "₹700 - ₹1200", weight: "1000 Kg", iconName: "FaTruckMoving" },
   ];
 
   const iconMap = {

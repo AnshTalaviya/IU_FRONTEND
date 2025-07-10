@@ -30,7 +30,7 @@ function Login() {
 
   const handleVerifyOtp = async () => {
     try {
-      const res = await axios.post('https://iu-backend-s2g7.onrender.com/api/auth/verify-otp', { email, otp });
+      const res = await axios.post('https://iu-backend-s2g7.onrender.com/api/auth/verify-login-otp', { email, otp });
       login(res.data.token);
       localStorage.setItem('user', JSON.stringify(res.data.user));
       const role = res.data.user.role;

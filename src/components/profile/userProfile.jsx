@@ -12,7 +12,7 @@ import axios from "axios";
 import PaymentPage from "./payment";
 import RecentRides from "./myride";
 
-const API_BASE = "https://iubackend-production.up.railway.app";
+const API_BASE = "https://iu-backend-s2g7.onrender.com";
 
 export default function UserProfile() {
   const [userId, setUserId] = useState(null);
@@ -26,8 +26,8 @@ export default function UserProfile() {
   // Fetch userId from localStorage on mount
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
-    if (user?.id) {
-      setUserId(user.id);
+    if (user?._id) {
+      setUserId(user._id);
     }
   }, []);
 

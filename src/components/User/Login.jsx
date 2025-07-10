@@ -18,7 +18,7 @@ function Login() {
   const handleSendOtp = async () => {
     setLoading(true);
     try {
-      const res = await axios.post('https://iubackend-production.up.railway.app/api/auth/login-otp', { email });
+      const res = await axios.post('https://iu-backend-63hh.onrender.com/api/auth/login-otp', { email });
       setStep(2);
       setMessage(res.data.message);
     } catch (err) {
@@ -30,7 +30,7 @@ function Login() {
 
   const handleVerifyOtp = async () => {
     try {
-      const res = await axios.post('https://iubackend-production.up.railway.app/api/auth/verify-otp', { email, otp });
+      const res = await axios.post('https://iu-backend-63hh.onrender.com/api/auth/verify-otp', { email, otp });
       login(res.data.token);
       localStorage.setItem('user', JSON.stringify(res.data.user));
       const role = res.data.user.role;

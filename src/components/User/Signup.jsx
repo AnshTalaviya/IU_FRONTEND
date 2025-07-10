@@ -61,7 +61,7 @@ function Signup() {
 
     try {
       const res = await axios.post(
-        "https://new-backend-iu.onrender.com/api/auth/send-otp",
+        "https://iu-backend-63hh.onrender.com/api/auth/send-otp",
         {
           ...form,
           subDrivers: form.ride === "sub" ? subDrivers : [],
@@ -85,7 +85,7 @@ function Signup() {
 
   const handleVerifyOtp = async () => {
     try {
-      const res = await axios.post("https://new-backend-iu.onrender.com/api/auth/verify-otp", {
+      const res = await axios.post("https://iu-backend-63hh.onrender.com/api/auth/verify-otp", {
         email: form.email,
         otp: form.otp,
       });

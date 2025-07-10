@@ -36,13 +36,50 @@ const Invoice = () => {
 
   const downloadAsPDF = () => {
     const input = document.getElementById('invoice-container');
-    html2canvas(input, { scale: 2 }).then((canvas) => {
+    
+    // Hide the download button before capturing
+    const downloadBtn = document.getElementById('download-btn');
+    if (downloadBtn) downloadBtn.style.display = 'none';
+    
+   
+    
+    
+    // Set the invoice container to be non-selectable
+    input.style.userSelect = 'none';
+    input.style.webkitUserSelect = 'none';
+    
+    html2canvas(input, {
+      scale: 2,
+      logging: false,
+      useCORS: true,
+      allowTaint: true,
+      letterRendering: true,
+    }).then((canvas) => {
+     
+      if (downloadBtn) downloadBtn.style.display = 'inline-block';
+      
       const imgData = canvas.toDataURL('image/png');
       const pdf = new jsPDF('p', 'mm', 'a4');
       const imgProps = pdf.getImageProperties(imgData);
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      
+      // Add the image as a flattened layer
       pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      
+      
+     
+      
+      // Set PDF metadata
+      pdf.setProperties({
+        title: `Invoice ${invoiceData.number}`,
+        subject: 'Invoice Document',
+        author: 'Idhar Udhar Logistics Pvt. Ltd.',
+        keywords: 'invoice, bill, receipt',
+        creator: 'Idhar Udhar Logistics Pvt. Ltd.',
+      });
+      
+      // Save the PDF
       pdf.save(`${invoiceData.number}_invoice.pdf`);
     });
   };
@@ -51,12 +88,21 @@ const Invoice = () => {
     <>
       <div
         id="invoice-container"
-        className="bg-white max-w-[950px] mx-auto mt-20 p-8 border shadow-md rounded-lg text-black font-sans"
+        className="bg-white max-w-[950px] mx-auto mt-20 p-8 border shadow-md rounded-lg text-black font-sans relative"
+        style={{
+          userSelect: 'none',
+          WebkitUserSelect: 'none',
+        }}
       >
         {/* Header */}
         <div className="flex justify-between items-start mb-6">
           <div className="flex items-center gap-4">
-            <img src="/images/Idhar Udhar Logo.png" alt="Logo" className="h-20" />
+            <img 
+              src="/images/Idhar Udhar Logo.png" 
+              alt="Logo" 
+              className="h-20" 
+              onContextMenu={(e) => e.preventDefault()}
+            />
             <div>
               <h1 className="text-2xl font-bold text-sky-700">IDHAR UDHAR</h1>
               <p className="text-sm text-gray-600">Trips Ho Ya Parcels, Ab Sab Kuch Jayega Idhar Se Udhar!</p>
@@ -120,7 +166,12 @@ const Invoice = () => {
 
         {/* Map Image */}
         <div className="rounded-lg overflow-hidden border border-slate-200 mb-10">
-          <img src="/Images/route.png" alt="Route Map" className="w-full h-auto object-cover" />
+          <img 
+            src="/Images/route.png" 
+            alt="Route Map" 
+            className="w-full h-auto object-cover" 
+            onContextMenu={(e) => e.preventDefault()}
+          />
         </div>
 
         {/* Declaration */}
@@ -137,7 +188,12 @@ const Invoice = () => {
         {/* Footer */}
         <div className="flex flex-col md:flex-row justify-between mt-8 pt-6 border-t text-xs gap-6">
           <div className="flex items-start gap-4">
-            <img src="/images/qr.jpg" alt="QR Code" className="w-24 h-auto rounded border" />
+            <img 
+              src="/images/qr.jpg" 
+              alt="QR Code" 
+              className="w-24 h-auto rounded border" 
+              onContextMenu={(e) => e.preventDefault()}
+            />
             <div>
               <p className="font-bold text-slate-800">Idhar Udhar Logistics Pvt. Ltd.</p>
               <p>304, Sachet-IV, Nr. Satellite, Prernatirth Derasar, Ahmedabad-380015</p>
@@ -156,6 +212,7 @@ const Invoice = () => {
       {/* Download Button */}
       <div className="text-center mt-10">
         <button
+          id="download-btn"
           onClick={downloadAsPDF}
           className="bg-sky-600 text-white px-6 py-2 rounded-lg hover:bg-sky-700 transition mb-4"
         >

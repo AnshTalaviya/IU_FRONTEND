@@ -26,8 +26,8 @@ export default function UserProfile() {
   // Fetch userId from localStorage on mount
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
-    if (user?._id) {
-      setUserId(user._id);
+    if (user?.id) {
+      setUserId(user.id);
     }
   }, []);
 

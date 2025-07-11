@@ -361,7 +361,7 @@ const Car_Rides = () => {
             {[
               {
                 title: "Comfortable Trips",
-                desc: "Enjoy spacious, air-conditioned cars with professional drivers for a smooth journey",
+                desc: "Enjoy spacious, air-conditioned cars with professional riders for a smooth journey",
                 iconPath: (
                   <>
                     <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2" />
@@ -373,12 +373,12 @@ const Car_Rides = () => {
               },
               {
                 title: "Safe & Secure",
-                desc: "All trips are monitored with real-time tracking, emergency assistance, and verified drivers",
+                desc: "All trips are monitored with real-time tracking, emergency assistance, and verified riders",
                 iconPath: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />,
               },
               {
                 title: "Quick & Efficient",
-                desc: "Fast pickup times, optimized routes, and experienced drivers to get you there quickly",
+                desc: "Fast pickup times, optimized routes, and experienced riders to get you there quickly",
                 iconPath: <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />,
               }
             ].map((item, index) => (
@@ -493,7 +493,7 @@ const Car_Rides = () => {
                 </div>
               </div>
               <p className="text-gray-600 dark:text-gray-300">
-                "The service is amazing! Clean cars, professional drivers, and always on time. GreenCar has made my daily commute so much better."
+                "The service is amazing! Clean cars, professional riders, and always on time. GreenCar has made my daily commute so much better."
               </p>
               <div className="mt-4 flex text-yellow-400">
                 {[...Array(5)].map((_, i) => (
@@ -552,7 +552,7 @@ const Car_Rides = () => {
                 </div>
               </div>
               <p className="text-gray-600 dark:text-gray-300">
-                "Perfect for family trips! Spacious cars, safe drivers, and great service. My kids love the comfortable trips."
+                "Perfect for family trips! Spacious cars, safe riders, and great service. My kids love the comfortable trips."
               </p>
               <div className="mt-4 flex text-yellow-400">
                 {[...Array(5)].map((_, i) => (
@@ -578,7 +578,7 @@ const Car_Rides = () => {
               <div className="text-gray-600 dark:text-gray-400">Happy Customers</div>
             </motion.div>
 
-            {/* Active Drivers */}
+            {/* Active riders */}
             <motion.div
               whileHover={{ transition: { ease: "easeOut" } }}
               className="text-center transform transition-transform"
@@ -586,7 +586,7 @@ const Car_Rides = () => {
               data-aos-delay="500"
             >
               <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">500+</div>
-              <div className="text-gray-600 dark:text-gray-400">Active Drivers</div>
+              <div className="text-gray-600 dark:text-gray-400">Active riders</div>
             </motion.div>
 
             {/* Rides Completed */}

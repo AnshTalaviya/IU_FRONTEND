@@ -16,7 +16,7 @@ const PaymentPage = () => {
     { key: "upi", label: "UPI", icon: <FaGooglePay size={20} /> },
     { key: "wallet", label: "Wallet", icon: <FaWallet size={20} /> },
     { key: "credits", label: "Trip Credits", icon: <FaGift size={20} /> },
-    { key: "cod", label: "Pay to Driver", icon: <FaMoneyBillWave size={20} /> },
+    { key: "cod", label: "Pay to Rider", icon: <FaMoneyBillWave size={20} /> },
   ];
 
   const inputStyle =
@@ -113,7 +113,7 @@ const PaymentPage = () => {
             {selectedMethod === "cod" && (
               <div className="space-y-3 text-center animate-fade-in">
                 <p className="text-lg text-gray-400">
-                  Pay cash to the driver after your trip.
+                  Pay cash to the rider after your trip.
                 </p>
                 <Link to={"/payment-success"}>
                 <button className="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg font-bold shadow-md mt-4 transition-all">

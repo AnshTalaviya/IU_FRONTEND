@@ -365,7 +365,7 @@ export default function RideHistory() {
                                 <i className="fas fa-user-slash text-red-500 text-xl"></i>
                             </div>
                             <div>
-                                <h6 className='text-sm dark:text-gray-400 text-gray-600'>Cancel By Driver</h6>
+                                <h6 className='text-sm dark:text-gray-400 text-gray-600'>Cancel By Rider</h6>
                                 <h3 className='text-2xl font-medium text-red-500'>05%</h3>
                             </div>
                         </div>
@@ -502,7 +502,7 @@ export default function RideHistory() {
                                                             <span className="dark:text-white text-gray-800">{ride.rating}.0</span>
                                                         </div>
                                                         <div className="bg-white dark:bg-gray-700 p-3 rounded-lg">
-                                                            <p className="dark:text-gray-300 text-gray-700 italic">"Great driver! Very professional and safe."</p>
+                                                            <p className="dark:text-gray-300 text-gray-700 italic">"Great rider! Very professional and safe."</p>
                                                         </div>
                                                     </div>
                                                 ) : ride.cancelled ? (

@@ -54,14 +54,14 @@ const TestimonialsSection = () => {
       name: "Priya Sharma",
       role: "Regular Commuter",
       rating: 5,
-      quote: "IdharUdhar has transformed my daily commute. The drivers are always on time, and the cars are immaculate. I feel safe and comfortable every trip."
+      quote: "IdharUdhar has transformed my daily commute. The riders are always on time, and the cars are immaculate. I feel safe and comfortable every trip."
     },
     {
       image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
       name: "Rahul Kapoor",
       role: "Business Executive",
       rating: 5,
-      quote: "As someone who travels for work regularly, I rely on IdharUdhar for reliable intercity trip. Their corporate service is unmatched - professional drivers and excellent customer support."
+      quote: "As someone who travels for work regularly, I rely on IdharUdhar for reliable intercity trip. Their corporate service is unmatched - professional riders and excellent customer support."
     },
     {
       image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg",

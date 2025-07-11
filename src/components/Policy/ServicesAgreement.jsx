@@ -35,7 +35,7 @@ const ServicesAgreement = () => {
 
               <div className="border border-gray-700 p-4 rounded-lg">
                 <h3 className="font-bold text-lg mb-2">Second Party</h3>
-                <p className="text-gray-300">Name of the owner/ driver of the Vehicle(s) provider -</p>
+                <p className="text-gray-300">Name of the owner/ rider of the Vehicle(s) provider -</p>
                 <div className="mt-2 space-y-2 text-gray-300">
                   <p>a) PAN card number -</p>
                   <p>b) Aadhaar Number -</p>
@@ -63,10 +63,10 @@ const ServicesAgreement = () => {
                   Idhar Udhar is an on-demand logistics' services provider engaged in the business of transportation of goods of its customers from one place to the another, under the brand name of Idhar Udhar; and
                 </li>
                 <li>
-                  Idhar Udhar avails services of drivers/ service provider in the course of its regular business
+                  Idhar Udhar avails services of riders/ service provider in the course of its regular business
                 </li>
                 <li>
-                  Service Provider is an individual / entity who is an independent commercial Vehicle operator and / or driver, who agrees to provide services of renting/ hiring of motor vehicle, with operator to Idhar Udhar, and has agreed to make himself available for the services of Idhar Udhar for the purposes as stated herein based on the terms and conditions attached with this Agreement.
+                  Service Provider is an individual / entity who is an independent commercial Vehicle operator and / or rider, who agrees to provide services of renting/ hiring of motor vehicle, with operator to Idhar Udhar, and has agreed to make himself available for the services of Idhar Udhar for the purposes as stated herein based on the terms and conditions attached with this Agreement.
                 </li>
               </ol>
             </div>
@@ -101,7 +101,7 @@ const ServicesAgreement = () => {
                     <td className="border border-gray-700 p-2 text-gray-300">As per Annexure IA and the documents attached to the Agreement.</td>
                   </tr>
                   <tr>
-                    <td className="border border-gray-700 p-2">Name of the Owner of the Vehicle (if different from the driver)</td>
+                    <td className="border border-gray-700 p-2">Name of the Owner of the Vehicle (if different from the rider)</td>
                     <td className="border border-gray-700 p-2 text-gray-300">As per Annexure IB and the documents attached to the Agreement.</td>
                   </tr>
                   <tr>
@@ -111,7 +111,7 @@ const ServicesAgreement = () => {
               <li>The General Terms and Conditions in Appendix A;</li>
               <li>The Additional Terms and Conditions for 2W (Two-Wheeler) in Appendix B;</li>
               <li>The Additional Terms and Conditions for 3W (Three-Wheeler) and 4W (Four-Wheeler) in Appendix C;</li>
-              <li>Details of the Vehicle(s) and driver including No Objection Certificate(s) for non-owned Vehicle in Annexure IA & Annexure IB;</li>
+              <li>Details of the Vehicle(s) and rider including No Objection Certificate(s) for non-owned Vehicle in Annexure IA & Annexure IB;</li>
             </ol>
             <p className="mt-4 text-gray-300">
               Reference to this Agreement shall include the applicable above documents and the General Terms and Conditions of Idhar Udhar.
@@ -121,7 +121,7 @@ const ServicesAgreement = () => {
                 </tbody>
               </table>
                <p className="mt-4 text-gray-400 italic">
-              (The Service Provider and Idhar Udhar are hereinafter collectively referred to as the "Parties" and individually each as a "Party" and the word Service Provider and You, shall include its driver(s), as well).
+              (The Service Provider and Idhar Udhar are hereinafter collectively referred to as the "Parties" and individually each as a "Party" and the word Service Provider and You, shall include its rider(s), as well).
             </p>
             </div>
           </section>
@@ -153,7 +153,7 @@ const ServicesAgreement = () => {
               <h2 className="text-xl font-bold mb-4">2. TERMS OF SERVICE</h2>
               <div className="space-y-4 text-gray-300">
                 <p><span className="font-semibold">2.1.</span> You shall not have more than one active Idhar Udhar vendor registration which you are further prohibited from selling, trading, or otherwise transferring to another party;</p>
-                <p><span className="font-semibold">2.2.</span> Service Provider/ Driver Information shall be true and correct and there will be no information that could impact your performance to render Vendor Services pursuant to this Agreement, shall be hidden from Idhar Udhar at any point of time. In case of furnishing of inaccurate data, Idhar Udhar reserves the right to deregister and/or suspend/terminate and/or take appropriate legal proceedings against the Vendor without prior notice.;</p>
+                <p><span className="font-semibold">2.2.</span> Service Provider/ rider Information shall be true and correct and there will be no information that could impact your performance to render Vendor Services pursuant to this Agreement, shall be hidden from Idhar Udhar at any point of time. In case of furnishing of inaccurate data, Idhar Udhar reserves the right to deregister and/or suspend/terminate and/or take appropriate legal proceedings against the Vendor without prior notice.;</p>
                 <p><span className="font-semibold">2.3.</span> You acknowledge and agree that You may be subject to certain background and driving record verification as and when required from time to time;</p>
                 <p><span className="font-semibold">2.4.</span> You shall not use any, information pertaining to the Idhar Udhar customer, including, but not limited thereto any confidential information, according to and available with Idhar Udhar, for any purpose other than perform your obligations under or in connection with this Agreement;</p>
                 <p><span className="font-semibold">2.5.</span> You shall ensure that all valid documents related to the vehicle such as a comprehensive valid insurance(s) are obtained and retained by you during the term of this agreement. Further, you shall ensure that all documents pertaining to each consignment such as invoices, description of the goods, insurance on the goods obtained by the customer (if any)etc. have been obtained by You during the term of this Agreement;</p>
@@ -214,8 +214,8 @@ const ServicesAgreement = () => {
                 <p><span className="font-semibold">6.1.</span> The Service Provider shall provide the Vendor Services with the due care, skill and diligence of a reasonable prudent operator ("RPO") and shall ensure that any person appointed/ by the Service Provider while performing under this Agreement shall provide the Vendor Services to the best of his/her ability and in accordance with the standards of an RPO.</p>
                 <p><span className="font-semibold">6.2.</span> For the purposes of this Agreement, a "RPO" means a person seeking in good faith to perform its contractual obligations and in so doing and in the general conduct of its undertaking, exercises that degree of skill, diligence, prudence and foresight which would reasonably and ordinarily be expected from a skilled and experienced operator complying with all Applicable Laws and statutory obligations, engaged in same type of undertaking, under the same or similar circumstances and conditions and any reference to the standards of a RPO will be construed accordingly.</p>
                 <p><span className="font-semibold">6.3.</span> Specifically, the Service Provider shall ensure that the services are provided in compliance with the Motor Vehicles Act, 1988, Motor Transport Workers Act, 1961 or any Rules made thereunder, Carriage by Road Act 2007 and Carriage by Road Rule 2011 and in strict compliance with the provisions of any Applicable Laws along with this Agreement;</p>
-                <p><span className="font-semibold">6.4.</span> The Service Provider agrees to provide the Vendor Services in a manner so as to advance the business interests and goodwill of Idhar Udhar. Specifically, the Service Provider agrees not to, and shall ensure that its drivers do not, (a) form any union, trusts, association, society or any other type of entity; or (b) hold meetings, conference or any other form of gathering of 5 or more, to discuss this Agreement, the Services and payments provided hereunder and/or the regular business affairs of Idhar Udhar;</p>
-                <p><span className="font-semibold">6.5.</span> The Service Provider shall not directly or indirectly engage in any conduct averse to the best interests of Idhar Udhar. The Service Provider shall not, and shall ensure that its drivers and other employees do not disparage or make any negative comments (either oral or in writing) about, Idhar Udhar or any of its officers, employees, directors or other representatives;</p>
+                <p><span className="font-semibold">6.4.</span> The Service Provider agrees to provide the Vendor Services in a manner so as to advance the business interests and goodwill of Idhar Udhar. Specifically, the Service Provider agrees not to, and shall ensure that its riders do not, (a) form any union, trusts, association, society or any other type of entity; or (b) hold meetings, conference or any other form of gathering of 5 or more, to discuss this Agreement, the Services and payments provided hereunder and/or the regular business affairs of Idhar Udhar;</p>
+                <p><span className="font-semibold">6.5.</span> The Service Provider shall not directly or indirectly engage in any conduct averse to the best interests of Idhar Udhar. The Service Provider shall not, and shall ensure that its riders and other employees do not disparage or make any negative comments (either oral or in writing) about, Idhar Udhar or any of its officers, employees, directors or other representatives;</p>
                 <p><span className="font-semibold">6.6.</span> The Service Provider shall be liable for on all cases as may be initiated through the Vehicle during the engagement hours while providing the services; and</p>
                 <p><span className="font-semibold">6.7.</span> Notwithstanding anything contained anywhere in this Agreement, breach of this Clause 21(i) by the Service Provider shall entitle Idhar Udhar to terminate this Agreement and Idhar Udhar shall be entitled for all indemnification from the Service Provider, as per this Agreement.</p>
                 <p><span className="font-semibold">6.8.</span> You have the appropriate and current level of training, expertise and experience to provide the Vendor Services in a professional manner with due skill, care and diligence;</p>
@@ -229,10 +229,10 @@ const ServicesAgreement = () => {
               <h2 className="text-xl font-bold mb-4">7. BRANDING AND ADVERTISING TERMS</h2>
               <div className="space-y-4 text-gray-300">
                 <p><span className="font-semibold">7.1.</span> The Vehicles registered with Idhar Udhar from time to time by the Service Providers for providing Vendor Services can be branded/advertised with the logo and content of Idhar Udhar as per the terms and conditions specified by Idhar Udhar in this regard. The Service Provider shall ensure that such brand affixation is carried out only by the vendors identified by Idhar Udhar.</p>
-                <p><span className="font-semibold">7.2.</span> The Service Provider and/or the driver(s) may not opt-out of any branding / advertising program of Idhar Udhar or its customers (as applicable) and stop branding / advertising on its Vehicle(s) during the subsistence of this agreement. Further, the Service Provider and/or its driver(s) shall be solely liable and accountable for any responsibility(ies) / liability(ies) / loss(es) / action(s) / penalty(ies) by any government, regional transport office(s) / police/ local / regulatory body(ies) arising during the time they opted for such branding/advertising activity any such-opt out from branding / advertising program of Idhar Udhar or stoppage of branding / advertising their Vehicles, by the Service Provider and/or the driver(s).</p>
-                <p><span className="font-semibold">7.3.</span> The Service Provider and/or the driver(s) shall comply with all the applicable law(s) / regulations for branding / advertising on its Vehicle(s) as defined by the state/central transport corporation/authority. The Service Provider and/or the driver(s) shall be solely responsible for compliance with the laws / regulations of the state/central transport corporation/authority (including the regional transport offices where the Vehicle got registered, local bodies, regulatory agencies (local / state / central) i.e. ensuring to get the Idhar Udhar branding approval in their Vehicle from the respective regional transport offices/state transport authority, where the Vehicle got registered within the prescribed time period. The Service Provider and/or the driver(s) shall be solely responsible for any liability, loss, action and / or penalty arising out of any noncompliance with the applicable laws in relation to such branding / advertising and Idhar Udhar will not be responsible for such liability in any manner;</p>
-                <p><span className="font-semibold">7.4.</span> Non-adherence of this Clause by the Service Provider and/or the driver(s) shall be deemed to be a breach of this Agreement by the Service Provider and/or the driver(s) and Idhar Udhar may terminate this Agreement without any notice and further, the Service Provider and/or the driver(s) agrees to indemnify Idhar Udhar from and against and in respect of any or all liabilities, losses, charges and expenses (including legal fees and costs on a full indemnity basis), claims, demands, actions and proceedings, which Idhar Udhar may incur or sustain directly or indirectly from any breach by Service Provider and/or the driver(s) of its obligations here under or any breach of Service Provider's and/or the driver(s's representations and warranties, or by any reason, or in real action to the provision or proposed provision of the services by Service Provider and/or its driver(s) and Service Provider and/or the driver(s) shall forthwith pay all such sums forthwith on demand by Idhar Udhar in writing.</p>
-                <p><span className="font-semibold">7.5.</span> The Service Provider explicitly accepts and consents to share the Service Provider/ Driver Information with Idhar Udhar, including the submission of copies of such documents as provided by You with any financial lending institution(s) and/or insurance broker entities, if it is proved within reason that you have availed a service from them for which You are consenting the same. You forego the right to claim any damages from Idhar Udhar in the event any such financial facility and/or liability which has been availed by you. You also agree that Idhar Udhar will not be liable for any damages arising as a result of such disclosure of your information. Idhar Udhar retains the right to withhold pending dues and terminate your services on an immediate basis in such cases.</p>
+                <p><span className="font-semibold">7.2.</span> The Service Provider and/or the rider(s) may not opt-out of any branding / advertising program of Idhar Udhar or its customers (as applicable) and stop branding / advertising on its Vehicle(s) during the subsistence of this agreement. Further, the Service Provider and/or its rider(s) shall be solely liable and accountable for any responsibility(ies) / liability(ies) / loss(es) / action(s) / penalty(ies) by any government, regional transport office(s) / police/ local / regulatory body(ies) arising during the time they opted for such branding/advertising activity any such-opt out from branding / advertising program of Idhar Udhar or stoppage of branding / advertising their Vehicles, by the Service Provider and/or the rider(s).</p>
+                <p><span className="font-semibold">7.3.</span> The Service Provider and/or the rider(s) shall comply with all the applicable law(s) / regulations for branding / advertising on its Vehicle(s) as defined by the state/central transport corporation/authority. The Service Provider and/or the rider(s) shall be solely responsible for compliance with the laws / regulations of the state/central transport corporation/authority (including the regional transport offices where the Vehicle got registered, local bodies, regulatory agencies (local / state / central) i.e. ensuring to get the Idhar Udhar branding approval in their Vehicle from the respective regional transport offices/state transport authority, where the Vehicle got registered within the prescribed time period. The Service Provider and/or the rider(s) shall be solely responsible for any liability, loss, action and / or penalty arising out of any noncompliance with the applicable laws in relation to such branding / advertising and Idhar Udhar will not be responsible for such liability in any manner;</p>
+                <p><span className="font-semibold">7.4.</span> Non-adherence of this Clause by the Service Provider and/or the rider(s) shall be deemed to be a breach of this Agreement by the Service Provider and/or the rider(s) and Idhar Udhar may terminate this Agreement without any notice and further, the Service Provider and/or the rider(s) agrees to indemnify Idhar Udhar from and against and in respect of any or all liabilities, losses, charges and expenses (including legal fees and costs on a full indemnity basis), claims, demands, actions and proceedings, which Idhar Udhar may incur or sustain directly or indirectly from any breach by Service Provider and/or the rider(s) of its obligations here under or any breach of Service Provider's and/or the rider(s's representations and warranties, or by any reason, or in real action to the provision or proposed provision of the services by Service Provider and/or its rider(s) and Service Provider and/or the rider(s) shall forthwith pay all such sums forthwith on demand by Idhar Udhar in writing.</p>
+                <p><span className="font-semibold">7.5.</span> The Service Provider explicitly accepts and consents to share the Service Provider/ rider Information with Idhar Udhar, including the submission of copies of such documents as provided by You with any financial lending institution(s) and/or insurance broker entities, if it is proved within reason that you have availed a service from them for which You are consenting the same. You forego the right to claim any damages from Idhar Udhar in the event any such financial facility and/or liability which has been availed by you. You also agree that Idhar Udhar will not be liable for any damages arising as a result of such disclosure of your information. Idhar Udhar retains the right to withhold pending dues and terminate your services on an immediate basis in such cases.</p>
                 <p><span className="font-semibold">7.6.</span> The Service Provider hereby acknowledges and agrees to the use of his/her photographs by Idhar Udhar for certain purposes, which may include usage of the Service Provider and his vehicle photographs in Idhar Udhar internal communications and presentations, training materials, marketing and advertisement activities, including without limitation, online advertisement, social media and offline advertisement. The Service Provider hereby consents to sharing of his/her photographs by Idhar Udhar with third parties for the aforesaid purposes. The Service Provider further agrees to the Privacy Policy of Idhar Udhar as available on its in website of Idhar Udhar (www.idharudhar.in) on the link https://idharudhar.in/privacy-policy.</p>
               </div>
             </div>
@@ -290,17 +290,17 @@ const ServicesAgreement = () => {
                   <p><span className="font-semibold">"Agreement"</span> shall mean the Services Agreement executed between Idhar Udhar and the Service Provider pursuant to which, the Service Provider has agreed to provide Vendor Services to Idhar Udhar;</p>
                   <p><span className="font-semibold">"Applicable Law"</span> shall mean and include any law, statute, ordinance, rule, regulation, guideline, policy, notification, circular or other pronouncement or any similar form of decision of, or determination by or any interpretation, administration and other pronouncements having the effect of law of the Republic of India or any other applicable jurisdiction by State, Municipality, Court, Tribunal, Government, Ministry, Government-Department, Commission, Arbitrator or board having the effect of law in India, as in effect or which may come in effect on a future date;</p>
                   <p><span className="font-semibold">"Business Day"</span> means a day (other than national gazette holidays, and bank holidays in the territory / location / place of execution of this Agreement) on which nationalized banks are generally open in India for the conduct of banking business and comprising of normal working hours, it is however clarified that a working day for Idhar Udhar at any Location, shall always be a Business Day for the Service Provider for the Location in which the Service Provider is providing the Vendor Services;</p>
-                  <p><span className="font-semibold">"Driver Information"</span> shall mean and include any personal data collected from the Driver including know your client documents with Driver's bank, copies of valid Government issued Vehicle registration certificate, Vehicle insurance copy, driving license, identity proof, residence proof, location data, proof of ownership, credit bureau score, registration(s) and compliance under welfare legislations for Driver and any other information that Idhar Udhar may deem fit;</p>
+                  <p><span className="font-semibold">"rider Information"</span> shall mean and include any personal data collected from the rider including know your client documents with rider's bank, copies of valid Government issued Vehicle registration certificate, Vehicle insurance copy, driving license, identity proof, residence proof, location data, proof of ownership, credit bureau score, registration(s) and compliance under welfare legislations for rider and any other information that Idhar Udhar may deem fit;</p>
                   <p><span className="font-semibold">"Effective Date"</span> shall mean the date on which the Service Provider accepted this Agreement and the General Terms and Conditions of Idhar Udhar by clicking "accept" or "agree" or by "logging- in" / "signing-in" on the application of Idhar Udhar.</p>
                   <p><span className="font-semibold">"Vendor Services / Services"</span> shall be the services provided by the Service Provider to Idhar Udhar of making vehicles and operators available for Idhar Udhar's logistics / transportation services in reference to the order provided by customers of Idhar Udhar on the application of Idhar Udhar;</p>
-                  <p><span className="font-semibold">"Fees"</span> means the consideration payable by Idhar Udhar to the Vendor/ Driver for providing the Vendor Services;</p>
+                  <p><span className="font-semibold">"Fees"</span> means the consideration payable by Idhar Udhar to the Vendor/ rider for providing the Vendor Services;</p>
                   <p><span className="font-semibold">"Governmental Authority"</span> means any governmental agency, semi-governmental or judicial entity or authority, department of law and order including the Police personnel of any rank (including, without limitation, any stock exchange or any self-regulatory organisation established under statute);</p>
                   <p><span className="font-semibold">"Intellectual Property Rights"</span> shall mean and include the copyright (whether registered or not), patents including rights of filing patents, trademarks, trade names, trade dresses, house marks, collective marks, associate marks and the right to register them, designs (both industrial and layout), geographical indicators, moral rights, broadcasting rights, displaying rights, distribution rights, selling rights, reproducing rights, domain names, internet address, graphics, artwork, links, information, logos, software, configuration, marketing and distribution material and any other intellectual property right in the website of Idhar Udhar and / or its application, which are used by and / or owned by Idhar Udhar;</p>
                   <p><span className="font-semibold">"Tax"</span> means all forms of present and future taxes (including but not limited to direct and indirect Taxes), deductions, withholdings, duties, imposts, levies, cesses, fees, charges, social security contributions and rates imposed, levied, collected, withheld or assessed by any Governmental Authority or other taxing authority in India or elsewhere and any interest, additional taxation, penalty, surcharge, cess or fine in connection therewith and "Taxes" shall be construed accordingly;</p>
                   <p><span className="font-semibold">"Termination Date"</span> shall mean the date on which this Agreement shall stand terminated by Idhar Udhar;</p>
-                  <p><span className="font-semibold">"General Terms and Conditions"</span> or "Vendor/ Driver T&C" or "Terms and Conditions" refers to the Vendor/ Driver Terms and Conditions, which are forming part of this Agreement under Annexure B and/or C and are also available on the website and application of Idhar Udhar, as may be amended by Idhar Udhar from time to time;</p>
+                  <p><span className="font-semibold">"General Terms and Conditions"</span> or "Vendor/ rider T&C" or "Terms and Conditions" refers to the Vendor/ rider Terms and Conditions, which are forming part of this Agreement under Annexure B and/or C and are also available on the website and application of Idhar Udhar, as may be amended by Idhar Udhar from time to time;</p>
                   <p><span className="font-semibold">"Person"</span> means any natural person, limited or unlimited liability company, corporation, partnership (whether limited or unlimited), proprietorship, Hindu undivided family, trust, union, association, Governmental Authority or any agency or political subdivision thereof or any other entity that may be treated as a person under the Applicable Law;</p>
-                  <p><span className="font-semibold">"Vehicle"</span> shall mean the vehicles used by the Vendor/ Driver and includes the ones plying on non- renewable resources as well as renewable resources but not limited to electric vehicles, which will be used for performing the Vendor Services;</p>
+                  <p><span className="font-semibold">"Vehicle"</span> shall mean the vehicles used by the Vendor/ rider and includes the ones plying on non- renewable resources as well as renewable resources but not limited to electric vehicles, which will be used for performing the Vendor Services;</p>
                 </div>
               </div>
 
@@ -379,17 +379,17 @@ const ServicesAgreement = () => {
                     <li>The Service Provider is competent and of valid age to enter into the Agreement with Idhar Udhar in the Location / territory in which Service Provider will provide the Vendor Services and may or may not be enrolled for any welfare schemes, as provided by any Governmental Authority and must share the requisite documents with Idhar Udhar, from time to time, for compliance purposes only.</li>
                     <li>The Service Provider must hold and maintain:
                       <ol className="list-decimal pl-6 space-y-2">
-                        <li>a valid driver's license (as applicable) with the appropriate level of certification(s) to operate the Vehicle driven / ridden; and</li>
+                        <li>a valid rider's license (as applicable) with the appropriate level of certification(s) to operate the Vehicle driven / ridden; and</li>
                         <li>all license(s), permit(s), approval(s) and authority(ies), as applicable to the Vehicle that are necessary to provide the Vendor Services.</li>
                       </ol>
                     </li>
                     <li>You hereby provide consent to Idhar Udhar to access, use or share data and information including but not limited to location information, contacts information, transaction information, usage and preference information, device information, call and SMS data and log information related to the application of Idhar Udhar;</li>
                     <li>You have not been convicted by any Court, in the Location or the territory in which You are providing the Vendor Services, of any crimes / cases, including but not limited to involving moral turpitude. You are further not a party to any pending litigation, which shall materially affect your obligations under this Agreement;</li>
-                    <li>Vendor/ Driver as Service Provider hereby agree that their documents may be sent for background verification ("BGV") by Idhar Udhar and if there is any discrepancy / issue in the opinion of Idhar Udhar, found during or post BGV, this Agreement shall stand null and void with immediate effect at the sole discretion of Idhar Udhar.</li>
+                    <li>Vendor/ rider as Service Provider hereby agree that their documents may be sent for background verification ("BGV") by Idhar Udhar and if there is any discrepancy / issue in the opinion of Idhar Udhar, found during or post BGV, this Agreement shall stand null and void with immediate effect at the sole discretion of Idhar Udhar.</li>
                     <li>The Service Provider further acknowledges and agrees that:
                       <ol className="list-decimal pl-6 space-y-2">
-                        <li>Idhar Udhar neither owns or in any way controls the Vehicles used by the Service Provider rendering the Vendor Services to Idhar Udhar, nor it controls the action(s) of the Service Provider providing the Vendor Services to Idhar Udhar, in case the Service Provider itself is not the Driver.</li>
-                        <li>Notwithstanding anything contained herein and in addition to the responsibilities of the Service Provider specifically in the segment of 2 (Two) wheeler Vehicles, the Service Provider who is also the driver of the Vehicles which may or may not be under his ownership as to the right, title and interest on the Vehicle, is responsible and liable for all loss or damages as to any matter arising to and from the Vehicle including the claims, demands, charges, expenses, show cause, detention, litigation and but not limited to objections, etc. as may be raised by a third party, family or related members, appropriate authorities, police functionary, etc. and shall keep Idhar Udhar indemnified from all such claims that have arisen during the term of this Agreement.</li>
+                        <li>Idhar Udhar neither owns or in any way controls the Vehicles used by the Service Provider rendering the Vendor Services to Idhar Udhar, nor it controls the action(s) of the Service Provider providing the Vendor Services to Idhar Udhar, in case the Service Provider itself is not the rider.</li>
+                        <li>Notwithstanding anything contained herein and in addition to the responsibilities of the Service Provider specifically in the segment of 2 (Two) wheeler Vehicles, the Service Provider who is also the rider of the Vehicles which may or may not be under his ownership as to the right, title and interest on the Vehicle, is responsible and liable for all loss or damages as to any matter arising to and from the Vehicle including the claims, demands, charges, expenses, show cause, detention, litigation and but not limited to objections, etc. as may be raised by a third party, family or related members, appropriate authorities, police functionary, etc. and shall keep Idhar Udhar indemnified from all such claims that have arisen during the term of this Agreement.</li>
                       </ol>
                     </li>
                   </ol>
@@ -489,7 +489,7 @@ const ServicesAgreement = () => {
                 <div className="space-y-4">
                   <p><span className="font-semibold">4.1.</span> The Service Provider shall maintain:</p>
                   <ol className="list-decimal pl-6 space-y-2">
-                    <li>Personal accident cover (min. ₹5 lakhs for the driver);</li>
+                    <li>Personal accident cover (min. ₹5 lakhs for the rider);</li>
                     <li>Goods-in-transit insurance for consignments.</li>
                   </ol>
                 </div>
@@ -614,7 +614,7 @@ const ServicesAgreement = () => {
                 <div className="space-y-4">
                   <p><span className="font-semibold">4.1.</span> The Service Provider shall maintain:</p>
                   <ol className="list-decimal pl-6 space-y-2">
-                    <li>Personal accident cover (min. ₹10 lakhs for driver);</li>
+                    <li>Personal accident cover (min. ₹10 lakhs for rider);</li>
                     <li>Goods-in-transit insurance;</li>
                     <li>For 4W: Comprehensive insurance (third party + own damage);</li>
                     <li>Provide insurance policy copies to Idhar Udhar.</li>
@@ -709,7 +709,7 @@ const ServicesAgreement = () => {
             
             <div className="border border-gray-200 rounded-lg p-6">
               <h3 className="text-xl font-bold mb-6 text-center">ANNEXURE 1A</h3>
-              <h4 className="text-lg font-semibold mb-4 text-center">(Details of Vehicles and Drivers with No Objection Certificate)</h4>
+              <h4 className="text-lg font-semibold mb-4 text-center">(Details of Vehicles and riders with No Objection Certificate)</h4>
 
              
               <div className="mb-6">
@@ -761,7 +761,7 @@ const ServicesAgreement = () => {
 
               
               <div className="mb-6">
-                <h5 className="font-bold mb-3 underline">3. DRIVER DETAILS</h5>
+                <h5 className="font-bold mb-3 underline">3. rider DETAILS</h5>
                 <table className="w-full border-collapse">
                   <thead>
                     <tr className="border-b border-gray-200 font-medium bg-gray-800">
@@ -771,7 +771,7 @@ const ServicesAgreement = () => {
                   </thead>
                   <tbody>
                     <tr className="border-b border-gray-200">
-                      <td className="py-2">Driver's Name</td>
+                      <td className="py-2">rider's Name</td>
                       <td className="py-2"><span className="text-gray-400">[As per documents attached]</span></td>
                     </tr>
                     <tr className="border-b border-gray-200">
@@ -791,7 +791,7 @@ const ServicesAgreement = () => {
                       <td className="py-2"><span className="text-gray-400">[To be filled]</span></td>
                     </tr>
                     <tr>
-                      <td className="py-2">Aadhaar No of Driver</td>
+                      <td className="py-2">Aadhaar No of rider</td>
                       <td className="py-2"><span className="text-gray-400">[To be filled]</span></td>
                     </tr>
                   </tbody>
@@ -871,8 +871,8 @@ const ServicesAgreement = () => {
                   <li>Cancelled cheque (Service Provider bank details)</li>
                   <li>Copy of PAN Card (Service Provider)</li>
                   <li>Proof of GSTIN (Service Provider)</li>
-                  <li>Copy of Driving License (Driver)</li>
-                  <li>Copy of Aadhaar Card (Service Provider & Driver)</li>
+                  <li>Copy of Driving License (rider)</li>
+                  <li>Copy of Aadhaar Card (Service Provider & rider)</li>
                   <li>Vehicle Registration Certificate</li>
                   <li>PUC Certificate</li>
                   <li>Fitness Certificate</li>

@@ -16,18 +16,18 @@ const HeroSafety = () => {
   const safetySteps = [
     {
       icon: <UserCheck size={36} />,
-      title: "Driver Background Check",
-      desc: "All drivers undergo criminal background screening and verification before joining.",
+      title: "rider Background Check",
+      desc: "All riders undergo criminal background screening and verification before joining.",
     },
     {
       icon: <GraduationCap size={36} />,
       title: "Safety Education",
-      desc: "We educate our drivers and users through periodic safety awareness campaigns.",
+      desc: "We educate our riders and users through periodic safety awareness campaigns.",
     },
     {
       icon: <BadgeCheck size={36} />,
-      title: "Trusted Driver Badge",
-      desc: "High-rated drivers earn our 'Trusted Driver' badge after consistent safe service.",
+      title: "Trusted rider Badge",
+      desc: "High-rated riders earn our 'Trusted rider' badge after consistent safe service.",
     },
     {
       icon: <Radar size={36} />,
@@ -50,7 +50,7 @@ const HeroSafety = () => {
     {
       icon: <Eye size={36} />,
       title: "Stay Alert",
-      desc: "Always confirm driver identity and be aware of your surroundings during pickup/drop.",
+      desc: "Always confirm rider identity and be aware of your surroundings during pickup/drop.",
     },
     {
       icon: <PhoneCall size={36} />,
@@ -154,7 +154,7 @@ const HeroSafety = () => {
               name: "Meera R.",
               role: "Student",
               feedback:
-                "I sent important documents across town and was able to track everything live. The driver was verified and polite. Felt very secure.",
+                "I sent important documents across town and was able to track everything live. The rider was verified and polite. Felt very secure.",
             },
           ].map((story, i) => (
             <motion.div

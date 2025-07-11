@@ -56,7 +56,7 @@ const RideTrackingPage = () => {
       <div className="bg-gray-900 w-full max-w-3xl rounded-2xl shadow-2xl overflow-hidden">
         {/* Header */}
         <div className="bg-gray-800 p-6 text-center border-b border-gray-700">
-          <h2 className="text-xl font-semibold">Driver is on the way</h2>
+          <h2 className="text-xl font-semibold">rider is on the way</h2>
           <p className="text-gray-400 text-sm mt-1">Tracking your trip in real-time</p>
         </div>
 
@@ -99,7 +99,7 @@ const RideTrackingPage = () => {
             <div className="flex gap-3 items-center">
               <img
                 src="https://i.pravatar.cc/100?img=12"
-                alt="Driver"
+                alt="rider"
                 className="w-12 h-12 rounded-full"
               />
               <div>
@@ -117,7 +117,7 @@ const RideTrackingPage = () => {
           {/* Action Buttons */}
           <div className="flex gap-4 mt-4">
             <button className="w-full bg-green-600 hover:bg-green-700 text-sm py-2 rounded-md flex items-center justify-center gap-2 font-medium">
-              <Phone className="w-4 h-4" /> Call Driver
+              <Phone className="w-4 h-4" /> Call rider
             </button>
             <button className="w-full bg-gray-800 hover:bg-gray-700 border border-gray-600 text-sm py-2 rounded-md flex items-center justify-center gap-2 font-medium">
               <MessageCircle className="w-4 h-4" /> Message

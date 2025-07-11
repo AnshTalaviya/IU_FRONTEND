@@ -29,7 +29,7 @@ const FeaturesSection = () => {
     {
       icon: <Shield size={28} />,
       title: 'Prioritized Safety',
-      description: 'Real-time trip tracking, verified drivers, and 24/7 emergency support.',
+      description: 'Real-time trip tracking, verified riders, and 24/7 emergency support.',
     },
     {
       icon: <Clock size={28} />,

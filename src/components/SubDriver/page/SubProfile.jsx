@@ -163,7 +163,7 @@ const Profile2 = () => {
     <div className="max-w-6xl mx-auto p-4 mt-14 dark:bg-gray-950 bg-gray-50 min-h-screen relative">
       <div className="mb-8">
         <h1 className="text-3xl md:text-4xl font-bold mb-2 dark:text-gray-200 text-gray-800">
-          Driver Profile
+          Rider Profile
         </h1>
         <p className="dark:text-gray-400 text-gray-600">Manage your information and track performance</p>
       </div>
@@ -177,7 +177,7 @@ const Profile2 = () => {
                 <i className="fas fa-user text-white text-4xl md:text-5xl"></i>
               </div>
               <h2 className="text-xl font-bold mb-1 dark:text-gray-200 text-gray-800">{profileData.name}</h2>
-              <p className="dark:text-gray-400 text-gray-600 mb-4 text-sm">Driver ID: {profileData.driverId}</p>
+              <p className="dark:text-gray-400 text-gray-600 mb-4 text-sm">Rider ID: {profileData.driverId}</p>
               <div className="flex items-center mb-6">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <i
@@ -229,7 +229,7 @@ const Profile2 = () => {
           <div className="space-y-6">
             <h3 className="text-xl font-semibold dark:text-gray-200 text-gray-800 flex items-center">
               <i className="fas fa-users text-orange-600 mr-3 text-lg"></i>
-              Subdrivers
+              Subriders
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {subdrivers.map((sd) => (
@@ -388,7 +388,7 @@ const EditModal = ({ editForm, handleEditChange, handleSave, onClose }) => {
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
       <div className="bg-white dark:bg-gray-900 p-6 rounded-lg w-full max-w-md shadow-lg max-h-[90vh] overflow-hidden flex flex-col">
         <div className="flex justify-between items-center mb-4">
-          <h3 className="text-xl font-bold text-gray-800 dark:text-white">Edit Driver Info</h3>
+          <h3 className="text-xl font-bold text-gray-800 dark:text-white">Edit Rider Info</h3>
           <button onClick={onClose} className="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
             <i className="fas fa-times"></i>
           </button>
@@ -443,7 +443,7 @@ const SubdriverModal = ({ subdriver, onClose, onEdit }) => (
     <div className="bg-white dark:bg-gray-900 p-6 rounded-lg w-full max-w-md shadow-lg max-h-[90vh] overflow-hidden flex flex-col">
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-xl font-bold text-gray-800 dark:text-white">
-          <i className="fas fa-user-shield mr-2"></i> Subdriver Details
+          <i className="fas fa-user-shield mr-2"></i> Subrider Details
         </h3>
         <button onClick={onClose} className="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
           <i className="fas fa-times"></i>
@@ -538,7 +538,7 @@ const SubdriverEditModal = ({ editForm, handleChange, handleSave, onClose }) => 
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
       <div className="bg-white dark:bg-gray-900 p-6 rounded-lg w-full max-w-md shadow-lg max-h-[90vh] overflow-hidden flex flex-col">
         <div className="flex justify-between items-center mb-4">
-          <h3 className="text-xl font-bold text-gray-800 dark:text-white">Edit Subdriver</h3>
+          <h3 className="text-xl font-bold text-gray-800 dark:text-white">Edit Subrider</h3>
           <button onClick={onClose} className="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
             <i className="fas fa-times"></i>
           </button>

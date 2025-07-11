@@ -21,7 +21,7 @@ const rides = [
     displayPrice: "₹349",
     eta: "8 mins",
     capacity: 4,
-    tags: ["Premium Cars", "Top-rated Drivers", "Complimentary Water"],
+    tags: ["Premium Cars", "Top-rated riders", "Complimentary Water"],
   },
   {
     id: 3,
@@ -39,7 +39,7 @@ const tagRoutes = {
   "Air Conditioned": "/features/air-conditioned",
   "Preferred Option": "/features/air-conditioned",
   "Premium Cars": "/features/premium-cars",
-  "Top-rated Drivers": "/features/premium-cars",
+  "Top-rated riders": "/features/premium-cars",
   "Complimentary Water": "/features/premium-cars",
   "Spacious": "/features/spacious",
   "For Groups": "/features/spacious",

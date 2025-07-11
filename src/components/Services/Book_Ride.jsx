@@ -124,7 +124,7 @@ export default function Car_Rides() {
               </div>
               <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Comfortable Trips</h2>
               <p className="text-gray-600 dark:text-gray-300">
-                Enjoy spacious, air-conditioned cars with professional drivers for a smooth journey
+                Enjoy spacious, air-conditioned cars with professional riders for a smooth journey
               </p>
             </div>
 
@@ -137,7 +137,7 @@ export default function Car_Rides() {
               </div>
               <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Safe & Secure</h2>
               <p className="text-gray-600 dark:text-gray-300">
-                All Trips are monitored with real-time tracking, emergency assistance, and verified drivers
+                All Trips are monitored with real-time tracking, emergency assistance, and verified riders
               </p>
             </div>
 
@@ -150,7 +150,7 @@ export default function Car_Rides() {
               </div>
               <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Quick & Efficient</h2>
               <p className="text-gray-600 dark:text-gray-300">
-                Fast pickup times, optimized routes, and experienced drivers to get you there quickly
+                Fast pickup times, optimized routes, and experienced riders to get you there quickly
               </p>
             </div>
           </div>

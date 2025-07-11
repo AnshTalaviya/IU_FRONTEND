@@ -334,7 +334,7 @@ function Signup() {
                   onClick={addMoreSubDriver}
                   className="bg-yellow-500 text-black px-4 py-2 rounded-md hover:bg-yellow-400"
                 >
-                  + Add Another Sub Driver
+                  + Add Another Sub Rider
                 </button>
               </div>
             )}

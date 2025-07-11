@@ -11,7 +11,7 @@ const DownloadAppSection = () => {
 
   const features = [
     "Book trips in just a few taps",
-    "Track your driver in real-time",
+    "Track your rider in real-time",
     "Schedule trips in advance",
     "Save favorite destinations",
     "Earn and redeem rewards",
@@ -49,8 +49,8 @@ const DownloadAppSection = () => {
 
           <div className="p-5 bg-orange-50 dark:bg-orange-600 border border-orange-400/20 rounded-xl shadow-md">
             <p className="text-sm text-gray-800 dark:text-gray-100 mb-2">
-              <strong className="text-black dark:text-white">Driver Partner?</strong>{" "}
-              Download the Driver App and start earning with IdharUdhar.
+              <strong className="text-black dark:text-white">rider Partner?</strong>{" "}
+              Download the rider App and start earning with IdharUdhar.
             </p>
             <Link
               to="#"

@@ -2,13 +2,13 @@
 
 // const socket = io(import.meta.env.VITE_BACKEND_URL);
 // useEffect(() => {
-//     socket.on('driverMatched', (data) => {
-//         console.log('Driver matched:', data);
+//     socket.on('riderMatched', (data) => {
+//         console.log('rider matched:', data);
 //         navigate('/ride-otp', { state: { ride: data } });
 //     });
 
 //     return () => {
-//         socket.off('driverMatched');
+//         socket.off('riderMatched');
 //     };
 // }, [navigate]);
 
@@ -120,10 +120,10 @@ function Searching_ride() {
 
       {/* Text */}
       <h2 className="text-xl font-semibold mb-2">
-        Finding a driver{dots}
+        Finding a rider{dots}
       </h2>
       <p className="text-gray-400 text-sm">
-        Hold tight! We’re looking for the best nearby driver for you.
+        Hold tight! We’re looking for the best nearby rider for you.
       </p>
     </div>
   );

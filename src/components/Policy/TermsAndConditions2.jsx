@@ -118,7 +118,7 @@ const TermsAndConditions2 = () => {
         <section className="mb-10">
           <h2 className="text-2xl font-bold mb-4 pb-2 border-b border-gray-700">CANCELLATION</h2>
           <p>
-            Cancellations post driver allocation may attract a fee as per company policy. This will be communicated at the time of cancellation.
+            Cancellations post rider allocation may attract a fee as per company policy. This will be communicated at the time of cancellation.
           </p>
         </section>
 

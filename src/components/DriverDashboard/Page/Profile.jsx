@@ -37,7 +37,7 @@ const Profile = () => {
     { label: 'Email', value: '', icon: 'envelope', key: 'email', type: 'email', required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ },
     { label: 'Phone', value: '', icon: 'phone', key: 'phone', type: 'tel', required: true, pattern: /^\+?[\d\s-]+$/ },
     { label: 'Address', value: '', icon: 'map-marker-alt', key: 'address', type: 'text', required: true },
-    { label: 'Driver License', value: '', icon: 'id-card', key: 'licenseNumber', type: 'text', required: true },
+    { label: 'Driving License', value: '', icon: 'id-card', key: 'licenseNumber', type: 'text', required: true },
     { label: 'Make & Model', value: '', icon: 'car', key: 'makeAndModel', type: 'text', required: true },
     { label: 'Color', value: '', icon: 'palette', key: 'color', type: 'text', required: true },
     { label: 'License Plate', value: '', icon: 'tag', key: 'vehicleNumber', type: 'text', required: true },
@@ -109,7 +109,7 @@ const Profile = () => {
         );
 
       } catch (error) {
-        console.error('Error fetching driver details:', error);
+        console.error('Error fetching rider details:', error);
       }
     };
 
@@ -361,7 +361,7 @@ const Profile = () => {
 
       <div className="mb-8">
         <h1 className="text-3xl md:text-4xl font-bold mb-2 dark:text-gray-200 text-gray-800">
-          Driver Profile
+          Rider Profile
         </h1>
         <p className="dark:text-gray-400 text-gray-600">
           Manage your information and track performance
@@ -382,7 +382,7 @@ const Profile = () => {
                 {profileData.name}
               </h2>
               <p className="dark:text-gray-400 text-gray-600 mb-4 text-sm">
-                Driver ID: {profileData.driverId}
+                Rider ID: {profileData.driverId}
               </p>
 
               <div className="flex items-center mb-6">
@@ -413,7 +413,7 @@ const Profile = () => {
           <div className="dark:bg-gray-200/10 bg-white rounded-xl p-6 shadow-sm dark:border-gray-700 border-gray-200 hover:shadow-lg transition-all">
             <h3 className="text-lg font-semibold mb-4 flex items-center dark:text-gray-200 text-gray-800">
               <i className={`fas fa-medal text-${getLevelColor(profileData.level)} mr-3 text-xl`}></i>{' '}
-              Driver Level
+              Rider Level
             </h3>
 
             <div className="flex flex-col items-center text-center">
@@ -435,7 +435,7 @@ const Profile = () => {
               </div>
 
               <p className="text-sm dark:text-gray-400 text-gray-600 mb-5 text-center">
-                You&#39;re a {profileData.level} level driver! Complete 20 more trips this month to reach
+                You&#39;re a {profileData.level} level rider! Complete 20 more trips this month to reach
                 Platinum.
               </p>
 
@@ -459,7 +459,7 @@ const Profile = () => {
         <div className="md:col-span-2 space-y-6 md:space-y-8">
           {/* Personal Info */}
           <InfoSection
-            title="Driver Information"
+            title="Rider Information"
             data={personalInfo} // personalInfo is now directly updated
             icon="info-circle"
             onEdit={() => openEditModal('personal', personalInfo)}

@@ -133,20 +133,20 @@ export default function Allcities() {
   return (
     <section className='w-full'>
       <div className="Allcities_header text-center w-full bg-[#16A34A] pt-25 pb-10">
-        <h3 className='text-3xl md:text-4xl font-bold text-gray-900 dark:text-white'>Idhar Udhar Cities</h3>
+        <h3 className='text-3xl md:text-4xl font-bold text-white'>Idhar Udhar Cities</h3>
         <p className='text-white mt-4 text-lg mx-auto'>Discover all the cities where Idhar Udhar operates. Book a trip anywhere, anytime.</p>
-        <div className="h-12 sm:w-140 size-[80%] border bg-white dark:bg-black text-gray-800 dark:text-gray-400 rounded-xl relative mx-auto mt-7">
-          <i className="fas fa-search absolute text-md text-gray-500 dark:text-gray-400 top-[35%] left-3"></i>
+        <div className="h-12 sm:w-140 size-[80%] border bg-black text-gray-400 rounded-xl relative mx-auto mt-7">
+          <i className="fas fa-search absolute text-md text-gray-400 top-[35%] left-3"></i>
         <input
    type="text"
-   className='h-full w-full bg-white dark:bg-black px-3 text-gray-800 dark:text-gray-400 pl-10 pr-4 rounded-xl shadow-md text-[0.9rem] font-medium border border-transparent focus:border-green-600 focus:outline-none'
+   className='h-full w-full bg-black px-3 text-gray-400 pl-10 pr-4 rounded-xl shadow-md text-[0.9rem] font-medium border border-transparent focus:border-green-600 focus:outline-none'
    placeholder='Search for a city or state...'
    value={searchTerm}
    onChange={handleSearch}
   />
   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
    {/* Your Search Icon (SVG Example) */}
-   <svg className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+   <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
    </svg>
    {/* Your Search Icon (Image Example) */}
@@ -155,8 +155,8 @@ export default function Allcities() {
         </div>
       </div>
 
-      <div className="Allcities_body w-full bg-gray-100 dark:bg-gray-900 md:p-10 p-2 pt-13">
-        <div className="Allcities-tabs-buttons sm md:w-[70%] lg:w-[45%] bg-gray-200 dark:bg-gray-700/50 flex rounded-md p-2 pl-0 mt-4">
+      <div className="Allcities_body w-full bg-gray-900 md:p-10 p-2 pt-13">
+        <div className="Allcities-tabs-buttons sm md:w-[70%] lg:w-[45%] bg-gray-700/50 flex rounded-md p-2 pl-0 mt-4">
           {['all', 'north', 'south', 'east', 'west'].map(area => {
             const isActive = areaFilter === area;
             return (
@@ -164,7 +164,7 @@ export default function Allcities() {
                 key={area}
                 onClick={() => handleFilter(area)}
                 className={`h-9 btn text-xs md:text-sm w-90 rounded-md mx-1 transition-all duration-200 
-              ${isActive ? 'bg-gray-950 text-white' : 'bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-600 hover:text-black dark:hover:text-white'}`}
+              ${isActive ? 'bg-gray-950 text-white' : 'bg-gray-900 text-gray-400 hover:bg-gray-600 hover:text-white'}`}
               >
                 {area === 'all' ? 'All cities' : `${area.charAt(0).toUpperCase() + area.slice(1)} india`}
               </button>

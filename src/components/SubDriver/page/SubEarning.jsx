@@ -494,13 +494,13 @@ const SubEarning = () => {
 
       {/* Subdriver Earnings */}
       <div className="bg-white dark:bg-gray-200/10 p-6 rounded-lg hover:shadow transition-all">
-        <h3 className="font-semibold text-lg mb-4">Top 5 Subdrivers</h3>
+        <h3 className="font-semibold text-lg mb-4">Top 5 Subriders</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {subdriverEarningsData[timeFrame === 'custom' ? 'week' : timeFrame].map((driver, idx) => (
             <div key={idx} className="p-4 rounded-lg bg-gray-100 dark:bg-gray-800 hover:shadow transition-all">
               <div className="font-semibold text-lg">{driver.name}</div>
               <div className="text-white font-bold mt-1 text-xl">{formatCurrency(driver.earnings)}</div>
-              <div className="text-sm text-gray-500 dark:text-gray-400">Subdriver Earnings</div>
+              <div className="text-sm text-gray-500 dark:text-gray-400">Subriders Earnings</div>
             </div>
           ))}
         </div>

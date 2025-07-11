@@ -193,7 +193,7 @@ export default function SubDashboard() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
           {/* Combined Recent Rides */}
           <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-xl shadow">
-            <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">All Drivers - Recent Trips</h2>
+            <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">All Riders - Recent Trips</h2>
             <div className="space-y-3 max-h-64 overflow-y-auto pr-2">
               {allRecentRides.map((ride, idx) => (
                 <div
@@ -228,7 +228,7 @@ export default function SubDashboard() {
           </div>
           {/* Combined Today's Summary - styled like per-driver summary */}
           <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-xl shadow space-y-4">
-            <h2 className="text-lg font-semibold text-gray-800 dark:text-white">All Drivers - Today's Summary</h2>
+            <h2 className="text-lg font-semibold text-gray-800 dark:text-white">All Riders - Today's Summary</h2>
             <div>
               <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400">
                 <span>Earning Goal</span>
@@ -266,7 +266,7 @@ export default function SubDashboard() {
         </div>
       </div>
       {sortedSubdrivers.length === 0 && (
-        <div className="text-center text-gray-600 dark:text-gray-300 text-lg mt-20">No subdriver data found.</div>
+        <div className="text-center text-gray-600 dark:text-gray-300 text-lg mt-20">No subriders data found.</div>
       )}
       <div className="grid grid-cols-1 gap-4">
         {sortedSubdrivers.map((sub, i) => {

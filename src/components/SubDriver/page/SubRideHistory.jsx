@@ -112,7 +112,7 @@ export default function SubRideHistory() {
             >
               <div>
                 <h4 className="font-semibold">{ride.customer}</h4>
-                <p className="text-sm text-gray-500 dark:text-gray-400">{ride.time} — Driver: {ride.driver}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">{ride.time} — Rider: {ride.driver}</p>
               </div>
               <div className="flex items-center gap-4">
                 <p className={`${ride.cancelled ? "text-red-500" : "text-green-500"} font-bold`}>₹{ride.fare.toFixed(2)}</p>

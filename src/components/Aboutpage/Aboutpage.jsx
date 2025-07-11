@@ -58,7 +58,7 @@ const Aboutpage = () => {
             },
             {
               icon: <UserCheck size={36} />,
-              title: "Verified Drivers",
+              title: "Verified riders",
               desc: "Every delivery executive is thoroughly verified and trained for secure handling.",
             },
           ].map((feature, index) => (
@@ -96,8 +96,8 @@ const Aboutpage = () => {
               desc: "Choose your vehicle, enter pickup & drop locations, and schedule your time.",
             },
             {
-              title: "2. Driver Arrives",
-              desc: "A verified driver reaches your location on time to collect the parcel safely.",
+              title: "2. rider Arrives",
+              desc: "A verified rider reaches your location on time to collect the parcel safely.",
             },
             {
               title: "3. Live Tracking",
@@ -176,7 +176,7 @@ const Aboutpage = () => {
             {
               icon: <UserCheck size={36} />,
               title: "Verified Professionals",
-              desc: "All our drivers and staff go through identity and background verification.",
+              desc: "All our riders and staff go through identity and background verification.",
             },
             {
               icon: <Info size={36} />,

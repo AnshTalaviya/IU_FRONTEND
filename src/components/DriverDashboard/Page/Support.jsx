@@ -71,12 +71,12 @@ const Support = () => {
       answer: "To report an issue with a rider, go to your trip History, select the specific trip, and tap on 'Report an Issue'. You can also contact Support directly through the Support tab."
     },
     {
-      question: "What are the requirements to maintain my driver status?",
-      answer: "To maintain your driver status, you need to maintain a minimum rating of 4.5 stars, keep an acceptance rate above 85%, and a cancellation rate below 5%. Regular vehicle inspections and updated documentation are also required."
+      question: "What are the requirements to maintain my rider status?",
+      answer: "To maintain your rider status, you need to maintain a minimum rating of 4.5 stars, keep an acceptance rate above 85%, and a cancellation rate below 5%. Regular vehicle inspections and updated documentation are also required."
     },
     {
-      question: "How do I qualify for driver incentives and bonuses?",
-      answer: "Driver incentives and bonuses are based on various factors including number of completed trips, time of day, and location. Check the Promotions section regularly for available incentives, which typically require meeting specific goals within a set timeframe."
+      question: "How do I qualify for rider incentives and bonuses?",
+      answer: "rider incentives and bonuses are based on various factors including number of completed trips, time of day, and location. Check the Promotions section regularly for available incentives, which typically require meeting specific goals within a set timeframe."
     }
   ]
 
@@ -85,7 +85,7 @@ const Support = () => {
       id: 'general',
       icon: <i className="fas fa-question-circle text-2xl text-orange-600" />,
       title: "General Questions",
-      description: "Answers to common driver questions",
+      description: "Answers to common rider questions",
       content: (
         <div className="p-4 space-y-4">
           <h3 className="font-semibold text-lg">General Questions</h3>

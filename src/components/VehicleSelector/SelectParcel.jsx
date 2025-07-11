@@ -65,8 +65,8 @@ export default function SelectParcel() {
 
         {/* Centered icon */}
         <div className="w-full h-20 flex justify-center items-center">
-          {iconMap[iconName]}
-        </div>
+          {iconMap[iconName]}+
+        </div>  
 
         {/* Title and Description */}
         <motion.div

@@ -17,15 +17,15 @@ const defaultFaqs = [
     },
     {
         question: 'What Should I Be Asking For First Trip?',
-        answer: 'Ask about safety procedures, estimated cost, and driver credentials.',
+        answer: 'Ask about safety procedures, estimated cost, and rider credentials.',
     },
     {
         question: 'How Many Cars Does IdharUdhar Taxi Service Have?',
         answer: 'The fleet size depends on the city. You can check the app for real-time availability.',
     },
     {
-        question: 'Are the drivers background checked?',
-        answer: 'Yes, all drivers go through a thorough background verification process.',
+        question: 'Are the riders background checked?',
+        answer: 'Yes, all riders go through a thorough background verification process.',
     },
     {
         question: 'Can I pay by cash or card?',
@@ -86,8 +86,8 @@ const allFaqs = {
     //         answer: 'We offer sedans, SUVs, and premium cars based on your preference.',
     //     },
     //     {
-    //         question: 'Is there an option for a female driver?',
-    //         answer: 'Yes, you can request a female driver for your trip through the app.',
+    //         question: 'Is there an option for a female rider?',
+    //         answer: 'Yes, you can request a female rider for your trip through the app.',
     //     },
     //     {
     //         question: 'Can I pay tolls or parking through the app?',
@@ -99,7 +99,7 @@ const allFaqs = {
     //     },
     //     {
     //         question: 'What happens if my trip is late?',
-    //         answer: 'You can track your driver in real-time and contact support for delays.',
+    //         answer: 'You can track your rider in real-time and contact support for delays.',
     //     },
     // ],
     // auto: [
@@ -113,7 +113,7 @@ const allFaqs = {
     //     },
     //     {
     //         question: 'Are autos sanitized regularly?',
-    //         answer: 'Yes, drivers sanitize autos daily to ensure passenger safety.',
+    //         answer: 'Yes, riders sanitize autos daily to ensure passenger safety.',
     //     },
     //     {
     //         question: 'How do I request an auto trip?',
@@ -207,7 +207,7 @@ const Faqs = () => {
                     {faqList.map((item, index) => (
                         <div
                             key={index}
-                            className="bg-white dark:bg-gray-900 border border-gray-200 rounded-xl shadow-md transition hover:shadow-lg"
+                            className="bg-gray-900 border border-gray-200 rounded-xl shadow-md transition hover:shadow-lg"
                         >
                             <button
                                 onClick={() => toggle(index)}

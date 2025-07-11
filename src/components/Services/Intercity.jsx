@@ -114,7 +114,7 @@ export default function Intercity() {
         },
         {
             title: "Safety First",
-            desc: "Verified drivers, real-time tracking, and 24/7 customer support for peace of mind.",
+            desc: "Verified riders, real-time tracking, and 24/7 customer support for peace of mind.",
             icon: <path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-4z" />,
         },
         {
@@ -229,7 +229,7 @@ export default function Intercity() {
                     <motion.p
                         className="text-gray-600 dark:text-gray-300 max-w-xl mx-auto mb-10"
                     >
-                        The most comfortable and convenient way to travel between cities with professional drivers.
+                        The most comfortable and convenient way to travel between cities with professional riders.
                     </motion.p>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

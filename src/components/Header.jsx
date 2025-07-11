@@ -31,11 +31,11 @@ const ComingSoonModal = ({ show, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
-      <div className="bg-white dark:bg-gray-900 text-black dark:text-white rounded-2xl shadow-2xl p-6 w-full max-w-md transform scale-100 transition-all duration-300 animate-fadeInUp">
+      <div className="bg-gray-900 text-white rounded-2xl shadow-2xl p-6 w-full max-w-md transform scale-100 transition-all duration-300 animate-fadeInUp">
         <div className="text-center">
           <div className="text-4xl mb-4">🚧</div>
           <h2 className="text-2xl font-bold mb-2">Intercity Coming Soon!</h2>
-          <p className="text-gray-700 dark:text-gray-300">
+          <p className="text-gray-300">
             We’re working hard to bring you this service. Stay tuned for updates!
           </p>
         </div>
@@ -150,7 +150,7 @@ const Header = () => {
         </div>
 
         {/* Main Nav */}
-        <div className={`bg-black dark:text-white py-4 px-4 fixed ${isMobile ? "top-0" : "top-9"} left-0 w-full z-40 transition-shadow duration-300 ${scrolled ? "shadow-lg" : ""}`}>
+        <div className={`bg-black text-white py-4 px-4 fixed ${isMobile ? "top-0" : "top-9"} left-0 w-full z-40 transition-shadow duration-300 ${scrolled ? "shadow-lg" : ""}`}>
           <div className="container mx-auto flex justify-between items-center">
 
             <Link to="/">
@@ -169,7 +169,7 @@ const Header = () => {
 
             {/* Right Menu */}
             <div className="hidden md:flex items-center space-x-4">
-              {/* <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-green-200 dark:hover:bg-gray-700">
+              {/* <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-green-200 hover:bg-gray-700">
                 {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
               </button> */}
               {isAuthenticated ? (
@@ -187,21 +187,21 @@ const Header = () => {
                 </div>
               ) : (
                 <>
-                  <Link to="/login" className="bg-orange-600 px-4 py-2 rounded-md border hover:bg-orange-700 dark:text-white">Login</Link>
+                  <Link to="/login" className="bg-orange-600 px-4 py-2 rounded-md border hover:bg-orange-700 text-white">Login</Link>
                   <Link to="/signup" className="bg-orange-600 text-white px-4 py-2 rounded-md hover:bg-orange-700">Sign Up</Link>
                 </>
               )}
             </div>
 
             {/* Mobile Toggle */}
-            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">
+            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden p-2 rounded-md hover:bg-gray-700">
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
 
         {/* Mobile Nav */}
-        <div className={`fixed inset-0 z-30 pt-28 px-4 transition-transform duration-300 md:hidden ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"} bg-black text-white  dark:text-white`}>
+        <div className={`fixed inset-0 z-30 pt-28 px-4 transition-transform duration-300 md:hidden ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"} bg-black text-white`}>
           <Link to="/" className="block py-2 border-b hover:text-orange-600">Home</Link>
           <Link to="/services" className="block py-2 border-b hover:text-orange-600">Services</Link>
           <Link to="/safety" className="block py-2 border-b hover:text-orange-600">Safety</Link>
@@ -209,9 +209,7 @@ const Header = () => {
           <Link to="/contact" className="block py-2 hover:text-orange-600">Contact Us</Link>
 
           <div className="items-center justify-around flex mt-3 flex-wrap">
-            {/* <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-green-200 dark:hover:bg-gray-700">
-              {isDarkMode ? <Sun size={30} /> : <Moon size={30} />}
-            </button> */}
+
             {isAuthenticated ? (
               <div className="relative">
                 <button onClick={() => setIsProfileDropdownOpen(!isProfileDropdownOpen)} className="w-10 h-10 rounded-full bg-orange-600 text-white font-semibold hover:bg-orange-700">
@@ -229,7 +227,7 @@ const Header = () => {
               </div>
             ) : (
               <>
-                <Link to="/login" className="bg-orange-600 px-4 py-2 rounded-md border hover:bg-orange-700 hover:text-white dark:text-white">Login</Link>
+                <Link to="/login" className="bg-orange-600 px-4 py-2 rounded-md border hover:bg-orange-700 hover:text-white text-white">Login</Link>
                 <Link to="/signup" className="bg-orange-600 text-white px-4 py-2 rounded-md hover:bg-orange-700">Sign Up</Link>
               </>
             )}

@@ -189,7 +189,7 @@ export default function Auto_Rides() {
                             },
                             {
                                 title: "Safe & Verified",
-                                desc: "All our auto drivers are verified and trained for safe and comfortable trips",
+                                desc: "All our auto riders are verified and trained for safe and comfortable trips",
                                 iconPath: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />,
                             },
                             {

@@ -21,7 +21,7 @@ const PrivacyPolicy = () => {
                     </div>
                     <div className="text-white space-y-3">
                         <p>
-                            This privacy policy sets out how Idhar Udhar uses and protects any information that you give Idhar Udhar when you use this website/mobile application for Customers and Driver Partners. This Privacy Policy is an electronic record between you and Idhar Udhar under the Information Technology Act, 2000 together with the Rules framed from time to time.
+                            This privacy policy sets out how Idhar Udhar uses and protects any information that you give Idhar Udhar when you use this website/mobile application for Customers and rider Partners. This Privacy Policy is an electronic record between you and Idhar Udhar under the Information Technology Act, 2000 together with the Rules framed from time to time.
                         </p>
                         <p>
                             Your privacy matters to SmartShift Logistics Solutions Private Limited (the "Company", "we", "Idhar Udhar", or "us"). By using the Idhar Udhar Apps and the Services, you agree to this Policy.
@@ -30,7 +30,7 @@ const PrivacyPolicy = () => {
                             This Privacy Policy ("Policy") describes the policies and procedures on the collection, use, disclosure and protection of your information when you use our website located at https://idharudhar.in/, or the Idhar Udhar mobile applications (collectively, "Idhar Udhar Apps").
                         </p>
                        <p>
-                        The terms “you” and “your” refer to the user of the Idhar Udhar Apps. The term “Services” refers to any services offered by Idhar Udhar whether on the Idhar Udhar Apps or otherwise. This Policy is a part of and incorporated within, and is to be read along with, the applicable Terms of Service and the Driver Partner Terms and Conditions based on the user of Idhar Udhar.
+                        The terms “you” and “your” refer to the user of the Idhar Udhar Apps. The term “Services” refers to any services offered by Idhar Udhar whether on the Idhar Udhar Apps or otherwise. This Policy is a part of and incorporated within, and is to be read along with, the applicable Terms of Service and the rider Partner Terms and Conditions based on the user of Idhar Udhar.
                        </p>
                        <p>
                         Idhar Udhar is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be identified when using this website, then you can be assured that it will only be used in accordance with this privacy statement.
@@ -60,8 +60,8 @@ const PrivacyPolicy = () => {
                             <li>Information for using our Services such as phone number, address, email, billing information, invoices, etc.</li>
                             <li>Other information relevant to customer surveys and/or offers</li>
                             <li>App install, uninstall, and other installed apps information</li>
-                            <li>For Driver Partners: location details, profile picture, KYC documents, vehicle documents (insurance, pollution certificate, registration certificate, etc.), bank account details, and call/SMS details</li>
-                            <li>Background check and identity verification (driver history, criminal record, right to work)</li>
+                            <li>For rider Partners: location details, profile picture, KYC documents, vehicle documents (insurance, pollution certificate, registration certificate, etc.), bank account details, and call/SMS details</li>
+                            <li>Background check and identity verification (rider history, criminal record, right to work)</li>
                             <li>Referral program participation may require access to your contact list (with consent)</li>
                         </ul>
                         <p>
@@ -118,7 +118,7 @@ const PrivacyPolicy = () => {
                         <ul className="list-disc pl-5 space-y-1">
                             <li>Name, email, mobile number, language</li>
                             <li>Device, location, and network carrier info</li>
-                            <li>Driver location (collected throughout trip for customer support and tracking)</li>
+                            <li>rider location (collected throughout trip for customer support and tracking)</li>
                         </ul>
                         <p>Shared information may be used for:</p>
                         <ul className="list-disc pl-5 space-y-1">
@@ -126,7 +126,7 @@ const PrivacyPolicy = () => {
                             <li>Behavioural analytics</li>
                             <li>Vendor/consultant/partner integrations</li>
                             <li>Academic research</li>
-                            <li>Displaying driver info (name, phone, picture) to customers</li>
+                            <li>Displaying rider info (name, phone, picture) to customers</li>
                             <li>Legal compliance, fraud detection, and law enforcement purposes</li>
                         </ul>
                     </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Pencil } from "lucide-react";
 import { motion } from "framer-motion";
 import {
@@ -111,7 +111,9 @@ export default function EstimateResults() {
             whileTap={{ scale: 0.98 }}
             className="w-full py-3 px-6 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-lg shadow-lg transition duration-300"
           >
+            <Link to="/bookingcomfirmation">
             Book Now
+            </Link>
           </motion.button>
         
 

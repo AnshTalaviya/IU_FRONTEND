@@ -77,6 +77,7 @@ import TermsAndConditions from "./components/Policy/TermsAndConditions";
 import TermsAndConditions2 from "./components/Policy/TermsAndConditions2";
 import ZeroTolerancePolicy from "./components/Policy/ZeroTolerancePolicy";
 import ServicesAgreement from "./components/Policy/ServicesAgreement";
+import BookingConfirmation from "./pages/BookingConfirmation";
 
 
 function App() {
@@ -179,6 +180,7 @@ function App() {
                   <Route path="/select-parcel" element={<SelectParcel />} />
                   <Route path="/parcel-details" element={<ParcelDetails />} />
                   <Route path="/estimate-results" element={<EstimateResults />} />
+                  <Route path="/bookingcomfirmation" element={<BookingConfirmation />} />
 
                   {/* policy */}
                   <Route path="/privacypolicy" element={<PrivacyPolicy />} />

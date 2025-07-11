@@ -61,20 +61,16 @@ export default function DriverPanel() {
             <div className={` h-full z-20 transition-all duration-300
                 ${Issidebar ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'} 
                 fixed lg:relative
-                w-[240px] p-2 border-r dark:border-gray-800 border-gray-200`}>
+                w-[240px] p-2 border-gray-800 border-gray-200`}>
 
                 <button
                     onClick={ToggleSidebar}
-                    className="lg:hidden p-2 m-2 dark:text-white text-gray-800 dark:bg-gray-700 bg-gray-200 rounded-lg hover:dark:bg-gray-600 hover:bg-gray-300 transition-colors absolute -right-0 -top-0"
+                    className="lg:hidden p-2 m-2 text-white bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors absolute -right-0 -top-0"
                 >
                     <i className="fas fa-times"></i>
                 </button>
 
-                {/* <h3 className='text-2xl dark:text-white text-gray-900 font-medium pt-1'>
-                    <span className='text-orange-600'>Idhar</span> Udhar
-                </h3> */}
-
-                <h3 className='flex  text-xl dark:text-white text-gray-900 font-medium pt-1'>
+                <h3 className='flex  text-xl text-white font-medium pt-1'>
                     <img
                         src="/images/Idhar Udhar Logo.png"
                         alt="Idhar Udhar Logo"
@@ -82,7 +78,7 @@ export default function DriverPanel() {
                     />
                 </h3>
 
-                <h5 className='text-xs dark:text-gray-600 text-gray-500 text-start font-bold mt-4'>
+                <h5 className='text-xs text-gray-600 text-start font-bold mt-4'>
                     MAIN MENU
                 </h5>
 
@@ -92,7 +88,7 @@ export default function DriverPanel() {
                             <button 
                                 className={`h-12 w-full ${isActive(button.navigation) 
                                     ? 'bg-orange-600 text-white' 
-                                    : 'bg-transparent dark:text-gray-300 text-gray-700 hover:dark:bg-gray-800 hover:bg-gray-100'} 
+                                    : 'bg-transparent text-gray-300 hover:bg-gray-800'} 
                                     flex items-center justify-start ps-2 gap-2 rounded-lg mt-2 transition-colors`}
                                 onClick={ToggleSidebar}
                             >
@@ -107,7 +103,7 @@ export default function DriverPanel() {
             {/* Main Content Area */}
             <div className="MainBox lg:min-w-[85%] w-full h-full">
                 <DashboardNav />
-                <div className="h-[92%] w-full overflow-y-scroll dark:bg-gray-950 bg-gray-50">
+                <div className="h-[92%] w-full overflow-y-scroll bg-gray-950">
                     <Outlet/>
                 </div>
             </div>

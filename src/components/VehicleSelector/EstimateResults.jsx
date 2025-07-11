@@ -95,7 +95,7 @@ export default function EstimateResults() {
           </div>
 
           <div className="bg-black/40 rounded-lg p-6 text-center border border-blue-900 shadow-inner">
-            <h3 className="text-xl font-semibold text-white mb-3">Love what you see? ❤️</h3>
+            <h3 className="text-xl font-semibold text-white mb-3">Love what you see?</h3>
             <img
               src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://your-app-link"
               alt="QR Code"

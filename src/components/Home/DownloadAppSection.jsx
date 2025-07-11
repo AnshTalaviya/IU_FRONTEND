@@ -21,28 +21,7 @@ const DownloadAppSection = () => {
   return (
     <section className="py-20 bg-gradient-to-b from-white to-green-50 dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-center gap-16">
-        
-        {/* LEFT: APP IMAGE */}
-        <div data-aos="fade-up" className="relative w-full lg:w-1/2">
-          <div className="relative rounded-3xl overflow-hidden border border-white/30 dark:border-gray-700">
-            <img
-              src="/images/IUAPPDOWNLODE.png"
-              alt="App Screenshot"
-              className="w-full object-cover"
-            />
-            
-          </div>
 
-          {/* App Store Buttons */}
-          <div className="flex justify-center flex-wrap mt-6 sm:flex-row gap-4">
-            <Link to="#" className="hover:scale-105 transition-transform">
-              <img src="/images/Home-icon1.png" alt="Google Play" className="h-14" />
-            </Link>
-            <Link to="#" className="hover:scale-105 transition-transform">
-              <img src="/images/Home-icon2.png" alt="App Store" className="h-14" />
-            </Link>
-          </div>
-        </div>
 
         {/* RIGHT: TEXT SECTION */}
         <div data-aos="fade-left" className="w-full lg:w-1/2">
@@ -81,6 +60,30 @@ const DownloadAppSection = () => {
             </Link>
           </div>
         </div>
+
+        {/* LEFT: APP IMAGE */}
+        <div data-aos="fade-up" className="relative w-full lg:w-1/2">
+          <div className="relative rounded-3xl overflow-hidden border border-white/30 dark:border-gray-700">
+            <img
+              src="/images/IUAPPDOWNLODE.png"
+              alt="App Screenshot"
+              className="w-full object-cover"
+            />
+
+          </div>
+
+          {/* App Store Buttons */}
+          <div className="flex justify-center flex-wrap mt-6 sm:flex-row gap-4">
+            <Link to="#" className="hover:scale-105 transition-transform">
+              <img src="/images/Home-icon1.png" alt="Google Play" className="h-14" />
+            </Link>
+            <Link to="#" className="hover:scale-105 transition-transform">
+              <img src="/images/Home-icon2.png" alt="App Store" className="h-14" />
+            </Link>
+          </div>
+        </div>
+
+
       </div>
     </section>
   );

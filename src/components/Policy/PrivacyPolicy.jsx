@@ -21,25 +21,25 @@ const PrivacyPolicy = () => {
                     </div>
                     <div className="text-white space-y-3">
                         <p>
-                            This privacy policy sets out how Idhar Udhar uses and protects any information that you give Idhar Udhar when you use this website/mobile application for Customers and rider Partners. This Privacy Policy is an electronic record between you and Idhar Udhar under the Information Technology Act, 2000 together with the Rules framed from time to time.
+                            This privacy policy sets out how <strong>Idhar Udhar</strong> uses and protects any information that you give <strong>Idhar Udhar</strong> when you use this website/mobile application for Customers and rider Partners. This Privacy Policy is an electronic record between you and <strong>Idhar Udhar</strong> under the Information Technology Act, 2000 together with the Rules framed from time to time.
                         </p>
                         <p>
-                            Your privacy matters to SmartShift Logistics Solutions Private Limited (the "Company", "we", "Idhar Udhar", or "us"). By using the Idhar Udhar Apps and the Services, you agree to this Policy.
+                            Your privacy matters to SmartShift Logistics Solutions Private Limited (the "Company", "we", "<strong>Idhar Udhar</strong>", or "us"). By using the <strong>Idhar Udhar</strong> Apps and the Services, you agree to this Policy.
                         </p>
                         <p>
-                            This Privacy Policy ("Policy") describes the policies and procedures on the collection, use, disclosure and protection of your information when you use our website located at https://idharudhar.in/, or the Idhar Udhar mobile applications (collectively, "Idhar Udhar Apps").
+                            This Privacy Policy ("Policy") describes the policies and procedures on the collection, use, disclosure and protection of your information when you use our website located at https://idharudhar.in/, or the <strong>Idhar Udhar</strong> mobile applications (collectively, "<strong>Idhar Udhar</strong> Apps").
                         </p>
                        <p>
-                        The terms “you” and “your” refer to the user of the Idhar Udhar Apps. The term “Services” refers to any services offered by Idhar Udhar whether on the Idhar Udhar Apps or otherwise. This Policy is a part of and incorporated within, and is to be read along with, the applicable Terms of Service and the rider Partner Terms and Conditions based on the user of Idhar Udhar.
+                        The terms “you” and “your” refer to the user of the <strong>Idhar Udhar</strong> Apps. The term “Services” refers to any services offered by <strong>Idhar Udhar</strong> whether on the <strong>Idhar Udhar</strong> Apps or otherwise. This Policy is a part of and incorporated within, and is to be read along with, the applicable Terms of Service and the rider Partner Terms and Conditions based on the user of <strong>Idhar Udhar</strong>.
                        </p>
                        <p>
-                        Idhar Udhar is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be identified when using this website, then you can be assured that it will only be used in accordance with this privacy statement.
+                        <strong>Idhar Udhar</strong> is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be identified when using this website, then you can be assured that it will only be used in accordance with this privacy statement.
                        </p>
                        <p>
-                        By using the Idhar Udhar Apps and the Services, you agree and consent to the collection, transfer, use, storage, disclosure and sharing of your information as described and collected by us in accordance with this Policy. If you do not agree with the Policy, please do not use or access the Idhar Udhar Apps.
+                        By using the <strong>Idhar Udhar</strong> Apps and the Services, you agree and consent to the collection, transfer, use, storage, disclosure and sharing of your information as described and collected by us in accordance with this Policy. If you do not agree with the Policy, please do not use or access the <strong>Idhar Udhar</strong> Apps.
                        </p>
                        <p>
-                        Idhar Udhar may change this policy from time to time by updating this page. The current version of this policy is effective from 9th March, 2023. You should check this page from time to time to ensure that you are happy with any changes. The first version of this policy was effective from 23rd February 2014. The second version was effective from 11th November, 2022.
+                        <strong>Idhar Udhar</strong> may change this policy from time to time by updating this page. The current version of this policy is effective from 9th March, 2023. You should check this page from time to time to ensure that you are happy with any changes. The first version of this policy was effective from 23rd February 2014. The second version was effective from 11th November, 2022.
                        </p>
                         
                     </div>
@@ -65,7 +65,7 @@ const PrivacyPolicy = () => {
                             <li>Referral program participation may require access to your contact list (with consent)</li>
                         </ul>
                         <p>
-                            You may request to review the information you have provided, and Idhar Udhar shall ensure that any personal or sensitive data found to be inaccurate or deficient shall be corrected or amended. We shall not retain sensitive personal data longer than required.
+                            You may request to review the information you have provided, and <strong>Idhar Udhar</strong> shall ensure that any personal or sensitive data found to be inaccurate or deficient shall be corrected or amended. We shall not retain sensitive personal data longer than required.
                         </p>
                     </div>
                 </div>
@@ -81,7 +81,7 @@ const PrivacyPolicy = () => {
                         <ul className="list-disc pl-5 space-y-1">
                             <li>For internal record keeping</li>
                             <li>To improve our Services</li>
-                            <li>To enable usage and transactions on the Idhar Udhar Apps</li>
+                            <li>To enable usage and transactions on the <strong>Idhar Udhar</strong> Apps</li>
                             <li>To process payments</li>
                             <li>To respond to queries or customer support</li>
                             <li>To send important updates</li>
@@ -140,7 +140,7 @@ const PrivacyPolicy = () => {
                     </div>
                     <div className="text-white space-y-3">
                         <p>
-                            Upon your deletion of the Idhar Udhar App or upon request, we will delete your personal data unless retention is required for legal, fraud, or business continuity purposes. Certain geo-location or transaction data may be retained.
+                            Upon your deletion of the <strong>Idhar Udhar</strong> App or upon request, we will delete your personal data unless retention is required for legal, fraud, or business continuity purposes. Certain geo-location or transaction data may be retained.
                         </p>
                         <p>
                             <span className="font-semibold">Send deletion requests to:</span> itgo@idharudhar.in
@@ -192,7 +192,7 @@ const PrivacyPolicy = () => {
                     </div>
                     <div className="text-white">
                         <p>
-                            You may choose not to provide data or withdraw previously given consent by contacting us in writing. However, this may limit the Services Idhar Udhar can offer.
+                            You may choose not to provide data or withdraw previously given consent by contacting us in writing. However, this may limit the Services <strong>Idhar Udhar</strong> can offer.
                         </p>
                     </div>
                 </div>
@@ -302,7 +302,7 @@ const PrivacyPolicy = () => {
                         <div className="md:col-span-2  p-4 rounded">
                             <h3 className="font-semibold mb-2">Grievance Officer</h3>
                             <p>Abc Abc</p>
-                            <p>SwiftSend Innovation Private Limited</p>
+                            <p><strong>SwiftSend Innovation Private Limited</strong></p>
                             <p>No. XXXX, XXth Floor, XXXX. XXXX. XXXX</p>
                             <p>xxxxx, XXXX, XXX</p>
                             <p>Gujarat 382330, India</p>

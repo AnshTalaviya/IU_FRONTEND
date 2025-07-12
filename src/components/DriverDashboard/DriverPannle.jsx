@@ -56,9 +56,9 @@ export default function DriverPanel() {
     };
 
     return (
-        <div className={`h-[100vh] w-full bg-black flex items-start ${darkMode ? 'dark' : ''}`}>
+        <div className={`h-[100vh] w-full bg-black flex items-start`}>
             {/* Sidebar */}
-            <div className={` h-full z-20 transition-all duration-300
+            <div className={` h-full bg-black z-20 transition-all duration-300
                 ${Issidebar ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'} 
                 fixed lg:relative
                 w-[240px] p-2 border-r dark:border-gray-800 border-gray-200`}>

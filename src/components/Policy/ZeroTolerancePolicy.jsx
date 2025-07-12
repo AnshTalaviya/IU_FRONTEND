@@ -6,14 +6,14 @@ const ZeroTolerancePolicy = () => {
       <h1 className="text-2xl font-bold text-white mb-4">ZERO TOLERANCE POLICY</h1>
       
       <p className="mb-4 text-white">
-        In accordance with its commitment to provide safe, quality-oriented, and productive services to its customers and maintain a safe environment in general, Idhar Udhar has a zero-tolerance policy for certain prohibited activities of its driver partners ("You").
+        In accordance with its commitment to provide safe, quality-oriented, and productive services to its customers and maintain a safe environment in general, <strong>Idhar Udhar</strong> has a zero-tolerance policy for certain prohibited activities of its driver partners ("You").
       </p>
       
       <p className="mb-4 text-white">
-        This is applicable to SwiftSend Innovation Private Limited and its affiliates ("Idhar Udhar")'s driver partners.
+        This is applicable to SwiftSend Innovation Private Limited and its affiliates ("<strong>Idhar Udhar</strong>")'s driver partners.
       </p>
       
-      <h2 className="text-xl font-semibold mt-6 mb-3 text-white">Idhar Udhar has zero tolerance towards the following, including but not limited to:</h2>
+      <h2 className="text-xl font-semibold mt-6 mb-3 text-white"><strong>Idhar Udhar</strong> has zero tolerance towards the following, including but not limited to:</h2>
       <ul className="list-disc pl-6 mb-4 space-y-2 text-white">
         <li>Any violations of applicable law;</li>
         <li>Any breaches of our terms and conditions and policies as applicable to you;</li>
@@ -23,7 +23,7 @@ const ZeroTolerancePolicy = () => {
       
       <div className="bg-red-50 p-4 rounded-md mb-4 border-l-4 border-red-500">
         <h3 className="font-semibold text-red-700 mb-2">
-          During the course of your performance of work or presence at any Idhar Udhar office or presence at any customer location, you are strictly prohibited from:
+          During the course of your performance of work or presence at any <strong>Idhar Udhar</strong> office or presence at any customer location, you are strictly prohibited from:
         </h3>
         <ol className="list-decimal pl-6 space-y-2 text-black">
           <li>
@@ -57,7 +57,7 @@ const ZeroTolerancePolicy = () => {
       <div className="bg-yellow-50 p-4 rounded-md mb-4 border-l-4 border-yellow-500">
         <h3 className="font-semibold text-yellow-800 mb-2">Consequences of Violation:</h3>
         <p className="text-gray-800">
-          In the event you are found to be engaging in any prohibited activity, Idhar Udhar reserves the right to immediately take actions including, but not limited to, debarring you from the usage of the Idhar Udhar platform, delisting you as a driver partner, reporting to regulatory authorities, etc. Idhar Udhar's decision in this regard is final.
+          In the event you are found to be engaging in any prohibited activity, <strong>Idhar Udhar</strong> reserves the right to immediately take actions including, but not limited to, debarring you from the usage of the <strong>Idhar Udhar</strong> platform, delisting you as a driver partner, reporting to regulatory authorities, etc. <strong>Idhar Udhar</strong>'s decision in this regard is final.
         </p>
       </div>
       

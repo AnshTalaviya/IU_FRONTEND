@@ -21,7 +21,7 @@ export default function EstimateResults() {
     { title: "Tata Ace", price: "₹120 - ₹180", weight: "750 Kg", iconName: "MdLocalShipping" },
     { title: "Pickup 8 Ft.", price: "₹700 - ₹1200", weight: "1.2 TON", iconName: "FaTruckMoving" },
     { title: "Pickup 9 Ft.", price: "₹700 - ₹1200", weight: "1.7 TON", iconName: "FaTruckMoving" },
-    { title: "Pickup 14 Ft.", price: "₹700 - ₹1200", weight: "2.5 TON", iconName: "FaTruckMoving" },
+    { title: "Pickup 14 Ft.", price: "₹700 - ₹1200", weight: "3.5 TON", iconName: "FaTruckMoving" },
     // { title: "Heavy Duty", price: "₹700 - ₹1200", weight: "1000 Kg", iconName: "FaTruckMoving" },
     // { title: "Heavy Duty", price: "₹700 - ₹1200", weight: "1000 Kg", iconName: "FaTruckMoving" },
     // { title: "Heavy Duty", price: "₹700 - ₹1200", weight: "1000 Kg", iconName: "FaTruckMoving" },

@@ -10,7 +10,7 @@ const TermsAndConditions2 = () => {
 
         <section className="mb-10">
           <p className="mb-6 text-center italic">
-            "SwiftSend Innovation Private Limited" or, "<strong>Idhar Udhar</strong>" is a company which is, inter alia, engaged in the business of transportation of goods by road through Compact Three Wheeler Vehicles ("Compact 3W").
+            "<strong>SwiftSend Innovation Private Limited</strong>" or, "<strong>Idhar Udhar</strong>" is a company which is, inter alia, engaged in the business of transportation of goods by road through Compact Three Wheeler Vehicles ("Compact 3W").
           </p>
         </section>
 
@@ -18,7 +18,7 @@ const TermsAndConditions2 = () => {
           <h2 className="text-2xl font-bold mb-4 pb-2 border-b border-gray-700">GENERAL TERMS AND CONDITIONS</h2>
           <div className="space-y-4">
             <p>
-              Consignments entrusted to SwiftSend Innovation Private Limited ("<strong>Idhar Udhar</strong>") by you (hereinafter referred to as "Consignor/Sender/Customer" (as the case may be)) for transportation shall be on agreed terms and conditions as specified below.
+              Consignments entrusted to <strong>SwiftSend Innovation Private Limited</strong> ("<strong>Idhar Udhar</strong>") by you (hereinafter referred to as "Consignor/Sender/Customer" (as the case may be)) for transportation shall be on agreed terms and conditions as specified below.
             </p>
             <p>
               The Consignor/Sender/Customer (as the case may be) acknowledges that, upon their acceptance of the terms and conditions listed below, these terms and conditions shall be binding on them and <strong>Idhar Udhar</strong>. If the Consignor/Sender/Customer opts not to agree to these terms and conditions or does not wish to avail the services provided by <strong>Idhar Udhar</strong>, they should uninstall the <strong>Idhar Udhar</strong> app from their mobile phones and discontinue the use of <strong>Idhar Udhar</strong>'s services. Each time that the Consignor/Sender/Customer sends any consignment through <strong>Idhar Udhar</strong> services, the Consignor/Sender/Customer acknowledges the terms and conditions herein.

@@ -19,7 +19,7 @@ const ServicesAgreement = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div className="border border-gray-700 p-4 rounded-lg">
                 <h3 className="font-bold text-lg mb-2">First Party</h3>
-                <p className="font-semibold">SwiftSend Innovation Private Limited</p>
+                <p className="font-semibold"><strong>SwiftSend Innovation Private Limited</strong></p>
                 <div className="mt-2">
                   <p className="font-medium">Registered Office:</p>
                   <p className="text-gray-300">No. A - 501, A – 502, B – 504, B – 505 and B - 506, Fifth Floor at Universal Business Park, Chandivali Farm Road, Off. Saki Vihar Road, Andheri (East), Mumbai - 400 072, Maharashtra</p>
@@ -252,7 +252,7 @@ const ServicesAgreement = () => {
             <div className="mt-12 pt-6 border-t border-gray-700">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                  <p className="font-bold mb-4">For and on behalf of SwiftSend Innovation Private Limited</p>
+                  <p className="font-bold mb-4">For and on behalf of <strong>SwiftSend Innovation Private Limited</strong></p>
                   <div className="border-t-2 border-gray-600 pt-4">
                     <p>Authorized Signatory</p>
                     <p>Name:</p>

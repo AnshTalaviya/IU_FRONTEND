@@ -302,7 +302,7 @@ const PrivacyPolicy = () => {
                         <div className="md:col-span-2  p-4 rounded">
                             <h3 className="font-semibold mb-2">Grievance Officer</h3>
                             <p>Abc Abc</p>
-                            <p>SwiftSend Innovation Private Limited</p>
+                            <p><strong>SwiftSend Innovation Private Limited</strong></p>
                             <p>No. XXXX, XXth Floor, XXXX. XXXX. XXXX</p>
                             <p>xxxxx, XXXX, XXX</p>
                             <p>Gujarat 382330, India</p>

@@ -10,7 +10,7 @@ const ZeroTolerancePolicy = () => {
       </p>
       
       <p className="mb-4 text-white">
-        This is applicable to SwiftSend Innovation Private Limited and its affiliates ("<strong><strong><strong><strong>Idhar Udhar</strong></strong></strong></strong>")'s rider partners.
+        This is applicable to <strong><strong>SwiftSend Innovation Private Limited</strong></strong>  and its affiliates ("<strong><strong><strong><strong>Idhar Udhar</strong></strong></strong></strong>")'s rider partners.
       </p>
       
       <h2 className="text-xl font-semibold mt-6 mb-3 text-white"><strong><strong><strong><strong>Idhar Udhar</strong></strong></strong></strong> has zero tolerance towards the following, including but not limited to:</h2>

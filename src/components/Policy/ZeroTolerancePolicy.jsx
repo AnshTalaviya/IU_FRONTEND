@@ -64,7 +64,7 @@ const ZeroTolerancePolicy = () => {
       <div className="bg-blue-50 p-4 rounded-md border-l-4 border-blue-500">
         <h3 className="font-semibold text-blue-700 mb-2">Reporting Complaints:</h3>
         <p className="text-gray-800">
-          For reporting the complaint for the breach of any of the above incidents, our end users can reach out to the email ID <a href="mailto:help@idharudhar.in" className="text-blue-600 hover:underline">help@idharudhar.in</a> and phone number XXX-XXX-XXX.
+          For reporting the complaint for the breach of any of the above incidents, our end users can reach out to the email ID <a href="mailto:help@idharudhar.in" className="text-blue-600 hover:underline">  <strong>help@idharudhar.in</strong></a> and phone number XXX-XXX-XXX.
         </p>
       </div>
     </div>

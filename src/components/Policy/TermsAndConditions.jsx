@@ -54,7 +54,7 @@ const TermsAndConditions = () => {
               00th Floor, XXX. XXX. XXX,<br />
               XXX. XXXX., Gujarat 382330, India<br />
               <span className="block mt-2">
-                Email: <a href="mailto:grievance.officer@idharudhar.in" className="text-blue-400 hover:underline">grievance.officer@idharudhar.in</a><br />
+                Email: <a href="mailto:grievance.officer@idharudhar.in" className="text-blue-400 hover:underline"> <strong>grievance.officer@idharudhar.in </strong></a><br />
                 Phone: 123456789<br />
                 Time: Monday to Friday (9:00 to 17:00)
               </span>
@@ -79,8 +79,8 @@ const TermsAndConditions = () => {
               <ul className="list-disc pl-6 space-y-2">
                 <li>Claims must be submitted in writing within 24 hours to:
                   <ul className="list-[circle] pl-6 mt-1">
-                    <li>packermover@idharudhar.in (for Packers and Movers)</li>
-                    <li>help@idharudhar.in (for Goods Transport)</li>
+                    <li><strong>packermover@idharudhar.in </strong> (for Packers and Movers)</li>
+                    <li><strong>help@idharudhar.in </strong>(for Goods Transport)</li>
                   </ul>
                 </li>
                 <li>Photos of damaged goods and a description are mandatory</li>
@@ -312,7 +312,7 @@ const TermsAndConditions = () => {
                 </ul>
               </div>
             </div>
-            <p className="mt-2 italic">The Sender acknowledges this list may change as updated at https://idharudhar.in/terms-of-service or through other notifications.</p>
+            <p className="mt-2 italic">The Sender acknowledges this list may change as updated at <strong> https://idharudhar.in/terms-of-service </strong> or through other notifications.</p>
 
             <h3 className="text-xl font-semibold mt-4">Restricted Documents:</h3>
             <p>Senders will not hand over any original documents including but not restricted to:</p>

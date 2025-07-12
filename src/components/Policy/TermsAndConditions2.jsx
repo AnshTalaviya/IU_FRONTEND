@@ -54,7 +54,7 @@ const TermsAndConditions2 = () => {
           <h2 className="text-2xl font-bold mb-4 pb-2 border-b border-gray-700">CLAIMS (APPLICABLE TO 'GOODS TRANSPORT BY ROAD')</h2>
           <div className="space-y-4">
             <p>
-              Claims regarding damages or negligence must be made within 24 hours of receipt via <a href="mailto:help@idharudhar.in" className="text-blue-400">help@idharudhar.in</a> for Compact 3W service. Damaged goods must be supported with photographs and descriptions. Lack of timely claims releases <strong>Idhar Udhar</strong> from liability.
+              Claims regarding damages or negligence must be made within 24 hours of receipt via <a href="mailto:help@idharudhar.in" className="text-blue-400"> <strong>help@idharudhar.in</strong></a> for Compact 3W service. Damaged goods must be supported with photographs and descriptions. Lack of timely claims releases <strong>Idhar Udhar</strong> from liability.
             </p>
             <p>
               Refund claims must be validated with identity proof. Failure to do so will void the claim. Goods valued above ₹1,500 must be insured by the customer.

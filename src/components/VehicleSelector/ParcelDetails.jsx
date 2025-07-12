@@ -143,7 +143,7 @@ export default function ParcelDetails() {
             disabled={!isValid()}
             className={`w-full font-bold py-3 rounded-md mt-4 transition ${
               isValid()
-                ? "bg-green-500 hover:bg-green-600 text-white"
+                ? "bg-orange-600 hover:bg-orange-700 text-white"
                 : "bg-gray-600 cursor-not-allowed text-gray-300"
             }`}
           >

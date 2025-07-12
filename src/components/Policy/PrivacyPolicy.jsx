@@ -16,7 +16,7 @@ const PrivacyPolicy = () => {
                 {/* Introduction */}
                 <div className="p-6">
                     <div className="flex items-start mb-3">
-                       
+
                         <h2 className="text-xl font-bold text-white">Introduction</h2>
                     </div>
                     <div className="text-white space-y-3">
@@ -29,19 +29,19 @@ const PrivacyPolicy = () => {
                         <p>
                             This Privacy Policy ("Policy") describes the policies and procedures on the collection, use, disclosure and protection of your information when you use our website located at https://idharudhar.in/, or the <strong>Idhar Udhar</strong> mobile applications (collectively, "<strong>Idhar Udhar</strong> Apps").
                         </p>
-                       <p>
-                        The terms “you” and “your” refer to the user of the <strong>Idhar Udhar</strong> Apps. The term “Services” refers to any services offered by <strong>Idhar Udhar</strong> whether on the <strong>Idhar Udhar</strong> Apps or otherwise. This Policy is a part of and incorporated within, and is to be read along with, the applicable Terms of Service and the rider Partner Terms and Conditions based on the user of <strong>Idhar Udhar</strong>.
-                       </p>
-                       <p>
-                        <strong>Idhar Udhar</strong> is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be identified when using this website, then you can be assured that it will only be used in accordance with this privacy statement.
-                       </p>
-                       <p>
-                        By using the <strong>Idhar Udhar</strong> Apps and the Services, you agree and consent to the collection, transfer, use, storage, disclosure and sharing of your information as described and collected by us in accordance with this Policy. If you do not agree with the Policy, please do not use or access the <strong>Idhar Udhar</strong> Apps.
-                       </p>
-                       <p>
+                        <p>
+                            The terms “you” and “your” refer to the user of the <strong>Idhar Udhar</strong> Apps. The term “Services” refers to any services offered by <strong>Idhar Udhar</strong> whether on the <strong>Idhar Udhar</strong> Apps or otherwise. This Policy is a part of and incorporated within, and is to be read along with, the applicable Terms of Service and the rider Partner Terms and Conditions based on the user of <strong>Idhar Udhar</strong>.
+                        </p>
+                        <p>
+                            <strong>Idhar Udhar</strong> is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be identified when using this website, then you can be assured that it will only be used in accordance with this privacy statement.
+                        </p>
+                        <p>
+                            By using the <strong>Idhar Udhar</strong> Apps and the Services, you agree and consent to the collection, transfer, use, storage, disclosure and sharing of your information as described and collected by us in accordance with this Policy. If you do not agree with the Policy, please do not use or access the <strong>Idhar Udhar</strong> Apps.
+                        </p>
+                        {/* <p>
                         <strong>Idhar Udhar</strong> may change this policy from time to time by updating this page. The current version of this policy is effective from 9th March, 2023. You should check this page from time to time to ensure that you are happy with any changes. The first version of this policy was effective from 23rd February 2014. The second version was effective from 11th November, 2022.
-                       </p>
-                        
+                       </p> */}
+
                     </div>
                 </div>
 
@@ -89,7 +89,7 @@ const PrivacyPolicy = () => {
                             <li>For any other purpose with your consent</li>
                         </ul>
                         <p>
-                            We may periodically send promotional messages using contact details you provide. You may opt out anytime by contacting us at 4410 4410 (add your city code).
+                            We may periodically send promotional messages using contact details you provide. You may opt out anytime by contacting us at <mark className="bg-orange-600 text-white">4410 4410</mark> (add your city code).
                         </p>
                     </div>
                 </div>
@@ -143,7 +143,7 @@ const PrivacyPolicy = () => {
                             Upon your deletion of the <strong>Idhar Udhar</strong> App or upon request, we will delete your personal data unless retention is required for legal, fraud, or business continuity purposes. Certain geo-location or transaction data may be retained.
                         </p>
                         <p>
-                            <span className="font-semibold">Send deletion requests to:</span> itgo@idharudhar.in
+                            <span className="font-semibold">Send deletion requests to:</span> <strong> itgo@idharudhar.in </strong>
                         </p>
                     </div>
                 </div>
@@ -289,14 +289,15 @@ const PrivacyPolicy = () => {
                             {/* <Mail className="text-white mr-3 mt-1 flex-shrink-0" size={18} /> */}
                             <div>
                                 <h3 className="font-semibold mb-1">General Inquiries</h3>
-                                <p>info@idharudhar.in</p>
+                                <p> <strong> help@idharudhar.in </strong></p>
                             </div>
+                            .
                         </div>
                         <div className="flex items-start">
                             {/* <Phone className="text-white mr-3 mt-1 flex-shrink-0" size={18} /> */}
                             <div>
                                 <h3 className="font-semibold mb-1">Customer Support</h3>
-                                <p>help@idharudhar.in</p>
+                                <p> <strong> help@idharudhar.in </strong></p>
                             </div>
                         </div>
                         <div className="md:col-span-2  p-4 rounded">

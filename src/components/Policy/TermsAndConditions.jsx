@@ -5,7 +5,7 @@ const TermsAndConditions = () => {
     <div className="bg-black text-white min-h-screen mt-10 p-4 md:p-8 font-sans">
       <div className="max-w-5xl mx-auto">
         <header className="mb-8 border-b border-gray-700 pb-6">
-          <h1 className="text-3xl md:text-4xl font-bold mb-2"><strong>Idhar Udhar</strong> CUSTOMER TERMS AND CONDITIONS</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-2">IDHAR UDHAR CUSTOMER TERMS AND CONDITIONS</h1>
         </header>
 
         <section className="mb-10">
@@ -66,7 +66,7 @@ const TermsAndConditions = () => {
           <h2 className="text-2xl font-bold mb-4 pb-2 border-b border-gray-700">GOVERNING LAW AND DISPUTE RESOLUTION</h2>
           <div className="space-y-4">
             <p>
-              These <strong>Idhar Udhar</strong> Customer Terms and Conditions shall be governed by Indian laws. Disputes unresolved within 30 days shall be referred to mediation under Karnataka Civil Procedure (Mediation) Rules, 2005 at Karnataka Mediation Centre, Bangalore. Mediation is confidential unless law requires disclosure.
+              These <strong>Idhar Udhar</strong> Customer Terms and Conditions shall be governed by Indian laws. Disputes unresolved within 30 days shall be referred to mediation under Ahmedabad Civil Procedure (Mediation) Rules, 2005 at Ahmedabad Mediation Centre, Bangalore. Mediation is confidential unless law requires disclosure.
             </p>
           </div>
         </section>
@@ -151,9 +151,6 @@ const TermsAndConditions = () => {
           <div className="space-y-4">
             <p>If COD is selected, payment must be made in full to the delivery partner as reflected on the <strong>Idhar Udhar</strong> app. Payments to delivery partners are deemed to be made on behalf of <strong>Idhar Udhar</strong>.</p>
             <p>Non-payment or short payment may result in penalties, account suspension, or legal action.</p>
-            <p>
-              Here is your revised content with all instances of “Porter” replaced by “<strong>Idhar Udhar</strong>”, and “SmartShift Logistics Solutions Private Limited” replaced by “<strong>SwiftSend Innovation Private Limited</strong>”:
-            </p>
             <p><strong>Cancellation:</strong> All cancellations made after rider allocation may incur a cancellation fee basis company policies. The same, if any, shall be communicated at the time of cancellation.</p>
           </div>
         </section>

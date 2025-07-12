@@ -5,7 +5,7 @@ const TermsAndConditions2 = () => {
     <div className="bg-black text-white min-h-screen mt-10 p-4 md:p-8 font-sans">
       <div className="max-w-4xl mx-auto">
         <header className="mb-8 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold mb-2"><strong>Idhar Udhar</strong> CUSTOMER TERMS AND CONDITIONS</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-2">Idhar Udhar CUSTOMER TERMS AND CONDITIONS</h1>
         </header>
 
         <section className="mb-10">
@@ -45,7 +45,7 @@ const TermsAndConditions2 = () => {
           <h2 className="text-2xl font-bold mb-4 pb-2 border-b border-gray-700">GOVERNING LAW AND DISPUTE RESOLUTION</h2>
           <div className="space-y-4">
             <p>
-              These terms shall be governed by Indian law. The courts of Bangalore shall have exclusive jurisdiction. Disputes not resolved within 30 days may be mediated as per the Karnataka Civil Procedure (Mediation) Rules, 2005 at the Karnataka Mediation Centre.
+              These terms shall be governed by Indian law. The courts of Bangalore shall have exclusive jurisdiction. Disputes not resolved within 30 days may be mediated as per the Ahmedabad Civil Procedure (Mediation) Rules, 2005 at the Ahmedabad Mediation Centre.
             </p>
           </div>
         </section>

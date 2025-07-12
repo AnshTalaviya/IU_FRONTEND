@@ -16,7 +16,7 @@ const vehicleOptions = [
     title: "Quick & Light",
     description: "Ideal for small parcels, documents, or lightweight items.",
     iconName: "FaMotorcycle",
-    weight: "Max 10 KG",
+    weight: "Max 20 KG",
     aos: "fade-up"
   },
   {
@@ -24,7 +24,7 @@ const vehicleOptions = [
     title: "Medium & Safe",
     description: "Perfect for electronics, boxes, and mid-size deliveries.",
     iconName: "FaTruckPickup",
-    weight: "Max 50 KG",
+    weight: "Max 750 KG",
     aos: "fade-down"
   },
   {
@@ -32,7 +32,7 @@ const vehicleOptions = [
     title: "Spacious & Strong",
     description: "Best for furniture, heavier goods, or stacked parcels.",
     iconName: "MdLocalShipping",
-    weight: "Max 80 KG",
+    weight: "Max 1.2 TON",
     aos: "zoom-in"
   },
   {
@@ -40,7 +40,7 @@ const vehicleOptions = [
     title: "Heavy Duty",
     description: "For bulk deliveries, industrial items, or extra-large loads.",
     iconName: "FaTruckMoving",
-    weight: "Max 1000 KG",
+    weight: "Max 3.5 TON",
     aos: "flip-left"
   },
 ];

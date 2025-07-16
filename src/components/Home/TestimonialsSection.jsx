@@ -52,30 +52,30 @@ const TestimonialsSection = () => {
     {
       image: "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg",
       name: "Priya Sharma",
-      role: "Regular Commuter",
+      role: "Online Seller",
       rating: 5,
-      quote: "IdharUdhar has transformed my daily commute. The riders are always on time, and the cars are immaculate. I feel safe and comfortable every trip."
+      quote: "IdharUdhar makes parcel delivery effortless. Their pickup is always on time and parcels reach safely without delays. Highly reliable for my business!"
     },
     {
       image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
       name: "Rahul Kapoor",
-      role: "Business Executive",
+      role: "Corporate Client",
       rating: 5,
-      quote: "As someone who travels for work regularly, I rely on IdharUdhar for reliable intercity trip. Their corporate service is unmatched - professional riders and excellent customer support."
+      quote: "We use IdharUdhar for all our intercity parcel needs. The team is professional, the delivery tracking is accurate, and their customer support is responsive."
     },
     {
       image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg",
       name: "Ananya Patel",
-      role: "College Student",
+      role: "Student Freelancer",
       rating: 4,
-      quote: "The bike trips are perfect for my quick trips to college. Affordable and quick, especially during rush hour. The app is super easy to use and the rewards system is great!"
+      quote: "Sending documents and packages has never been easier. Their same-day parcel delivery saved me multiple times. Super affordable and convenient!"
     },
     {
       image: "https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg",
       name: "Vikram Singh",
-      role: "Entrepreneur",
+      role: "Eco Startup Founder",
       rating: 5,
-      quote: "I appreciate the focus on green transportation. As someone who cares about environmental impact, I choose IdharUdhar over other services. The electric vehicle options are wonderful."
+      quote: "I love their green parcel delivery approach. Using electric vehicles for shipping aligns perfectly with our eco-conscious values. Kudos to the team!"
     }
   ];
 
@@ -84,10 +84,10 @@ const TestimonialsSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-14">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">What Our Riders Say</h2>
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">What Our Customers Say</h2>
           <div className="w-20 h-1 bg-orange-700 mx-auto mb-4 rounded" />
           <p className="text-gray-600 dark:text-gray-400 max-w-xl mx-auto text-sm sm:text-base">
-            Real voices from real riders who trust IdharUdhar for safe, reliable, and green transportation.
+            Hear from users who trust IdharUdhar's parcel delivery service for fast, safe, and sustainable shipping.
           </p>
         </div>
 

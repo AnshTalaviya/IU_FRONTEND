@@ -5,7 +5,7 @@ const TermsAndConditions2 = () => {
     <div className="bg-black text-white min-h-screen mt-10 p-4 md:p-8 font-sans">
       <div className="max-w-4xl mx-auto">
         <header className="mb-8 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold mb-2">Idhar Udhar CUSTOMER TERMS AND CONDITIONS</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-2">IDHAR UDHAR CUSTOMER TERMS AND CONDITIONS</h1>
         </header>
 
         <section className="mb-10">

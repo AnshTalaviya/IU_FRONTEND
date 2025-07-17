@@ -18,6 +18,7 @@ function Signup() {
     ride: "primary",
     gender: "",
     dob: "",
+    referralCode: "" // Added referral code field
   });
 
   const [subDrivers, setSubDrivers] = useState([
@@ -88,6 +89,7 @@ function Signup() {
       const res = await axios.post("https://iu-backend-s2g7.onrender.com/api/auth/verify-otp", {
         email: form.email,
         otp: form.otp,
+        referralCode: form.referralCode // Include referral code in verification
       });
       if (res.data.token && res.data.user) {
         login(res.data.token);
@@ -217,6 +219,22 @@ function Signup() {
             <option>User</option>
             <option>Driver</option>
           </select>
+        </div>
+
+        {/* Referral Code (Optional) */}
+        <div className="mb-4">
+          <label className="block text-sm font-semibold text-left text-white mb-1">
+            Referral Code (Optional)
+            <span className="text-xs text-gray-400 ml-1">Enter if you have one</span>
+          </label>
+          <input
+            name="referralCode"
+            type="text"
+            value={form.referralCode}
+            onChange={handleChange}
+            placeholder="Enter Referral Code"
+            className="w-full p-3 bg-[#0d1117] text-white border border-gray-700 rounded-md"
+          />
         </div>
 
         {/* Driver Specific Inputs */}

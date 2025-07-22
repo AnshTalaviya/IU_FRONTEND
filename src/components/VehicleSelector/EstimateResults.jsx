@@ -58,7 +58,7 @@ export default function EstimateResults() {
           {results.map((item, i) => (
             <motion.div
               key={i}
-              whileHover={{ scale: 1.03 }}
+              
               className="mb-4 last:mb-0 flex justify-between items-center p-5 bg-black/50 border border-white-300 rounded-xl shadow-xl transition duration-300"
             >
               <div className="flex items-center gap-4">

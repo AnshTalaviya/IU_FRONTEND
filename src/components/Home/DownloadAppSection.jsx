@@ -74,9 +74,14 @@ const DownloadAppSection = () => {
 
           {/* App Store Buttons */}
           <div className="flex justify-center flex-wrap mt-6 sm:flex-row gap-4">
-            <Link to="#" className="hover:scale-105 transition-transform">
-              <img src="/images/Home-icon1.png" alt="Google Play" className="h-14" />
-            </Link>
+            <a
+              href="/my-app.apk"
+              download
+              className="hover:scale-105 transition-transform inline-block"
+            >
+              <img src="/images/Home-icon1.png" alt="Download App" className="h-14" />
+            </a>
+
             <Link to="#" className="hover:scale-105 transition-transform">
               <img src="/images/Home-icon2.png" alt="App Store" className="h-14" />
             </Link>
